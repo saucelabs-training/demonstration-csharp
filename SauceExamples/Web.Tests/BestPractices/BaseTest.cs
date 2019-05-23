@@ -53,7 +53,7 @@ namespace Web.Tests.BestPractices
         {
             var isPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
             SauceReporter.LogTestStatus(isPassed);
-            SetTestStatusUsingApi(isPassed);
+            //SetTestStatusUsingApi(isPassed);
             SauceReporter.LogMessage("Test finished execution");
             SauceReporter.LogMessage(TestContext.CurrentContext.Result.Message);
         }
@@ -62,30 +62,27 @@ namespace Web.Tests.BestPractices
         {
             string userName;
             string accessKey;
-            string rootUrl;
             //Todo cleanup later
             if (SauceConfig.IsHeadless)
             {
                 userName = SauceUser.Headless.UserName;
                 accessKey = SauceUser.Headless.AccessKey;
-                rootUrl = "https://us-east-1.saucelabs.com/rest/v1";
             }
             else
             {
                 userName = SauceUser.Name;
                 accessKey = SauceUser.AccessKey;
-                rootUrl = "https://saucelabs.com/rest/v1";
             }
             var sessionId = ((RemoteWebDriver) Driver).SessionId;
             var client = new RestClient()
             {
                 Authenticator = new HttpBasicAuthenticator(userName, accessKey),
-                BaseUrl = new Uri(rootUrl)
+                BaseUrl = new Uri(new SauceLabsEndpoint().HeadlessRestApiUrl)
             };
             var request = new RestRequest($"/{userName}/jobs/{sessionId}",
                 Method.PUT) {RequestFormat = DataFormat.Json};
             request.AddJsonBody(new { passed = isPassed });
-            var statusCode = client.Execute(request);
+            client.Execute(request);
         }
 
         private readonly string _browser;
