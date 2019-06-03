@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Common.SauceLabs.SauceLabs;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 

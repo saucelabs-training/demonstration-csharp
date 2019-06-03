@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Common;
+using Common.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
@@ -16,7 +17,7 @@ namespace AppiumMsTest
         [TestMethod]
         public void Android71()
         {
-            var capabilities = new SauceLabs().GetDesiredCapabilities();
+            var capabilities = new SauceSetup().GetDesiredCapabilities();
             capabilities.SetCapability("appiumVersion", "1.9.1");
             capabilities.SetCapability("deviceName", "Samsung Galaxy Tab A 10 GoogleAPI Emulator");
             capabilities.SetCapability("deviceOrientation", "portrait");

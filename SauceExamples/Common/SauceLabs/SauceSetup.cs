@@ -1,15 +1,16 @@
-﻿using OpenQA.Selenium;
+﻿using Common.SauceLabs.SauceLabs;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace Common
+namespace Common.SauceLabs
 {
-    public class SauceLabs
+    public class SauceSetup
     {
         private DesiredCapabilities _desiredCaps;
         public string UserName { get; private set; }
         public string AccessKey { get; private set; }
 
-        public SauceLabs()
+        public SauceSetup()
         {
         }
 
@@ -21,10 +22,6 @@ namespace Common
             UserName = SauceUser.Name;
             AccessKey = SauceUser.AccessKey;
             return DesiredCaps;
-        }
-        public SauceJavaScriptExecutor JavaScriptApi(IWebDriver driver)
-        {
-            return new SauceJavaScriptExecutor(driver);
         }
     }
 }

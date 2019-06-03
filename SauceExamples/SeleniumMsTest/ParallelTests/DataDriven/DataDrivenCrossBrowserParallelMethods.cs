@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using Common;
+using Common.SauceLabs.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;

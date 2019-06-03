@@ -68,11 +68,11 @@
   <ItemGroup>
     <Compile Include="HeadlessSauceUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SauceJavaScriptExecutor.cs" />
-    <Compile Include="SauceLabs.cs" />
-    <Compile Include="SauceLabsCapabilities.cs" />
-    <Compile Include="SauceLabsEndpoint.cs" />
-    <Compile Include="SauceUser.cs" />
+    <Compile Include="SauceLabs\SauceJavaScriptExecutor.cs" />
+    <Compile Include="SauceLabs\SauceSetup.cs" />
+    <Compile Include="SauceLabs\SauceLabsCapabilities.cs" />
+    <Compile Include="SauceLabs\SauceLabsEndpoint.cs" />
+    <Compile Include="SauceLabs\SauceUser.cs" />
     <Compile Include="TestData\CrossBrowserData.cs" />
     <Compile Include="Wait.cs" />
     <Compile Include="WebDriverFactory.cs" />
