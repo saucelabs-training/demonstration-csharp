@@ -8,7 +8,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using RestSharp;
 using RestSharp.Authenticators;
-using TestContext = NUnit.Framework.TestContext;
 
 namespace Web.Tests.BestPractices
 {
@@ -21,20 +20,23 @@ namespace Web.Tests.BestPractices
     //of every single feature file. That feature file will define the setup Strategy.
     //Then, those operations will be performed int the [Setup] of the BaseTest
     [TestFixture]
-    [Category("AcceptanceTests"), Category("CrossBrowser"), Category("NUnit"), Category("BestPractices") ]
+    [Category("AcceptanceTests")]
+    [Category("CrossBrowser")]
+    [Category("NUnit")]
+    [Category("BestPractices")]
     public class BaseTest
     {
         [SetUp]
         public void ExecuteBeforeEveryTestMethod()
         {
-            SauceConfig = new SauceLabsCapabilities {
+            SauceConfig = new SauceLabsCapabilities
+            {
                 IsDebuggingEnabled = false,
                 IsHeadless = bool.Parse(ConfigurationManager.AppSettings["sauceHeadless"])
             };
             SauceLabsCapabilities.BuildName = ConfigurationManager.AppSettings["buildName"];
 
-            Driver = new WebDriverFactory(SauceConfig).
-                CreateSauceDriver(_browser, _browserVersion, _osPlatform);
+            Driver = new WebDriverFactory(SauceConfig).CreateSauceDriver(_browser, _browserVersion, _osPlatform);
             SauceReporter = new SauceJavaScriptExecutor(Driver);
             SauceReporter.SetTestName(TestContext.CurrentContext.Test.Name);
             SauceReporter.SetBuildName(SauceLabsCapabilities.BuildName);
@@ -43,10 +45,7 @@ namespace Web.Tests.BestPractices
         [TearDown]
         public void CleanUpAfterEveryTestMethod()
         {
-            if (SauceConfig.IsUsingSauceLabs)
-            {
-                ExecuteSauceCleanupSteps();
-            }
+            if (SauceConfig.IsUsingSauceLabs) ExecuteSauceCleanupSteps();
             Driver?.Quit();
         }
 
@@ -74,15 +73,16 @@ namespace Web.Tests.BestPractices
                 userName = SauceUser.Name;
                 accessKey = SauceUser.AccessKey;
             }
+
             var sessionId = ((RemoteWebDriver) Driver).SessionId;
-            var client = new RestClient()
+            var client = new RestClient
             {
                 Authenticator = new HttpBasicAuthenticator(userName, accessKey),
                 BaseUrl = new Uri(new SauceLabsEndpoint().HeadlessRestApiUrl)
             };
             var request = new RestRequest($"/{userName}/jobs/{sessionId}",
                 Method.PUT) {RequestFormat = DataFormat.Json};
-            request.AddJsonBody(new { passed = isPassed });
+            request.AddJsonBody(new {passed = isPassed});
             client.Execute(request);
         }
 
