@@ -89,6 +89,7 @@
     <Compile Include="BestPractices\CrossBrowserExamples\SauceLabsPage.cs" />
     <Compile Include="BestPractices\UltimateQAHomePage.cs" />
     <Compile Include="BestPractices\ParallelTestsWithBestPractices.cs" />
+    <Compile Include="SaucePerformance\CustomCapabilitiesTests.cs" />
     <Compile Include="SaucePerformance\PerformanceDemo.cs" />
     <Compile Include="SimpleExamples\SimpleHeadlessTest.cs" />
     <Compile Include="SimpleExamples\SimpleSauceTest.cs" />
