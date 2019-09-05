@@ -22,25 +22,32 @@ namespace SeleniumNunit.SimpleExamples
         //TODO please supply your own Sauce Labs access Key in an environment variable
         private string sauceAccessKey = Environment.GetEnvironmentVariable(
             "SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+        //TODO make sure that you are setting the session Id so that you can use it
+        //in your API requests
+        private SessionId sessionId;
 
         [TearDown]
         public void CleanUpAfterEveryTestMethod()
         {
+            //End your session and stop your resources first
+            _driver?.Quit();
+
+            //How to set a test status using REST API
             var isPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            var sessionId = ((RemoteWebDriver)_driver).SessionId;
             var client = new RestClient
             {
                 Authenticator = new HttpBasicAuthenticator(sauceUserName, sauceAccessKey),
-                BaseUrl = new Uri(new SauceLabsEndpoint().SauceHubUrl)
+                BaseUrl = new Uri("https://saucelabs.com/rest/v1")
             };
-            var request = new RestRequest($"/{sauceUserName}/jobs/{sessionId}",
+
+            //https://saucelabs.com/rest/v1/USERNAME/jobs/JOB_ID
+            var request = new RestRequest($"{sauceUserName}/jobs/{sessionId}",
                 Method.PUT)
             { RequestFormat = DataFormat.Json };
             request.AddJsonBody(new { passed = isPassed });
-            client.Execute(request);
-            _driver?.Quit();
+            var status = client.Execute(request);
         }
-
+        
         [Test]
         public void RestApiTest()
         {
@@ -54,6 +61,7 @@ namespace SeleniumNunit.SimpleExamples
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
                 TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.google.com");
+            sessionId = ((RemoteWebDriver)_driver).SessionId;
             Assert.Pass();
         }
     }

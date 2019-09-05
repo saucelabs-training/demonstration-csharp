@@ -111,6 +111,8 @@ namespace SeleniumNunit.SimpleExamples
             var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
             if(_driver != null)
                 ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+            //call to JIRA API
+            //PUT to JIRA with status
             _driver?.Quit();
         }
     }
