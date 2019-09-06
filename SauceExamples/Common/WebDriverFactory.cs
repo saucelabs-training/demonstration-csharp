@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using Common.SauceLabs.SauceLabs;
 using OpenQA.Selenium;
@@ -36,6 +37,17 @@ namespace Common
             _sauceCustomCapabilities = sauceConfig;
             _desiredCapabilities = new DesiredCapabilities();
         }
+        public IWebDriver CreateSauceDriver(string testCaseName)
+        {
+            SetVMCapabilities("chrome", "latest", "Windows 10");
+            return SetSauceCapabilities(testCaseName, _desiredCapabilities);
+        }
+        public IWebDriver CreateSauceDriver(string browser, string browserVersion, string osPlatform)
+        {
+            _sauceCustomCapabilities.IsDebuggingEnabled =
+                bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"]);
+            return CreateSauceDriver(browser, browserVersion, osPlatform, _sauceCustomCapabilities);
+        }
         public RemoteWebDriver CreateSauceDriver(
             string browser, string browserVersion, string osPlatform, SauceLabsCapabilities sauceConfiguration)
         {
@@ -54,7 +66,6 @@ namespace Common
             //_desiredCapabilities.SetCapability("tunnelIdentifier", "NikolaysTunnel");
             return GetSauceRemoteDriver();
         }
-
         private void SetPropertiesForHeadless(out string userName, out string accessKey)
         {
             userName = SauceUser.Headless.UserName;
@@ -72,11 +83,7 @@ namespace Common
             _desiredCapabilities.SetCapability(CapabilityType.Version, browserVersion);
             _desiredCapabilities.SetCapability(CapabilityType.Platform, osPlatform);
         }
-        public IWebDriver CreateSauceDriver(string testCaseName)
-        {
-            SetVMCapabilities("chrome", "latest", "Windows 10");
-            return SetSauceCapabilities(testCaseName, _desiredCapabilities);
-        }
+
         private RemoteWebDriver GetSauceRemoteDriver()
         {
             return new RemoteWebDriver(new Uri(SeleniumHubUrl),
@@ -106,10 +113,7 @@ namespace Common
             return driver;
         }
 
-        public IWebDriver CreateSauceDriver(string browser, string browserVersion, string osPlatform)
-        {
-            return CreateSauceDriver(browser, browserVersion, osPlatform, _sauceCustomCapabilities);
-        }
+
         private void SetSauceTimeouts()
         {
             //How long is a test allowed to run?
