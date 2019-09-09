@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Common.SauceLabs.SauceLabs;
 using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
+using Newtonsoft.Json;
 
 namespace SeleniumNunit.SaucePerformance
 {
@@ -14,6 +15,33 @@ namespace SeleniumNunit.SaucePerformance
     public class CustomCapabilitiesTests
     {
         public RemoteWebDriver Driver { get; set; }
+
+        [Test]
+        public void NetworkThrottle()
+        {
+            //TODO doesn't work
+            //dynamic redirectObject = new JObject();
+            //redirectObject.url = "www.saucedemo.com";
+            //redirectObject.redirect = "www.google.com";
+            //var json = JsonConvert.SerializeObject(redirectObject);
+
+            //TODO doesn't work
+           // var redirect = new Dictionary<string, string>
+           // {
+           //     { "url", "www.saucedemo.com" },
+           //     { "redirect", "www.google.com" }
+           // };
+           // string json = JsonConvert.SerializeObject(redirect, Formatting.Indented);
+           //((IJavaScriptExecutor)Driver).ExecuteScript("sauce:intercept", json.ToString());
+
+
+            var throttleCondition = new Dictionary<string, object>
+            {
+                ["condition"] = "Regular 3G"
+            };
+            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:throttleNetwork", throttleCondition);
+            Driver.Navigate().GoToUrl("http://www.saucedemo.com");
+        }
 
         [SetUp]
         public void RunBeforeEveryTest()
@@ -70,15 +98,15 @@ namespace SeleniumNunit.SaucePerformance
 
 
         }
-
+        [Test]
         public void GetSauceMetrics()
         {
             //https://wiki.saucelabs.com/display/DOCS/Custom+Sauce+Labs+WebDriver+Extensions+for+Network+and+Log+Commands
             //this works
-            //var metrics = new Dictionary<string, object>();
-            //metrics["type"] = "sauce:metrics";
-            //var output = ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:log", metrics);
-            //((IJavaScriptExecutor) _driver).ExecuteScript("sauce:network");
+            var metrics = new Dictionary<string, object>();
+            metrics["type"] = "sauce:metrics";
+            var output = ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:network");
         }
     }
 }
