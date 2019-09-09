@@ -7,6 +7,7 @@ using Common.SauceLabs.SauceLabs;
 using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
 using Newtonsoft.Json;
+using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumNunit.SaucePerformance
 {
@@ -17,24 +18,27 @@ namespace SeleniumNunit.SaucePerformance
         public RemoteWebDriver Driver { get; set; }
 
         [Test]
-        public void NetworkThrottle()
+        public void NetworkThrottleOffline()
         {
-            //TODO doesn't work
-            //dynamic redirectObject = new JObject();
-            //redirectObject.url = "www.saucedemo.com";
-            //redirectObject.redirect = "www.google.com";
-            //var json = JsonConvert.SerializeObject(redirectObject);
+            Driver.Navigate().GoToUrl("http://www.saucedemo.com");
+            var throttleCondition = new Dictionary<string, object>
+            {
+                ["condition"] = "offline"
+            };
+            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:throttleNetwork", throttleCondition);
+            Driver.Navigate().GoToUrl("http://www.saucedemo.com");
+            Assert.Throws<WebDriverTimeoutException>(() => isDisplayed());
+        }
 
-            //TODO doesn't work
-           // var redirect = new Dictionary<string, string>
-           // {
-           //     { "url", "www.saucedemo.com" },
-           //     { "redirect", "www.google.com" }
-           // };
-           // string json = JsonConvert.SerializeObject(redirect, Formatting.Indented);
-           //((IJavaScriptExecutor)Driver).ExecuteScript("sauce:intercept", json.ToString());
+        private bool isDisplayed()
+        {
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            return wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName("btn_action"))).Displayed;
+        }
 
-
+        [Test]
+        public void NetworkThrottle3G()
+        {
             var throttleCondition = new Dictionary<string, object>
             {
                 ["condition"] = "Regular 3G"
@@ -42,7 +46,28 @@ namespace SeleniumNunit.SaucePerformance
             ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:throttleNetwork", throttleCondition);
             Driver.Navigate().GoToUrl("http://www.saucedemo.com");
         }
-
+        [Test]
+        public void GetSauceMetrics()
+        {
+            //https://wiki.saucelabs.com/display/DOCS/Custom+Sauce+Labs+WebDriver+Extensions+for+Network+and+Log+Commands
+            //this works
+            var metrics = new Dictionary<string, object>();
+            metrics["type"] = "sauce:metrics";
+            var output = ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:network");
+        }
+        [Test]
+        public void ReplaceImages()
+        {
+            Driver.Navigate().GoToUrl("http://www.wswebcreation.nl/");
+            var sauceInterceptConditions = new Dictionary<string, object>
+            {
+                ["url"] = "**/*.jpg",
+                ["redirect"] = "https://www.tvvantoen.nl/wp-content/themes/website/data/php/timthumb.php?src=https://www.tvvantoen.nl/wp-content/uploads/the-a-team-poster.jpg&w=700&q=100"
+            };
+            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:intercept", sauceInterceptConditions);
+            Driver.Navigate().GoToUrl("http://www.wswebcreation.nl/");
+        }
         [SetUp]
         public void RunBeforeEveryTest()
         {
@@ -77,36 +102,7 @@ namespace SeleniumNunit.SaucePerformance
             new SauceJavaScriptExecutor(Driver).LogTestStatus(isPassed);
             Driver.Quit();
         }
-        [Test]
-        public void ReplaceImageUrls()
-        {
-            Driver.Navigate().GoToUrl("http://www.saucedemo.com");
-            dynamic interceptObject = new JObject();
-            interceptObject.url = "**/*.jpg";
-            interceptObject.redirect = "www.google.com";
-
-            ((IJavaScriptExecutor) Driver).ExecuteScript("sauce:intercept", interceptObject.ToString());
-
-            //var throttleOptions = new Dictionary<string, object>();
-            //throttleOptions["condition"] = "offline";
-            //((IJavaScriptExecutor)_driver).ExecuteScript("sauce:throttle", throttleOptions);
-            //_driver.Navigate().Refresh();
-            //((IJavaScriptExecutor)_driver).ExecuteScript("sauce:performance");
-
-            //timing didn't work
-            //var timing = ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:timing");
 
 
-        }
-        [Test]
-        public void GetSauceMetrics()
-        {
-            //https://wiki.saucelabs.com/display/DOCS/Custom+Sauce+Labs+WebDriver+Extensions+for+Network+and+Log+Commands
-            //this works
-            var metrics = new Dictionary<string, object>();
-            metrics["type"] = "sauce:metrics";
-            var output = ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
-            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:network");
-        }
     }
 }
