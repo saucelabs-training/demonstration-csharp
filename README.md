@@ -25,6 +25,9 @@ https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Sele
 Examples of tests using Sauce Labs REST API:
 https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiExamples.cs
 
+Things like performance testing and nework throttling:
+https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs
+
 ## Setting Up a Selenium Project in Visual Studio 
 
 <p>This procedure shows you how to set up a Selenium project in Visual Studio (VS).  Once you set up a project, you'll run a test script written in C#, which we provide, on Sauce Labs. In the future, you can use this script as a template for your own automated tests.</p>
