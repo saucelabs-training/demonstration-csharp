@@ -47,16 +47,7 @@ namespace SeleniumNunit.SaucePerformance
             Driver.Navigate().GoToUrl("http://www.saucedemo.com");
         }
         [Test]
-        public void GetSauceMetrics()
-        {
-            //https://wiki.saucelabs.com/display/DOCS/Custom+Sauce+Labs+WebDriver+Extensions+for+Network+and+Log+Commands
-            //this works
-            var metrics = new Dictionary<string, object>();
-            metrics["type"] = "sauce:metrics";
-            var output = ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
-            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:network");
-        }
-        [Test]
+        [Description("Broken, there's a bug")]
         public void ReplaceImages()
         {
             Driver.Navigate().GoToUrl("http://www.wswebcreation.nl/");
@@ -68,6 +59,29 @@ namespace SeleniumNunit.SaucePerformance
             ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:intercept", sauceInterceptConditions);
             Driver.Navigate().GoToUrl("http://www.wswebcreation.nl/");
         }
+        [Test]
+        public void ReplaceSingleImage()
+        {
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com/inventory.html");
+            var sauceInterceptConditions = new Dictionary<string, object>
+            {
+                ["url"] = "https://www.saucedemo.com/img/sauce-backpack-1200x1500.jpg",
+                ["redirect"] = "https://i.pinimg.com/originals/be/82/15/be821544fc5f328567cb538f96edb49a.jpg"
+            };
+            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:intercept", sauceInterceptConditions);
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com/inventory.html");
+        }
+        [Test]
+        public void GetSauceMetrics()
+        {
+            //https://wiki.saucelabs.com/display/DOCS/Custom+Sauce+Labs+WebDriver+Extensions+for+Network+and+Log+Commands
+            //this works
+            var metrics = new Dictionary<string, object>();
+            metrics["type"] = "sauce:metrics";
+            var output = ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:network");
+        }
+
         [SetUp]
         public void RunBeforeEveryTest()
         {
