@@ -20,7 +20,6 @@ namespace SeleniumNunit.SaucePerformance
         [Test]
         public void NetworkThrottleOffline()
         {
-            Driver.Navigate().GoToUrl("http://www.saucedemo.com");
             var throttleCondition = new Dictionary<string, object>
             {
                 ["condition"] = "offline"
