@@ -23,11 +23,8 @@ steps:
   displayName: 'Build solution'
   inputs:
     solution: '$(Parameters.solution)'
-
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactstagingdirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-
     platform: '$(BuildPlatform)'
-
     configuration: '$(BuildConfiguration)'
 
 
@@ -48,51 +45,40 @@ steps:
     uiTests: true
 
 
-- task: VSTest@2
-  displayName: 'UI Tests'
-  inputs:
-    testAssemblyVer2: '**\$(BuildConfiguration)\**\SeleniumNunit.dll'
-
-    testFiltercriteria: '/TestCaseFilter:"TestCategory=CrossBrowser"'
-
-    uiTests: true
-
-    runInParallel: false
-
-    platform: '$(BuildPlatform)'
-
-    configuration: '$(BuildConfiguration)'
+#- task: VSTest@2
+#  displayName: 'UI Tests'
+#  inputs:
+#    testAssemblyVer2: '**\$(BuildConfiguration)\**\SeleniumNunit.dll'
+#    testFiltercriteria: '/TestCaseFilter:"TestCategory=CrossBrowser"'
+#    uiTests: true
+#    runInParallel: false
+#    platform: '$(BuildPlatform)'
+#    configuration: '$(BuildConfiguration)'
 
 
-- task: VSTest@2
-  displayName: 'Unit Tests'
-  inputs:
-    testAssemblyVer2: '**\$(BuildConfiguration)\**\Unit.Tests.dll'
-
-    uiTests: true
-
-    runInParallel: false
-
-    platform: '$(BuildPlatform)'
-
-    configuration: '$(BuildConfiguration)'
+#- task: VSTest@2
+#  displayName: 'Unit Tests'
+#  inputs:
+#    testAssemblyVer2: '**\$(BuildConfiguration)\**\Unit.Tests.dll'
+#    uiTests: true
+#    runInParallel: false
+#    platform: '$(BuildPlatform)'
+#    configuration: '$(BuildConfiguration)'
 
 
-- task: PublishSymbols@2
-  displayName: 'Publish symbols path'
-  inputs:
-    SearchPattern: '**\bin\**\*.pdb'
+#- task: PublishSymbols@2
+#  displayName: 'Publish symbols path'
+#  inputs:
+#    SearchPattern: '**\bin\**\*.pdb'
+#
+#    PublishSymbols: false
+#     continueOnError: true
 
-    PublishSymbols: false
-
-  continueOnError: true
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-
-    ArtifactName: '$(Parameters.ArtifactName)'
+#- task: PublishBuildArtifacts@1
+#  displayName: 'Publish Artifact'
+#  inputs:
+#    PathtoPublish: '$(build.artifactstagingdirectory)'
+#    ArtifactName: '$(Parameters.ArtifactName)'
 
 #Didn't work
 #- script: dotnet test '**\$(BuildConfiguration)\**\SeleniumNunit.dll' --logger trx
