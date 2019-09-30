@@ -20,31 +20,28 @@ namespace AppiumMsTest
         private static string USurl => "https://us1.appium.testobject.com/wd/hub";
 
         private static readonly string RottenTomatoesApiKey =
-            Environment.GetEnvironmentVariable("TESTOBJECT_API_KEY", EnvironmentVariableTarget.User);
+            Environment.GetEnvironmentVariable("ROTTEN_TOMATOES_API_KEY", EnvironmentVariableTarget.User);
         private static readonly string VodQANativeAppApiKey = 
-            Environment.GetEnvironmentVariable("VODQA_NATIVE_APP_KEY", EnvironmentVariableTarget.User);
+            Environment.GetEnvironmentVariable("VODQC_RDC_API_KEY", EnvironmentVariableTarget.User);
         public TestContext TestContext { get; set; }
 
         [TestMethod]
         public void DynamicAllocation()
         {
-
             var capabilities = new DesiredCapabilities();
             //Setting only the 2 capabilities below will run this test on 
             //any Android 7 device and this test runs in about 50s
             capabilities.SetCapability("platformName", "Android");
             capabilities.SetCapability("platformVersion", "7");
             //TODO first you must upload an app to Test Object so that you get your app key
-            capabilities.SetCapability("testobject_api_key", RottenTomatoesApiKey);
+            capabilities.SetCapability("testobject_api_key", VodQANativeAppApiKey);
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
                 TimeSpan.FromSeconds(300));
             _sessionId = _driver.SessionId;
-
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            AssertTitle();
+            Assert.IsTrue(true);
         }
 
         private void AssertTitle()
@@ -63,7 +60,6 @@ namespace AppiumMsTest
              */
             capabilities.SetCapability("platformName", ".*");
             capabilities.SetCapability("platformVersion", ".*");
-
             capabilities.SetCapability("testobject_api_key", RottenTomatoesApiKey);
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
             capabilities.SetCapability("newCommandTimeout", 90);
@@ -71,12 +67,9 @@ namespace AppiumMsTest
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities, 
                 TimeSpan.FromSeconds(300));
             _sessionId = _driver.SessionId;
-
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
             AssertTitle();
         }
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void DynamicAllocationForAnyGalaxyDevice()
         {
             var capabilities = new DesiredCapabilities();
@@ -140,6 +133,21 @@ namespace AppiumMsTest
             request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
             client.Execute(request);
             _driver?.Quit();
+
+            ////How to set a test status using REST API
+            //var isPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
+            //var client = new RestClient
+            //{
+            //    Authenticator = new HttpBasicAuthenticator(sauceUserName, sauceAccessKey),
+            //    BaseUrl = new Uri("https://saucelabs.com/rest/v1")
+            //};
+
+            ////https://saucelabs.com/rest/v1/USERNAME/jobs/JOB_ID
+            //var request = new RestRequest($"{sauceUserName}/jobs/{sessionId}",
+            //    Method.PUT)
+            //{ RequestFormat = DataFormat.Json };
+            //request.AddJsonBody(new { passed = isPassed });
+            //var status = client.Execute(request);
         }
     }
 }
