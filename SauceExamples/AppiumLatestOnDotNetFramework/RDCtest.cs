@@ -26,7 +26,7 @@ namespace AppiumMsTest
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        public void DynamicAllocation()
+        public void DynamicAllocationFailingExample()
         {
             var capabilities = new DesiredCapabilities();
             //Setting only the 2 capabilities below will run this test on 
@@ -40,13 +40,7 @@ namespace AppiumMsTest
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
                 TimeSpan.FromSeconds(300));
-            _sessionId = _driver.SessionId;
-            Assert.IsTrue(true);
-        }
-
-        private void AssertTitle()
-        {
-            Assert.IsTrue(_driver.Title.Equals("Swag Labs"));
+            Assert.IsTrue(false);
         }
 
         [TestMethod]
@@ -60,16 +54,16 @@ namespace AppiumMsTest
              */
             capabilities.SetCapability("platformName", ".*");
             capabilities.SetCapability("platformVersion", ".*");
-            capabilities.SetCapability("testobject_api_key", RottenTomatoesApiKey);
+            capabilities.SetCapability("testobject_api_key", VodQANativeAppApiKey);
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities, 
                 TimeSpan.FromSeconds(300));
             _sessionId = _driver.SessionId;
-            AssertTitle();
         }
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
         public void DynamicAllocationForAnyGalaxyDevice()
         {
             var capabilities = new DesiredCapabilities();
@@ -79,16 +73,12 @@ namespace AppiumMsTest
             capabilities.SetCapability("platformName", ".*");
             capabilities.SetCapability("platformVersion", ".*Galaxy.*");
 
-            capabilities.SetCapability("testobject_api_key", RottenTomatoesApiKey);
+            capabilities.SetCapability("testobject_api_key", VodQANativeAppApiKey);
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
                 TimeSpan.FromSeconds(300));
-            _sessionId = _driver.SessionId;
-
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            AssertTitle();
         }
         [TestMethod]
         [TestCategory("VodQANativeApp")]
@@ -113,11 +103,7 @@ namespace AppiumMsTest
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
                 TimeSpan.FromSeconds(300));
-            _sessionId = _driver.SessionId;
 
-            //var usernameField = _driver.FindElementByAccessibilityId("username");
-            //var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
-            //var isVisible = wait.Until(ExpectedConditions.ElementIsVisible(By))
             Assert.IsTrue(_driver.FindElementByAccessibilityId("username").Displayed);
         }
 
@@ -125,29 +111,24 @@ namespace AppiumMsTest
         [TestCleanup]
         public void Teardown()
         {
-            var isPassed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
-            var jsonBody = "{\"passed\":\"" + isPassed + "\"}";
+            if(_driver != null)
+            {
+                _sessionId = _driver.SessionId;
+                _driver.Quit();
+            }
 
-            var client = new RestClient("https://app.testobject.com/api/rest");
-            var request = new RestRequest($"/v2/appium/session/{_sessionId}/test", Method.PUT);
-            request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
+            var isTestPassed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
+
+            var client = new RestClient
+            {
+                BaseUrl = new Uri("https://app.testobject.com/api/rest")
+            };
+            var request = new RestRequest($"/v2/appium/session/{_sessionId}/test", Method.PUT)
+            {
+                RequestFormat = DataFormat.Json
+            };
+            request.AddJsonBody(new { passed = isTestPassed });
             client.Execute(request);
-            _driver?.Quit();
-
-            ////How to set a test status using REST API
-            //var isPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            //var client = new RestClient
-            //{
-            //    Authenticator = new HttpBasicAuthenticator(sauceUserName, sauceAccessKey),
-            //    BaseUrl = new Uri("https://saucelabs.com/rest/v1")
-            //};
-
-            ////https://saucelabs.com/rest/v1/USERNAME/jobs/JOB_ID
-            //var request = new RestRequest($"{sauceUserName}/jobs/{sessionId}",
-            //    Method.PUT)
-            //{ RequestFormat = DataFormat.Json };
-            //request.AddJsonBody(new { passed = isPassed });
-            //var status = client.Execute(request);
         }
     }
 }
