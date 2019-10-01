@@ -25,8 +25,8 @@ https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Sele
 Sauce Labs REST API:
 https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiExamples.cs
 
-RDC REST API status updates:
-
+RDC REST API and status updates:
+https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/AppiumLatestOnDotNetFramework/RDCtest.cs
 
 Performance testing and nework throttling:
 https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs
