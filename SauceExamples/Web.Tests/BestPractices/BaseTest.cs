@@ -51,7 +51,8 @@ namespace Web.Tests.BestPractices
 
         private void ExecuteSauceCleanupSteps()
         {
-            var isPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
+            var isPassed = TestContext.CurrentContext.Result.Outcome.Status 
+                == TestStatus.Passed;
             SauceReporter.LogTestStatus(isPassed);
             //SetTestStatusUsingApi(isPassed);
             SauceReporter.LogMessage("Test finished execution");

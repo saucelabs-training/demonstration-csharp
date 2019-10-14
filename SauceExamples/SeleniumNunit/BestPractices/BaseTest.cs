@@ -18,8 +18,13 @@ namespace SeleniumNunit.BestPractices
         [TearDown]
         public void CleanUpAfterEveryTestMethod()
         {
-            new SauceJavaScriptExecutor(Driver).LogTestStatus(TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed);
-            Driver?.Quit();
+            //Make sure to check if your Driver is null before performing operations
+            //with it in TearDown. It might not be initialized correctly
+            if(Driver != null)
+            {
+                new SauceJavaScriptExecutor(Driver).LogTestStatus(TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed);
+                Driver?.Quit();
+            }
         }
         public IWebDriver Driver { get; set; }
     }
