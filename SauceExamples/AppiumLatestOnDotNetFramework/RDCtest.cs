@@ -26,7 +26,7 @@ namespace AppiumMsTest
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        public void DynamicAllocationFailingExample()
+        public void ShouldFailAndSetTestStatusToFail()
         {
             var capabilities = new DesiredCapabilities();
             //Setting only the 2 capabilities below will run this test on 
@@ -41,6 +41,23 @@ namespace AppiumMsTest
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
                 TimeSpan.FromSeconds(300));
             Assert.IsTrue(false);
+        }
+        [TestMethod]
+        public void ShouldPassAndSetTestStatusToPass()
+        {
+            var capabilities = new DesiredCapabilities();
+            //Setting only the 2 capabilities below will run this test on 
+            //any Android 7 device and this test runs in about 50s
+            capabilities.SetCapability("platformName", "Android");
+            capabilities.SetCapability("platformVersion", "7");
+            //TODO first you must upload an app to Test Object so that you get your app key
+            capabilities.SetCapability("testobject_api_key", VodQANativeAppApiKey);
+            capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
+            capabilities.SetCapability("newCommandTimeout", 90);
+
+            _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
+                TimeSpan.FromSeconds(300));
+            Assert.IsTrue(true);
         }
 
         [TestMethod]
