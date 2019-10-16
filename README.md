@@ -11,21 +11,24 @@ This directory contains example scripts and dependencies for running automated S
 The code in these scripts is provided on an "AS-IS” basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. These scripts are provided for educational and demonstration purposes only, and should not be used in production. Issues regarding these scripts should be submitted through GitHub. These scripts are maintained by the Technical Services team at Sauce Labs.
 
 ## Solution Outline
-Tests that can help you quickly and easily get started with Sauce Labs, those are here: https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/OnboardingTests
+Tests that can help you quickly and easily get started with Sauce Labs: https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/OnboardingTests
 
-Advanced tests that use test automation best practices on Sauce Labs, those are here:
+Advanced tests that use test automation best practices on Sauce Labs:
 https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices
 
 W3C examples using Sauce Labs:
 https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/Selenium4.cs
 
-Examples of tests using MsTest are here:
+MsTest Testing Framework:
 https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumMsTest
 
-Examples of tests using Sauce Labs REST API:
+Sauce Labs REST API:
 https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiExamples.cs
 
-Things like performance testing and nework throttling:
+RDC REST API and status updates:
+https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/AppiumLatestOnDotNetFramework/RDCtest.cs
+
+Performance testing and nework throttling:
 https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs
 
 ## Setting Up a Selenium Project in Visual Studio 
