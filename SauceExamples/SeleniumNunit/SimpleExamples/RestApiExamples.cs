@@ -12,7 +12,7 @@ namespace SeleniumNunit.SimpleExamples
 {
     [TestFixture]
     [Category("SimpleTest")]
-    public class RestApiExamples
+    public class RestApiForVdc
     {
         IWebDriver _driver;
 
@@ -25,6 +25,41 @@ namespace SeleniumNunit.SimpleExamples
         //TODO make sure that you are setting the session Id so that you can use it
         //in your API requests
         private SessionId sessionId;
+
+        
+        [Test]
+        public void ShouldPass()
+        {
+            ChromeOptions options = new ChromeOptions();
+            options.AddAdditionalCapability(CapabilityType.Version, "latest", true);
+            options.AddAdditionalCapability(CapabilityType.Platform, "Windows 10", true);
+            options.AddAdditionalCapability("username", sauceUserName, true);
+            options.AddAdditionalCapability("accessKey", sauceAccessKey, true);
+            options.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name, true);
+
+            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
+                TimeSpan.FromSeconds(600));
+            _driver.Navigate().GoToUrl("https://www.google.com");
+            sessionId = ((RemoteWebDriver)_driver).SessionId;
+            Assert.Pass();
+        }
+
+        [Test]
+        public void ShouldFail()
+        {
+            ChromeOptions options = new ChromeOptions();
+            options.AddAdditionalCapability(CapabilityType.Version, "latest", true);
+            options.AddAdditionalCapability(CapabilityType.Platform, "Windows 10", true);
+            options.AddAdditionalCapability("username", sauceUserName, true);
+            options.AddAdditionalCapability("accessKey", sauceAccessKey, true);
+            options.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name, true);
+
+            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
+                TimeSpan.FromSeconds(600));
+            _driver.Navigate().GoToUrl("https://www.google.com");
+            sessionId = ((RemoteWebDriver)_driver).SessionId;
+            Assert.Fail();
+        }
 
         [TearDown]
         public void CleanUpAfterEveryTestMethod()
@@ -45,24 +80,7 @@ namespace SeleniumNunit.SimpleExamples
                 Method.PUT)
             { RequestFormat = DataFormat.Json };
             request.AddJsonBody(new { passed = isPassed });
-            var status = client.Execute(request);
-        }
-        
-        [Test]
-        public void RestApiTest()
-        {
-            ChromeOptions options = new ChromeOptions();
-            options.AddAdditionalCapability(CapabilityType.Version, "latest", true);
-            options.AddAdditionalCapability(CapabilityType.Platform, "Windows 10", true);
-            options.AddAdditionalCapability("username", sauceUserName, true);
-            options.AddAdditionalCapability("accessKey", sauceAccessKey, true);
-            options.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name, true);
-
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
-                TimeSpan.FromSeconds(600));
-            _driver.Navigate().GoToUrl("https://www.google.com");
-            sessionId = ((RemoteWebDriver)_driver).SessionId;
-            Assert.Pass();
+            client.Execute(request);
         }
     }
 }
