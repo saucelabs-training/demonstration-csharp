@@ -96,7 +96,7 @@
     <Compile Include="SaucePerformance\CustomCapabilitiesTests.cs" />
     <Compile Include="SaucePerformance\PerformanceDemo.cs" />
     <Compile Include="SimpleExamples\SimpleHeadlessTest.cs" />
-    <Compile Include="SimpleExamples\RestApiExamples.cs" />
+    <Compile Include="SimpleExamples\RestApiForVdc.cs" />
     <Compile Include="SimpleExamples\SimpleSauceTest.cs" />
     <Compile Include="SimpleExamples\SauceConnectTests.cs" />
     <Compile Include="LoggingWithSauce.cs" />
