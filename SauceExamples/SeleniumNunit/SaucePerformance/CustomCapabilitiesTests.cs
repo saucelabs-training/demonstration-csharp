@@ -75,9 +75,9 @@ namespace SeleniumNunit.SaucePerformance
         {
             //https://wiki.saucelabs.com/display/DOCS/Custom+Sauce+Labs+WebDriver+Extensions+for+Network+and+Log+Commands
             //this works
-            var metrics = new Dictionary<string, object>();
-            metrics["type"] = "sauce:metrics";
-            var output = ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
+            var performanceMetrics = new Dictionary<string, object>();
+            performanceMetrics["type"] = "sauce:metrics";
+            var output = ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", performanceMetrics);
             ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:network");
         }
 

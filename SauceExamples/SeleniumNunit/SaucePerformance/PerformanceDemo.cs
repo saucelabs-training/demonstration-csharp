@@ -4,6 +4,7 @@ using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
 using Common.SauceLabs.SauceLabs;
+using OpenQA.Selenium;
 
 namespace SeleniumNunit.SaucePerformance
 {
@@ -48,16 +49,41 @@ namespace SeleniumNunit.SaucePerformance
         }
         [Test]
 
-        public void W3CTestForSauceDemo()
+        public void W3CPerformanceTestForSauceDemo()
         {
             //Login steps here
             Driver.Navigate().GoToUrl("https://www.saucedemo.com");
         }
 
         [Test]
-        public void W3CTestForUltimateQA()
+        public void W3CPeformanceTestForUltimateQA()
         {
             Driver.Navigate().GoToUrl("https://www.ultimateqa.com");
+        }
+
+        [Test]
+        public void SauceDemoLoadShouldBeWithin20Percent()
+        {
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+
+            var metrics = new Dictionary<string, object>
+            {
+                ["type"] = "sauce:performance"
+            };
+            var performanceMetrics = (Dictionary<string, object>)((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
+            Assert.That(performanceMetrics["load"], Is.EqualTo(450).Within(20).Percent);
+        }
+        [Test]
+        public void SauceDemoSpeedIndexShouldBeWithin20Percent()
+        {
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+
+            var metrics = new Dictionary<string, object>
+            {
+                ["type"] = "sauce:performance"
+            };
+            var performanceMetrics = (Dictionary<string, object>)((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
+            Assert.That(performanceMetrics["speedIndex"], Is.EqualTo(415).Within(20).Percent);
         }
     }
 }
