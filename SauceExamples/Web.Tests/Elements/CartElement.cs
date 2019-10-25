@@ -29,7 +29,7 @@ namespace Web.Tests.Elements
             _driver = driver;
         }
 
-        public CartElement SetCartState()
+        public CartElement InjectUserWithItems()
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.sessionStorage.setItem('session-username', 'standard-user')");
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.sessionStorage.setItem('cart-contents', '[4,1]')");

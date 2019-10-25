@@ -23,7 +23,8 @@ namespace Web.Tests.BestPractices
             overviewPage.Open();
             //We don't need to actually use th UI to add items to the cart. 
             //I'm injecting Javascript to control the state of the cart
-            overviewPage.Cart.SetCartState();
+            //bypassing a bunch of unecessary element interactions and creating something efficient and stable
+            overviewPage.Cart.InjectUserWithItems();
             //Act - very few UI interactions
             overviewPage.FinishCheckout().
                 IsCheckoutComplete.Should().BeTrue("we finished the checkout process"); //Assert
