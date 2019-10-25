@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BestPractices\BaseTest.cs" />
+    <Compile Include="BestPractices\PerformanceTesting.cs" />
     <Compile Include="BestPractices\ProductsPageFeature.cs" />
     <Compile Include="BestPractices\LoginFeature.cs" />
     <Compile Include="BestPractices\LogoutFeature.cs" />

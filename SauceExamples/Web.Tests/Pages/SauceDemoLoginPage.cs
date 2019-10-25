@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Common;
 using OpenQA.Selenium;
@@ -21,6 +23,15 @@ namespace Web.Tests.Pages
         {
             _driver.Navigate().GoToUrl(BaseUrl);
             return this;
+        }
+
+        internal Dictionary<string, object> GetPerformance()
+        {
+            var metrics = new Dictionary<string, object>
+            {
+                ["type"] = "sauce:performance"
+            };
+            return (Dictionary<string, object>)((IJavaScriptExecutor)_driver).ExecuteScript("sauce:log", metrics);
         }
 
         public ProductsPage Login(string username, string password)
