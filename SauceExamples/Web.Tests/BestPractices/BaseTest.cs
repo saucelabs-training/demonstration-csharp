@@ -63,7 +63,7 @@ namespace Web.Tests.BestPractices
         {
             string userName;
             string accessKey;
-            //Todo cleanup later
+            //Todo no longer required for Sauce Headless
             if (SauceConfig.IsHeadless)
             {
                 userName = SauceUser.Headless.UserName;

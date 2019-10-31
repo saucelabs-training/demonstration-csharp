@@ -7,7 +7,7 @@ namespace Web.Tests.BestPractices
 {
     [TestFixture]
     [TestFixtureSource(typeof(CrossBrowserData), 
-        nameof(CrossBrowserData.LatestConfigurations))]
+        nameof(CrossBrowserData.LastThreeOnLinuxFirefoxChrome))]
     [Parallelizable]
     public class LoginFeature : BaseTest
     {

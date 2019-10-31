@@ -25,9 +25,9 @@ namespace Web.Tests
                 yield return new TestFixtureData("Chrome", "latest-2", "Windows 7");
 
                 //safari
+                yield return new TestFixtureData("Safari", "latest", "macOS 10.14");
                 yield return new TestFixtureData("Safari", "latest", "macOS 10.13");
-                //yield return new TestFixtureData("Safari", "latest-1", "macOS 10.12");
-                //yield return new TestFixtureData("Safari", "10.0", "OS X 10.11");
+                yield return new TestFixtureData("Safari", "latest-1", "macOS 10.12");
 
                 //firefox
                 yield return new TestFixtureData("Firefox", "latest", "macOS 10.13");
@@ -42,6 +42,8 @@ namespace Web.Tests
                 //IE
                 yield return new TestFixtureData("Internet Explorer", "latest", "Windows 10");
                 yield return new TestFixtureData("Internet Explorer", "latest", "Windows 7");
+                yield return new TestFixtureData("Internet Explorer", "10.0", "Windows 7");
+
             }
         }
 
@@ -53,9 +55,9 @@ namespace Web.Tests
                 yield return new TestFixtureData("Chrome", "latest-1", "Linux");
                 yield return new TestFixtureData("Chrome", "latest-2", "Linux");
 
-                yield return new TestFixtureData("Firefox", "latest", "Linux");
-                yield return new TestFixtureData("Firefox", "latest-1", "Linux");
-                yield return new TestFixtureData("Firefox", "latest-2", "Linux");
+                //yield return new TestFixtureData("Firefox", "latest", "Linux");
+                //yield return new TestFixtureData("Firefox", "latest-1", "Linux");
+                //yield return new TestFixtureData("Firefox", "latest-2", "Linux");
             }
         }
 
