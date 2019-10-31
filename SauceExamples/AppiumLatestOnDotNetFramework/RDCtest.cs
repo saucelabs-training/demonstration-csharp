@@ -1,10 +1,10 @@
-﻿using System;
-using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
 using RestSharp;
+using System;
+using System.Reflection;
 
 namespace AppiumMsTest
 {
@@ -21,7 +21,7 @@ namespace AppiumMsTest
 
         private static readonly string RottenTomatoesApiKey =
             Environment.GetEnvironmentVariable("ROTTEN_TOMATOES_API_KEY", EnvironmentVariableTarget.User);
-        private static readonly string VodQANativeAppApiKey = 
+        private static readonly string VodQANativeAppApiKey =
             Environment.GetEnvironmentVariable("VODQC_RDC_API_KEY", EnvironmentVariableTarget.User);
         public TestContext TestContext { get; set; }
 
@@ -75,7 +75,7 @@ namespace AppiumMsTest
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
             capabilities.SetCapability("newCommandTimeout", 90);
 
-            _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities, 
+            _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
                 TimeSpan.FromSeconds(300));
             _sessionId = _driver.SessionId;
         }
@@ -128,7 +128,7 @@ namespace AppiumMsTest
         [TestCleanup]
         public void Teardown()
         {
-            if(_driver != null)
+            if (_driver != null)
             {
                 _sessionId = _driver.SessionId;
                 _driver.Quit();

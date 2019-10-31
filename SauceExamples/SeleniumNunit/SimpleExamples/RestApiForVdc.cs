@@ -1,12 +1,11 @@
-﻿using System;
-using Common;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using RestSharp;
 using RestSharp.Authenticators;
+using System;
 
 namespace SeleniumNunit.SimpleExamples
 {
@@ -26,7 +25,7 @@ namespace SeleniumNunit.SimpleExamples
         //in your API requests
         private SessionId sessionId;
 
-        
+
         [Test]
         public void ShouldPass()
         {

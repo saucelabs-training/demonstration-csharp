@@ -1,6 +1,4 @@
-﻿using System;
-using System.Configuration;
-using Common;
+﻿using Common;
 using Common.SauceLabs.SauceLabs;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
@@ -8,6 +6,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using RestSharp;
 using RestSharp.Authenticators;
+using System;
+using System.Configuration;
 
 namespace Web.Tests.BestPractices
 {
@@ -26,12 +26,18 @@ namespace Web.Tests.BestPractices
     [Category("BestPractices")]
     public class BaseTest
     {
+        private readonly string _browser;
+        private readonly string _browserVersion;
+        private readonly string _osPlatform;
+        public SauceJavaScriptExecutor SauceReporter;
+        private SauceLabsCapabilities SauceConfig { get; set; }
+
         [SetUp]
         public void ExecuteBeforeEveryTestMethod()
         {
             SauceConfig = new SauceLabsCapabilities
             {
-                IsDebuggingEnabled = false,
+                IsDebuggingEnabled = bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"]),
                 IsHeadless = bool.Parse(ConfigurationManager.AppSettings["sauceHeadless"])
             };
             SauceLabsCapabilities.BuildName = ConfigurationManager.AppSettings["buildName"];
@@ -51,7 +57,7 @@ namespace Web.Tests.BestPractices
 
         private void ExecuteSauceCleanupSteps()
         {
-            var isPassed = TestContext.CurrentContext.Result.Outcome.Status 
+            var isPassed = TestContext.CurrentContext.Result.Outcome.Status
                 == TestStatus.Passed;
             SauceReporter.LogTestStatus(isPassed);
             //SetTestStatusUsingApi(isPassed);
@@ -75,23 +81,20 @@ namespace Web.Tests.BestPractices
                 accessKey = SauceUser.AccessKey;
             }
 
-            var sessionId = ((RemoteWebDriver) Driver).SessionId;
+            var sessionId = ((RemoteWebDriver)Driver).SessionId;
             var client = new RestClient
             {
                 Authenticator = new HttpBasicAuthenticator(userName, accessKey),
                 BaseUrl = new Uri(new SauceLabsEndpoint().HeadlessRestApiUrl)
             };
             var request = new RestRequest($"/{userName}/jobs/{sessionId}",
-                Method.PUT) {RequestFormat = DataFormat.Json};
-            request.AddJsonBody(new {passed = isPassed});
+                Method.PUT)
+            { RequestFormat = DataFormat.Json };
+            request.AddJsonBody(new { passed = isPassed });
             client.Execute(request);
         }
 
-        private readonly string _browser;
-        private readonly string _browserVersion;
-        private readonly string _osPlatform;
-        public SauceJavaScriptExecutor SauceReporter;
-        private SauceLabsCapabilities SauceConfig { get; set; }
+
 
         public BaseTest(string browser, string browserVersion, string osPlatform)
         {

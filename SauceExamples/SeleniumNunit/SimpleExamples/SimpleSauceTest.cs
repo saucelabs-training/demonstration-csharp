@@ -1,9 +1,9 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
+using System;
 
 namespace SeleniumNunit.SimpleExamples
 {
@@ -29,7 +29,7 @@ namespace SeleniumNunit.SimpleExamples
             options.AddAdditionalCapability("accessKey", sauceAccessKey, true);
             options.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name, true);
 
-            _driver =  new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
+            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
                 TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.google.com");
             Assert.Pass();

@@ -11,7 +11,7 @@ namespace Web.Tests.BestPractices
     [Parallelizable]
     public class ProductsPageFeature : BaseTest
     {
-        public ProductsPageFeature(string browser, string version, string os) : 
+        public ProductsPageFeature(string browser, string version, string os) :
             base(browser, version, os)
         {
         }

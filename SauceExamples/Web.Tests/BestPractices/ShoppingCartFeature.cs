@@ -10,7 +10,7 @@ namespace Web.Tests.BestPractices
                 nameof(CrossBrowserData.LastThreeOnLinuxFirefoxChrome))]
     public class ShoppingCartFeature : BaseTest
     {
-        public ShoppingCartFeature(string browser, string browserVersion, string osPlatform) : 
+        public ShoppingCartFeature(string browser, string browserVersion, string osPlatform) :
             base(browser, browserVersion, osPlatform)
         {
         }
@@ -36,7 +36,7 @@ namespace Web.Tests.BestPractices
             var productsPage = new ProductsPage(Driver);
             //Act
             productsPage.Open();
-            productsPage.AddToCart(Item.Backpack);
+            productsPage.AddFirstProductToCart();
             //Assert
             productsPage.Cart.ItemCount.Should().Be(1, "we added a backpack to the cart");
         }

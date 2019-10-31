@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Reflection;
 using Common;
 using OpenQA.Selenium;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace Web.Tests.Pages
 {

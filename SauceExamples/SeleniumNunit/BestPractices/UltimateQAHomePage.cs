@@ -1,12 +1,12 @@
-﻿using System.Threading;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using System.Threading;
 
 namespace SeleniumNunit.BestPractices
 {
     internal class UltimateQAHomePage
     {
         private readonly IWebDriver _driver;
-        private IWebElement StartHereButton => 
+        private IWebElement StartHereButton =>
             _driver.FindElement(By.LinkText("Start learning now"));
 
         public UltimateQAHomePage(IWebDriver driver)

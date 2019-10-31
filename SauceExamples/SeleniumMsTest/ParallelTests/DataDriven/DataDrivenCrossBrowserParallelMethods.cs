@@ -1,10 +1,10 @@
-﻿using System;
-using System.Reflection;
-using Common;
+﻿using Common;
 using Common.SauceLabs.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
+using System.Reflection;
 
 namespace SeleniumMsTest.ParallelTests.DataDriven
 {
@@ -74,7 +74,7 @@ namespace SeleniumMsTest.ParallelTests.DataDriven
         }
         private void SetupTest(string browser, string version, string osVersion)
         {
-            var sauceConfig = new SauceLabsCapabilities {IsDebuggingEnabled = true};
+            var sauceConfig = new SauceLabsCapabilities { IsDebuggingEnabled = true };
             Driver = new WebDriverFactory(sauceConfig).CreateSauceDriver(browser, version, osVersion);
             SauceReporter = new SauceJavaScriptExecutor(Driver);
             SauceReporter.SetTestName(TestContext.TestName);

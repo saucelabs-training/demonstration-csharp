@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Common.SauceLabs.SauceLabs;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
-using Common.SauceLabs.SauceLabs;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
 
 namespace Common
 {
@@ -18,7 +18,7 @@ namespace Common
         {
             get
             {
-                return sauceHubUrl; 
+                return sauceHubUrl;
             }
             set
             {
@@ -44,8 +44,6 @@ namespace Common
         }
         public IWebDriver CreateSauceDriver(string browser, string browserVersion, string osPlatform)
         {
-            _sauceCustomCapabilities.IsDebuggingEnabled =
-                bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"]);
             return CreateSauceDriver(browser, browserVersion, osPlatform, _sauceCustomCapabilities);
         }
         public RemoteWebDriver CreateSauceDriver(
@@ -55,7 +53,7 @@ namespace Common
             var accessKey = SauceUser.AccessKey;
             if (sauceConfiguration.IsHeadless)
             {
-                SetPropertiesForHeadless(out userName, out accessKey);
+                SeleniumHubUrl = new SauceLabsEndpoint().HeadlessSeleniumUrl;
             }
             SetUserAndKey(userName, accessKey);
             SetVMCapabilities(browser, browserVersion, osPlatform);
@@ -65,12 +63,6 @@ namespace Common
             _desiredCapabilities.SetCapability("build", SauceLabsCapabilities.BuildName);
             //_desiredCapabilities.SetCapability("tunnelIdentifier", "NikolaysTunnel");
             return GetSauceRemoteDriver();
-        }
-        private void SetPropertiesForHeadless(out string userName, out string accessKey)
-        {
-            userName = SauceUser.Headless.UserName;
-            accessKey = SauceUser.Headless.AccessKey;
-            SeleniumHubUrl = new SauceLabsEndpoint().HeadlessSeleniumUrl;
         }
         private void SetUserAndKey(string userName, string accessKey)
         {
@@ -102,7 +94,7 @@ namespace Common
             //capabilities.SetCapability("videoUploadOnPass", false);
             //capabilities.SetCapability("recordScreenshots", false);
             _desiredCapabilities.SetCapability("build", $"SauceExamples-{DateTime.Now.ToString(CultureInfo.InvariantCulture)}");
-            var tags = new List<string> {"withDebugging", "automationGroupName1", "automationGroupName2"};
+            var tags = new List<string> { "withDebugging", "automationGroupName1", "automationGroupName2" };
             _desiredCapabilities.SetCapability("tags", tags);
             //capabilities.SetCapability("tunnelIdentifier", "NikolaysTunnel");
 
@@ -130,10 +122,10 @@ namespace Common
             //However, if your tests are pretty stable and you want faster tests, disable all the debugging features
             if (_sauceCustomCapabilities.IsDebuggingEnabled)
             {
-                capabilities.SetCapability("extendedDebugging", true);
-                capabilities.SetCapability("recordVideo", true);
-                capabilities.SetCapability("videoUploadOnPass", true);
-                capabilities.SetCapability("recordScreenshots", true);
+                capabilities =
+                    SetDebuggingForHeadless(_sauceCustomCapabilities.IsHeadless, capabilities);
+                capabilities = 
+                    SetDebuggingForNonHeadless(_sauceCustomCapabilities.IsHeadless, capabilities);
                 _sauceCustomCapabilities.Tags.Add("withDebuggingEnabled");
                 return capabilities;
             }
@@ -143,6 +135,24 @@ namespace Common
             capabilities.SetCapability("videoUploadOnPass", false);
             capabilities.SetCapability("recordScreenshots", false);
             _sauceCustomCapabilities.Tags.Add("withDebuggingDisabled");
+            return capabilities;
+        }
+
+        private DesiredCapabilities SetDebuggingForNonHeadless(bool isHeadless, DesiredCapabilities capabilities)
+        {
+            if (isHeadless) return capabilities;
+            capabilities.SetCapability("extendedDebugging", true);
+            capabilities.SetCapability("recordVideo", true);
+            capabilities.SetCapability("videoUploadOnPass", true);
+            capabilities.SetCapability("recordScreenshots", true);
+            return capabilities;
+        }
+
+        private DesiredCapabilities SetDebuggingForHeadless(bool isHeadless, DesiredCapabilities capabilities)
+        {
+            if (!isHeadless)
+                return capabilities;
+            capabilities.SetCapability("recordScreenshots", true);
             return capabilities;
         }
     }

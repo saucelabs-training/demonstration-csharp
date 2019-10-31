@@ -9,7 +9,7 @@ namespace Web.Tests.Pages
         public readonly IWebDriver _driver;
         private readonly string _baseUrl;
 
-        public SauceJavaScriptExecutor SauceJsExecutor => 
+        public SauceJavaScriptExecutor SauceJsExecutor =>
             new SauceJavaScriptExecutor(_driver);
 
         public Wait Wait => new Wait(_driver);

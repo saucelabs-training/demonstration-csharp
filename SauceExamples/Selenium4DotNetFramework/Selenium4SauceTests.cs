@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -9,6 +6,9 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 
 namespace Selenium4DotNetFramework
@@ -29,7 +29,7 @@ namespace Selenium4DotNetFramework
             var options = new EdgeOptions
             {
                 BrowserVersion = "latest",
-                PlatformName = "Windows 10"                
+                PlatformName = "Windows 10"
                 //AcceptInsecureCertificates = true //Insecure Certs are Not supported by Edge
             };
 

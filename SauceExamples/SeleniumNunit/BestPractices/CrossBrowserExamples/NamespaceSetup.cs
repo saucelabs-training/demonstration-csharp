@@ -1,7 +1,7 @@
-﻿using System;
-using System.Globalization;
-using Common;
+﻿using Common;
 using NUnit.Framework;
+using System;
+using System.Globalization;
 
 namespace SeleniumNunit.BestPractices.CrossBrowserExamples
 {

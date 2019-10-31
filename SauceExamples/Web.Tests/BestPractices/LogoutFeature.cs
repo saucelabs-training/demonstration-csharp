@@ -11,7 +11,7 @@ namespace Web.Tests.BestPractices
     [Parallelizable]
     public class LogoutFeature : BaseTest
     {
-        public LogoutFeature(string browser, string version, string os) : 
+        public LogoutFeature(string browser, string version, string os) :
             base(browser, version, os)
         {
         }

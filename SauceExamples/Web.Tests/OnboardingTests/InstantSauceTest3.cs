@@ -1,9 +1,9 @@
-using System;
-using System.Threading;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using System;
+using System.Threading;
 
 namespace Web.Tests.OnboardingTests
 {
@@ -16,8 +16,8 @@ namespace Web.Tests.OnboardingTests
         public void ShouldOpenOnDifferentBrowser()
         {
             var sauceUserName =
-                Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);       
-            var sauceAccessKey = 
+                Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            var sauceAccessKey =
                 Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
 
             /*
@@ -36,11 +36,11 @@ namespace Web.Tests.OnboardingTests
             caps.SetCapability("name", TestContext.CurrentContext.Test.Name);
             _driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"),
                 caps, TimeSpan.FromSeconds(600));
-            
+
             //TODO Please supply your publicly available web url in place of saucedemo.com
             //In the future, you will learn how to access private URLs
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            
+
             //Hardcoded sleep just for demonstration purposes
             Thread.Sleep(10000);
             //This test will always pass for demonstration purposes

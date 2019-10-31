@@ -1,9 +1,9 @@
-using System;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
+using System;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Web.Tests.OnboardingTests
@@ -21,7 +21,7 @@ namespace Web.Tests.OnboardingTests
             */
             var sauceUserName = "YOUR USER NAME";
             var sauceAccessKey = "YOUR ACCESS KEY";
-            
+
             /*
              * In this section, we will configure our test to run on some specific
              * browser/os combination in Sauce Labs

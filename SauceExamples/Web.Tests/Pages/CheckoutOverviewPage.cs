@@ -6,9 +6,9 @@ namespace Web.Tests.Pages
     public class CheckoutOverviewPage : BasePage
     {
         public CheckoutOverviewPage(IWebDriver driver) : base(driver)
-        {           
+        {
         }
-        public CartElement Cart => new CartElement(_driver);
+        public CartComponent Cart => new CartComponent(_driver);
 
         public OrderConfirmationPage FinishCheckout()
         {

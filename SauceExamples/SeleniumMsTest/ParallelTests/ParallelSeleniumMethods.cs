@@ -1,10 +1,10 @@
-﻿using System;
-using System.Reflection;
-using Common;
+﻿using Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
+using System;
+using System.Reflection;
 
 namespace SeleniumMsTest.ParallelTests
 {
@@ -74,7 +74,7 @@ namespace SeleniumMsTest.ParallelTests
             //Assert that the inventory page displayed appropriately
             Assert.IsTrue(inventoryPageLocator.Displayed);
         }
-        
+
         [TestMethod]
         public void SeleniumTest1()
         {

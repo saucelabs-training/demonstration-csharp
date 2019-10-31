@@ -12,16 +12,16 @@ namespace Web.Tests.Pages
             _pageUrlPart = "inventory.html";
         }
 
-        public bool IsLoaded => _driver.Url.Contains($"/{_pageUrlPart}");
+        public bool IsLoaded => Wait.UntilIsDisplayedById("inventory_filter_container");
 
-        public IWebElement LogoutLink => _driver.FindElement(By.Id("logout_sidebar_link"));
+        private IWebElement LogoutLink => _driver.FindElement(By.Id("logout_sidebar_link"));
 
-        public IWebElement HamburgerElement => _driver.FindElement(By.ClassName("bm-burger-button"));
+        private IWebElement HamburgerElement => _driver.FindElement(By.ClassName("bm-burger-button"));
 
         public int ProductCount =>
             _driver.FindElements(By.ClassName("inventory_item")).Count;
 
-        public CartElement Cart => new CartElement(_driver);
+        public CartComponent Cart => new CartComponent(_driver);
 
         public void Logout()
         {
@@ -35,7 +35,7 @@ namespace Web.Tests.Pages
             return this;
         }
 
-        public void AddToCart(Item itemType)
+        public void AddFirstProductToCart()
         {
             Wait.UntilIsVisibleByCss("button[class='btn_primary btn_inventory']").Click();
         }

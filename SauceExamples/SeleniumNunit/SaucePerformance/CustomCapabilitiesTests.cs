@@ -1,13 +1,11 @@
-﻿using NUnit.Framework;
+﻿using Common.SauceLabs.SauceLabs;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
-using Common.SauceLabs.SauceLabs;
-using Newtonsoft.Json.Linq;
-using OpenQA.Selenium;
-using Newtonsoft.Json;
-using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumNunit.SaucePerformance
 {

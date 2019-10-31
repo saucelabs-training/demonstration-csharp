@@ -1,4 +1,3 @@
-using FluentAssertions;
 using NUnit.Framework;
 using Web.Tests.Pages;
 
@@ -11,7 +10,7 @@ namespace Web.Tests.BestPractices
     {
         private SauceDemoLoginPage _loginPage;
 
-        public PerformanceTesting(string browser, string version, string os) : 
+        public PerformanceTesting(string browser, string version, string os) :
             base(browser, version, os)
         {
         }

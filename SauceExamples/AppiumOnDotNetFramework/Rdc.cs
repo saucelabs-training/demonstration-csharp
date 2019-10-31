@@ -1,10 +1,10 @@
-﻿using System;
-using Common;
+﻿using Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
+using System;
 
 namespace AppiumBetaMSTest
 {

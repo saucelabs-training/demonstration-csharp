@@ -1,6 +1,4 @@
-﻿using Common.SauceLabs.SauceLabs;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
+﻿using OpenQA.Selenium.Remote;
 
 namespace Common.SauceLabs
 {

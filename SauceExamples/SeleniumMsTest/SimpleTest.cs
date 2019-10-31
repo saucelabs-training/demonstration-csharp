@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace SeleniumMsTest
 {
@@ -38,7 +38,7 @@ namespace SeleniumMsTest
             caps.SetCapability("tags", tags);
             caps.SetCapability("extendedDebugging", true);
 #pragma warning restore 618
-            _driver =  new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), caps,
+            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), caps,
                 TimeSpan.FromSeconds(600));
             ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:context=" + "Start Test");
             ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:context=" + "Open Sauce Demo");

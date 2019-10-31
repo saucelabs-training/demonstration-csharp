@@ -1,6 +1,6 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Common
@@ -38,6 +38,21 @@ namespace Common
         public IWebElement UntilIsVisibleById(string id)
         {
             return UntilIsVisible(By.Id(id));
+        }
+        //This type of method is really useful for negative assertions
+        //To wait until something isn't displayed and then assert on it
+        public bool UntilIsDisplayedById(string id)
+        {
+            bool isDisplayed;
+            try
+            {
+                isDisplayed = UntilIsVisible(By.Id(id)).Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+            return isDisplayed;
         }
 
         public IWebElement UntilIsVisibleByCss(string css)

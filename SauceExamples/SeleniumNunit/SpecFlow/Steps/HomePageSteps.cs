@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading;
-using Common;
+﻿using Common;
 using FluentAssertions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
+using System.Threading;
 using TechTalk.SpecFlow;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
@@ -21,7 +21,7 @@ namespace SeleniumNunit.SpecFlow.Steps
             Thread.Sleep(20000);    //purely for demonstration purposes, this is a bad practice
 
         }
-        
+
         [Then(@"the home page loads successfully")]
         public void ThenTheHomePageLoadsSuccessfully()
         {

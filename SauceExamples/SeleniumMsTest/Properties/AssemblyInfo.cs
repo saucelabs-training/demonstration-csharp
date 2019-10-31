@@ -1,6 +1,6 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 [assembly: AssemblyTitle("SeleniumMsTest")]
 [assembly: AssemblyDescription("")]

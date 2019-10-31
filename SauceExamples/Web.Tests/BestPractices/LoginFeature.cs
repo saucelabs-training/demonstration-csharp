@@ -6,14 +6,14 @@ using Web.Tests.Pages;
 namespace Web.Tests.BestPractices
 {
     [TestFixture]
-    [TestFixtureSource(typeof(CrossBrowserData), 
+    [TestFixtureSource(typeof(CrossBrowserData),
         nameof(CrossBrowserData.LastThreeOnLinuxFirefoxChrome))]
     [Parallelizable]
     public class LoginFeature : BaseTest
     {
         private SauceDemoLoginPage _loginPage;
 
-        public LoginFeature(string browser, string version, string os) : 
+        public LoginFeature(string browser, string version, string os) :
             base(browser, version, os)
         {
         }

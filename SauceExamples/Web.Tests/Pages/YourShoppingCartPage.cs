@@ -9,7 +9,7 @@ namespace Web.Tests.Pages
         {
         }
 
-        public CartElement Cart => new CartElement(_driver);
+        public CartComponent Cart => new CartComponent(_driver);
 
         internal CheckoutInformationPage Checkout()
         {

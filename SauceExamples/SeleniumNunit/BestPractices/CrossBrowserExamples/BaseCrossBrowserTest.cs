@@ -13,7 +13,7 @@ namespace SeleniumNunit.BestPractices.CrossBrowserExamples
         [SetUp]
         public void ExecuteBeforeEveryTestMethod()
         {
-            var sauceConfig = new SauceLabsCapabilities {IsDebuggingEnabled = true};
+            var sauceConfig = new SauceLabsCapabilities { IsDebuggingEnabled = true };
             SauceLabsCapabilities.BuildName = _sauceBuildName;
             //TODO move into external config
             //TODO add a factory method to create this driver easily

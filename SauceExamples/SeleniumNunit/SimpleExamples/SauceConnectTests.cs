@@ -1,9 +1,9 @@
-﻿using System;
-using Common;
+﻿using Common;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using System;
 
 namespace SeleniumNunit.SimpleExamples
 {
@@ -28,7 +28,7 @@ namespace SeleniumNunit.SimpleExamples
             desiredCaps.SetCapability("username", sauceUserName);
             desiredCaps.SetCapability("accessKey", sauceAccessKey);
             desiredCaps.SetCapability("name", TestContext.CurrentContext.Test.Name);
-            
+
             //This line of code lets Sauce Labs know which Sauce Connect tunnel to use for the test
             desiredCaps.SetCapability("tunnelIdentifier", "NikolaysTunnel");
             //How long is a test allowed to run?

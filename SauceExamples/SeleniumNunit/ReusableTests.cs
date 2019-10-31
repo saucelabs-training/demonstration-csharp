@@ -1,10 +1,10 @@
 
-using System;
-using System.Threading;
 using Common;
 using FluentAssertions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
+using System.Threading;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace SeleniumNunit

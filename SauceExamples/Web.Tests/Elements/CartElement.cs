@@ -3,7 +3,7 @@ using Web.Tests.Pages;
 
 namespace Web.Tests.Elements
 {
-    public class CartElement
+    public class CartComponent
     {
         private readonly IWebDriver _driver;
         private string CartItemCounterText
@@ -24,12 +24,12 @@ namespace Web.Tests.Elements
 
         public int ItemCount => int.Parse(CartItemCounterText);
 
-        public CartElement(IWebDriver driver)
+        public CartComponent(IWebDriver driver)
         {
             _driver = driver;
         }
 
-        public CartElement InjectUserWithItems()
+        public CartComponent InjectUserWithItems()
         {
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.sessionStorage.setItem('session-username', 'standard-user')");
             ((IJavaScriptExecutor)_driver).ExecuteScript("window.sessionStorage.setItem('cart-contents', '[4,1]')");

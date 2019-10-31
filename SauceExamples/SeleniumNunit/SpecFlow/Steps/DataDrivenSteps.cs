@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using Common;
+﻿using Common;
 using FluentAssertions;
 using OpenQA.Selenium.Remote;
 using SeleniumNunit.SpecFlow.Pages;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 using TechTalk.SpecFlow;
 
 
@@ -28,7 +28,7 @@ namespace SeleniumNunit.SpecFlow.Steps
             Driver = new RemoteWebDriver(new Uri(new SauceLabsEndpoint().SauceHubUrl),
                 _desiredCapabilities, TimeSpan.FromSeconds(600));
         }
-        
+
         [When(@"I open the SauceDemo home page")]
         public void WhenIOpenTheSauceDemoHomePage()
         {

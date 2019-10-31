@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
-using OpenQA.Selenium.IE;
+using System;
+using System.Collections.Generic;
 
 
 namespace SeleniumNunit.SimpleExamples
@@ -69,7 +69,7 @@ namespace SeleniumNunit.SimpleExamples
             sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
             chromeOptions.AddAdditionalCapability("sauce:options", sauceOptions, true);
 
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), 
+            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
                 chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.google.com");
             Assert.Pass();
@@ -80,7 +80,7 @@ namespace SeleniumNunit.SimpleExamples
             SafariOptions safariOptions = new SafariOptions
             {
                 BrowserVersion = "12.0",
-                PlatformName = "macOS 10.13"                
+                PlatformName = "macOS 10.13"
                 //AcceptInsecureCertificates = true Don't use this as Safari doesn't support Insecure certs
             };
             sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
@@ -109,7 +109,7 @@ namespace SeleniumNunit.SimpleExamples
         public void CleanUpAfterEveryTestMethod()
         {
             var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            if(_driver != null)
+            if (_driver != null)
                 ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
             //call to JIRA API
             //PUT to JIRA with status
