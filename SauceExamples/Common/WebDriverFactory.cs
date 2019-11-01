@@ -111,7 +111,8 @@ namespace Common
             //How long is a test allowed to run?
             _desiredCapabilities.SetCapability("maxDuration", 3600);
             //Selenium crash might hang a command, this is the max time allowed to wait for a Selenium command
-            _desiredCapabilities.SetCapability("commandTimeout", 600);
+            //Keep this low, no reason to wait around a long time for a hanging command to fail
+            _desiredCapabilities.SetCapability("commandTimeout", 60);
             //How long can the browser wait before a new command?
             _desiredCapabilities.SetCapability("idleTimeout", 1000);
         }
