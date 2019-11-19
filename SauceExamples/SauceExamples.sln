@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\setEnvironmentVariables.ps1 = ..\setEnvironmentVariables.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Tests", "Integration.Tests\Integration.Tests.csproj", "{62A7DD76-7155-4294-841E-014727F25CB0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApp", "SampleApp", "{E1AE3262-10C1-4643-A426-F963ECF8AC79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Tests", "Web.Tests\Web.Tests.csproj", "{7B1C4CE7-45E7-436A-96D2-79493B1274ED}"
@@ -32,6 +30,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Posh", "Posh", "{B4AB832A-6
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium4DotNetFramework", "Selenium4DotNetFramework\Selenium4DotNetFramework.csproj", "{0D11C201-3FCF-4836-9B1F-A45F461A7B02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotnetFramework", "DotnetFramework", "{C06B06E4-9DD7-4536-93D9-343944EF4F8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mobile.Nunit.Tests", "Mobile.Nunit.Tests\Mobile.Nunit.Tests.csproj", "{87598B3B-793C-4C27-A8F7-9305CDD4884F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +53,6 @@ Global
 		{D0544BBB-85D0-4BD0-82E2-2AC1C6BBBCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0544BBB-85D0-4BD0-82E2-2AC1C6BBBCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0544BBB-85D0-4BD0-82E2-2AC1C6BBBCF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62A7DD76-7155-4294-841E-014727F25CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62A7DD76-7155-4294-841E-014727F25CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62A7DD76-7155-4294-841E-014727F25CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62A7DD76-7155-4294-841E-014727F25CB0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B1C4CE7-45E7-436A-96D2-79493B1274ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B1C4CE7-45E7-436A-96D2-79493B1274ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B1C4CE7-45E7-436A-96D2-79493B1274ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +73,10 @@ Global
 		{0D11C201-3FCF-4836-9B1F-A45F461A7B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D11C201-3FCF-4836-9B1F-A45F461A7B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D11C201-3FCF-4836-9B1F-A45F461A7B02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87598B3B-793C-4C27-A8F7-9305CDD4884F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87598B3B-793C-4C27-A8F7-9305CDD4884F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87598B3B-793C-4C27-A8F7-9305CDD4884F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87598B3B-793C-4C27-A8F7-9305CDD4884F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +84,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7B1C4CE7-45E7-436A-96D2-79493B1274ED} = {E1AE3262-10C1-4643-A426-F963ECF8AC79}
 		{B4AB832A-65EC-44FF-B136-197A2DA8E74B} = {02D1155D-7E24-485D-84E5-043B79A04B74}
+		{87598B3B-793C-4C27-A8F7-9305CDD4884F} = {C06B06E4-9DD7-4536-93D9-343944EF4F8D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6019E59C-E9C4-4734-90C4-B49A0CCF0A59}
