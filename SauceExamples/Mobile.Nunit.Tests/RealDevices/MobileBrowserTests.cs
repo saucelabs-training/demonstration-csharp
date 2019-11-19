@@ -39,10 +39,11 @@ namespace Mobile.Nunit.Tests
             caps.SetCapability("browserName", "chrome");
             caps.SetCapability("platformVersion", "8.1");
             caps.SetCapability("platformName", "Android");
+            caps.SetCapability("name", TestContext.CurrentContext.Test.Name);
+            caps.SetCapability("newCommandTimeout", 90);
             _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), caps, 
                 TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            _driver.Quit();
         }
         [TearDown]
         public void Teardown()
