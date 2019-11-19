@@ -10,6 +10,8 @@ namespace Mobile.Nunit.Tests
     {
         public SessionId _sessionId;
         public RemoteWebDriver _driver;
+        public DesiredCapabilities browserCapabilities;
+
         public static string RdcServerUrlUs => "https://us1.appium.testobject.com/wd/hub";
         
         /* Make sure that you get the API key from your app in RDC
@@ -19,6 +21,17 @@ namespace Mobile.Nunit.Tests
         public static string SauceDemoMobileBrowserAppApiKey =>
             Environment.GetEnvironmentVariable(
                 "SAUCE_DEMO_MOBILE_WEB_RDC_API_KEY", EnvironmentVariableTarget.User);
+        [SetUp]
+        public void Setup()
+        {
+            browserCapabilities = new DesiredCapabilities();
+            //this is the API key that you get from your app in Test Object
+            browserCapabilities.SetCapability("testobject_api_key", SauceDemoMobileBrowserAppApiKey);
+            browserCapabilities.SetCapability("deviceOrientation", "portrait");
+            browserCapabilities.SetCapability("browserName", "chrome");
+            browserCapabilities.SetCapability("name", TestContext.CurrentContext.Test.Name);
+            browserCapabilities.SetCapability("newCommandTimeout", 90);
+        }
         [TearDown]
         public void Teardown()
         {
