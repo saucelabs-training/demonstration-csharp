@@ -44,6 +44,23 @@ namespace Mobile.Nunit.Tests
             _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), caps, 
                 TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));
+        }
+        [Test]
+        public void MobileBrowser_iOS_ShouldPass()
+        {
+            DesiredCapabilities caps = new DesiredCapabilities();
+            //this is the API key that you get from your app in Test Object
+            caps.SetCapability("testobject_api_key", SauceDemoMobileBrowserAppApiKey);
+            caps.SetCapability("deviceOrientation", "portrait");
+            caps.SetCapability("platformVersion", "12.4");
+            caps.SetCapability("platformName", "iOS");
+            caps.SetCapability("name", TestContext.CurrentContext.Test.Name);
+            caps.SetCapability("newCommandTimeout", 90);
+            _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), caps,
+                TimeSpan.FromSeconds(600));
+            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));
         }
         [TearDown]
         public void Teardown()
