@@ -10,42 +10,9 @@ using RestSharp;
 
 namespace Mobile.Nunit.Tests
 {
-    /// <summary>
-    /// Summary description for UnitTest1
-    /// </summary>
     [TestFixture]
-    public class MobileBrowserTests
+    public class MobileBrowserIOSTests : BaseMobileTest
     {
-        private SessionId _sessionId;
-        private RemoteWebDriver _driver;
-        private static string RdcServerUrlUs => "https://us1.appium.testobject.com/wd/hub";
-
-        
-        /* Make sure that you get the API key from your app in RDC
-         * and store it in an environment variable on your system.
-         * Then read the Env Variable as you see below
-         */
-        private static string SauceDemoMobileBrowserAppApiKey =>
-            Environment.GetEnvironmentVariable(
-                "SAUCE_DEMO_MOBILE_WEB_RDC_API_KEY", EnvironmentVariableTarget.User);
-
-        [Test]
-        public void MobileBrowser_Android_ShouldPass()
-        {
-            DesiredCapabilities caps = new DesiredCapabilities();
-            //this is the API key that you get from your app in Test Object
-            caps.SetCapability("testobject_api_key", SauceDemoMobileBrowserAppApiKey);
-            caps.SetCapability("deviceOrientation", "portrait");
-            caps.SetCapability("browserName", "chrome");
-            caps.SetCapability("platformVersion", "8.1");
-            caps.SetCapability("platformName", "Android");
-            caps.SetCapability("name", TestContext.CurrentContext.Test.Name);
-            caps.SetCapability("newCommandTimeout", 90);
-            _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), caps, 
-                TimeSpan.FromSeconds(600));
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));
-        }
         [Test]
         public void MobileBrowser_iOS_ShouldPass()
         {
