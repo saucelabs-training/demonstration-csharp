@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Globalization;
 
 namespace Common

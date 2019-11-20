@@ -1,8 +1,4 @@
-﻿using System;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Appium.Android;
-using OpenQA.Selenium.Remote;
+﻿using NUnit.Framework;
 
 namespace Mobile.Nunit.Tests
 {

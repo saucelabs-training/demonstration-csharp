@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Reflection;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Appium;
-using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
-using RestSharp;
 
 namespace Mobile.Nunit.Tests
 {
