@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace Web.Tests.Pages
+namespace Web.Tests.BestPractices.Pages
 {
     public class CheckoutCompletePage
     {

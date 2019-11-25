@@ -1,13 +1,12 @@
 using FluentAssertions;
 using NUnit.Framework;
-using Web.Tests.Pages;
+using Web.Tests.BestPractices.Pages;
 
-
-namespace Web.Tests.BestPractices
+namespace Web.Tests.BestPractices.test
 {
     [TestFixture]
     [TestFixtureSource(typeof(CrossBrowserData),
-                nameof(CrossBrowserData.LastThreeOnLinuxFirefoxChrome))]
+                nameof(CrossBrowserData.HeadlessTestData))]
     [Parallelizable]
     public class LogoutFeature : BaseTest
     {

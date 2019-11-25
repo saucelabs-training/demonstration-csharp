@@ -80,24 +80,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BestPractices\BaseTest.cs" />
-    <Compile Include="BestPractices\PerformanceTesting.cs" />
-    <Compile Include="BestPractices\ProductsPageFeature.cs" />
-    <Compile Include="BestPractices\LoginFeature.cs" />
-    <Compile Include="BestPractices\LogoutFeature.cs" />
+    <Compile Include="BestPractices\test\BaseTest.cs" />
+    <Compile Include="BestPractices\test\PerformanceTesting.cs" />
+    <Compile Include="BestPractices\test\ProductsPageFeature.cs" />
+    <Compile Include="BestPractices\test\LoginFeature.cs" />
+    <Compile Include="BestPractices\test\LogoutFeature.cs" />
     <Compile Include="CrossBrowserData.cs" />
-    <Compile Include="Pages\Item.cs" />
-    <Compile Include="Pages\CheckoutInformationPage.cs" />
-    <Compile Include="Pages\BasePage.cs" />
-    <Compile Include="Pages\CheckoutOverviewPage.cs" />
-    <Compile Include="Pages\OrderConfirmationPage.cs" />
-    <Compile Include="Pages\SauceDemoLoginPage.cs" />
-    <Compile Include="Elements\CartElement.cs" />
-    <Compile Include="Pages\CheckoutCompletePage.cs" />
+    <Compile Include="BestPractices\Pages\Item.cs" />
+    <Compile Include="BestPractices\Pages\CheckoutInformationPage.cs" />
+    <Compile Include="BestPractices\Pages\BasePage.cs" />
+    <Compile Include="BestPractices\Pages\CheckoutOverviewPage.cs" />
+    <Compile Include="BestPractices\Pages\OrderConfirmationPage.cs" />
+    <Compile Include="BestPractices\Pages\SauceDemoLoginPage.cs" />
+    <Compile Include="BestPractices\Elements\CartElement.cs" />
+    <Compile Include="BestPractices\Pages\CheckoutCompletePage.cs" />
     <Compile Include="Antipatterns\PoorTests.cs" />
-    <Compile Include="Pages\ProductsPage.cs" />
-    <Compile Include="BestPractices\ShoppingCartFeature.cs" />
-    <Compile Include="Pages\YourShoppingCartPage.cs" />
+    <Compile Include="BestPractices\Pages\ProductsPage.cs" />
+    <Compile Include="BestPractices\test\ShoppingCartFeature.cs" />
+    <Compile Include="BestPractices\Pages\YourShoppingCartPage.cs" />
     <Compile Include="OnboardingTests\InstantSauceTest4.cs" />
     <Compile Include="OnboardingTests\InstantSauceTest3.cs" />
     <Compile Include="OnboardingTests\InstantSauceTest2.cs" />

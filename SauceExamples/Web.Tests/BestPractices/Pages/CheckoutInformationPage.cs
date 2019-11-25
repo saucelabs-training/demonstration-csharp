@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Web.Tests.Pages
+namespace Web.Tests.BestPractices.Pages
 {
     internal class CheckoutInformationPage : BasePage
     {

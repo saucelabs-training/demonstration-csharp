@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using Web.Tests.Elements;
+using Web.Tests.BestPractices.Elements;
 
-namespace Web.Tests.Pages
+namespace Web.Tests.BestPractices.Pages
 {
     internal class YourShoppingCartPage : BasePage
     {

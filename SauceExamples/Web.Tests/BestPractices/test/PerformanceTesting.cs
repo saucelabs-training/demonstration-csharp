@@ -1,8 +1,7 @@
 using NUnit.Framework;
-using Web.Tests.Pages;
+using Web.Tests.BestPractices.Pages;
 
-
-namespace Web.Tests.BestPractices
+namespace Web.Tests.BestPractices.test
 {
     [TestFixture]
     [Parallelizable]

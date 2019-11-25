@@ -1,7 +1,7 @@
 using OpenQA.Selenium;
-using Web.Tests.Pages;
+using Web.Tests.BestPractices.Pages;
 
-namespace Web.Tests.Elements
+namespace Web.Tests.BestPractices.Elements
 {
     public class CartComponent
     {

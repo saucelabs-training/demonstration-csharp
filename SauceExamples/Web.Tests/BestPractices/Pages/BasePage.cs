@@ -2,7 +2,7 @@
 using Common.SauceLabs.SauceLabs;
 using OpenQA.Selenium;
 
-namespace Web.Tests.Pages
+namespace Web.Tests.BestPractices.Pages
 {
     public class BasePage
     {
@@ -17,7 +17,7 @@ namespace Web.Tests.Pages
 
         public BasePage(IWebDriver driver)
         {
-            this._driver = driver;
+            _driver = driver;
             _baseUrl = "https://www.saucedemo.com";
         }
     }

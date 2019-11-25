@@ -9,7 +9,7 @@ using RestSharp.Authenticators;
 using System;
 using System.Configuration;
 
-namespace Web.Tests.BestPractices
+namespace Web.Tests.BestPractices.test
 {
     //TODO this whole class is a duplication of BaseCrossBrowserTEst.cs
     //The reason why it was duplicated was because I needed to be able to configure

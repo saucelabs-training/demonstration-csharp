@@ -47,7 +47,7 @@ namespace Web.Tests
             }
         }
 
-        public static IEnumerable LastThreeOnLinuxFirefoxChrome
+        public static IEnumerable HeadlessTestData
         {
             get
             {

@@ -1,7 +1,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 using SeleniumNunit.BestPractices.CrossBrowserExamples;
-using Web.Tests.Pages;
+using Web.Tests.BestPractices.Pages;
 
 
 namespace Web.Tests.Antipatterns

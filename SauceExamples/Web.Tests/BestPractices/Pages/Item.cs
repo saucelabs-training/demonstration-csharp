@@ -1,4 +1,4 @@
-namespace Web.Tests.Pages
+namespace Web.Tests.BestPractices.Pages
 {
     public enum Item
     {

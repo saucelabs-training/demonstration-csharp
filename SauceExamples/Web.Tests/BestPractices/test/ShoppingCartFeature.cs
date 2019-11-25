@@ -1,13 +1,13 @@
 using FluentAssertions;
 using NUnit.Framework;
-using Web.Tests.Pages;
+using Web.Tests.BestPractices.Pages;
 
-namespace Web.Tests.BestPractices
+namespace Web.Tests.BestPractices.test
 {
     [TestFixture]
     [Parallelizable]
     [TestFixtureSource(typeof(CrossBrowserData),
-                nameof(CrossBrowserData.LastThreeOnLinuxFirefoxChrome))]
+                nameof(CrossBrowserData.HeadlessTestData))]
     public class ShoppingCartFeature : BaseTest
     {
         public ShoppingCartFeature(string browser, string browserVersion, string osPlatform) :

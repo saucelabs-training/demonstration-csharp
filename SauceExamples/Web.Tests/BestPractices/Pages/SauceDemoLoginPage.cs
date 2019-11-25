@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Web.Tests.Pages
+namespace Web.Tests.BestPractices.Pages
 {
     public class SauceDemoLoginPage : BasePage
     {
