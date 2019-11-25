@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium.Remote;
 
-namespace Mobile.Nunit.Tests
+namespace Mobile.Nunit.Tests.RealDevices.Browser
 {
     [TestFixture]
     public class MobileBrowserAndroidTests : BaseMobileTest
@@ -12,7 +12,7 @@ namespace Mobile.Nunit.Tests
         {
             browserCapabilities.SetCapability("platformVersion", "8.1");
             browserCapabilities.SetCapability("platformName", "Android");
-            _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), browserCapabilities, 
+            _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), browserCapabilities,
                 TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
             Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));

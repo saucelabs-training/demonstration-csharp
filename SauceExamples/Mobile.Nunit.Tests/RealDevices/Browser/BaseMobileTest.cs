@@ -4,7 +4,7 @@ using OpenQA.Selenium.Remote;
 using RestSharp;
 using System;
 
-namespace Mobile.Nunit.Tests
+namespace Mobile.Nunit.Tests.RealDevices.Browser
 {
     public class BaseMobileTest
     {
@@ -13,7 +13,7 @@ namespace Mobile.Nunit.Tests
         public DesiredCapabilities browserCapabilities;
 
         public static string RdcServerUrlUs => "https://us1.appium.testobject.com/wd/hub";
-        
+
         /* Make sure that you get the API key from your app in RDC
          * and store it in an environment variable on your system.
          * Then read the Env Variable as you see below
