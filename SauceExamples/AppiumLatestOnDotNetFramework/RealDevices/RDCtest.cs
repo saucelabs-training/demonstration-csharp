@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.Reflection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
 using RestSharp;
-using System;
-using System.Reflection;
 
-namespace AppiumMsTest
+namespace Appium.MsTest.RealDevices
 {
     [TestClass]
     [TestCategory("MsTest")]

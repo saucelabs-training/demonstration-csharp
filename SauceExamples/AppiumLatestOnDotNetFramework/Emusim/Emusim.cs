@@ -1,11 +1,10 @@
-﻿using Common;
+﻿using System.Reflection;
 using Common.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
-using System.Reflection;
 
-namespace AppiumMsTest
+namespace Appium.MsTest.Emusim
 {
     [TestClass]
     [TestCategory("MsTest")]
