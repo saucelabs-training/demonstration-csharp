@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium.Remote;
 
-namespace Mobile.Nunit.Tests.RealDevices.Browser
+namespace Appium.Nunit.Framework.RealDevices.Browser
 {
     [TestFixture]
     public class MobileBrowserIOSTests : BaseMobileTest

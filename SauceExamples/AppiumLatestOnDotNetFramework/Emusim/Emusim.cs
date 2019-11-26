@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
 
-namespace Appium.MsTest.Emusim
+namespace Appium.MsTest.Scripts.Emusim
 {
     [TestClass]
     [TestCategory("MsTest")]

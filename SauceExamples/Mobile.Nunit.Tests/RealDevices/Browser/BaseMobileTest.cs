@@ -1,10 +1,10 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium.Remote;
 using RestSharp;
-using System;
 
-namespace Mobile.Nunit.Tests.RealDevices.Browser
+namespace Appium.Nunit.Framework.RealDevices.Browser
 {
     public class BaseMobileTest
     {

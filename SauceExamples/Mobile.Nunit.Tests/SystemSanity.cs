@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Mobile.Nunit.Tests
+namespace Appium.Nunit.Framework
 {
     /// <summary>
     /// Summary description for UnitTest1
