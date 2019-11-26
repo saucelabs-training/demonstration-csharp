@@ -38,10 +38,9 @@ namespace Selenium4DotNetFramework
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
                 TimeSpan.FromSeconds(600));
-            _driver.Navigate().GoToUrl("https://www.google.com");
+            GoToThenAssert();
         }
         [TestMethod]
-        [ExpectedException(typeof(AssertFailedException), "There is a bug on Sauce Labs")]
         public void IEW3C()
         {
             var options = new InternetExplorerOptions
@@ -94,11 +93,9 @@ namespace Selenium4DotNetFramework
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
                 safariOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
             GoToThenAssert();
         }
         [TestMethod]
-        [ExpectedException(typeof(AssertFailedException), "Possible bug in Sauce Labs")]
         public void FirefoxW3C()
         {
             var browserOptions = new FirefoxOptions
