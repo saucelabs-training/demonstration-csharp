@@ -1,5 +1,5 @@
 ﻿using Common;
-using Common.SauceLabs.SauceLabs;
+using Common.SauceLabs;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;

@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -6,12 +9,8 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
 
-
-namespace Selenium4DotNetFramework
+namespace MsTest.Selenium4
 {
     [TestClass]
     [TestCategory("WebDriver 4 tests on Sauce")]

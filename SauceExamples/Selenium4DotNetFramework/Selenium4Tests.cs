@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.IO;
+using System.Reflection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System.IO;
-using System.Reflection;
 
-
-namespace Selenium4DotNetFramework
+namespace MsTest.Selenium4
 {
     [TestClass]
     [TestCategory("WebDriver 4 tests on Sauce")]

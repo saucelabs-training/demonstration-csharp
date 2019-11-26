@@ -1,4 +1,4 @@
-﻿using Common.SauceLabs.SauceLabs;
+﻿using Common.SauceLabs;
 using OpenQA.Selenium;
 
 namespace SeleniumMsTest.ParallelTests.DataDriven

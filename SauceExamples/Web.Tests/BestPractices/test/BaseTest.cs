@@ -1,5 +1,4 @@
 ﻿using Common;
-using Common.SauceLabs.SauceLabs;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -8,6 +7,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Configuration;
+using Common.SauceLabs;
 
 namespace Web.Tests.BestPractices.test
 {

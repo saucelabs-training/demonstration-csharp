@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Globalization;
+using Common.SauceLabs;
 
 namespace SeleniumNunit.BestPractices.CrossBrowserExamples
 {

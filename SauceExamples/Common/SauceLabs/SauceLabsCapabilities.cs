@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Common
+namespace Common.SauceLabs
 {
     public class SauceLabsCapabilities
     {

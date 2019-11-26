@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Common
+namespace Common.SauceLabs
 {
     //TODO future version should probably inherit from an ISauceUser that forces the impl of username and accessKey
     public class SauceUser

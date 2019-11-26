@@ -1,4 +1,6 @@
-﻿namespace Common
+﻿using Common.SauceLabs;
+
+namespace Common
 {
     //TODO future version should probably inherit from an ISauceUser that forces the impl of username and accessKey
     public class HeadlessSauceUser

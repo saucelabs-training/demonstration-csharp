@@ -4,6 +4,7 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
+using Common.SauceLabs;
 
 namespace SeleniumNunit.SimpleExamples
 {

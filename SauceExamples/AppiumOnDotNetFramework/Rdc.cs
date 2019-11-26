@@ -5,6 +5,7 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 using System;
+using Common.SauceLabs;
 
 namespace AppiumBetaMSTest
 {

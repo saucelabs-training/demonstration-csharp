@@ -1,5 +1,5 @@
 ﻿using Common;
-using Common.SauceLabs.SauceLabs;
+using Common.SauceLabs;
 using OpenQA.Selenium;
 
 namespace Web.Tests.BestPractices.Pages

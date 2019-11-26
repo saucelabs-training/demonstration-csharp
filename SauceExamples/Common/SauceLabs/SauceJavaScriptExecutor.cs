@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Common.SauceLabs.SauceLabs
+namespace Common.SauceLabs
 {
     public class SauceJavaScriptExecutor
     {

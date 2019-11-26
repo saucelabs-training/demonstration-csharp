@@ -5,6 +5,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Reflection;
+using Common.SauceLabs;
 
 namespace SeleniumMsTest.ParallelTests
 {
