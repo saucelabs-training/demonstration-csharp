@@ -2,7 +2,6 @@
 
 namespace Common.SauceLabs
 {
-    //TODO future version should probably inherit from an ISauceUser that forces the impl of username and accessKey
     public class SauceUser
     {
         public static string Name =>
@@ -10,7 +9,5 @@ namespace Common.SauceLabs
 
         public static string AccessKey =>
             Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-
-        public static HeadlessSauceUser Headless => new HeadlessSauceUser();
     }
 }

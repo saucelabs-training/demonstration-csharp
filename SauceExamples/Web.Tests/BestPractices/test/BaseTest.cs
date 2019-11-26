@@ -67,19 +67,8 @@ namespace Web.Tests.BestPractices.test
 
         private void SetTestStatusUsingApi(bool isPassed)
         {
-            string userName;
-            string accessKey;
-            //Todo no longer required for Sauce Headless
-            if (SauceConfig.IsHeadless)
-            {
-                userName = SauceUser.Headless.UserName;
-                accessKey = SauceUser.Headless.AccessKey;
-            }
-            else
-            {
-                userName = SauceUser.Name;
-                accessKey = SauceUser.AccessKey;
-            }
+            var userName = SauceUser.Name;
+            var accessKey = SauceUser.AccessKey;
 
             var sessionId = ((RemoteWebDriver)Driver).SessionId;
             var client = new RestClient
