@@ -1,12 +1,12 @@
-﻿using Common;
+﻿using System;
+using System.Reflection;
+using Common;
+using Common.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Reflection;
-using Common.SauceLabs;
 
-namespace SeleniumMsTest.ParallelTests.DataDriven
+namespace Selenium.MsTest.Scipts.ParallelTests.DataDriven
 {
     [TestClass]
     [TestCategory("Selenium")]

@@ -1,9 +1,9 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
-namespace SeleniumNunit.BestPractices.CrossBrowserExamples
+namespace Selenium.Nunit.Scripts.BestPractices.CrossBrowserExamples
 {
     public class SauceLabsPage
     {

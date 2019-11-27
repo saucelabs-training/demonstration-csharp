@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumNunit.SpecFlow.Steps
+namespace Selenium.Nunit.Scripts.SpecFlow.Steps
 {
     public class BaseSteps
     {

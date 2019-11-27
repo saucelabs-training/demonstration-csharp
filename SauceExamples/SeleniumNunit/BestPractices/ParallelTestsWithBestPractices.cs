@@ -1,7 +1,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace SeleniumNunit.BestPractices
+namespace Selenium.Nunit.Scripts.BestPractices
 {
     [TestFixture]
     [Parallelizable]

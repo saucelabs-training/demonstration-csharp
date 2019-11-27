@@ -1,7 +1,7 @@
 using Common;
 using OpenQA.Selenium;
 
-namespace SeleniumNunit.SpecFlow.Pages
+namespace Selenium.Nunit.Scripts.SpecFlow.Pages
 {
     public class SauceDemoLoginPage : BasePage
     {

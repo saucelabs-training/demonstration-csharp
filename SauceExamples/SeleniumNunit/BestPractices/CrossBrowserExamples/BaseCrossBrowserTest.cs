@@ -5,7 +5,7 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace SeleniumNunit.BestPractices.CrossBrowserExamples
+namespace Selenium.Nunit.Scripts.BestPractices.CrossBrowserExamples
 {
     [TestFixture]
     public class BaseCrossBrowserTest

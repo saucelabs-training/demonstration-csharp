@@ -10,7 +10,7 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 
-namespace MsTest.Selenium4
+namespace Selenium4.MsTest.Scripts
 {
     [TestClass]
     [TestCategory("WebDriver 4 tests on Sauce")]

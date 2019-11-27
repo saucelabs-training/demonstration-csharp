@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace MsTest.Selenium4
+namespace Selenium4.MsTest.Scripts
 {
     [TestClass]
     [TestCategory("WebDriver 4 tests on Sauce")]

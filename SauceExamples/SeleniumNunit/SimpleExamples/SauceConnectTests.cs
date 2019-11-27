@@ -1,12 +1,11 @@
-﻿using Common;
+﻿using System;
+using Common.SauceLabs;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
-using System;
-using Common.SauceLabs;
 
-namespace SeleniumNunit.SimpleExamples
+namespace Selenium.Nunit.Scripts.SimpleExamples
 {
     [TestFixture]
     public class SauceConnectTests

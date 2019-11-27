@@ -1,15 +1,13 @@
-﻿using Common;
-using FluentAssertions;
-using OpenQA.Selenium.Remote;
-using SeleniumNunit.SpecFlow.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Common.SauceLabs;
+using FluentAssertions;
+using OpenQA.Selenium.Remote;
+using Selenium.Nunit.Scripts.SpecFlow.Pages;
 using TechTalk.SpecFlow;
 
-
-namespace SeleniumNunit.SpecFlow.Steps
+namespace Selenium.Nunit.Scripts.SpecFlow.Steps
 {
     [Binding]
     public class DataDrivenSteps : BaseSteps

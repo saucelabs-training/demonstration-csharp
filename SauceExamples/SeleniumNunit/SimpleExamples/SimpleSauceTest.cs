@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
-using System;
 
-namespace SeleniumNunit.SimpleExamples
+namespace Selenium.Nunit.Scripts.SimpleExamples
 {
     [TestFixture]
     [Category("SimpleTest")]

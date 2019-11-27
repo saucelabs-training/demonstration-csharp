@@ -4,7 +4,7 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 
-namespace SeleniumNunit.BestPractices
+namespace Selenium.Nunit.Scripts.BestPractices
 {
     [TestFixture()]
     [Category("AcceptanceTests")]

@@ -2,7 +2,7 @@ using Common.TestData;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace SeleniumNunit.BestPractices.CrossBrowserExamples
+namespace Selenium.Nunit.Scripts.BestPractices.CrossBrowserExamples
 {
     [Category("TestFixtureTests")]
     [TestFixtureSource(typeof(CrossBrowserData), "LatestConfigurations")]

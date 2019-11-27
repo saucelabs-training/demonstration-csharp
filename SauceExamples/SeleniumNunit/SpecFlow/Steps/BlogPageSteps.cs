@@ -1,13 +1,13 @@
-﻿using Common;
+﻿using System;
+using System.Threading;
+using Common;
 using FluentAssertions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Threading;
 using TechTalk.SpecFlow;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
-namespace SeleniumNunit.SpecFlow.Steps
+namespace Selenium.Nunit.Scripts.SpecFlow.Steps
 {
     [Binding]
     public class BlogPageSteps

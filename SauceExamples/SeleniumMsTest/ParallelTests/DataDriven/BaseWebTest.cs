@@ -1,7 +1,7 @@
 ﻿using Common.SauceLabs;
 using OpenQA.Selenium;
 
-namespace SeleniumMsTest.ParallelTests.DataDriven
+namespace Selenium.MsTest.Scipts.ParallelTests.DataDriven
 {
     public class BaseWebTest
     {

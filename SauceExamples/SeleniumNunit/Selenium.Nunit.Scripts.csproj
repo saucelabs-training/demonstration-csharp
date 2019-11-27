@@ -9,8 +9,8 @@
     <ProjectGuid>{D0544BBB-85D0-4BD0-82E2-2AC1C6BBBCF5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SeleniumNunit</RootNamespace>
-    <AssemblyName>SeleniumNunit</AssemblyName>
+    <RootNamespace>Selenium.Nunit.Scripts</RootNamespace>
+    <AssemblyName>Selenium.Nunit.Scripts</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace SeleniumNunit
+namespace Selenium.Nunit.Scripts
 {
     [TestFixture]
     [Parallelizable]

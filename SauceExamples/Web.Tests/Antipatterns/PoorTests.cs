@@ -1,6 +1,6 @@
 using FluentAssertions;
 using NUnit.Framework;
-using SeleniumNunit.BestPractices.CrossBrowserExamples;
+using Selenium.Nunit.Scripts.BestPractices.CrossBrowserExamples;
 using Web.Tests.BestPractices.Pages;
 
 

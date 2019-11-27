@@ -1,10 +1,9 @@
-﻿using Common;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Globalization;
 using Common.SauceLabs;
+using NUnit.Framework;
 
-namespace SeleniumNunit.BestPractices.CrossBrowserExamples
+namespace Selenium.Nunit.Scripts.BestPractices.CrossBrowserExamples
 {
     [SetUpFixture]
     public class NamespaceSetup
