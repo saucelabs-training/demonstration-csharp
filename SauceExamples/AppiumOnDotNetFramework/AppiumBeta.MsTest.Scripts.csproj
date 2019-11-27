@@ -8,8 +8,8 @@
     <ProjectGuid>{44B81F22-100A-4DF4-9473-26582250CF25}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AppiumBetaMSTest</RootNamespace>
-    <AssemblyName>AppiumBetaMSTest</AssemblyName>
+    <RootNamespace>AppiumBeta.MsTest.Scripts</RootNamespace>
+    <AssemblyName>AppiumBeta.MsTest.Scripts</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

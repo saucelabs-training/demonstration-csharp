@@ -1,13 +1,12 @@
-﻿using Common;
+﻿using System;
+using Common.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
-using System;
-using Common.SauceLabs;
 
-namespace AppiumBetaMSTest
+namespace AppiumBeta.MsTest.Scripts
 {
     [TestClass]
     [TestCategory("AppiumTest")]
