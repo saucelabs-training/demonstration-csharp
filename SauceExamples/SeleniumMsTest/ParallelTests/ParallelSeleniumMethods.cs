@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
-namespace Selenium.MsTest.Scipts.ParallelTests
+namespace Selenium.MsTest.Scripts.ParallelTests
 {
     [TestClass]
     [TestCategory("Selenium")]

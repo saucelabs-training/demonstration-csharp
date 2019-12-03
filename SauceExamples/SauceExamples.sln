@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Tests", "Web.Tests\Web.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium.MsTest.Scripts", "AppiumLatestOnDotNetFramework\Appium.MsTest.Scripts.csproj", "{99F99E3A-B9A8-46D8-AC32-FC40552D04CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.MsTest.Scipts", "SeleniumMsTest\Selenium.MsTest.Scipts.csproj", "{8EAC3C5C-FDF4-4A85-BFE9-19EB8B30E989}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.MsTest.Scripts", "SeleniumMsTest\Selenium.MsTest.Scripts.csproj", "{8EAC3C5C-FDF4-4A85-BFE9-19EB8B30E989}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Posh", "Posh", "{B4AB832A-65EC-44FF-B136-197A2DA8E74B}"
 	ProjectSection(SolutionItems) = preProject

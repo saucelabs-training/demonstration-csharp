@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace Selenium.MsTest.Scipts
+namespace Selenium.MsTest.Scripts
 {
     [TestClass]
     [TestCategory("SimpleTest")]

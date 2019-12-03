@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Selenium.MsTest.Scipts.ParallelTests
+namespace Selenium.MsTest.Scripts.ParallelTests
 {
     /*
      * How to execute parallel tests at the method level using MsTest
