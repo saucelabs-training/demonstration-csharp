@@ -17,10 +17,12 @@ namespace Selenium.MsTest.Scripts
     public class Selenium4SauceTests
     {
         IWebDriver _driver;
-        private string sauceUserName;
-        private string sauceAccessKey;
+        private string _sauceUserName;
+        private string _sauceAccessKey;
         private Dictionary<string, object> sauceOptions;
         public TestContext TestContext { get; set; }
+        private Uri SeleniumHub => new Uri("https://ondemand.saucelabs.com/wd/hub");
+
 
         [TestMethod]
         public void EdgeW3C()
@@ -35,7 +37,7 @@ namespace Selenium.MsTest.Scripts
             sauceOptions.Add("name", MethodBase.GetCurrentMethod().Name);
             options.AddAdditionalCapability("sauce:options", sauceOptions);
 
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
+            _driver = new RemoteWebDriver(SeleniumHub, options.ToCapabilities(),
                 TimeSpan.FromSeconds(600));
             GoToThenAssert();
         }
@@ -52,7 +54,7 @@ namespace Selenium.MsTest.Scripts
             sauceOptions.Add("name", MethodBase.GetCurrentMethod().Name);
             options.AddAdditionalCapability("sauce:options", sauceOptions);
 
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
+            _driver = new RemoteWebDriver(SeleniumHub, options.ToCapabilities(),
                 TimeSpan.FromSeconds(600));
             GoToThenAssert();
         }
@@ -74,7 +76,7 @@ namespace Selenium.MsTest.Scripts
             sauceOptions.Add("name", MethodBase.GetCurrentMethod().Name);
             chromeOptions.AddAdditionalCapability("sauce:options", sauceOptions);
 
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
+            _driver = new RemoteWebDriver(SeleniumHub,
                 chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
             GoToThenAssert();
         }
@@ -90,7 +92,7 @@ namespace Selenium.MsTest.Scripts
             sauceOptions.Add("name", MethodBase.GetCurrentMethod().Name);
             safariOptions.AddAdditionalCapability("sauce:options", sauceOptions);
 
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
+            _driver = new RemoteWebDriver(SeleniumHub,
                 safariOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
             GoToThenAssert();
         }
@@ -105,7 +107,7 @@ namespace Selenium.MsTest.Scripts
             sauceOptions.Add("name", MethodBase.GetCurrentMethod().Name);
             browserOptions.AddAdditionalCapability("sauce:options", sauceOptions);
 
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
+            _driver = new RemoteWebDriver(SeleniumHub,
                 browserOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
             GoToThenAssert();
@@ -113,23 +115,22 @@ namespace Selenium.MsTest.Scripts
         [TestInitialize]
         public void SetupTests()
         {
-            //TODO please supply your Sauce Labs user name in an environment variable
-            sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            //TODO please supply your own Sauce Labs access Key in an environment variable
-            sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
             sauceOptions = new Dictionary<string, object>
             {
-                ["username"] = sauceUserName,
-                ["accessKey"] = sauceAccessKey
+                ["username"] = _sauceUserName,
+                ["accessKey"] = _sauceAccessKey
             };
         }
         [TestCleanup]
         public void CleanUpAfterEveryTestMethod()
         {
             var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
-            if (_driver != null)
-                ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
-            _driver?.Quit();
+            if (_driver == null) return;
+            
+            ((IJavaScriptExecutor) _driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+            _driver.Quit();
         }
     }
 }
