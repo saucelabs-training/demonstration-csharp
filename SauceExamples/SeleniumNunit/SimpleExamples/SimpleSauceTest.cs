@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -11,26 +12,23 @@ namespace Selenium.Nunit.Scripts.SimpleExamples
     [Category("SimpleTest")]
     public class SimpleSauceTest
     {
-        IWebDriver _driver;
+        private IWebDriver _driver;
+        private SauceSession _sauce;
+
         [Test]
-        public void SauceConnectTest()
+        public void DemoTest()
         {
-            //TODO please supply your Sauce Labs user name in an environment variable
-            var sauceUserName = Environment.GetEnvironmentVariable(
-                "SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            //TODO please supply your own Sauce Labs access Key in an environment variable
-            var sauceAccessKey = Environment.GetEnvironmentVariable(
-                "SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            var options = new SauceOptions
+            {
+                IsExtendedDebuggingEnabled = bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"])
+            };
+            _sauce = new SauceSession(options)
+            {
+                DataCenter = DataCenter.USEast, //TODO this will mean that it's headless
+                TestName = TestContext.CurrentContext.Test.Name
+            };
+            _driver = _sauce.Start();
 
-            ChromeOptions options = new ChromeOptions();
-            options.AddAdditionalCapability(CapabilityType.Version, "latest", true);
-            options.AddAdditionalCapability(CapabilityType.Platform, "Windows 10", true);
-            options.AddAdditionalCapability("username", sauceUserName, true);
-            options.AddAdditionalCapability("accessKey", sauceAccessKey, true);
-            options.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name, true);
-
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
-                TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.google.com");
             Assert.Pass();
         }
@@ -38,9 +36,12 @@ namespace Selenium.Nunit.Scripts.SimpleExamples
         [TearDown]
         public void CleanUpAfterEveryTestMethod()
         {
-            var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
-            _driver?.Quit();
+            //TODO could also log a comment "Test finished execution"
+            //TODO will also log the error message if it failed. In the future can take the
+            //whole TestContext and parse out the relevant data
+            var isPassed = TestContext.CurrentContext.Result.Outcome.Status
+                           == TestStatus.Passed;
+            _sauce.Stop(isPassed, TestContext.CurrentContext.Result.Message);
         }
     }
 }
