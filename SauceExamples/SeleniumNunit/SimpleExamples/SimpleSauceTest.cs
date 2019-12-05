@@ -18,9 +18,7 @@ namespace Selenium.Nunit.Scripts.SimpleExamples
         [Test]
         public void DemoTest()
         {
-            var options = new SauceOptions();
-
-            _sauce = new SauceSession(options)
+            _sauce = new SauceSession
             {
                 DataCenter = DataCenter.USEast, //TODO this will mean that it's headless
                 TestName = TestContext.CurrentContext.Test.Name
