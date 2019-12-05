@@ -29,29 +29,29 @@ namespace Web.Tests.BestPractices.test
         private readonly string _browser;
         private readonly string _browserVersion;
         private readonly string _osPlatform;
-        public SauceJavaScriptExecutor SauceReporter;
-        private SauceLabsCapabilities SauceConfig { get; set; }
+        private SauceSession _sauce;
 
         [SetUp]
         public void ExecuteBeforeEveryTestMethod()
         {
-            SauceConfig = new SauceLabsCapabilities
+            var options = new SauceOptions
             {
-                IsDebuggingEnabled = bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"]),
-                IsHeadless = bool.Parse(ConfigurationManager.AppSettings["sauceHeadless"])
+                IsExtendedDebuggingEnabled = bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"]),
+                IsHeadless = bool.Parse(ConfigurationManager.AppSettings["sauceHeadless"]),
+                Browser = _browser,
+                BrowserVersion = _browserVersion,
+                OperatingSystem = _osPlatform
             };
-            SauceLabsCapabilities.BuildName = ConfigurationManager.AppSettings["buildName"];
-
-            Driver = new WebDriverFactory(SauceConfig).CreateSauceDriver(_browser, _browserVersion, _osPlatform);
-            SauceReporter = new SauceJavaScriptExecutor(Driver);
-            SauceReporter.SetTestName(TestContext.CurrentContext.Test.Name);
-            SauceReporter.SetBuildName(SauceLabsCapabilities.BuildName);
+            _sauce = new SauceSession(options);
+            Driver = _sauce.Start();
+            _sauce.TestName = TestContext.CurrentContext.Test.Name;
+            _sauce.BuildName = ConfigurationManager.AppSettings["buildName"];
         }
 
         [TearDown]
         public void CleanUpAfterEveryTestMethod()
         {
-            if (SauceConfig.IsUsingSauceLabs) ExecuteSauceCleanupSteps();
+            if (_sauce != null) ExecuteSauceCleanupSteps();
             Driver?.Quit();
         }
 
@@ -59,10 +59,10 @@ namespace Web.Tests.BestPractices.test
         {
             var isPassed = TestContext.CurrentContext.Result.Outcome.Status
                 == TestStatus.Passed;
-            SauceReporter.LogTestStatus(isPassed);
-            //SetTestStatusUsingApi(isPassed);
-            SauceReporter.LogMessage("Test finished execution");
-            SauceReporter.LogMessage(TestContext.CurrentContext.Result.Message);
+            //TODO could also log a comment "Test finished execution"
+            //TODO will also log the error message if it failed. In the future can take the
+            //whole TestContext and parse out the relevant data
+            _sauce.Stop(isPassed, TestContext.CurrentContext.Result.Message);
         }
 
         private void SetTestStatusUsingApi(bool isPassed)
