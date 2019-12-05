@@ -19,6 +19,7 @@ namespace Selenium.Nunit.Scripts.SimpleExamples
         public void DemoTest()
         {
             var options = new SauceOptions();
+
             _sauce = new SauceSession(options)
             {
                 DataCenter = DataCenter.USEast, //TODO this will mean that it's headless
