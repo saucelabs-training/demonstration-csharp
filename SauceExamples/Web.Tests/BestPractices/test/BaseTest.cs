@@ -37,15 +37,15 @@ namespace Web.Tests.BestPractices.test
             var options = new SauceOptions
             {
                 IsExtendedDebuggingEnabled = bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"]),
-                IsHeadless = bool.Parse(ConfigurationManager.AppSettings["sauceHeadless"]),
                 Browser = _browser,
                 BrowserVersion = _browserVersion,
                 OperatingSystem = _osPlatform
             };
             _sauce = new SauceSession(options);
+            _sauce.DataCenter = DataCenter.USEast;  //TODO this will mean that it's headless
             Driver = _sauce.Start();
             _sauce.TestName = TestContext.CurrentContext.Test.Name;
-            _sauce.BuildName = ConfigurationManager.AppSettings["buildName"];
+            _sauce.BuildName = ConfigurationManager.AppSettings["buildName"];   //set by default, no need to explicitly state
         }
 
         [TearDown]
