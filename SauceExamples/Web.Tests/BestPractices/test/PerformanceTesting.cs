@@ -5,6 +5,7 @@ namespace Web.Tests.BestPractices.test
 {
     [TestFixture]
     [Parallelizable]
+    [Category("Performance")]
     public class PerformanceTesting : BaseTest
     {
         private SauceDemoLoginPage _loginPage;
