@@ -13,7 +13,7 @@ namespace Appium.MsTest.Scripts.RealDevices
     [TestCategory("Rdc")]
     [TestCategory("Android")]
 
-    public class RDCtest
+    public class RdcTest
     {
         private SessionId _sessionId;
         private AndroidDriver<IWebElement> _driver;
