@@ -9,6 +9,8 @@
 
 **RDC Automated Tests**
 
+[![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/SauceExamples-RDC?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=21&branchName=master)
+
 This directory contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using C#. You can use these scripts to test your Sauce Labs authentication credentials, the setup of your automated testing environment, and try out Sauce Labs features, like cross-browser testing. Feel free to copy these files or clone the entire directory to your local environment to experiment with creating your own automated Selenium tests!
 
 **For Demonstration Purposes Only**
