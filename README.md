@@ -3,11 +3,11 @@
 [![Sauce Test Status](https://saucelabs.com/buildstatus/nikolay-a)](https://app.saucelabs.com/u/nikolay-a)
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/nikolay-a.svg)](https://saucelabs.com/u/nikolay-a)
 
-**Best Practices Automated Tests**
+**Best Practices Automated Tests(Selenium WebDriver )**
 
 [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/SauceExamples-UI%20Generated%20Pipeline?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=5&branchName=master)
 
-**RDC Automated Tests**
+**RDC Automated Tests(Appium 3)**
 
 [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/SauceExamples-RDC?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=21&branchName=master)
 
