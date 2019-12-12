@@ -26,6 +26,7 @@ namespace Appium3.MsTest.Scripts.RealDevices
         public TestContext TestContext { get; set; }
 
         [TestMethod]
+        [ExpectedException(typeof(AssertFailedException))]
         public void ShouldFailAndSetTestStatusToFail()
         {
             var capabilities = new DesiredCapabilities();

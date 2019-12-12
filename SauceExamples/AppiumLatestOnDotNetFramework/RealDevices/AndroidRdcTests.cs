@@ -24,6 +24,7 @@ namespace Appium3.MsTest.Scripts.RealDevices
         public TestContext TestContext { get; set; }
 
         [TestMethod]
+        [ExpectedException(typeof(AssertFailedException))]
         public void ShouldFailAndSetTestStatusToFail()
         {
             var capabilities = new DesiredCapabilities();
@@ -38,7 +39,7 @@ namespace Appium3.MsTest.Scripts.RealDevices
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
                 TimeSpan.FromSeconds(300));
-            Assert.IsTrue(false);
+            Assert.Fail("Sample test that should fail to make sure the correct status is logged in RDC");
         }
         [TestMethod]
         public void ShouldPassAndSetTestStatusToPass()
