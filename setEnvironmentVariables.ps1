@@ -5,10 +5,10 @@ Param(
 [string]$rdcVodQaNativeAppApiKey,
 [string]$rdcSauceDemoIosRdcApiKey
 )
-Write-Output "sauce.userName value from ADO was passed as an Argument in the ADO Task called `$env:SAUCE_USERNAME` " +
-"to sauceUserName variable in the Posh. This is the value found=>$sauceUserName"
-Write-Output "sauce.accessKey value from ADO was passed as an Argument in the ADO Task called `$env:SAUCE_ACCESS_KEY` " +
-"to sauceAccessKey variable in the Posh. This is the value found=>$sauceAccessKey"
+Write-Output "sauce.userName value from ADO was passed as an Argument in the ADO Task called `$env:SAUCE_USERNAME`
+to sauceUserName variable in the Posh. This is the value found=>$sauceUserName"
+Write-Output "sauce.accessKey value from ADO was passed as an Argument in the ADO Task called `$env:SAUCE_ACCESS_KEY`
+to sauceAccessKey variable in the Posh. This is the value found=>$sauceAccessKey"
 Write-Output "sauce.rdc.VodQaNativeAppApiKey stored in Azure DevOps=>$rdcVodQaNativeAppApiKey"
 Write-Output "sauce.rdc.SauceDemoIosRdcApiKey stored in Azure DevOps=>$rdcSauceDemoIosRdcApiKey"
 
