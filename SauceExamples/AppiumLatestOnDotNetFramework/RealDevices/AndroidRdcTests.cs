@@ -19,8 +19,6 @@ namespace Appium3.MsTest.Scripts.RealDevices
         private AndroidDriver<IWebElement> _driver;
         private static string USurl => "https://us1.appium.testobject.com/wd/hub";
 
-        private static readonly string RottenTomatoesApiKey =
-            Environment.GetEnvironmentVariable("ROTTEN_TOMATOES_API_KEY", EnvironmentVariableTarget.User);
         private static readonly string VodQANativeAppApiKey =
             Environment.GetEnvironmentVariable("VODQC_RDC_API_KEY", EnvironmentVariableTarget.User);
         public TestContext TestContext { get; set; }
@@ -50,6 +48,22 @@ namespace Appium3.MsTest.Scripts.RealDevices
             //any Android 8.1 device and this test runs in about 50s
             capabilities.SetCapability("platformName", "Android");
             capabilities.SetCapability("platformVersion", "8.1");
+            //TODO first you must upload an app to Test Object so that you get your app key
+            capabilities.SetCapability("testobject_api_key", VodQANativeAppApiKey);
+            capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
+            capabilities.SetCapability("newCommandTimeout", 90);
+
+            _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
+                TimeSpan.FromSeconds(300));
+            Assert.IsTrue(true);
+        }
+        [TestMethod]
+        public void DynamicAllocationUsingDeviceName()
+        {
+            var capabilities = new DesiredCapabilities();
+            //We can run on any version of the platform as long as it's the correct device
+            //Make sure to pick an Android or iOS device based on your app
+            capabilities.SetCapability("deviceName", "Google Pixel");
             //TODO first you must upload an app to Test Object so that you get your app key
             capabilities.SetCapability("testobject_api_key", VodQANativeAppApiKey);
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);

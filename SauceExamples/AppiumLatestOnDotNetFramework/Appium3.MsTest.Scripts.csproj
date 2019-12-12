@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Emusim\Emusim.cs" />
+    <Compile Include="RealDevices\iOSRdcTests.cs" />
     <Compile Include="RealDevices\AndroidRdcTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
