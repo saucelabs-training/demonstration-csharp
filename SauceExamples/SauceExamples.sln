@@ -39,6 +39,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Selenium", "Selenium", "{43
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApps", "SampleApps", "{FC693E5B-3A53-49EB-A28B-FB5A584E23C2}"
 	ProjectSection(SolutionItems) = preProject
+		\\Mac\Home\Downloads\Android.SauceLabs.Mobile.Sample.app.2.2.1.apk = \\Mac\Home\Downloads\Android.SauceLabs.Mobile.Sample.app.2.2.1.apk
 		\\Mac\Home\Downloads\iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.2.1.ipa = \\Mac\Home\Downloads\iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.2.1.ipa
 	EndProjectSection
 EndProject

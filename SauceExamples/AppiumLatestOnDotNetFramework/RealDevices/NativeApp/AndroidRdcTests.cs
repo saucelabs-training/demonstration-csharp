@@ -6,7 +6,7 @@ using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
 using RestSharp;
 
-namespace Appium3.MsTest.Scripts.RealDevices
+namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
 {
     [TestClass]
     [TestCategory("MsTest")]
