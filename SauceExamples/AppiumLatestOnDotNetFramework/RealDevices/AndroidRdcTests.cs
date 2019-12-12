@@ -6,14 +6,14 @@ using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
 using RestSharp;
 
-namespace Appium.MsTest.Scripts.RealDevices
+namespace Appium3.MsTest.Scripts.RealDevices
 {
     [TestClass]
     [TestCategory("MsTest")]
     [TestCategory("Rdc")]
     [TestCategory("Android")]
 
-    public class RDCtest
+    public class AndroidRdcTests
     {
         private SessionId _sessionId;
         private AndroidDriver<IWebElement> _driver;
@@ -47,9 +47,9 @@ namespace Appium.MsTest.Scripts.RealDevices
         {
             var capabilities = new DesiredCapabilities();
             //Setting only the 2 capabilities below will run this test on 
-            //any Android 7 device and this test runs in about 50s
+            //any Android 8.1 device and this test runs in about 50s
             capabilities.SetCapability("platformName", "Android");
-            capabilities.SetCapability("platformVersion", "7");
+            capabilities.SetCapability("platformVersion", "8.1");
             //TODO first you must upload an app to Test Object so that you get your app key
             capabilities.SetCapability("testobject_api_key", VodQANativeAppApiKey);
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);

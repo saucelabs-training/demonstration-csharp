@@ -14,8 +14,8 @@
     <ProjectGuid>{87598B3B-793C-4C27-A8F7-9305CDD4884F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Appium.Nunit.Framework</RootNamespace>
-    <AssemblyName>Appium.Nunit.Framework</AssemblyName>
+    <RootNamespace>Appium4.NUnit.Framework</RootNamespace>
+    <AssemblyName>Appium4.NUnit.Framework</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

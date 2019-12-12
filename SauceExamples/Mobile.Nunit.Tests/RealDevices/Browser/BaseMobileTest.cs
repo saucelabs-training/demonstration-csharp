@@ -4,7 +4,7 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium.Remote;
 using RestSharp;
 
-namespace Appium.Nunit.Framework.RealDevices.Browser
+namespace Appium4.NUnit.Framework.RealDevices.Browser
 {
     public class BaseMobileTest
     {

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Appium.Nunit.Framework
+namespace Appium4.NUnit.Framework
 {
     /// <summary>
     /// Summary description for UnitTest1
