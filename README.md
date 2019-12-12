@@ -1,7 +1,5 @@
 # C# Sauce Labs Demo Scripts and Frameworks
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8d73359469c54f01a0ba96a175514ad3)](https://app.codacy.com/app/nadvolod/demo-csharp?utm_source=github.com&utm_medium=referral&utm_content=nadvolod/demo-csharp&utm_campaign=Badge_Grade_Dashboard)
-[![Sauce Test Status](https://saucelabs.com/buildstatus/nikolay-a)](https://app.saucelabs.com/u/nikolay-a)
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/nikolay-a.svg)](https://saucelabs.com/u/nikolay-a)
 
 **Best Practices Automated Tests(Selenium WebDriver )**
 
