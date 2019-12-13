@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
-namespace Selenium.Nunit.Scripts.SaucePerformance
+namespace Selenium3.Nunit.Scripts.SaucePerformance
 {
     [TestFixture]
     [Category("performance")]

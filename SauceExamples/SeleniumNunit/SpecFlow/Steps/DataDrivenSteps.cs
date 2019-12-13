@@ -4,10 +4,10 @@ using System.Globalization;
 using Common.SauceLabs;
 using FluentAssertions;
 using OpenQA.Selenium.Remote;
-using Selenium.Nunit.Scripts.SpecFlow.Pages;
+using Selenium3.Nunit.Scripts.SpecFlow.Pages;
 using TechTalk.SpecFlow;
 
-namespace Selenium.Nunit.Scripts.SpecFlow.Steps
+namespace Selenium3.Nunit.Scripts.SpecFlow.Steps
 {
     [Binding]
     public class DataDrivenSteps : BaseSteps

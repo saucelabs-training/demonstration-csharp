@@ -10,8 +10,8 @@
     <ProjectGuid>{7B1C4CE7-45E7-436A-96D2-79493B1274ED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Web.Tests</RootNamespace>
-    <AssemblyName>Web.Tests</AssemblyName>
+    <RootNamespace>Selenium.Nunit.Framework</RootNamespace>
+    <AssemblyName>Selenium.Nunit.Framework</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -98,10 +98,6 @@
     <Compile Include="BestPractices\Pages\ProductsPage.cs" />
     <Compile Include="BestPractices\test\ShoppingCartFeature.cs" />
     <Compile Include="BestPractices\Pages\YourShoppingCartPage.cs" />
-    <Compile Include="OnboardingTests\InstantSauceTest4.cs" />
-    <Compile Include="OnboardingTests\InstantSauceTest3.cs" />
-    <Compile Include="OnboardingTests\InstantSauceTest2.cs" />
-    <Compile Include="OnboardingTests\InstantSauceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

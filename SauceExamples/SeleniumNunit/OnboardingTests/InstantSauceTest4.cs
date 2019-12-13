@@ -1,12 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
-using System;
-using System.Collections.Generic;
-using System.Threading;
 
-namespace Web.Tests.OnboardingTests
+namespace Selenium3.Nunit.Scripts.OnboardingTests
 {
     /*
      * These scripts are simply for demonstration purposes.

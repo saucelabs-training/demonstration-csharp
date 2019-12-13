@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using OpenQA.Selenium;
 
-namespace Selenium.Nunit.Scripts.BestPractices
+namespace Selenium3.Nunit.Scripts.BestPractices
 {
     internal class UltimateQAHomePage
     {

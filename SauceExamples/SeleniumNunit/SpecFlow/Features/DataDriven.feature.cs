@@ -13,7 +13,7 @@
 using TechTalk.SpecFlow;
 
 #pragma warning disable
-namespace Selenium.Nunit.Scripts.SpecFlow.Features
+namespace Selenium3.Nunit.Scripts.SpecFlow.Features
 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -1,12 +1,12 @@
+using System;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-using System;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
-namespace Web.Tests.OnboardingTests
+namespace Selenium3.Nunit.Scripts.OnboardingTests
 {
     [TestFixture]
     [Category("InstantSauceTest"), Category("NUnit"), Category("Instant")]

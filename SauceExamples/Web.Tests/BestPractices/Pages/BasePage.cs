@@ -2,7 +2,7 @@
 using Common.SauceLabs;
 using OpenQA.Selenium;
 
-namespace Web.Tests.BestPractices.Pages
+namespace Selenium.Nunit.Framework.BestPractices.Pages
 {
     public class BasePage
     {

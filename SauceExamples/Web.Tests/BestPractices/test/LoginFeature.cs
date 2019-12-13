@@ -1,8 +1,8 @@
 using FluentAssertions;
 using NUnit.Framework;
-using Web.Tests.BestPractices.Pages;
+using Selenium.Nunit.Framework.BestPractices.Pages;
 
-namespace Web.Tests.BestPractices.test
+namespace Selenium.Nunit.Framework.BestPractices.test
 {
     [TestFixture]
     [TestFixtureSource(typeof(CrossBrowserData),
