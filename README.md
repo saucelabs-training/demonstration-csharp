@@ -16,7 +16,7 @@ This directory contains example scripts and dependencies for running automated S
 The code in these scripts is provided on an "AS-IS” basis without warranty of any kind, either express or implied, including without limitation any implied warranties of condition, uninterrupted use, merchantability, fitness for a particular purpose, or non-infringement. These scripts are provided for educational and demonstration purposes only, and should not be used in production. Issues regarding these scripts should be submitted through GitHub. These scripts are maintained by the Technical Services team at Sauce Labs.
 
 ## Solution Outline
-[Copy and paste scripts to get started with Sauce Labs fast](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/OnboardingTests)
+[Copy and paste scripts to get started with Sauce Labs fast](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit/OnboardingTests)
 
 [Advanced tests that use test automation best practices on Sauce Labs](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices)
 
