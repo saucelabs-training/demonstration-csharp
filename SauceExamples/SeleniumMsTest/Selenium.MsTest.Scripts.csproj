@@ -62,7 +62,7 @@
     <Compile Include="ParallelTests\DataDriven\DataDrivenCrossBrowserParallelMethods.cs" />
     <Compile Include="ParallelTests\ParallelSeleniumMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Selenium3BrowserTests.cs" />
+    <Compile Include="Selenium3WithW3C.cs" />
     <Compile Include="SimpleTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,7 @@ namespace Selenium.MsTest.Scripts
 {
     [TestClass]
     [TestCategory("WebDriver 4 tests on Sauce")]
-    public class Selenium4SauceTests
+    public class Selenium3WithW3C
     {
         IWebDriver _driver;
         private string _sauceUserName;
