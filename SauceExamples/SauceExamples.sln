@@ -10,14 +10,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Nunit.Scripts", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02D1155D-7E24-485D-84E5-043B79A04B74}"
 	ProjectSection(SolutionItems) = preProject
+		index.html = index.html
 		..\setEnvironmentVariables.ps1 = ..\setEnvironmentVariables.ps1
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApp", "SampleApp", "{E1AE3262-10C1-4643-A426-F963ECF8AC79}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Nunit.Framework", "Web.Tests\Selenium.Nunit.Framework.csproj", "{7B1C4CE7-45E7-436A-96D2-79493B1274ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Tests", "Web.Tests\Web.Tests.csproj", "{7B1C4CE7-45E7-436A-96D2-79493B1274ED}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium.MsTest.Scripts", "AppiumLatestOnDotNetFramework\Appium.MsTest.Scripts.csproj", "{99F99E3A-B9A8-46D8-AC32-FC40552D04CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium3.MsTest.Scripts", "AppiumLatestOnDotNetFramework\Appium3.MsTest.Scripts.csproj", "{99F99E3A-B9A8-46D8-AC32-FC40552D04CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.MsTest.Scripts", "SeleniumMsTest\Selenium.MsTest.Scripts.csproj", "{8EAC3C5C-FDF4-4A85-BFE9-19EB8B30E989}"
 EndProject
@@ -31,11 +30,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium4.MsTest.Scripts", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotnetFramework", "DotnetFramework", "{C06B06E4-9DD7-4536-93D9-343944EF4F8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium.Nunit.Framework", "Mobile.Nunit.Tests\Appium.Nunit.Framework.csproj", "{87598B3B-793C-4C27-A8F7-9305CDD4884F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium4.NUnit.Framework", "Mobile.Nunit.Tests\Appium4.NUnit.Framework.csproj", "{87598B3B-793C-4C27-A8F7-9305CDD4884F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Appium", "Appium", "{21DDBE02-10ED-40E3-8F18-05B9845577BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Selenium", "Selenium", "{43F0822F-C5D4-44CE-A7BF-4FE6B6C4968C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApps", "SampleApps", "{FC693E5B-3A53-49EB-A28B-FB5A584E23C2}"
+	ProjectSection(SolutionItems) = preProject
+		\\Mac\Home\Downloads\Android.SauceLabs.Mobile.Sample.app.2.2.1.apk = \\Mac\Home\Downloads\Android.SauceLabs.Mobile.Sample.app.2.2.1.apk
+		\\Mac\Home\Downloads\iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.2.1.ipa = \\Mac\Home\Downloads\iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.2.1.ipa
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,7 +87,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{44B81F22-100A-4DF4-9473-26582250CF25} = {21DDBE02-10ED-40E3-8F18-05B9845577BC}
 		{D0544BBB-85D0-4BD0-82E2-2AC1C6BBBCF5} = {43F0822F-C5D4-44CE-A7BF-4FE6B6C4968C}
-		{7B1C4CE7-45E7-436A-96D2-79493B1274ED} = {E1AE3262-10C1-4643-A426-F963ECF8AC79}
+		{7B1C4CE7-45E7-436A-96D2-79493B1274ED} = {43F0822F-C5D4-44CE-A7BF-4FE6B6C4968C}
 		{99F99E3A-B9A8-46D8-AC32-FC40552D04CC} = {21DDBE02-10ED-40E3-8F18-05B9845577BC}
 		{8EAC3C5C-FDF4-4A85-BFE9-19EB8B30E989} = {43F0822F-C5D4-44CE-A7BF-4FE6B6C4968C}
 		{B4AB832A-65EC-44FF-B136-197A2DA8E74B} = {02D1155D-7E24-485D-84E5-043B79A04B74}
@@ -90,6 +95,7 @@ Global
 		{87598B3B-793C-4C27-A8F7-9305CDD4884F} = {21DDBE02-10ED-40E3-8F18-05B9845577BC}
 		{21DDBE02-10ED-40E3-8F18-05B9845577BC} = {C06B06E4-9DD7-4536-93D9-343944EF4F8D}
 		{43F0822F-C5D4-44CE-A7BF-4FE6B6C4968C} = {C06B06E4-9DD7-4536-93D9-343944EF4F8D}
+		{FC693E5B-3A53-49EB-A28B-FB5A584E23C2} = {21DDBE02-10ED-40E3-8F18-05B9845577BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6019E59C-E9C4-4734-90C4-B49A0CCF0A59}

@@ -1,9 +1,9 @@
-using Common;
-using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Reflection;
+using Common;
+using OpenQA.Selenium;
 
-namespace Web.Tests.BestPractices.Pages
+namespace Selenium.Nunit.Framework.BestPractices.Pages
 {
     public class SauceDemoLoginPage : BasePage
     {

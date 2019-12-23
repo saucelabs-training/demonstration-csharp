@@ -7,7 +7,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using Simple.Sauce;
 
-namespace Selenium.Nunit.Scripts.SimpleExamples
+namespace Selenium3.Nunit.Scripts.SimpleExamples
 {
     [TestFixture]
     [Category("SimpleTest")]

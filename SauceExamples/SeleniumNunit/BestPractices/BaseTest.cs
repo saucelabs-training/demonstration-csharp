@@ -4,7 +4,7 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 
-namespace Selenium.Nunit.Scripts.BestPractices
+namespace Selenium3.Nunit.Scripts.BestPractices
 {
     [TestFixture()]
     [Category("AcceptanceTests")]
@@ -20,11 +20,12 @@ namespace Selenium.Nunit.Scripts.BestPractices
         {
             //Make sure to check if your Driver is null before performing operations
             //with it in TearDown. It might not be initialized correctly
-            if (Driver != null)
+            if (Driver is null)
             {
-                new SauceJavaScriptExecutor(Driver).LogTestStatus(TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed);
-                Driver?.Quit();
+                return;
             }
+            new SauceJavaScriptExecutor(Driver).LogTestStatus(TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed);
+            Driver?.Quit();
         }
         public IWebDriver Driver { get; set; }
     }

@@ -16,33 +16,33 @@ namespace Selenium.MsTest.Scripts
         [TestMethod]
         public void PerformanceTestingSample()
         {
-            var sauceUserName = Environment.GetEnvironmentVariable(
-                "SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            var sauceAccessKey = Environment.GetEnvironmentVariable(
-                "SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+//            var sauceUserName = Environment.GetEnvironmentVariable(
+//                "SAUCE_USERNAME", EnvironmentVariableTarget.User);
+//            var sauceAccessKey = Environment.GetEnvironmentVariable(
+//                "SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
 
-#pragma warning disable 618
+//#pragma warning disable 618
 
-            DesiredCapabilities caps = new DesiredCapabilities();
-            caps.SetCapability("browserName", "Chrome");
-            //set operating system to macOS version 10.13
-            caps.SetCapability("platform", "Windows 10");
-            //set the browser version to 11.1
-            caps.SetCapability("version", "latest");
-            caps.SetCapability("username", sauceUserName);
-            caps.SetCapability("accessKey", sauceAccessKey);
+//            DesiredCapabilities caps = new DesiredCapabilities();
+//            caps.SetCapability("browserName", "Chrome");
+//            //set operating system to macOS version 10.13
+//            caps.SetCapability("platform", "Windows 10");
+//            //set the browser version to 11.1
+//            caps.SetCapability("version", "latest");
+//            caps.SetCapability("username", sauceUserName);
+//            caps.SetCapability("accessKey", sauceAccessKey);
 
-            caps.SetCapability("name", MethodBase.GetCurrentMethod().Name);
-            caps.SetCapability("build", "SampleReleaseA");
-            var tags = new List<string> { "Release1", "SmokeTests", "LoginFeature" };
-            caps.SetCapability("tags", tags);
-            caps.SetCapability("extendedDebugging", true);
-#pragma warning restore 618
-            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), caps,
-                TimeSpan.FromSeconds(600));
-            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:context=" + "Start Test");
-            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:context=" + "Open Sauce Demo");
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+//            caps.SetCapability("name", MethodBase.GetCurrentMethod().Name);
+//            caps.SetCapability("build", "SampleReleaseA");
+//            var tags = new List<string> { "Release1", "SmokeTests", "LoginFeature" };
+//            caps.SetCapability("tags", tags);
+//            caps.SetCapability("extendedDebugging", true);
+//#pragma warning restore 618
+//            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), caps,
+//                TimeSpan.FromSeconds(600));
+//            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:context=" + "Start Test");
+//            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:context=" + "Open Sauce Demo");
+//            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
 
             //var throttleOptions = new Dictionary<string, object>();
             //throttleOptions["condition"] = "offline";

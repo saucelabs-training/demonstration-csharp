@@ -1,15 +1,15 @@
-﻿using Common;
+﻿using System;
+using System.Configuration;
+using Common;
+using Common.SauceLabs;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using RestSharp;
 using RestSharp.Authenticators;
-using System;
-using System.Configuration;
-using Common.SauceLabs;
 
-namespace Web.Tests.BestPractices.test
+namespace Selenium.Nunit.Framework.BestPractices.test
 {
     //TODO this whole class is a duplication of BaseCrossBrowserTEst.cs
     //The reason why it was duplicated was because I needed to be able to configure

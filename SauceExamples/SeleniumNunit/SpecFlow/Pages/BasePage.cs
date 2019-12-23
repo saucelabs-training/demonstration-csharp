@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Selenium.Nunit.Scripts.SpecFlow.Pages
+namespace Selenium3.Nunit.Scripts.SpecFlow.Pages
 {
     public class BasePage
     {

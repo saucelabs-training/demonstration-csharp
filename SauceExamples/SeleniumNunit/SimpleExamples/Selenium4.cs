@@ -9,7 +9,7 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 
-namespace Selenium.Nunit.Scripts.SimpleExamples
+namespace Selenium3.Nunit.Scripts.SimpleExamples
 {
     [TestFixture]
     [Category("Selenium 4 tests")]

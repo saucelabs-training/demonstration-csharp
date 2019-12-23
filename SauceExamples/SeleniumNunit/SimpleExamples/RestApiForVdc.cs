@@ -7,7 +7,7 @@ using OpenQA.Selenium.Remote;
 using RestSharp;
 using RestSharp.Authenticators;
 
-namespace Selenium.Nunit.Scripts.SimpleExamples
+namespace Selenium3.Nunit.Scripts.SimpleExamples
 {
     [TestFixture]
     [Category("SimpleTest")]

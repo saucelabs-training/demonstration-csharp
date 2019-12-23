@@ -1,4 +1,4 @@
-namespace Web.Tests.BestPractices.Pages
+namespace Selenium.Nunit.Framework.BestPractices.Pages
 {
     public enum Item
     {

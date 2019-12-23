@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using Web.Tests.BestPractices.Elements;
+using Selenium.Nunit.Framework.BestPractices.Elements;
 
-namespace Web.Tests.BestPractices.Pages
+namespace Selenium.Nunit.Framework.BestPractices.Pages
 {
     public class CheckoutOverviewPage : BasePage
     {
