@@ -31,24 +31,6 @@ namespace Selenium3.Nunit.Scripts.OnboardingTests
              * In this section, we will configure our test to run on some specific
              * browser/os combination in Sauce Labs
              */
-            var capabilities = new DesiredCapabilities();
-            capabilities.SetCapability("username", sauceUserName);
-            capabilities.SetCapability("accessKey", sauceAccessKey);
-            capabilities.SetCapability("browserName", "Safari");
-            capabilities.SetCapability("platform", "macOS 10.13");
-            capabilities.SetCapability("version", "11.1");
-            capabilities.SetCapability("name", TestContext.CurrentContext.Test.Name);
-            _driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"),
-                capabilities, TimeSpan.FromSeconds(600));
-
-            //TODO Please supply your publicly available web url in place of saucedemo.com
-            //In the future, you will learn how to access private URLs
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-
-            //Hardcoded sleep just for demonstration purposes
-            Thread.Sleep(10000);
-            //This test will always pass for demonstration purposes
-            Assert.IsTrue(true);
         }
 
         /*

@@ -17,7 +17,7 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
         private SauceSession _sauce;
 
         [Test]
-        public void DemoTest()
+        public void DemoSimpleSauce()
         {
             _sauce = new SauceSession
             {
@@ -26,8 +26,8 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
             };
             _driver = _sauce.Start();
 
-            _driver.Navigate().GoToUrl("https://www.google.com");
-            Assert.Pass();
+            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Assert.That(_driver.Title, Is.EqualTo("Swag Labs"));
         }
 
         [TearDown]
