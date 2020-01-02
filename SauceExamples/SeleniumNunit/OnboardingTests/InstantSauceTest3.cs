@@ -25,18 +25,6 @@ namespace Selenium3.Nunit.Scripts.OnboardingTests
              * another browser/OS combination: https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
              * Paste that code below.
              */
-            DesiredCapabilities caps = new DesiredCapabilities();
-            caps.SetCapability("browserName", "MicrosoftEdge");
-            caps.SetCapability("platform", "Windows 10");
-            caps.SetCapability("version", "16.16299");
-
-            //Make sure that you leave this information alone when updating the DesiredCaps above
-            caps.SetCapability("username", sauceUserName);
-            caps.SetCapability("accessKey", sauceAccessKey);
-            caps.SetCapability("name", TestContext.CurrentContext.Test.Name);
-            _driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"),
-                caps, TimeSpan.FromSeconds(600));
-
             //TODO Please supply your publicly available web url in place of saucedemo.com
             //In the future, you will learn how to access private URLs
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");

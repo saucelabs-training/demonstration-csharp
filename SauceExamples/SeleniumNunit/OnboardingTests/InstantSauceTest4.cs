@@ -4,7 +4,9 @@ using System.Threading;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.Target;
 using OpenQA.Selenium.Remote;
+using Simple.Sauce;
 
 namespace Selenium3.Nunit.Scripts.OnboardingTests
 {
@@ -44,42 +46,8 @@ namespace Selenium3.Nunit.Scripts.OnboardingTests
         [SetUp]
         public void ExecuteBeforeEveryTest()
         {
-            DesiredCapabilities caps = new DesiredCapabilities();
-            caps.SetCapability("browserName", "Safari");
-            caps.SetCapability("platform", "macOS 10.13");
-            caps.SetCapability("version", "11.1");
-            caps.SetCapability("username", _sauceUserName);
-            caps.SetCapability("accessKey", _sauceAccessKey);
-            caps.SetCapability("name", TestContext.CurrentContext.Test.Name);
-
-            //Tags are an excellent way to control and filter your test automation
-            //in Sauce Analytics. Get a better view into your test automation.
-            var tags = new List<string> { "demoTest", "sauceDemo" };
-            caps.SetCapability("tags", tags);
-            /*
-             * One of the most important things that you can do to get started
-             * is to set timeout capabilities for Sauce based on your organizations needs
-             */
-            //How long is the whole test allowed to run?
-            caps.SetCapability("maxDuration", 3600);
-            //Selenium crash might hang a command, this is the max time allowed to wait for a Selenium command
-            //600sec is a great start for majority of engineers
-            caps.SetCapability("commandTimeout", 600);
-            //How long can the browser wait before a new command?
-            //1000sec is max and is a good timeout duration for most engineers
-            caps.SetCapability("idleTimeout", 1000);
-            /*
-             * Setting a build name is one of the most fundamental pieces of running
-             * successful test automation. Builds will gather all of your tests into a single
-             * 'test suite' that you can analyze for results.
-             * You should always group your tests into builds.
-             */
-            caps.SetCapability("build", "SauceDemo");
-
-            _driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"),
-                caps, TimeSpan.FromSeconds(600));
-
-            _javascriptExecutor = ((IJavaScriptExecutor)_driver);
+            var sauceOptions = new SauceOptions();
+            //sauceOptions.WithSafari(Browsers.Safari._11_1).WithPlatform(Platforms.MacOsMojave);
         }
 
 

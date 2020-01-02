@@ -29,29 +29,29 @@ namespace Selenium.Nunit.Framework.BestPractices.test
         private readonly string _browser;
         private readonly string _browserVersion;
         private readonly string _osPlatform;
-        //private SauceSession _sauce;
+        public SauceJavaScriptExecutor SauceReporter;
+        private SauceLabsCapabilities SauceConfig { get; set; }
 
         [SetUp]
         public void ExecuteBeforeEveryTestMethod()
         {
-            //var options = new SauceOptions
-            //{
-            //    IsExtendedDebuggingEnabled = bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"]),
-            //    Browser = _browser,
-            //    BrowserVersion = _browserVersion,
-            //    OperatingSystem = _osPlatform
-            //};
-            //_sauce = new SauceSession(options);
-            //_sauce.DataCenter = DataCenter.USEast;  //TODO this will mean that it's headless
-            //Driver = _sauce.Start();
-            //_sauce.TestName = TestContext.CurrentContext.Test.Name;
-            //_sauce.BuildName = ConfigurationManager.AppSettings["buildName"];   //set by default, no need to explicitly state
+            SauceConfig = new SauceLabsCapabilities
+            {
+                IsDebuggingEnabled = bool.Parse(ConfigurationManager.AppSettings["isExtendedDebuggingEnabled"]),
+                IsHeadless = bool.Parse(ConfigurationManager.AppSettings["sauceHeadless"])
+            };
+            SauceLabsCapabilities.BuildName = ConfigurationManager.AppSettings["buildName"];
+
+            Driver = new WebDriverFactory(SauceConfig).CreateSauceDriver(_browser, _browserVersion, _osPlatform);
+            SauceReporter = new SauceJavaScriptExecutor(Driver);
+            SauceReporter.SetTestName(TestContext.CurrentContext.Test.Name);
+            SauceReporter.SetBuildName(SauceLabsCapabilities.BuildName);
         }
 
         [TearDown]
         public void CleanUpAfterEveryTestMethod()
         {
-            //if (_sauce != null) ExecuteSauceCleanupSteps();
+            if (SauceConfig.IsUsingSauceLabs) ExecuteSauceCleanupSteps();
             Driver?.Quit();
         }
 
@@ -59,10 +59,10 @@ namespace Selenium.Nunit.Framework.BestPractices.test
         {
             var isPassed = TestContext.CurrentContext.Result.Outcome.Status
                 == TestStatus.Passed;
-            //TODO could also log a comment "Test finished execution"
-            //TODO will also log the error message if it failed. In the future can take the
-            //whole TestContext and parse out the relevant data
-            //_sauce.Stop(isPassed, TestContext.CurrentContext.Result.Message);
+            SauceReporter.LogTestStatus(isPassed);
+            //SetTestStatusUsingApi(isPassed);
+            SauceReporter.LogMessage("Test finished execution");
+            SauceReporter.LogMessage(TestContext.CurrentContext.Result.Message);
         }
 
         private void SetTestStatusUsingApi(bool isPassed)

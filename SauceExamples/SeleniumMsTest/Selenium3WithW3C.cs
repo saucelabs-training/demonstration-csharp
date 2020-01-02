@@ -9,6 +9,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
+using Simple.Sauce;
 
 namespace Selenium.MsTest.Scripts
 {
@@ -81,6 +82,13 @@ namespace Selenium.MsTest.Scripts
             GoToThenAssert();
         }
         [TestMethod]
+        public void ChromeW3CSimpleSauce()
+        {
+            var sauce = new SauceSession();
+            _driver = sauce.Start();
+            GoToThenAssert();
+        }
+        [TestMethod]
         public void SafariW3C()
         {
             SafariOptions safariOptions = new SafariOptions
@@ -112,25 +120,25 @@ namespace Selenium.MsTest.Scripts
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
             GoToThenAssert();
         }
-        [TestInitialize]
-        public void SetupTests()
-        {
-            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-            sauceOptions = new Dictionary<string, object>
-            {
-                ["username"] = _sauceUserName,
-                ["accessKey"] = _sauceAccessKey
-            };
-        }
-        [TestCleanup]
-        public void CleanUpAfterEveryTestMethod()
-        {
-            var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
-            if (_driver == null) return;
+        //[TestInitialize]
+        //public void SetupTests()
+        //{
+        //    _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+        //    _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+        //    sauceOptions = new Dictionary<string, object>
+        //    {
+        //        ["username"] = _sauceUserName,
+        //        ["accessKey"] = _sauceAccessKey
+        //    };
+        //}
+        //[TestCleanup]
+        //public void CleanUpAfterEveryTestMethod()
+        //{
+        //    var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
+        //    if (_driver == null) return;
             
-            ((IJavaScriptExecutor) _driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
-            _driver.Quit();
-        }
+        //    ((IJavaScriptExecutor) _driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+        //    _driver.Quit();
+        //}
     }
 }

@@ -15,17 +15,17 @@ namespace Selenium3.Nunit.Scripts.SpecFlow.Steps
         [Given(@"I have an OS (.*) with browser (.*) and browser version (.*) opened")]
         public void GivenIHaveAnOSWithBrowserAndBrowserVersionOpened(string os, string browser, string version)
         {
-            var _desiredCapabilities = new DesiredCapabilities();
-            _desiredCapabilities.SetCapability(CapabilityType.BrowserName, browser);
-            _desiredCapabilities.SetCapability(CapabilityType.Version, version);
-            _desiredCapabilities.SetCapability(CapabilityType.Platform, os);
-            _desiredCapabilities.SetCapability("username", SauceUser.Name);
-            _desiredCapabilities.SetCapability("accessKey", SauceUser.AccessKey);
-            _desiredCapabilities.SetCapability("build", $"SauceExamples-{DateTime.Now.ToString(CultureInfo.InvariantCulture)}");
-            var tags = new List<string> { "BDD", "Specflow" };
-            _desiredCapabilities.SetCapability("tags", tags);
-            Driver = new RemoteWebDriver(new Uri(new SauceLabsEndpoint().SauceHubUrl),
-                _desiredCapabilities, TimeSpan.FromSeconds(600));
+            //var _desiredCapabilities = new DesiredCapabilities();
+            //_desiredCapabilities.SetCapability(CapabilityType.BrowserName, browser);
+            //_desiredCapabilities.SetCapability(CapabilityType.Version, version);
+            //_desiredCapabilities.SetCapability(CapabilityType.Platform, os);
+            //_desiredCapabilities.SetCapability("username", SauceUser.Name);
+            //_desiredCapabilities.SetCapability("accessKey", SauceUser.AccessKey);
+            //_desiredCapabilities.SetCapability("build", $"SauceExamples-{DateTime.Now.ToString(CultureInfo.InvariantCulture)}");
+            //var tags = new List<string> { "BDD", "Specflow" };
+            //_desiredCapabilities.SetCapability("tags", tags);
+            //Driver = new RemoteWebDriver(new Uri(new SauceLabsEndpoint().SauceHubUrl),
+            //    _desiredCapabilities, TimeSpan.FromSeconds(600));
         }
 
         [When(@"I open the SauceDemo home page")]
