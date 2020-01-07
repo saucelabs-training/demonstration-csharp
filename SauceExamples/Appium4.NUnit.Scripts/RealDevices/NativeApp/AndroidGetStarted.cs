@@ -3,7 +3,6 @@ using System.Reflection;
 using Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Remote;
 
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
@@ -15,6 +14,11 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
         private IWebDriver _driver;
 
         [TestMethod]
+        [TestCategory("Android")]
+        [TestCategory("SimpleTest")]
+        [TestCategory("Rdc")]
+        [TestCategory("NativeApp")]
+
         public void ShouldOpenApp()
         {
             var capabilities = new DesiredCapabilities();
@@ -36,6 +40,7 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
                 TimeSpan.FromSeconds(300));
             var size = _driver.Manage().Window.Size;
             Assert.AreNotEqual(0, size.Height);
+            
             //Always making sure to end the session at the end of any test
             _driver?.Quit();
         }
