@@ -66,6 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SauceLabs\SauceJavaScriptExecutor.cs" />
     <Compile Include="SauceLabs\SauceSetup.cs" />
