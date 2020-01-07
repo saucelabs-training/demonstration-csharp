@@ -9,7 +9,6 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
-using Simple.Sauce;
 
 namespace Selenium.MsTest.Scripts
 {
@@ -84,8 +83,6 @@ namespace Selenium.MsTest.Scripts
         [TestMethod]
         public void ChromeW3CSimpleSauce()
         {
-            var sauce = new SauceSession();
-            _driver = sauce.Start();
             GoToThenAssert();
         }
         [TestMethod]
