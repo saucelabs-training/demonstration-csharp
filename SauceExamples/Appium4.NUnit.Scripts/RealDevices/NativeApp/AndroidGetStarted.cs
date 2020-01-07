@@ -18,6 +18,8 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
         [TestCategory("SimpleTest")]
         [TestCategory("Rdc")]
         [TestCategory("NativeApp")]
+        [TestCategory("Appium4NUnitScripts")]
+
 
         public void ShouldOpenApp()
         {
@@ -29,7 +31,7 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 
             /*
              * !!!!!!
-             * TODO first you must upload an app to Test Object so that you get your app key
+             * TODO first you must upload an app to RDC so that you get your app key
              * Then, make sure you can hardcode it here just to get started
              */
             capabilities.SetCapability("testobject_api_key", new ApiKeys().Rdc.Apps.SampleAppAndroid);
