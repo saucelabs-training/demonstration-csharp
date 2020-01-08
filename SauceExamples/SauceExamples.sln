@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.MsTest.Scripts", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Posh", "Posh", "{B4AB832A-65EC-44FF-B136-197A2DA8E74B}"
 	ProjectSection(SolutionItems) = preProject
+		Set-RdcEnvironmentVariables.ps1 = Set-RdcEnvironmentVariables.ps1
+		..\setEnvironmentVariables.ps1 = ..\setEnvironmentVariables.ps1
 		..\Test-SauceConnectState.ps1 = ..\Test-SauceConnectState.ps1
 		..\Test-SauceConnectState.Tests.ps1 = ..\Test-SauceConnectState.Tests.ps1
 	EndProjectSection
