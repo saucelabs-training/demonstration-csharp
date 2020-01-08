@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Reflection;
 using Common;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 {
-    [TestClass]
+    [TestFixture]
     public class AndroidGetStarted
     {
         private static string RdcUsHubUrl => "https://us1.appium.testobject.com/wd/hub";
         private IWebDriver _driver;
 
-        [TestMethod]
-        [TestCategory("Android")]
-        [TestCategory("SimpleTest")]
-        [TestCategory("Rdc")]
-        [TestCategory("NativeApp")]
-        [TestCategory("Appium4NUnitScripts")]
+        [Test]
+        [Category("Android")]
+        [Category("SimpleTest")]
+        [Category("Rdc")]
+        [Category("NativeApp")]
+        [Category("Appium4NUnitScripts")]
 
 
         public void ShouldOpenApp()
