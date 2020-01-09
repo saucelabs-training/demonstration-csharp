@@ -8,7 +8,6 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Remote;
-using RestSharp;
 
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 {
@@ -43,30 +42,18 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
 
-            //60 seconds for the connection timeout
             _driver = new AndroidDriver<AndroidElement>(new Uri(RdcUsHubUrl), capabilities);
         }
         [TearDown]
         public void Teardown()
         {
-            if (_driver != null)
-            {
-                _sessionId = _driver.SessionId;
-                _driver.Quit();
-            }
+            if (_driver == null) return;
 
+            _sessionId = _driver.SessionId;
+            _driver.Quit();
             var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
+            new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _sessionId);
 
-            var client = new RestClient
-            {
-                BaseUrl = new Uri("https://app.testobject.com/api/rest")
-            };
-            var request = new RestRequest($"/v2/appium/session/{_sessionId}/test", Method.PUT)
-            {
-                RequestFormat = DataFormat.Json
-            };
-            request.AddJsonBody(new { passed = isTestPassed });
-            client.Execute(request);
         }
 
         [Test]
