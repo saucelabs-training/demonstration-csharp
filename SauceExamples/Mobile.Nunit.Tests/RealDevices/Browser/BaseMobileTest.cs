@@ -1,16 +1,17 @@
 ﻿using System;
+using Common;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
+using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Remote;
-using RestSharp;
 
 namespace Appium4.NUnit.Framework.RealDevices.Browser
 {
     public class BaseMobileTest
     {
-        public SessionId _sessionId;
-        public RemoteWebDriver _driver;
-        public DesiredCapabilities browserCapabilities;
+        private SessionId _sessionId;
+        public RemoteWebDriver Driver;
+        public AppiumOptions BrowserCapabilities;
 
         public static string RdcServerUrlUs => "https://us1.appium.testobject.com/wd/hub";
 
@@ -24,35 +25,23 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
         [SetUp]
         public void Setup()
         {
-            browserCapabilities = new DesiredCapabilities();
+            BrowserCapabilities = new AppiumOptions();
             //this is the API key that you get from your app in Test Object
-            browserCapabilities.SetCapability("testobject_api_key", SauceDemoMobileBrowserAppApiKey);
-            browserCapabilities.SetCapability("deviceOrientation", "portrait");
-            browserCapabilities.SetCapability("browserName", "chrome");
-            browserCapabilities.SetCapability("name", TestContext.CurrentContext.Test.Name);
-            browserCapabilities.SetCapability("newCommandTimeout", 90);
+            BrowserCapabilities.AddAdditionalCapability("testobject_api_key", SauceDemoMobileBrowserAppApiKey);
+            BrowserCapabilities.AddAdditionalCapability("deviceOrientation", "portrait");
+            BrowserCapabilities.AddAdditionalCapability("browserName", "chrome");
+            BrowserCapabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
+            BrowserCapabilities.AddAdditionalCapability("newCommandTimeout", 90);
         }
         [TearDown]
         public void Teardown()
         {
-            if (_driver != null)
-            {
-                _sessionId = _driver.SessionId;
-                _driver.Quit();
-            }
+            if (Driver == null) return;
 
+            _sessionId = Driver.SessionId;
+            Driver.Quit();
             var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-
-            var client = new RestClient
-            {
-                BaseUrl = new Uri("https://app.testobject.com/api/rest")
-            };
-            var request = new RestRequest($"/v2/appium/session/{_sessionId}/test", Method.PUT)
-            {
-                RequestFormat = DataFormat.Json
-            };
-            request.AddJsonBody(new { passed = isTestPassed });
-            client.Execute(request);
+            new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _sessionId);
         }
 
     }

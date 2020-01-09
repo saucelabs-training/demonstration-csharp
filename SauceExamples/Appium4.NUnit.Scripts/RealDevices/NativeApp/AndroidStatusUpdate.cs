@@ -53,7 +53,6 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             _driver.Quit();
             var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
             new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _sessionId);
-
         }
 
         [Test]

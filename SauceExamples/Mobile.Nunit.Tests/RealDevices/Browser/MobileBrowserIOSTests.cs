@@ -10,32 +10,29 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
         [Test]
         public void MobileBrowser_iOS12_ShouldPass()
         {
-            browserCapabilities.SetCapability("platformVersion", "12.4");
-            browserCapabilities.SetCapability("platformName", "iOS");
-            _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), browserCapabilities,
-                TimeSpan.FromSeconds(600));
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));
+            BrowserCapabilities.AddAdditionalCapability("platformVersion", "12.4");
+            BrowserCapabilities.AddAdditionalCapability("platformName", "iOS");
+            Driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), BrowserCapabilities);
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Assert.IsTrue(Driver.Url.Contains("saucedemo.com"));
         }
         [Test]
         public void MobileBrowser_iOS13_2_ShouldPass()
         {
-            browserCapabilities.SetCapability("platformVersion", "13.2");
-            browserCapabilities.SetCapability("platformName", "iOS");
-            _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), browserCapabilities,
-                TimeSpan.FromSeconds(600));
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));
+            BrowserCapabilities.AddAdditionalCapability("platformVersion", "13.2");
+            BrowserCapabilities.AddAdditionalCapability("platformName", "iOS");
+            Driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), BrowserCapabilities);
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Assert.IsTrue(Driver.Url.Contains("saucedemo.com"));
         }
         [Test]
         public void MobileBrowser_iOS11_4_1_ShouldPass()
         {
-            browserCapabilities.SetCapability("platformVersion", "11.4.1");
-            browserCapabilities.SetCapability("platformName", "iOS");
-            _driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), browserCapabilities,
-                TimeSpan.FromSeconds(600));
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));
+            BrowserCapabilities.AddAdditionalCapability("platformVersion", "11.4.1");
+            BrowserCapabilities.AddAdditionalCapability("platformName", "iOS");
+            Driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), BrowserCapabilities);
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Assert.IsTrue(Driver.Url.Contains("saucedemo.com"));
         }
     }
 }
