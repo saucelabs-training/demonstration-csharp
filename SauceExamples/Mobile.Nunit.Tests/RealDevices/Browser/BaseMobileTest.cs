@@ -3,6 +3,7 @@ using Common;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Remote;
 
 namespace Appium4.NUnit.Framework.RealDevices.Browser
@@ -12,6 +13,14 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
         private SessionId _sessionId;
         public RemoteWebDriver Driver;
         public AppiumOptions BrowserCapabilities;
+        private string _platformName;
+        private string _platformVersion;
+
+        public BaseMobileTest(string platformName, string platformVersion)
+        {
+            _platformName = platformName;
+            _platformVersion = platformVersion;
+        }
 
         public static string RdcServerUrlUs => "https://us1.appium.testobject.com/wd/hub";
 
@@ -30,8 +39,11 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
             BrowserCapabilities.AddAdditionalCapability("testobject_api_key", SauceDemoMobileBrowserAppApiKey);
             BrowserCapabilities.AddAdditionalCapability("deviceOrientation", "portrait");
             BrowserCapabilities.AddAdditionalCapability("browserName", "chrome");
-            BrowserCapabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
+            BrowserCapabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.FullName);
             BrowserCapabilities.AddAdditionalCapability("newCommandTimeout", 90);
+            BrowserCapabilities.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, _platformVersion);
+            BrowserCapabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, _platformName);
+            Driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), BrowserCapabilities);
         }
         [TearDown]
         public void Teardown()

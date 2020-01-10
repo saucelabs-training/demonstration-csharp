@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using OpenQA.Selenium.Remote;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Common
@@ -8,12 +9,14 @@ namespace Common
     public class Wait
     {
         private IWebDriver _driver;
-        private WebDriverWait _wait => new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+        private WebDriverWait _wait { get; set; }
+
         private readonly By _locator;
 
         public Wait(IWebDriver driver)
         {
             _driver = driver;
+            _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
         }
 
         public IWebElement UntilIsVisible(By locator)
@@ -28,6 +31,13 @@ namespace Common
         {
             _driver = driver;
             _locator = locator;
+            _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+        }
+
+        public Wait(IWebDriver driver, int timeoutInSeconds)
+        {
+            _driver = driver;
+            _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(timeoutInSeconds));
         }
 
         public bool IsVisible()
