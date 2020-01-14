@@ -8,6 +8,8 @@ using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
+using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 {
@@ -32,6 +34,8 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             //Make sure to pick an Android or iOS device based on your app
             capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "Google Pixel");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
+            capabilities.AddAdditionalCapability("locale", "CA");
+            capabilities.AddAdditionalCapability("language", "en");
 
             /*
              * !!!!!!
@@ -40,7 +44,8 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
              */
             capabilities.AddAdditionalCapability("testobject_api_key", new ApiKeys().Rdc.Apps.SampleAppAndroid);
             capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
-            capabilities.AddAdditionalCapability("newCommandTimeout", 90);
+            //It's important to keep the newCommandTimeout on the higher end as Real Devices are slow
+            capabilities.AddAdditionalCapability("newCommandTimeout", 180);
 
             _driver = new AndroidDriver<AndroidElement>(new Uri(RdcUsHubUrl), capabilities);
         }
@@ -51,6 +56,7 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 
             _sessionId = _driver.SessionId;
             _driver.Quit();
+            //TODO fix this as it doesn't seem to update the status for failed tests
             var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
             new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _sessionId);
         }
@@ -66,6 +72,52 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
         {
             var size = _driver.Manage().Window.Size;
             Assert.AreNotEqual(0, size.Height);
+        }
+        [Test]
+        [Category("Android")]
+        [Category("SimpleTest")]
+        [Category("Rdc")]
+        [Category("NativeApp")]
+        [Category("Appium4NUnitScripts")]
+
+        public void ShouldLogin()
+        {
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
+            //var login = wait.Until(ExpectedConditions.ElementIsVisible());
+            //wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(
+            //    By.ClassName("android.widget.ListView")));
+
+            var userName = wait.Until(ExpectedConditions.ElementIsVisible(
+                MobileBy.AccessibilityId("test-Username")));
+            //_driver.FindElementByAccessibilityId("test-Username");
+            userName.SendKeys("standard_user");
+
+            var password = wait.Until(ExpectedConditions.ElementIsVisible(
+                MobileBy.AccessibilityId("test-Password")));
+            //_driver.FindElementByAccessibilityId("test-Password");
+            password.SendKeys("secret_sauce");
+
+            var login = wait.Until(ExpectedConditions.ElementIsVisible(
+                MobileBy.AccessibilityId("test-LOGIN")));
+            login.Click();
+
+            //var cartElement =
+            //    wait.Until(ExpectedConditions.ElementIsVisible(
+            //        By.XPath("//*[@content-desc='test - Cart']")));
+
+            //Didn't work
+            //var products = _driver.FindElementByAccessibilityId("test-PRODUCTS");
+            //Assert.IsTrue(products.Displayed);
+
+            IWebElement cartElement;
+            //didn't work
+            //cartElement = wait.Until(ExpectedConditions.ElementIsVisible(
+            //    By.XPath("//android.view.ViewGroup[@content-desc='test - Cart']")));
+
+            cartElement =
+                wait.Until(ExpectedConditions.ElementIsVisible(
+                    By.XPath("//android.view.ViewGroup[@content-desc='test - Cart']/android.view.ViewGroup/android.widget.ImageView")));
+            Assert.IsTrue(cartElement.Displayed);
         }
     }
 }

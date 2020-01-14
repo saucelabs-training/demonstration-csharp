@@ -12,7 +12,6 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
         public SauceJavaScriptExecutor SauceJsExecutor =>
             new SauceJavaScriptExecutor(Driver);
 
-        public Wait Wait => new Wait(Driver);
         public string BaseUrl => _baseUrl;
 
         public BasePage(IWebDriver driver)
