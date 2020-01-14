@@ -34,7 +34,8 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             //Make sure to pick an Android or iOS device based on your app
             capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "Google Pixel");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
-            capabilities.AddAdditionalCapability("locale", "CA");
+            //make sure you set locale as sometimes it opens in a different location and throws off locations
+            capabilities.AddAdditionalCapability("locale", "en");
             capabilities.AddAdditionalCapability("language", "en");
 
             /*
@@ -101,22 +102,8 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
                 MobileBy.AccessibilityId("test-LOGIN")));
             login.Click();
 
-            //var cartElement =
-            //    wait.Until(ExpectedConditions.ElementIsVisible(
-            //        By.XPath("//*[@content-desc='test - Cart']")));
-
-            //Didn't work
-            //var products = _driver.FindElementByAccessibilityId("test-PRODUCTS");
-            //Assert.IsTrue(products.Displayed);
-
-            IWebElement cartElement;
-            //didn't work
-            //cartElement = wait.Until(ExpectedConditions.ElementIsVisible(
-            //    By.XPath("//android.view.ViewGroup[@content-desc='test - Cart']")));
-
-            cartElement =
-                wait.Until(ExpectedConditions.ElementIsVisible(
-                    By.XPath("//android.view.ViewGroup[@content-desc='test - Cart']/android.view.ViewGroup/android.widget.ImageView")));
+            var cartElement = wait.Until(ExpectedConditions.ElementIsVisible(
+                By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']")));
             Assert.IsTrue(cartElement.Displayed);
         }
     }
