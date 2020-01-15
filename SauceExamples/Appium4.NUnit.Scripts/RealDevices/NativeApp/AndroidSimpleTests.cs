@@ -14,7 +14,7 @@ using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 {
     [TestFixture]
-    public class AndroidStatusUpdate
+    public class AndroidSimpleTests
     {
         /*
          * This is the very basic setup that you should have for your test automation.
@@ -84,18 +84,13 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
         public void ShouldLogin()
         {
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
-            //var login = wait.Until(ExpectedConditions.ElementIsVisible());
-            //wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(
-            //    By.ClassName("android.widget.ListView")));
 
             var userName = wait.Until(ExpectedConditions.ElementIsVisible(
                 MobileBy.AccessibilityId("test-Username")));
-            //_driver.FindElementByAccessibilityId("test-Username");
             userName.SendKeys("standard_user");
 
             var password = wait.Until(ExpectedConditions.ElementIsVisible(
                 MobileBy.AccessibilityId("test-Password")));
-            //_driver.FindElementByAccessibilityId("test-Password");
             password.SendKeys("secret_sauce");
 
             var login = wait.Until(ExpectedConditions.ElementIsVisible(
