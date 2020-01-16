@@ -20,4 +20,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 //Set this value to the Maximum amount of VMs that you have in Sauce Labs
 [assembly: Parallelizable(ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(100)]
+[assembly: LevelOfParallelism(5)]
