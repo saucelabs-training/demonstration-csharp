@@ -1,5 +1,4 @@
-﻿using Common;
-using Common.SauceLabs;
+﻿using Common.SauceLabs;
 using OpenQA.Selenium;
 
 namespace Appium4.NUnit.Framework.RealDevices.Browser

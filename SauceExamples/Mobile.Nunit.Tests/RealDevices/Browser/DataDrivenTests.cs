@@ -1,10 +1,5 @@
-﻿using System;
-using Common;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Appium.Enums;
-using OpenQA.Selenium.Remote;
 
 namespace Appium4.NUnit.Framework.RealDevices.Browser
 {

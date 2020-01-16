@@ -1,10 +1,6 @@
-﻿using System;
-using System.Reflection;
-using Common.SauceLabs;
+﻿using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.UI;
 
 namespace Selenium.MsTest.Scripts.ParallelTests
 {

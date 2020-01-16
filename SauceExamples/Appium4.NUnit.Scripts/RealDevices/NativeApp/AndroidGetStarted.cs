@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Reflection;
 using Common;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
-using OpenQA.Selenium.Remote;
 
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 {
