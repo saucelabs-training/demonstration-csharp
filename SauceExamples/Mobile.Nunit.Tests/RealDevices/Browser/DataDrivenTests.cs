@@ -15,7 +15,7 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
         }
 
         [Test]
-        public void AndroidDataDrivenMobileBrowserTest()
+        public void ShouldOpenLoginPage()
         {
             new LoginPage(Driver).Open().IsLoaded.Should().BeTrue("the login page should load successfully.");
         }

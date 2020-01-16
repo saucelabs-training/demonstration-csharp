@@ -12,9 +12,9 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
     {
         private SessionId _sessionId;
         public RemoteWebDriver Driver;
-        public AppiumOptions BrowserCapabilities;
-        private string _platformName;
-        private string _platformVersion;
+        private AppiumOptions _browserCapabilities;
+        private readonly string _platformName;
+        private readonly string _platformVersion;
 
         public BaseMobileTest(string platformName, string platformVersion)
         {
@@ -24,26 +24,24 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
 
         public static string RdcServerUrlUs => "https://us1.appium.testobject.com/wd/hub";
 
-        /* Make sure that you get the API key from your app in RDC
-         * and store it in an environment variable on your system.
-         * Then read the Env Variable as you see below
-         */
-        public static string SauceDemoMobileBrowserAppApiKey =>
-            Environment.GetEnvironmentVariable(
-                "SAUCE_DEMO_MOBILE_WEB_RDC_API_KEY", EnvironmentVariableTarget.User);
+
         [SetUp]
         public void Setup()
         {
-            BrowserCapabilities = new AppiumOptions();
-            //this is the API key that you get from your app in Test Object
-            BrowserCapabilities.AddAdditionalCapability("testobject_api_key", SauceDemoMobileBrowserAppApiKey);
-            BrowserCapabilities.AddAdditionalCapability("deviceOrientation", "portrait");
-            BrowserCapabilities.AddAdditionalCapability("browserName", "chrome");
-            BrowserCapabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.FullName);
-            BrowserCapabilities.AddAdditionalCapability("newCommandTimeout", 90);
-            BrowserCapabilities.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, _platformVersion);
-            BrowserCapabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, _platformName);
-            Driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), BrowserCapabilities);
+            _browserCapabilities = new AppiumOptions();
+            /* Make sure that you get the API key from your app in RDC
+             * and store it in an environment variable on your system.
+             * Then read the Env Variable into your code
+             */
+            _browserCapabilities.AddAdditionalCapability("testobject_api_key", 
+                new ApiKeys().Rdc.Apps.SauceDemoOnMobileBrowser);
+            _browserCapabilities.AddAdditionalCapability("deviceOrientation", "portrait");
+            _browserCapabilities.AddAdditionalCapability("browserName", "chrome");
+            _browserCapabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.FullName);
+            _browserCapabilities.AddAdditionalCapability("newCommandTimeout", 180);
+            _browserCapabilities.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, _platformVersion);
+            _browserCapabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, _platformName);
+            Driver = new RemoteWebDriver(new Uri(RdcServerUrlUs), _browserCapabilities);
         }
         [TearDown]
         public void Teardown()
