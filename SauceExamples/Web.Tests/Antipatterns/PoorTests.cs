@@ -1,9 +1,9 @@
 using FluentAssertions;
 using NUnit.Framework;
-using Selenium.Nunit.Framework.BestPractices.Pages;
+using Selenium3.Nunit.Framework.BestPractices.Pages;
 using Selenium3.Nunit.Scripts.BestPractices.CrossBrowserExamples;
 
-namespace Selenium.Nunit.Framework.Antipatterns
+namespace Selenium3.Nunit.Framework.Antipatterns
 {
     [TestFixture]
     [TestFixtureSource(typeof(CrossBrowserData), "LatestConfigurations")]

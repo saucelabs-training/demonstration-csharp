@@ -1,11 +1,12 @@
 using NUnit.Framework;
-using Selenium.Nunit.Framework.BestPractices.Pages;
+using Selenium3.Nunit.Framework.BestPractices.Pages;
 
-namespace Selenium.Nunit.Framework.BestPractices.test
+namespace Selenium3.Nunit.Framework.BestPractices.test
 {
     [TestFixture]
     [Parallelizable]
     [Category("Performance")]
+    [Ignore("not needed")]
     public class PerformanceTesting : BaseTest
     {
         private SauceDemoLoginPage _loginPage;

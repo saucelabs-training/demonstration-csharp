@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\setEnvironmentVariables.ps1 = ..\setEnvironmentVariables.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Nunit.Framework", "Web.Tests\Selenium.Nunit.Framework.csproj", "{7B1C4CE7-45E7-436A-96D2-79493B1274ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium3.Nunit.Framework", "Web.Tests\Selenium3.Nunit.Framework.csproj", "{7B1C4CE7-45E7-436A-96D2-79493B1274ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium3.MsTest.Scripts", "AppiumLatestOnDotNetFramework\Appium3.MsTest.Scripts.csproj", "{99F99E3A-B9A8-46D8-AC32-FC40552D04CC}"
 EndProject

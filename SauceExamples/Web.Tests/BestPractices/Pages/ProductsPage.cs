@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using Selenium.Nunit.Framework.BestPractices.Elements;
+using Selenium3.Nunit.Framework.BestPractices.Elements;
 
-namespace Selenium.Nunit.Framework.BestPractices.Pages
+namespace Selenium3.Nunit.Framework.BestPractices.Pages
 {
     public class ProductsPage : BasePage
     {

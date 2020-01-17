@@ -1,7 +1,7 @@
 using System.Collections;
 using NUnit.Framework;
 
-namespace Selenium.Nunit.Framework
+namespace Selenium3.Nunit.Framework
 {
     public class CrossBrowserData
     {

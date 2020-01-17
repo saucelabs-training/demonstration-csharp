@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace Selenium.Nunit.Framework.BestPractices.Pages
+namespace Selenium3.Nunit.Framework.BestPractices.Pages
 {
     public class CheckoutCompletePage
     {
