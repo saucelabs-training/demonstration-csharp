@@ -36,7 +36,7 @@ namespace Selenium4.MsTest.Scripts
             options.AddAdditionalOption("sauce:options", sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
-                TimeSpan.FromSeconds(600));
+                TimeSpan.FromSeconds(30));
             GoToThenAssert();
         }
         [TestMethod]
@@ -53,7 +53,7 @@ namespace Selenium4.MsTest.Scripts
             options.AddAdditionalOption("sauce:options", sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
-                TimeSpan.FromSeconds(600));
+                TimeSpan.FromSeconds(30));
             GoToThenAssert();
         }
 
@@ -75,7 +75,7 @@ namespace Selenium4.MsTest.Scripts
             chromeOptions.AddAdditionalOption("sauce:options", sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
-                chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
+                chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(30));
             GoToThenAssert();
         }
         [TestMethod]
@@ -91,7 +91,7 @@ namespace Selenium4.MsTest.Scripts
             safariOptions.AddAdditionalOption("sauce:options", sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
-                safariOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
+                safariOptions.ToCapabilities(), TimeSpan.FromSeconds(30));
             GoToThenAssert();
         }
         [TestMethod]
@@ -106,7 +106,23 @@ namespace Selenium4.MsTest.Scripts
             browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
-                browserOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
+                browserOptions.ToCapabilities(), TimeSpan.FromSeconds(30));
+            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            GoToThenAssert();
+        }
+        [TestMethod]
+        public void EdgeChromiumW3C()
+        {
+            var browserOptions = new EdgeOptions()
+            {
+                BrowserVersion = "latest",
+                PlatformName = "macOS 10.14"
+            };
+            sauceOptions.Add("name", MethodBase.GetCurrentMethod().Name);
+            browserOptions.AddAdditionalOption("sauce:options", sauceOptions);
+
+            _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
+                browserOptions.ToCapabilities(), TimeSpan.FromSeconds(30));
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
             GoToThenAssert();
         }
