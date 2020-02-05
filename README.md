@@ -14,7 +14,7 @@ The code in these scripts is provided on an "AS-IS” basis without warranty of 
 ## Common Use Cases
 * [Copy and paste scripts to get started with Sauce Labs fast](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit/OnboardingTests)
 * [Parallel, cross-browser, NUnit](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices/test)
-* [Advanced tests that use test automation best practices on Sauce Labs](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices)
+* [Production-level framework using automation best practices, parallel, cross-browser, NUnit](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices)
 * [Selenium W3C examples using Sauce Labs](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
 * [Examples using MsTest Testing Framework](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumMsTest)
 * [Sauce Labs REST API](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiExamples.cs)
