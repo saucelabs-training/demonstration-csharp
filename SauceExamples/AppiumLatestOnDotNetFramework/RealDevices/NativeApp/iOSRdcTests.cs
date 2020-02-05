@@ -24,13 +24,24 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             Environment.GetEnvironmentVariable("SAUCE_DEMO_IOS_RDC_API_KEY", EnvironmentVariableTarget.User);
         public TestContext TestContext { get; set; }
 
+        /**
+         With dynamic allocation, you provide basic parameters for the platform and operating system, 
+            or the type of device you want to use in your tests, 
+            and a device with those specifications is selected from the device pool. 
+            While static allocation allows you more fine-grained control over the device used in your tests, 
+            it can also cause delays in your test execution if that device isn't available when you run your tests. 
+            If you only need to test on a particular platform and OS version, such as an Android 4.1,  
+            or on a particular type of device, you should use dynamic allocation, 
+            and we recommend that you use dynamic allocation for all automated mobile application testing 
+            in CI/CD environments.        
+        */
         [TestMethod]
         [ExpectedException(typeof(AssertFailedException))]
         public void ShouldFailAndSetTestStatusToFail()
         {
             var capabilities = new DesiredCapabilities();
             capabilities.SetCapability("platformName", "iOS");
-            capabilities.SetCapability("platformVersion", "12.2");
+            capabilities.SetCapability("platformVersion", "13.3");
             //TODO first you must upload an app to RDC so that you get your app key
             capabilities.SetCapability("testobject_api_key", SauceDemoIosRdcApiKey);
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
@@ -45,7 +56,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
         {
             var capabilities = new DesiredCapabilities();
             capabilities.SetCapability("platformName", "iOS");
-            capabilities.SetCapability("platformVersion", "12.2");
+            capabilities.SetCapability("platformVersion", "13.3");
             //TODO first you must upload an app to RDC so that you get your app key
             capabilities.SetCapability("testobject_api_key", SauceDemoIosRdcApiKey);
             capabilities.SetCapability("name", MethodBase.GetCurrentMethod().Name);
