@@ -73,15 +73,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiKeys.cs" />
+    <Compile Include="SauceLabs\ApiKeys.cs" />
+    <Compile Include="SauceLabs\App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rdc.cs" />
+    <Compile Include="SauceLabs\Rdc.cs" />
     <Compile Include="SauceLabs\SauceJavaScriptExecutor.cs" />
     <Compile Include="SauceLabs\SauceSetup.cs" />
     <Compile Include="SauceLabs\SauceLabsCapabilities.cs" />
     <Compile Include="SauceLabs\SauceLabsEndpoint.cs" />
     <Compile Include="SauceLabs\SauceUser.cs" />
-    <Compile Include="SimpleSauce.cs" />
+    <Compile Include="SauceLabs\SimpleSauce.cs" />
     <Compile Include="TestData\CrossBrowserData.cs" />
     <Compile Include="Wait.cs" />
     <Compile Include="WebDriverFactory.cs" />

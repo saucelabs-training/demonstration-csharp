@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Remote;
 using RestSharp;
 
-namespace Common
+namespace Common.SauceLabs
 {
     public class Rdc
     {
