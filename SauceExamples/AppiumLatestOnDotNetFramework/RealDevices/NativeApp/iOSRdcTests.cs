@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.iOS;
@@ -78,16 +79,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
 
             var isTestPassed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
 
-            var client = new RestClient
-            {
-                BaseUrl = new Uri("https://app.testobject.com/api/rest")
-            };
-            var request = new RestRequest($"/v2/appium/session/{_sessionId}/test", Method.PUT)
-            {
-                RequestFormat = DataFormat.Json
-            };
-            request.AddJsonBody(new { passed = isTestPassed });
-            client.Execute(request);
+            new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _sessionId);
         }
     }
 }
