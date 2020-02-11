@@ -71,15 +71,11 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
         [TestCleanup]
         public void Teardown()
         {
-            if (_driver != null)
-            {
-                _sessionId = _driver.SessionId;
-                _driver.Quit();
-            }
+            if (_driver == null) return;
 
             var isTestPassed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
-
-            new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _sessionId);
+            new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _driver.SessionId);
+            _driver.Quit();
         }
     }
 }

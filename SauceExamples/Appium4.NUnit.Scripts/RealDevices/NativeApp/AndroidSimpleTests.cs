@@ -55,11 +55,10 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
         {
             if (_driver == null) return;
 
-            _sessionId = _driver.SessionId;
             _driver.Quit();
             //TODO fix this as it doesn't seem to update the status for failed tests
             var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _sessionId);
+            new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _driver.SessionId);
         }
 
         [Test]
