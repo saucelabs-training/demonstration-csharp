@@ -17,8 +17,8 @@ The code in these scripts is provided on an "AS-IS” basis without warranty of 
 * [Production-level framework using automation best practices, parallel, cross-browser, NUnit](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices)
 * [Selenium W3C examples using Sauce Labs](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
 * [Examples using MsTest Testing Framework](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumMsTest)
-* [Sauce Labs REST API](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiExamples.cs)
-* [RDC REST API and status updates](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/AppiumLatestOnDotNetFramework/RDCtest.cs)
+* [Sauce Labs REST API](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiForVdc.cs)
+* [RDC REST API and status updates](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/AppiumLatestOnDotNetFramework/RealDevices/NativeApp/AndroidRdcTests.cs)
 * [Performance testing and nework throttling](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
 
 ## Setting Up a Selenium Project in Visual Studio 
@@ -125,7 +125,7 @@ The code in these scripts is provided on an "AS-IS” basis without warranty of 
 </p>
 <ol>
   <li style="list-style-type: decimal;">
-    <p>Download the test script from <a href="https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/Web.Tests/OnboardingTests/InstantSauceTest.cs">Instant Sauce Test</a>
+    <p>Download the test script from <a href="https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/OnboardingTests/InstantSauceTest.cs">Instant Sauce Test</a>
     </p>
   </li>
   <li style="list-style-type: decimal;">
