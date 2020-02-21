@@ -7,7 +7,7 @@ namespace Selenium3.Nunit.Framework.BestPractices.test
     [TestFixture]
     [Parallelizable]
     [TestFixtureSource(typeof(CrossBrowserData),
-                nameof(CrossBrowserData.HeadlessTestData))]
+                nameof(CrossBrowserData.LatestConfigurations))]
     public class ShoppingCartFeature : BaseTest
     {
         public ShoppingCartFeature(string browser, string browserVersion, string osPlatform) :

@@ -6,7 +6,6 @@ namespace Selenium3.Nunit.Framework.BestPractices.test
     [TestFixture]
     [Parallelizable]
     [Category("Performance")]
-    [Ignore("not needed")]
     public class PerformanceTesting : BaseTest
     {
         private SauceDemoLoginPage _loginPage;
@@ -17,6 +16,7 @@ namespace Selenium3.Nunit.Framework.BestPractices.test
         }
 
         [Test]
+        [Ignore("not needed")]
         public void LoginPageSpeedIndexIsWithin20Percent()
         {
             _loginPage.Open();
