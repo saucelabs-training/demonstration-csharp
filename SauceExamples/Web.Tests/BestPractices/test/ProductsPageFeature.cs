@@ -6,7 +6,7 @@ namespace Selenium3.Nunit.Framework.BestPractices.test
 {
     [TestFixture]
     [TestFixtureSource(typeof(CrossBrowserData),
-                nameof(CrossBrowserData.HeadlessTestData))]
+                nameof(CrossBrowserData.LatestConfigurations))]
     [Parallelizable]
     public class ProductsPageFeature : BaseTest
     {
