@@ -131,9 +131,9 @@ namespace Common
             }
 
             capabilities.SetCapability("extendedDebugging", false);
-            capabilities.SetCapability("recordVideo", false);
-            capabilities.SetCapability("videoUploadOnPass", false);
-            capabilities.SetCapability("recordScreenshots", false);
+            capabilities.SetCapability("recordVideo", true);
+            capabilities.SetCapability("videoUploadOnPass", true);
+            capabilities.SetCapability("recordScreenshots", true);
             _sauceCustomCapabilities.Tags.Add("withDebuggingDisabled");
             return capabilities;
         }
