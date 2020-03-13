@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Common.SauceLabs;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 using Assert = NUnit.Framework.Assert;
@@ -13,9 +11,6 @@ namespace Appium4.NUnit.Scripts.Emusim
     [TestFixture]
     public class W3CEmusim
     {
-        private SessionId _sessionId;
-
-
         private RemoteWebDriver _driver;
         private object _sauceUserName;
         private object _sauceAccessKey;
@@ -52,8 +47,6 @@ namespace Appium4.NUnit.Scripts.Emusim
 
             _sessionId = _driver.SessionId;
             _driver.Quit();
-            var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            new SimpleSauce().Rdc.UpdateTestStatus(isTestPassed, _sessionId);
         }
 
 
