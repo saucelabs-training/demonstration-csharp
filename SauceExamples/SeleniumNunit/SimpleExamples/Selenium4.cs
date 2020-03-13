@@ -76,10 +76,10 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
         [Test]
         public void SafariW3C()
         {
-            SafariOptions safariOptions = new SafariOptions
+            var safariOptions = new SafariOptions
             {
-                BrowserVersion = "12.0",
-                PlatformName = "macOS 10.13"
+                BrowserVersion = "latest",
+                PlatformName = "macOS 10.15"
                 //AcceptInsecureCertificates = true Don't use this as Safari doesn't support Insecure certs
             };
             sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
@@ -109,10 +109,14 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
         {
             var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
             if (_driver != null)
+            {
+                //all driver operations should happen here after the check
                 ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+                _driver.Quit();
+            }
             //call to JIRA API
             //PUT to JIRA with status
-            _driver?.Quit();
+            //create HTML reports
         }
     }
 }
