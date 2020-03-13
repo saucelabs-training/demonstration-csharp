@@ -1,39 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Common;
 using Common.SauceLabs;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Appium;
-using OpenQA.Selenium.Appium.Android;
-using OpenQA.Selenium.Appium.Enums;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 using Assert = NUnit.Framework.Assert;
 
-namespace Appium3.MsTest.Scripts.Emusim
+namespace Appium4.NUnit.Scripts.Emusim
 {
     [TestFixture]
-    public class Emusim
+    public class W3CEmusim
     {
-        private AppiumOptions _browserCapabilities;
         private SessionId _sessionId;
 
 
         private RemoteWebDriver _driver;
         private object _sauceUserName;
         private object _sauceAccessKey;
-        private Dictionary<string, object> sauceOptions;
+        private Dictionary<string, object> _sauceOptions;
 
         [SetUp]
         public void Setup()
         {
             _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
             _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-            sauceOptions = new Dictionary<string, object>
+            _sauceOptions = new Dictionary<string, object>
             {
                 ["username"] = _sauceUserName,
                 ["accessKey"] = _sauceAccessKey,
@@ -46,8 +39,8 @@ namespace Appium3.MsTest.Scripts.Emusim
                 BrowserVersion = "latest",
                 PlatformName = "iOS"
             };
-            sauceOptions.Add("name", MethodBase.GetCurrentMethod().Name);
-            options.AddAdditionalCapability("sauce:options", sauceOptions);
+            _sauceOptions.Add("name", MethodBase.GetCurrentMethod().Name);
+            options.AddAdditionalCapability("sauce:options", _sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
                 options.ToCapabilities(), TimeSpan.FromSeconds(30));
@@ -65,7 +58,7 @@ namespace Appium3.MsTest.Scripts.Emusim
 
 
         [Test]
-        [Ignore("not currently working")]
+        [Ignore("OpenQA.Selenium.WebDriverException : Unexpected error.")]
         public void AndroidOnEmusimUsingW3C()
         {
             GoToThenAssert();

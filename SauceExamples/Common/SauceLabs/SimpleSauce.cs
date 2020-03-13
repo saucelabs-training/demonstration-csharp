@@ -1,6 +1,4 @@
-﻿using Common.SauceLabs;
-
-namespace Common
+﻿namespace Common.SauceLabs
 {
     public class SimpleSauce
     {

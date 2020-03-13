@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Reflection;
 using Common;
+using Common.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.iOS;
 using OpenQA.Selenium.Remote;
-using RestSharp;
 
 namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
 {
