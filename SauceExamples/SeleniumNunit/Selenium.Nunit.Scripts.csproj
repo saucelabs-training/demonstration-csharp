@@ -106,7 +106,7 @@
     <Compile Include="LoggingWithSauce.cs" />
     <Compile Include="ParallelTestsAtClassLevel.cs" />
     <Compile Include="ReusableTests.cs" />
-    <Compile Include="SimpleExamples\Selenium4.cs" />
+    <Compile Include="SimpleExamples\W3CExamplesOnSelenium3.cs" />
     <Compile Include="SpecFlow\Features\DataDriven.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

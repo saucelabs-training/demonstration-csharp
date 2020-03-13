@@ -11,14 +11,19 @@ using OpenQA.Selenium.Safari;
 
 namespace Selenium3.Nunit.Scripts.SimpleExamples
 {
+    /**
+     *The code samples here show how we would use Selenium 4 capabilities with
+     * Selenium version 3.141.0
+     *
+     */
     [TestFixture]
     [Category("Selenium 4 tests")]
-    public class Selenium4
+    public class W3CExamplesOnSelenium3
     {
-        IWebDriver _driver;
-        private string sauceUserName;
-        private string sauceAccessKey;
-        private Dictionary<string, object> sauceOptions;
+        private IWebDriver _driver;
+        private string _sauceUserName;
+        private string _sauceAccessKey;
+        private Dictionary<string, object> _sauceOptions;
 
         [Test]
         public void EdgeW3C()
@@ -30,8 +35,8 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
                 //AcceptInsecureCertificates = true //Insecure Certs are Not supported by Edge
             };
 
-            sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
-            options.AddAdditionalCapability("sauce:options", sauceOptions);
+            _sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
+            options.AddAdditionalCapability("sauce:options", _sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
                 TimeSpan.FromSeconds(600));
@@ -48,8 +53,8 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
                 //AcceptInsecureCertificates = true //Insecure Certs are Not supported by Edge
             };
 
-            sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
-            options.AddAdditionalCapability("sauce:options", sauceOptions);
+            _sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
+            options.AddAdditionalCapability("sauce:options", _sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
                 TimeSpan.FromSeconds(600));
@@ -65,8 +70,8 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
                 PlatformName = "Windows 10",
                 UseSpecCompliantProtocol = true
             };
-            sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
-            chromeOptions.AddAdditionalCapability("sauce:options", sauceOptions, true);
+            _sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
+            chromeOptions.AddAdditionalCapability("sauce:options", _sauceOptions, true);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
                 chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
@@ -82,9 +87,9 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
                 PlatformName = "macOS 10.15"
                 //AcceptInsecureCertificates = true Don't use this as Safari doesn't support Insecure certs
             };
-            sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
+            _sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
 
-            safariOptions.AddAdditionalCapability("sauce:options", sauceOptions);
+            safariOptions.AddAdditionalCapability("sauce:options", _sauceOptions);
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
                 safariOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
@@ -95,13 +100,13 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
         public void SetupTests()
         {
             //TODO please supply your Sauce Labs user name in an environment variable
-            sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
             //TODO please supply your own Sauce Labs access Key in an environment variable
-            sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-            sauceOptions = new Dictionary<string, object>
+            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            _sauceOptions = new Dictionary<string, object>
             {
-                ["username"] = sauceUserName,
-                ["accessKey"] = sauceAccessKey
+                ["username"] = _sauceUserName,
+                ["accessKey"] = _sauceAccessKey
             };
         }
         [TearDown]
