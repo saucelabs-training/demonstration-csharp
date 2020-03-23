@@ -43,10 +43,7 @@ namespace Appium4.NUnit.Scripts.Emusim
         [TearDown]
         public void Teardown()
         {
-            if (_driver == null) return;
-
-            _sessionId = _driver.SessionId;
-            _driver.Quit();
+            _driver?.Quit();
         }
 
 

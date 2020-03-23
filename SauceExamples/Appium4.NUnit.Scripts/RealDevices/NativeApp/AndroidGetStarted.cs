@@ -23,6 +23,9 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 
         public void ShouldOpenApp()
         {
+
+
+
             var capabilities = new AppiumOptions();
             //We can run on any version of the platform as long as it's the correct device
             //Make sure to pick an Android or iOS device based on your app
@@ -45,6 +48,8 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             
             //Always making sure to end the session at the end of any test
             _driver?.Quit();
+
+
         }
     }
 }
