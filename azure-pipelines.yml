@@ -37,7 +37,7 @@ steps:
   displayName: 'Run Best Practices Framework'
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: '**/*Selenium3.Nunit.Framework.dll'
+    testAssemblyVer2: '**/*Selenium3.Nunit.Framework*'
     testFiltercriteria: 'TestCategory=BestPractices'
     runInParallel: true
     codeCoverageEnabled: true
