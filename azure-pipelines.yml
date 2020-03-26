@@ -6,6 +6,8 @@ pool:
   - vstest
 
 steps:
+- script: set
+  displayName: print all variables
 - task: NuGetToolInstaller@0
   displayName: 'Use NuGet 4.4.1'
   inputs:
@@ -35,8 +37,8 @@ steps:
   displayName: 'Run Best Practices Framework'
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\*Selenium3.Nunit.Framework.dll'
-    #testFiltercriteria: 'TestCategory=BestPractices'
+    testAssemblyVer2: '**/*Selenium3.Nunit.Framework.dll'
+    testFiltercriteria: 'TestCategory=BestPractices'
     runInParallel: true
     codeCoverageEnabled: true
     testRunTitle: 'NUnit Automation Framework'
