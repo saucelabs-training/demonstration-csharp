@@ -32,8 +32,10 @@ steps:
     arguments: '$env:sauce_userName sauce_accessKey $env:SAUCE_RDC_VODQANATIVEAPPAPIKEY $env:SAUCE_RDC_SauceDemoIosRdcApiKey'
 
 - task: VSTest@2
-  displayName: 'Run RDC Tests'
+  displayName: 'Run Best Practices Framework'
   inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*Selenium3.Nunit.Framework.dll'
     testFiltercriteria: 'TestCategory=BestPractices'
     runInParallel: true
     codeCoverageEnabled: true
