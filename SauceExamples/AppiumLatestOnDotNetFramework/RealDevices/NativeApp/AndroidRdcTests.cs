@@ -38,7 +38,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
-                TimeSpan.FromSeconds(300));
+                TimeSpan.FromSeconds(60));
             Assert.Fail("Sample test that should fail to make sure the correct status is logged in RDC");
         }
         [TestMethod]
@@ -55,7 +55,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
-                TimeSpan.FromSeconds(300));
+                TimeSpan.FromSeconds(60));
             Assert.IsTrue(true);
         }
         [TestMethod]
@@ -71,7 +71,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
-                TimeSpan.FromSeconds(300));
+                TimeSpan.FromSeconds(60));
             Assert.IsTrue(true);
         }
 
@@ -91,7 +91,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
-                TimeSpan.FromSeconds(300));
+                TimeSpan.FromSeconds(60));
             _sessionId = _driver.SessionId;
         }
         [TestMethod]
@@ -110,7 +110,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
-                TimeSpan.FromSeconds(300));
+                TimeSpan.FromSeconds(60));
         }
         [TestMethod]
         [TestCategory("VodQANativeApp")]
@@ -134,7 +134,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new AndroidDriver<IWebElement>(new Uri(USurl), capabilities,
-                TimeSpan.FromSeconds(300));
+                TimeSpan.FromSeconds(60));
 
             Assert.IsTrue(_driver.FindElementByAccessibilityId("username").Displayed);
         }

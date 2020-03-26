@@ -48,7 +48,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new IOSDriver<IWebElement>(new Uri(USurl), capabilities,
-                TimeSpan.FromSeconds(300));
+                TimeSpan.FromSeconds(60));
             Assert.Fail("Sample test that should fail to make sure the correct status is logged in RDC");
         }
         [TestMethod]
@@ -63,7 +63,7 @@ namespace Appium3.MsTest.Scripts.RealDevices.NativeApp
             capabilities.SetCapability("newCommandTimeout", 90);
 
             _driver = new IOSDriver<IWebElement>(new Uri(USurl), capabilities,
-                TimeSpan.FromSeconds(300));
+                TimeSpan.FromSeconds(60));
             Assert.IsTrue(true);
         }
 

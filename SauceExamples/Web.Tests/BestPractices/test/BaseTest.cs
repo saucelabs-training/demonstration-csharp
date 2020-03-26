@@ -24,6 +24,8 @@ namespace Selenium3.Nunit.Framework.BestPractices.test
     [Category("CrossBrowser")]
     [Category("NUnit")]
     [Category("BestPractices")]
+    [Category("NunitFramework")]
+
     public class BaseTest
     {
         private readonly string _browser;
