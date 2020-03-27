@@ -46,7 +46,7 @@ steps:
 - task: VSTest@2
   displayName: 'Run Best Practices Framework'
   inputs:
-    searchFolder: '$(System.DefaultWorkingDirectory)\SauceExamples\Web.Tests\*'
+    searchFolder: '$(System.DefaultWorkingDirectory)\SauceExamples\*'
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
      **\*Selenium*.dll
