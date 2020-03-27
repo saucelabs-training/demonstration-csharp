@@ -34,8 +34,8 @@ steps:
    Write-Host ("##vso[task.setvariable variable=SAUCE_USERNAME]$($env:SAUCE_USER)")
    Write-Host ("##vso[task.setvariable variable=SAUCE_ACCESS_KEY]$($env:SAUCE_KEY)")
    Write-Host "Sauce Username stored in Env variables is=>$($env:SAUCE_USERNAME)";
-   Write-Host "Sauce Access Key stored in ADO variables is=>$($env:SAUCE_ACCESS_KEY)";
-   Write-Host "Sauce Access Key stored in ADO variables is=>$($env:BUILD_REPOSITORY_URI)";
+   Write-Host "Sauce Access Key stored in Env variables is=>$($env:SAUCE_ACCESS_KEY)";
+   Write-Host "Sauce Access Key stored in Env variables is=>$($env:BUILD_REPOSITORY_URI)";
 
 
 - powershell: |
@@ -46,7 +46,7 @@ steps:
 - task: VSTest@2
   displayName: 'Run Best Practices Framework'
   inputs:
-    searchFolder: '$(System.DefaultWorkingDirectory)SauceExamples\Web.Tests\*'
+    searchFolder: '$(System.DefaultWorkingDirectory)\SauceExamples\Web.Tests\*'
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
      **\*Selenium*.dll
