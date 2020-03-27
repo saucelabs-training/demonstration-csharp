@@ -37,7 +37,7 @@ steps:
 - task: VSTest@2
   displayName: 'Run Best Practices Framework'
   inputs:
-    searchFolder: '**/*Selenium3.Nunit.Framework'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
     #testSelector: 'testAssemblies'
     #testAssemblyVer2: '**/*Selenium3.Nunit.Framework*'
     testFiltercriteria: 'TestCategory=BestPractices'
