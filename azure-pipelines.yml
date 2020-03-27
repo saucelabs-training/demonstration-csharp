@@ -23,8 +23,9 @@ steps:
   inputs:
     solution: '**\*.sln'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactstagingdirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
+    logProjectEvents: true
+    #platform: '$(BuildPlatform)'
+    #configuration: '$(BuildConfiguration)'
 
 - task: PowerShell@2
   displayName: 'Set Sauce Environment Variables'
