@@ -51,10 +51,11 @@ steps:
 - task: VSTest@2
   displayName: 'Run Best Practices Framework'
   inputs:
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    searchFolder: '$(System.DefaultWorkingDirectory)\SauceExamples\Web.Tests\**'
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
      **\*Selenium*.dll
+     !**\Appium\**
      !**\SauceExamples\packages\*.dll
      !**\packages\*.dll
     testFiltercriteria: 'TestCategory=BestPractices'
