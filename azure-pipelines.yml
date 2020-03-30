@@ -58,7 +58,7 @@ steps:
      !**\Appium\**
      !**\SauceExamples\packages\*.dll
      !**\packages\*.dll
-    testFiltercriteria: 'TestCategory=BestPractices'
+    testFiltercriteria: 'TestCategory=BestPractices&TestCategory!=Performance'
     runInParallel: true
     codeCoverageEnabled: true
     testRunTitle: 'NUnit Automation Framework'
