@@ -54,7 +54,7 @@ steps:
     searchFolder: '$(System.DefaultWorkingDirectory)'
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-     **\*Selenium*.dll
+     **\Selenium3.Nunit.Framework.dll
      !**\Appium\**
      !**\SauceExamples\packages\*.dll
      !**\packages\*.dll
