@@ -8,13 +8,23 @@
 This directory contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using C#.
 
 ## Common Use Cases
+
+### Selenium aka web automation
+
 * [Copy and paste scripts to get started with Sauce Labs fast,Selenium,NUnit](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit/OnboardingTests)
 * [Parallel, cross-browser, NUnit, Selenium](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices/test)
 * [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices)
 * [Selenium W3C examples](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
 * [Examples,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumMsTest)
 * [Sauce Labs REST API](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiForVdc.cs)
+
+### Appium aka mobile automation
+
+* [Real Devices,Native App,Appium 4](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp)
 * [RDC REST API and status updates](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/AppiumLatestOnDotNetFramework/RealDevices/NativeApp/AndroidRdcTests.cs)
+
+### Front-end performance testing
+
 * [Performance testing and nework throttling](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
 
 ## Setting Up a Selenium Project in Visual Studio 
