@@ -42,7 +42,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleApps", "SampleApps", 
 		DotnetFramework\Appium\SampleApps\iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.2.1.ipa = DotnetFramework\Appium\SampleApps\iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.2.1.ipa
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium4.NUnit.Scripts", "Appium4.NUnit.Scripts\Appium4.NUnit.Scripts.csproj", "{51476835-726E-4948-AFE7-B05B0FA42BE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium4.NUnit.Scripts", "DotnetFramework\Appium\Appium4.NUnit.Scripts\Appium4.NUnit.Scripts.csproj", "{EE8B089A-1659-418B-9C41-FC6970DF1C8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,10 +78,10 @@ Global
 		{87598B3B-793C-4C27-A8F7-9305CDD4884F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87598B3B-793C-4C27-A8F7-9305CDD4884F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87598B3B-793C-4C27-A8F7-9305CDD4884F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51476835-726E-4948-AFE7-B05B0FA42BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51476835-726E-4948-AFE7-B05B0FA42BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51476835-726E-4948-AFE7-B05B0FA42BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51476835-726E-4948-AFE7-B05B0FA42BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE8B089A-1659-418B-9C41-FC6970DF1C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE8B089A-1659-418B-9C41-FC6970DF1C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE8B089A-1659-418B-9C41-FC6970DF1C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE8B089A-1659-418B-9C41-FC6970DF1C8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,7 +97,7 @@ Global
 		{21DDBE02-10ED-40E3-8F18-05B9845577BC} = {C06B06E4-9DD7-4536-93D9-343944EF4F8D}
 		{43F0822F-C5D4-44CE-A7BF-4FE6B6C4968C} = {C06B06E4-9DD7-4536-93D9-343944EF4F8D}
 		{FC693E5B-3A53-49EB-A28B-FB5A584E23C2} = {21DDBE02-10ED-40E3-8F18-05B9845577BC}
-		{51476835-726E-4948-AFE7-B05B0FA42BE6} = {21DDBE02-10ED-40E3-8F18-05B9845577BC}
+		{EE8B089A-1659-418B-9C41-FC6970DF1C8B} = {21DDBE02-10ED-40E3-8F18-05B9845577BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6019E59C-E9C4-4734-90C4-B49A0CCF0A59}
