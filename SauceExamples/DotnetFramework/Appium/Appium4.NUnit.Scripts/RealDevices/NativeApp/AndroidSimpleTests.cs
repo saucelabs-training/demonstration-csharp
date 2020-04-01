@@ -13,6 +13,7 @@ using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 {
     [TestFixture]
+    [Ignore("There is likely a bug in Appium. https://github.com/appium/appium-dotnet-driver/issues/402")]
     public class AndroidSimpleTests
     {
         /*
