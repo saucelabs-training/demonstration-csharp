@@ -3,7 +3,7 @@
 
 | Best Practices Tests(WebDriver)|RDC Automated Tests(Appium 3)|RDC,Nunit,Native Apps|
 | ------------- |:-------------:|:-------------:|
-| [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/SauceExamples-UI%20Generated%20Pipeline?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=5&branchName=master "Best Practices WebDriver")| [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/SauceExamples-RDC?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=21&branchName=master)|[![Build status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/Appium4%20NUnit%20Scripts)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=22)|
+| [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/NUnit%20Framework%20yml?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=26&branchName=master)| [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/SauceExamples-RDC?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=21&branchName=master)|[![Build status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/Appium4%20NUnit%20Scripts)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=22)|
 
 This directory contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using C#.
 
