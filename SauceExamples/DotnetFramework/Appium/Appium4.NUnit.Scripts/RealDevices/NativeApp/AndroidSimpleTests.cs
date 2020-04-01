@@ -31,21 +31,21 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             var capabilities = new AppiumOptions();
             //We can run on any version of the platform as long as it's the correct device
             //Make sure to pick an Android or iOS device based on your app
-            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "Google Pixel");
-            capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
+            capabilities.AddAdditionalOption(MobileCapabilityType.DeviceName, "Google Pixel");
+            capabilities.AddAdditionalOption(MobileCapabilityType.PlatformName, "Android");
             //make sure you set locale as sometimes it opens in a different location and throws off locations
-            capabilities.AddAdditionalCapability("locale", "en");
-            capabilities.AddAdditionalCapability("language", "en");
+            capabilities.AddAdditionalOption("locale", "en");
+            capabilities.AddAdditionalOption("language", "en");
 
             /*
              * !!!!!!
              * TODO first you must upload an app to RDC so that you get your app key
              * Then, make sure you can hardcode it here just to get started
              */
-            capabilities.AddAdditionalCapability("testobject_api_key", new ApiKeys().Rdc.Apps.SampleAppAndroid);
-            capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
+            capabilities.AddAdditionalOption("testobject_api_key", new ApiKeys().Rdc.Apps.SampleAppAndroid);
+            capabilities.AddAdditionalOption("name", TestContext.CurrentContext.Test.Name);
             //It's important to keep the newCommandTimeout on the higher end as Real Devices are slow
-            capabilities.AddAdditionalCapability("newCommandTimeout", 180);
+            capabilities.AddAdditionalOption("newCommandTimeout", 180);
 
             _driver = new AndroidDriver<AndroidElement>(new Uri(RdcUsHubUrl), capabilities);
         }

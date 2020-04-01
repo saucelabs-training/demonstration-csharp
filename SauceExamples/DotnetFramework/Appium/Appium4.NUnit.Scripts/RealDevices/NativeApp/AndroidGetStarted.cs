@@ -29,17 +29,17 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             var capabilities = new AppiumOptions();
             //We can run on any version of the platform as long as it's the correct device
             //Make sure to pick an Android or iOS device based on your app
-            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "Google Pixel");
-            capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
+            capabilities.AddAdditionalOption(MobileCapabilityType.DeviceName, "Google Pixel");
+            capabilities.AddAdditionalOption(MobileCapabilityType.PlatformName, "Android");
 
             /*
              * !!!!!!
              * TODO first you must upload an app to RDC so that you get your app key
              * Then, make sure you can hardcode it here just to get started
              */
-            capabilities.AddAdditionalCapability("testobject_api_key", new ApiKeys().Rdc.Apps.SampleAppAndroid);
-            capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
-            capabilities.AddAdditionalCapability("newCommandTimeout", 90);
+            capabilities.AddAdditionalOption("testobject_api_key", new ApiKeys().Rdc.Apps.SampleAppAndroid);
+            capabilities.AddAdditionalOption("name", TestContext.CurrentContext.Test.Name);
+            capabilities.AddAdditionalOption("newCommandTimeout", 90);
 
             //60 seconds for the connection timeout
             _driver = new AndroidDriver<AndroidElement>(new Uri(RdcUsHubUrl), capabilities);
