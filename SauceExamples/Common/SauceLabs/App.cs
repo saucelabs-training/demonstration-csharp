@@ -4,6 +4,8 @@ namespace Common.SauceLabs
 {
     public class App
     {
+        public string SampleAppIOS => Environment.GetEnvironmentVariable("SAUCE_DEMO_IOS_RDC_API_KEY", EnvironmentVariableTarget.User);
+
         public string SampleAppAndroid =>
             Environment.GetEnvironmentVariable("RDC_SAUCE_DEMO_ANDROID_KEY", EnvironmentVariableTarget.User);
         public string VodQaReactNative =>
