@@ -8,6 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Nunit.Scripts", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02D1155D-7E24-485D-84E5-043B79A04B74}"
 	ProjectSection(SolutionItems) = preProject
+		Appium3.MsTest.Scripts.yml = Appium3.MsTest.Scripts.yml
 		index.html = index.html
 		..\setEnvironmentVariables.ps1 = ..\setEnvironmentVariables.ps1
 	EndProjectSection
