@@ -13,7 +13,7 @@ This directory contains example scripts and dependencies for running automated S
 
 * [Copy and paste scripts to get started with Sauce Labs fast,Selenium,NUnit](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit/OnboardingTests)
 * [Parallel, cross-browser, NUnit, Selenium](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices/test)
-* [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices)[![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/NUnit%20Framework%20yml?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=26&branchName=master)
+* [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices) [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/NUnit%20Framework%20yml?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=26&branchName=master)
 * [Selenium W3C examples](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
 * [Examples,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumMsTest)
 * [Sauce Labs REST API](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiForVdc.cs)
