@@ -131,10 +131,10 @@ namespace Selenium.MsTest.Scripts
         [TestCleanup]
         public void CleanUpAfterEveryTestMethod()
         {
-            var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
             if (_driver == null) return;
 
-            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+            var isPassed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
+            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (isPassed ? "passed" : "failed"));
             _driver.Quit();
         }
     }
