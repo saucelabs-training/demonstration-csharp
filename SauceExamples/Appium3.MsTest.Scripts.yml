@@ -30,7 +30,11 @@ steps:
   inputs:
     targetType: filePath
     filePath: ./setEnvironmentVariables.ps1
-    arguments: '$env:SAUCE_USER $env:SAUCE_KEY'
+    arguments: |
+      '$env:SAUCE_USER 
+       $env:SAUCE_KEY 
+       $env:SAUCE_RDC_VODQANATIVEAPPAPIKEY 
+       $env:SAUCE_RDC_SAUCEDEMOIOSRDCAPIKEY';
 
 # Using powershell ##vso command to set an environment variable in the system
 - powershell: |
