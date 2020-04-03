@@ -1,9 +1,9 @@
 # C# Sauce Labs Demo Scripts and Frameworks
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8d73359469c54f01a0ba96a175514ad3)](https://app.codacy.com/app/nadvolod/demo-csharp?utm_source=github.com&utm_medium=referral&utm_content=nadvolod/demo-csharp&utm_campaign=Badge_Grade_Dashboard)
 
-| Best Practices Tests(WebDriver)|RDC Automated Tests(Appium 3)|RDC,Nunit,Native Apps|
-| ------------- |:-------------:|:-------------:|
-| [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/NUnit%20Framework%20yml?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=26&branchName=master)| [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/SauceExamples-RDC?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=21&branchName=master)|[![Build status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/Appium4%20NUnit%20Scripts)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=22)|
+| RDC Automated Tests(Appium 3)|RDC,Nunit,Native Apps|
+| -------------:|:-------------:|
+| [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/SauceExamples-RDC?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=21&branchName=master)|[![Build status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/Appium4%20NUnit%20Scripts)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=22)|
 
 This directory contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using C#.
 
@@ -13,7 +13,7 @@ This directory contains example scripts and dependencies for running automated S
 
 * [Copy and paste scripts to get started with Sauce Labs fast,Selenium,NUnit](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumNunit/OnboardingTests)
 * [Parallel, cross-browser, NUnit, Selenium](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices/test)
-* [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices)
+* [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/Web.Tests/BestPractices) [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/NUnit%20Framework%20yml?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=26&branchName=master)
 * [Selenium W3C examples](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
 * [Examples,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumMsTest)
 * [Sauce Labs REST API](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiForVdc.cs)
