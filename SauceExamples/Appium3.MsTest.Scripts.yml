@@ -1,4 +1,3 @@
-  
 pool:
   name: Hosted VS2017
   demands:
@@ -31,7 +30,11 @@ steps:
   inputs:
     targetType: filePath
     filePath: ./setEnvironmentVariables.ps1
-    arguments: '$env:SAUCE_USER $env:SAUCE_KEY'
+    arguments: |
+      '$env:SAUCE_USER 
+       $env:SAUCE_KEY 
+       $env:SAUCE_RDC_VODQANATIVEAPPAPIKEY 
+       $env:SAUCE_RDC_SAUCEDEMOIOSRDCAPIKEY';
 
 # Using powershell ##vso command to set an environment variable in the system
 - powershell: |
@@ -48,7 +51,7 @@ steps:
   displayName: display env variables bw posh tasks
 
 - task: VSTest@2
-  displayName: 'Run Best Practices Framework'
+  displayName: 'Run Appium 3 Emusim and RDC Tests'
   inputs:
     searchFolder: '$(System.DefaultWorkingDirectory)'
     testSelector: 'testAssemblies'
@@ -58,7 +61,7 @@ steps:
      !**\packages\*.dll
     runInParallel: true
     codeCoverageEnabled: true
-    testRunTitle: 'NUnit Automation Framework'
+    testRunTitle: 'Appium 3 Emusim and RDC Tests'
     rerunFailedTests: true
     rerunFailedThreshold: 10
     rerunMaxAttempts: 2
