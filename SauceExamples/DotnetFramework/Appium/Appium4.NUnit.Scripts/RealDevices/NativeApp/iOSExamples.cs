@@ -1,17 +1,25 @@
 ﻿using System;
 using Common.SauceLabs;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.iOS;
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 {
     [TestFixture]
-    public class IOsGetStarted
+    public class iOSExamples
     {
         private static string RdcUsHubUrl => "https://us1.appium.testobject.com/wd/hub";
+
+        public const string APPIUM_VERSION = "1.16.0";
+
         private IOSDriver<IOSElement> _driver;
+        private SessionId _sessionId;
+
 
         [Test]
         [Category("Android")]
@@ -20,14 +28,14 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
         [Category("NativeApp")]
         [Category("Appium4NUnitScripts")]
 
-        public void ShouldOpenNativeIOSApp()
+        public void OpenAnyIPhone()
         {
             var capabilities = new AppiumOptions();
-            //We can run on any version of the platform as long as it's the correct device
-            //Make sure to pick an Android or iOS device based on your app
-            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "iPhone X");
+            //We can run on any iPhone Device
+            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "iPhone.*");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
-
+            //TODO it's a best practice to set the appium version so that you're always getting the latest
+            capabilities.AddAdditionalCapability("appiumVersion", APPIUM_VERSION);
             /*
              * !!!!!!
              * TODO first you must upload an app to RDC so that you get your app key
@@ -36,17 +44,27 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             capabilities.AddAdditionalCapability("testobject_api_key", new ApiKeys().Rdc.Apps.SampleAppIOS);
             capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
-            //TODO it's a best practice to set the appium version so that you're always getting the latest
-            capabilities.AddAdditionalCapability("appiumVersion", "1.16.0");
-
 
             //60 seconds for the connection timeout
             _driver = new IOSDriver<IOSElement>(new Uri(RdcUsHubUrl), capabilities);
-            var size = int.Parse(_driver.Manage().Window.Size.Height.ToString());
-            Assert.Greater(size, 0);
-            
-            //Always making sure to end the session at the end of any test
-            _driver?.Quit();
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(30));
+            var loginButton = wait.Until(ExpectedConditions.ElementIsVisible(MobileBy.AccessibilityId("test-LOGINs")));
+            Assert.True(loginButton.Displayed);
+        }
+
+        [TearDown]
+        public void Teardown()
+        {
+            if (_driver == null) return;
+
+            _sessionId = _driver.SessionId;
+            _driver.Quit();
+            new SimpleSauce().Rdc.UpdateTestStatus(GetTestStatus(), _sessionId);
+        }
+
+        private bool GetTestStatus()
+        {
+            return TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
         }
     }
 }

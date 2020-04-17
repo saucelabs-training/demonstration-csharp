@@ -13,7 +13,7 @@ using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
 {
     [TestFixture]
-    public class AndroidSimpleTests
+    public class AndroidExamples
     {
         /*
          * This is the very basic setup that you should have for your test automation.

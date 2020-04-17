@@ -79,9 +79,10 @@
   <ItemGroup>
     <Compile Include="Emusim\W3CEmusim.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealDevices\NativeApp\iOSExamples.cs" />
     <Compile Include="RealDevices\NativeApp\iOSGetStarted.cs" />
     <Compile Include="RealDevices\NativeApp\AndroidGetStarted.cs" />
-    <Compile Include="RealDevices\NativeApp\AndroidSimpleTests.cs" />
+    <Compile Include="RealDevices\NativeApp\AndroidExamples.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
