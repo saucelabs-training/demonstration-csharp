@@ -10,6 +10,7 @@ namespace Selenium3.Nunit.Scripts.OnboardingTests
 {
     [TestFixture]
     [Category("InstantSauceTest"), Category("NUnit"), Category("Instant")]
+    [Ignore("This is just a code sample")]
     public class InstantSauceTest
     {
         private IWebDriver _driver;
