@@ -17,6 +17,8 @@ This directory contains example scripts and dependencies for running automated S
 * [Selenium W3C examples](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
 * [Examples,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/SeleniumMsTest)
 * [Sauce Labs REST API](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SimpleExamples/RestApiForVdc.cs)
+* [Set pass/fail status,Selenium,NUnit](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/Web.Tests/BestPractices/test/BaseTest.cs#L60)
+* [Set pass/fail status,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/SeleniumMsTest/ParallelTests/DataDriven/DataDrivenCrossBrowserParallelMethods.cs#L84)
 
 ### Appium aka mobile automation
 
