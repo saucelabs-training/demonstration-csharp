@@ -13,7 +13,7 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
     {
         IWebDriver _driver;
         [Test]
-        public void SauceConnectTest()
+        public void SimpleTest()
         {
             //TODO please supply your Sauce Labs user name in an environment variable
             var sauceUserName = Environment.GetEnvironmentVariable(
@@ -28,6 +28,8 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
             options.AddAdditionalCapability("username", sauceUserName, true);
             options.AddAdditionalCapability("accessKey", sauceAccessKey, true);
             options.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name, true);
+            options.AddAdditionalCapability("build", "ShwabTeamName:" + DateTime.Now, true);
+
 
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), options.ToCapabilities(),
                 TimeSpan.FromSeconds(600));

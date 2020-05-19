@@ -6,6 +6,7 @@ namespace Selenium.MsTest.Scripts.ParallelTests
 {
     [TestClass]
     [TestCategory("Selenium")]
+    [DoNotParallelize]
     public class ParallelSeleniumMethods
     {
         /*

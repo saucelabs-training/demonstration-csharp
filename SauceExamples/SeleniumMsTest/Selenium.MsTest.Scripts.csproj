@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="ParallelTests\DataDriven\BaseWebTest.cs" />
     <Compile Include="ParallelTests\DataDriven\MsTestCrossBrowserData.cs" />
+    <Compile Include="ParallelTests\ParallelAtMethodLevel2.cs" />
     <Compile Include="ParallelTests\ParallelAtMethodLevel.cs" />
     <Compile Include="ParallelTests\DataDriven\DataDrivenCrossBrowserParallelMethods.cs" />
     <Compile Include="ParallelTests\ParallelSeleniumMethods.cs" />
