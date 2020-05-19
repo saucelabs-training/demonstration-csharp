@@ -6,7 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
-namespace Selenium3.Nunit.Scripts
+namespace Selenium3.Nunit.Scripts.SimpleExamples
 {
     public class ReusableTests
     {

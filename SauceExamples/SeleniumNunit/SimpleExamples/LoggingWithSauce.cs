@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 
-namespace Selenium3.Nunit.Scripts
+namespace Selenium3.Nunit.Scripts.SimpleExamples
 {
     [TestFixture]
     class LoggingWithSauce
