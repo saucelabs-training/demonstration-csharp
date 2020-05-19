@@ -27,9 +27,8 @@ namespace Selenium3.Nunit.Framework
                 //safari
                 //doesn't work
                 //yield return new TestFixtureData("Safari", "latest", "macOS 10.15");
-                //yield return new TestFixtureData("Safari", "13.0", "macOS 10.15");
-                //yield return new TestFixtureData("Safari", "latest", "macOS 10.13");
-
+                yield return new TestFixtureData("Safari", "13.0", "macOS 10.15");
+                yield return new TestFixtureData("Safari", "latest", "macOS 10.13");
                 yield return new TestFixtureData("Safari", "latest", "macOS 10.14");
                 yield return new TestFixtureData("Safari", "latest", "macOS 10.12");
 
@@ -50,28 +49,6 @@ namespace Selenium3.Nunit.Framework
                 //Doesn't work
                 //yield return new TestFixtureData("Internet Explorer", "latest", "Windows 8");       
                 //yield return new TestFixtureData("Internet Explorer", "10.0", "Windows 7");
-            }
-        }
-
-        public static IEnumerable HeadlessTestData
-        {
-            get
-            {
-                yield return new TestFixtureData("Chrome", "latest", "Linux");
-                yield return new TestFixtureData("Chrome", "latest-1", "Linux");
-                yield return new TestFixtureData("Chrome", "latest-2", "Linux");
-
-                yield return new TestFixtureData("Firefox", "latest", "Linux");
-                yield return new TestFixtureData("Firefox", "latest-1", "Linux");
-                yield return new TestFixtureData("Firefox", "latest-2", "Linux");
-            }
-        }
-
-        public static IEnumerable LatestChrome
-        {
-            get
-            {
-                yield return new TestFixtureData("Chrome", "latest", "macOS 10.13");
             }
         }
     }

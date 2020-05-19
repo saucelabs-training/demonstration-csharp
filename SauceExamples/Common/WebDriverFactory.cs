@@ -38,7 +38,7 @@ namespace Common
         }
         public IWebDriver CreateSauceDriver(string testCaseName)
         {
-            SetVMCapabilities("chrome", "latest", "Windows 10");
+            SetVMCapabilities("safari", "latest", "mac 10.13");
             return SetSauceCapabilities(testCaseName, _desiredCapabilities);
         }
         public IWebDriver CreateSauceDriver(string browser, string browserVersion, string osPlatform)
