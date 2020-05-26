@@ -1,12 +1,15 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using Common.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 
 namespace Selenium.MsTest.Scripts.ParallelTests
 {
     [TestClass]
-    [TestCategory("Selenium")]
-    [DoNotParallelize]
     public class ParallelSeleniumMethods
     {
         /*
@@ -21,98 +24,83 @@ namespace Selenium.MsTest.Scripts.ParallelTests
          * In this example, we can run many Selenium test methods in parallel without any issue
          */
         private IWebDriver _driver;
+        private string _sauceUserName;
+        private string _sauceAccessKey;
+        private Dictionary<string, object> _sauceOptions;
+        private Uri SeleniumHub => new Uri("https://ondemand.saucelabs.com/wd/hub");
 
         public TestContext TestContext { get; set; }
-
-        public void SimpleTest(string testName)
+        [TestInitialize]
+        public void SetupTests()
         {
-        //    var sauceUserName = SauceUser.Name;
-        //    var sauceAccessKey = SauceUser.AccessKey;
+            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.Machine);
+            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.Machine);
+            _sauceOptions = new Dictionary<string, object>
+            {
+                ["username"] = _sauceUserName,
+                ["accessKey"] = _sauceAccessKey,
+                ["name"] = TestContext.TestName
+            };
+            var chromeOptions = new ChromeOptions
+            {
+                BrowserVersion = "latest",
+                PlatformName = "Windows 10"
+            };
+            chromeOptions.AddAdditionalCapability("sauce:options", _sauceOptions);
 
-        //    /*
-        //     * In this section, we will configure our test to run on some specific
-        //     * browser/os combination in Sauce Labs
-        //     */
-        //    var capabilities = new DesiredCapabilities();
-        //    //set your user name and access key to run tests in Sauce
-        //    capabilities.SetCapability("username", sauceUserName);
-        //    //set your sauce labs access key
-        //    capabilities.SetCapability("accessKey", sauceAccessKey);
-        //    //set browser to Safari
-        //    capabilities.SetCapability("browserName", "Safari");
-        //    //set operating system to macOS version 10.13
-        //    capabilities.SetCapability("platform", "macOS 10.13");
-        //    //set the browser version to 11.1
-        //    capabilities.SetCapability("version", "11.1");
-        //    //set your test case name so that it shows up in Sauce Labs
-        //    capabilities.SetCapability("name", testName);
+            _driver = new RemoteWebDriver(SeleniumHub,
+                chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(60));
+        }
+        [TestCleanup]
+        public void CleanUpAfterEveryTestMethod()
+        {
+            if (_driver == null) return;
 
-        //    //create a new Remote driver that will allow your test to send
-        //    //commands to the Sauce Labs grid so that Sauce can execute your tests
-        //    _driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"),
-        //        capabilities, TimeSpan.FromSeconds(600));
-        //    //navigate to the url of the Sauce Labs Sample app
-        //    _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            var isPassed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
+            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (isPassed ? "passed" : "failed"));
+            _driver.Quit();
+        }
 
-        //    //Create an instance of a Selenium explicit wait so that we can dynamically wait for an element
-        //    var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
-        //    //wait for the user name field to be visible and store that element into a variable
-        //    var userNameField = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[type='text']")));
-        //    //type the user name string into the user name field
-        //    userNameField.SendKeys("standard_user");
-        //    //type the password into the password field
-        //    _driver.FindElement(By.CssSelector("[type='password']")).SendKeys("secret_sauce");
-        //    //hit Login button
-        //    _driver.FindElement(By.CssSelector("[type='submit']")).Click();
-
-        //    //Synchronize on the next page and make sure it loads
-        //    var inventoryPageLocator =
-        //        wait.Until(ExpectedConditions.ElementIsVisible(By.Id("inventory_container")));
-        //    //Assert that the inventory page displayed appropriately
-         //   Assert.IsTrue(inventoryPageLocator.Displayed);
+        public void SimpleTest()
+        {
+            _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Assert.AreEqual("Swag Labs", _driver.Title);
         }
 
         [TestMethod]
         public void SeleniumTest1()
         {
-            SimpleTest(MethodBase.GetCurrentMethod().Name);
+            SimpleTest();
         }
         [TestMethod]
         public void SeleniumTest2()
         {
-            SimpleTest(MethodBase.GetCurrentMethod().Name);
+            SimpleTest();
         }
         [TestMethod]
         public void SeleniumTest3()
         {
-            SimpleTest(MethodBase.GetCurrentMethod().Name);
+            SimpleTest();
         }
         [TestMethod]
         public void SeleniumTest4()
         {
-            SimpleTest(MethodBase.GetCurrentMethod().Name);
+            SimpleTest();
         }
         [TestMethod]
         public void SeleniumTest5()
         {
-            SimpleTest(MethodBase.GetCurrentMethod().Name);
+            SimpleTest();
         }
         [TestMethod]
         public void SeleniumTest6()
         {
-            SimpleTest(MethodBase.GetCurrentMethod().Name);
+            SimpleTest();
         }
         [TestMethod]
         public void SeleniumTest7()
         {
-            SimpleTest(MethodBase.GetCurrentMethod().Name);
-        }
-        [TestCleanup]
-        public void CleanUpAfterEveryTestMethod()
-        {
-            var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
-            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
-            _driver?.Quit();
+            SimpleTest();
         }
     }
 }

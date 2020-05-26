@@ -10,7 +10,6 @@ namespace Selenium3.Nunit.Scripts.Parallel
 {
     [TestFixture]
     [Parallelizable(ParallelScope.All)]
-    [Category("Parallel selenium tests at the class level")]
     class ParallelAtMethodsWithSelenium
     {
         private sealed class TestScope : IDisposable
