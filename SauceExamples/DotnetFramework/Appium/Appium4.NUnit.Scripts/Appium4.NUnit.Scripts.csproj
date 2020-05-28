@@ -77,7 +77,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Emusim\W3CEmusim.cs" />
+    <Compile Include="Emusim\Browser\W3CEmusim.cs" />
+    <Compile Include="Emusim\NativeApp\iOSParallelAndCrossBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealDevices\NativeApp\iOSExamples.cs" />
     <Compile Include="RealDevices\NativeApp\iOSGetStarted.cs" />
@@ -93,6 +94,7 @@
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -48,6 +48,8 @@ namespace Selenium3.Nunit.Scripts.Parallel
                 if (Driver == null)
                     return;
                 var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
+                //TODO can't get this to work, it always fails
+
                 ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
                 Driver.Quit();
             }
