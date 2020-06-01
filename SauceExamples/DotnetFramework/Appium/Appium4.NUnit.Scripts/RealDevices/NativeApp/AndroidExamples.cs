@@ -36,6 +36,8 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
             //make sure you set locale as sometimes it opens in a different location and throws off locations
             capabilities.AddAdditionalCapability("locale", "en");
             capabilities.AddAdditionalCapability("language", "en");
+            //The next major version of Appium (2.x) will **require** this capability
+            capabilities.AddAdditionalCapability("automationName", "UiAutomator2");
 
             /*
              * !!!!!!
@@ -79,6 +81,7 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
         [Category("Rdc")]
         [Category("NativeApp")]
         [Category("Appium4NUnitScripts")]
+        [Retry(1)]
 
         public void ShouldLogin()
         {
@@ -96,9 +99,13 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
                 MobileBy.AccessibilityId("test-LOGIN")));
             login.Click();
 
-            var cartElement = wait.Until(ExpectedConditions.ElementIsVisible(
-                By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']")));
-            Assert.IsTrue(cartElement.Displayed);
+            Assert.DoesNotThrow(() => GetCartElement(wait), "The cart element wasn't displayed");
+        }
+
+        private void GetCartElement(WebDriverWait wait)
+        {
+            wait.Until(ExpectedConditions.ElementIsVisible(
+                            By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']")));
         }
     }
 }
