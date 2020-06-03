@@ -4,7 +4,7 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{BE3EF376-360B-4B9C-BB24-E6C3B9545E4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.Nunit.Scripts", "SeleniumNunit\Selenium.Nunit.Scripts.csproj", "{D0544BBB-85D0-4BD0-82E2-2AC1C6BBBCF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium3.Nunit.Scripts", "SeleniumNunit\Selenium3.Nunit.Scripts.csproj", "{D0544BBB-85D0-4BD0-82E2-2AC1C6BBBCF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02D1155D-7E24-485D-84E5-043B79A04B74}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium3.Nunit.Framework",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appium3.MsTest.Scripts", "AppiumLatestOnDotNetFramework\Appium3.MsTest.Scripts.csproj", "{99F99E3A-B9A8-46D8-AC32-FC40552D04CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.MsTest.Scripts", "SeleniumMsTest\Selenium.MsTest.Scripts.csproj", "{8EAC3C5C-FDF4-4A85-BFE9-19EB8B30E989}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium3.MsTest.Scripts", "SeleniumMsTest\Selenium3.MsTest.Scripts.csproj", "{8EAC3C5C-FDF4-4A85-BFE9-19EB8B30E989}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Posh", "Posh", "{B4AB832A-65EC-44FF-B136-197A2DA8E74B}"
 	ProjectSection(SolutionItems) = preProject

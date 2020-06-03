@@ -8,8 +8,8 @@
     <ProjectGuid>{8EAC3C5C-FDF4-4A85-BFE9-19EB8B30E989}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Selenium.MsTest.Scripts</RootNamespace>
-    <AssemblyName>Selenium.MsTest.Scripts</AssemblyName>
+    <RootNamespace>Selenium3.MsTest.Scripts</RootNamespace>
+    <AssemblyName>Selenium3.MsTest.Scripts</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -48,8 +48,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="WebDriver, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.4.0.0-alpha03\lib\net47\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
@@ -63,7 +63,7 @@
     <Compile Include="ParallelTests\ParallelSeleniumMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selenium3WithW3C.cs" />
-    <Compile Include="SimpleTest.cs" />
+    <Compile Include="ExtendedDebugging.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".runsettings" />
