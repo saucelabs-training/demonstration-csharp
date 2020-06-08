@@ -30,6 +30,15 @@ This directory contains example scripts and dependencies for running automated S
 
 * [Performance testing and nework throttling](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
 
+## Parallelization capabilities of unit testing libraries
+
+How do different libraries parallelize tests?
+
+|MsTest|NUnit|xUnit|SpecFlow|
+|:-------------:|:-------------:|:-------------:|:-------------:|
+|Test method|Test class|Test class|Test class|
+
+
 ## Setting Up a Selenium Project in Visual Studio 
 
 <p>This procedure shows you how to set up a Selenium project in Visual Studio (VS).  Once you set up a project, you'll run a test script written in C#, which we provide, on Sauce Labs. In the future, you can use this script as a template for your own automated tests.</p>
