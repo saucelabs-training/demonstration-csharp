@@ -1,10 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
 using TechTalk.SpecFlow;
 [assembly: Parallelize(Workers = 100, Scope = ExecutionScope.MethodLevel)]
 
