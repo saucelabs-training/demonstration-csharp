@@ -18,8 +18,7 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
         [AfterScenario]
         public void Teardown()
         {
-            if (Driver == null) 
-                return;
+            if (Driver == null){ return; }
 
             var passed = _scenarioContext.ScenarioExecutionStatus == ScenarioExecutionStatus.OK;
             ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
