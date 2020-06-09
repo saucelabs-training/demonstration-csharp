@@ -8,13 +8,11 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.StepDefinitions
     [Binding]
     public class ParallelSteps
     {
-        private IWebDriver _driver;
-        private ScenarioContext _scenarioContext;
+        private readonly IWebDriver _driver;
 
-        public ParallelSteps(IWebDriver driver, ScenarioContext scenarioContext)
+        public ParallelSteps(IWebDriver driver)
         {
             _driver = driver;
-            _scenarioContext = scenarioContext;
         }
 
         [When(@"a user navigates to Sauce Demo")]

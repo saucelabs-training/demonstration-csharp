@@ -26,7 +26,8 @@ namespace Selenium4.MsTest.Scripts
         public void CleanUpAfterEveryTestMethod()
         {
             var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
-            if (_driver == null) return;
+            if (_driver == null) 
+                return;
             
             ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
             _driver.Quit();

@@ -11,11 +11,7 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
     [Binding]
     public class DriverSetup
     {
-        private IObjectContainer _objectContainer;
-        private string sauceUserName;
-        private string sauceAccessKey;
-        private Dictionary<string, object> sauceOptions;
-        private IWebDriver Driver;
+        private readonly IObjectContainer _objectContainer;
 
         public DriverSetup(IObjectContainer objectContainer)
         {
@@ -27,10 +23,10 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
         public void BeforeScenario()
         {
             //TODO please supply your Sauce Labs user name in an environment variable
-            sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            var sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
             //TODO please supply your own Sauce Labs access Key in an environment variable
-            sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-            sauceOptions = new Dictionary<string, object>
+            var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            var sauceOptions = new Dictionary<string, object>
             {
                 ["username"] = sauceUserName,
                 ["accessKey"] = sauceAccessKey
@@ -42,9 +38,9 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
             };
             chromeOptions.AddAdditionalOption("sauce:options", sauceOptions);
 
-            Driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
+            var driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
                 chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(30));
-            _objectContainer.RegisterInstanceAs(Driver);
+            _objectContainer.RegisterInstanceAs(driver);
         }
 
     }

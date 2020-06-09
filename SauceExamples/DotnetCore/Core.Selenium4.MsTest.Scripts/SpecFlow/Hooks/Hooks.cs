@@ -6,8 +6,8 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
     [Binding]
     public class Hooks
     {
-        public IWebDriver Driver;
-        private ScenarioContext _scenarioContext;
+        public IWebDriver Driver { get; }
+        private readonly ScenarioContext _scenarioContext;
 
         public Hooks(IWebDriver driver, ScenarioContext scenarioContext)
         {
@@ -18,7 +18,8 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
         [AfterScenario]
         public void Teardown()
         {
-            if (Driver == null) return;
+            if (Driver == null) 
+                return;
 
             var passed = _scenarioContext.ScenarioExecutionStatus == ScenarioExecutionStatus.OK;
             ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
