@@ -11,7 +11,8 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
     [Binding]
     public class DriverSetup
     {
-        private readonly IObjectContainer _objectContainer;
+        private IObjectContainer _objectContainer;
+        public IWebDriver Driver;
 
         public DriverSetup(IObjectContainer objectContainer)
         {
@@ -38,9 +39,9 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
             };
             chromeOptions.AddAdditionalOption("sauce:options", sauceOptions);
 
-            var driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
+            Driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"),
                 chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(30));
-            _objectContainer.RegisterInstanceAs(driver);
+            _objectContainer.RegisterInstanceAs(Driver);
         }
 
     }
