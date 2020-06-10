@@ -22,6 +22,16 @@ namespace Selenium4.MsTest.Scripts
         private Dictionary<string, object> sauceOptions;
         public TestContext TestContext { get; set; }
 
+        [TestCleanup]
+        public void CleanUpAfterEveryTestMethod()
+        {
+            var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
+            if (_driver == null) { return;}
+            
+            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+            _driver.Quit();
+        }
+
         [TestMethod]
         public void EdgeW3C()
         {
@@ -139,13 +149,6 @@ namespace Selenium4.MsTest.Scripts
                 ["accessKey"] = sauceAccessKey
             };
         }
-        [TestCleanup]
-        public void CleanUpAfterEveryTestMethod()
-        {
-            var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
-            if (_driver != null)
-                ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
-            _driver?.Quit();
-        }
+
     }
 }
