@@ -18,7 +18,9 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore dotnet restore ~/SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/Core.Selenium4.MsTest.Scripts.csproj
+      run: | 
+        dotnet restore ~/SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/Core.Selenium4.MsTest.Scripts.csproj |
+        --verbosity detailed
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
