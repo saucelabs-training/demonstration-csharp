@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace Selenium.MsTest.Scripts.ParallelTests.DataDriven
+namespace Selenium3.MsTest.Scripts.ParallelTests.DataDriven
 {
     [TestClass]
     [TestCategory("Selenium")]

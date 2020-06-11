@@ -43,6 +43,5 @@ namespace Core.Selenium4.MsTest.Scripts.SpecFlow.Hooks
                 chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(30));
             _objectContainer.RegisterInstanceAs(Driver);
         }
-
     }
 }

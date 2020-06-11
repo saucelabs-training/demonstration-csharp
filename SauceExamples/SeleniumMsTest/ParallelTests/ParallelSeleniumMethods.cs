@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
-using Common.SauceLabs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 
-namespace Selenium.MsTest.Scripts.ParallelTests
+namespace Selenium3.MsTest.Scripts.ParallelTests
 {
     [TestClass]
     public class ParallelSeleniumMethods

@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 
-namespace Selenium.MsTest.Scripts
+namespace Selenium3.MsTest.Scripts
 {
     [TestClass]
     [TestCategory("SimpleTest")]
