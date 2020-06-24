@@ -51,12 +51,17 @@ namespace Selenium3.Nunit.Scripts.SaucePerformance
 
         public void W3CPerformanceTestForSauceDemo()
         {
-            //Login steps here
             Driver.Navigate().GoToUrl("https://www.saucedemo.com");
         }
 
+        /*
+         * A simple test that will capture the performance of this page
+         * based on previous execution and history. This execution
+         * estabilished a baseline that will makee sure that our test doesn't
+         * deviate away from it.
+         */
         [Test]
-        public void W3CPeformanceTestForUltimateQA()
+        public void W3CPerformanceTestForUltimateQa()
         {
             Driver.Navigate().GoToUrl("https://www.ultimateqa.com");
         }
@@ -78,6 +83,13 @@ namespace Selenium3.Nunit.Scripts.SaucePerformance
             var performanceMetrics = (Dictionary<string, object>)((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
             Assert.That(performanceMetrics["load"], Is.EqualTo(450).Within(20).Percent);
         }
+
+        /*
+         * Make sure that the web page speed index score is within a certain range.
+         * The speed index is a score from 0 to infinity.
+         * In this test we are making sure that the score is within 20 %
+         *
+         */
         [Test]
         public void SauceDemoSpeedIndexShouldBeWithin20Percent()
         {
