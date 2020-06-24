@@ -61,8 +61,13 @@ namespace Selenium3.Nunit.Scripts.SaucePerformance
             Driver.Navigate().GoToUrl("https://www.ultimateqa.com");
         }
 
+        /*
+         * This test makes sure that the load time of the website is
+         * within a range that we specified. In this case, wee are
+         * allowing a 20% variation in our page load speed
+         */
         [Test]
-        public void SauceDemoLoadShouldBeWithin20Percent()
+        public void SauceDemoLoadTimeShouldBeWithin20Percent()
         {
             Driver.Navigate().GoToUrl("https://www.saucedemo.com");
 
