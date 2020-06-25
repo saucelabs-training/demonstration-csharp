@@ -1,10 +1,6 @@
 pool:
   name: Hosted VS2017
   vmImage: windows-latest
-  demands:
-  - msbuild
-  - visualstudio
-  - vstest
 
 steps:
 - script: set
