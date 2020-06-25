@@ -9,6 +9,13 @@ pool:
 steps:
 - script: set
   displayName: print all variables
+
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk'
+  inputs:
+    packageType: sdk
+    version: 3.x
+    installationPath: $(Agent.ToolsDirectory)/dotnet
 - task: NuGetToolInstaller@0
   displayName: 'Use NuGet 4.4.1'
   inputs:
