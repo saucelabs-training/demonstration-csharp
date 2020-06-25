@@ -1,4 +1,7 @@
+using Common;
+using Common.SauceLabs;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using Selenium3.Nunit.Framework.BestPractices.Pages;
 
 namespace Selenium3.Nunit.Framework.BestPractices.test
@@ -6,17 +9,12 @@ namespace Selenium3.Nunit.Framework.BestPractices.test
     [TestFixture]
     [Parallelizable]
     [Category("Performance")]
-    public class PerformanceTesting : BaseTest
+    [Ignore("need to add the capability to set performance testing to true")]
+    public class PerformanceTesting
     {
         private SauceDemoLoginPage _loginPage;
 
-        public PerformanceTesting(string browser, string version, string os) :
-            base(browser, version, os)
-        {
-        }
-
         [Test]
-        [Ignore("not needed")]
         public void LoginPageSpeedIndexIsWithin20Percent()
         {
             _loginPage.Open();
@@ -27,7 +25,11 @@ namespace Selenium3.Nunit.Framework.BestPractices.test
         [SetUp]
         public void RunBeforeEveryTest()
         {
+
+            Driver = new WebDriverFactory().CreateSauceDriver("chrome", "latest", "windows 10");
             _loginPage = new SauceDemoLoginPage(Driver);
         }
+
+        public IWebDriver Driver { get; set; }
     }
 }

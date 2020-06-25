@@ -27,8 +27,10 @@ namespace Selenium3.Nunit.Framework
                 //safari
                 //doesn't work
                 //yield return new TestFixtureData("Safari", "latest", "macOS 10.15");
-                yield return new TestFixtureData("Safari", "13.0", "macOS 10.15");
-                yield return new TestFixtureData("Safari", "latest", "macOS 10.13");
+
+                //click on Safari with macOS 10.13 doesn't work
+                //yield return new TestFixtureData("Safari", "latest", "macOS 10.13");
+                
                 yield return new TestFixtureData("Safari", "latest", "macOS 10.14");
                 yield return new TestFixtureData("Safari", "latest", "macOS 10.12");
 
