@@ -15,9 +15,21 @@ namespace Selenium.Nunit.Framework.BestPractices.Pages
         public bool IsLoaded => new Wait(_driver, _loginButtonLocator).IsVisible();
         public IWebElement PasswordField => _driver.FindElement(By.Id("password"));
         public IWebElement LoginButton => _driver.FindElement(_loginButtonLocator);
-        private readonly By _usernameLocator = By.Id("user-name");
-        public IWebElement UsernameField => _driver.FindElement(_usernameLocator);
+        private readonly By _usernameLocator = By.Id("user-namez");
+        public IWebElement UsernameField => TryFind(_usernameLocator);
 
+        public IWebElement TryFind(By locator)
+        {
+            try
+            {
+                return _driver.FindElement(locator);
+            }
+            catch (System.Exception)
+            {
+                //log
+                return _driver.FindElement(locator);
+            }
+        }
         public SauceDemoLoginPage Open()
         {
             _driver.Navigate().GoToUrl(BaseUrl);
