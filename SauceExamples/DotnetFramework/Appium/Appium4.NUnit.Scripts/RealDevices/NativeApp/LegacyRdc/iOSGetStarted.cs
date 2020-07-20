@@ -8,6 +8,7 @@ using OpenQA.Selenium.Appium.iOS;
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.LegacyRdc
 {
     [TestFixture]
+    [Parallelizable]
     public class IOsGetStarted
     {
         private static string RdcUsHubUrl => "https://us1.appium.testobject.com/wd/hub";
@@ -25,7 +26,7 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.LegacyRdc
             var capabilities = new AppiumOptions();
             //We can run on any version of the platform as long as it's the correct device
             //Make sure to pick an Android or iOS device based on your app
-            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "iPhone X");
+            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "iPhone.*");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
 
             /*

@@ -13,6 +13,7 @@ using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.LegacyRdc
 {
     [TestFixture]
+    [Parallelizable]
     public class AndroidExamples
     {
         /*
