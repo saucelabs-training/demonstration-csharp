@@ -9,7 +9,7 @@ using OpenQA.Selenium.Appium.iOS;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
-namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
+namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.LegacyRdc
 {
     [TestFixture]
     [Parallelizable]

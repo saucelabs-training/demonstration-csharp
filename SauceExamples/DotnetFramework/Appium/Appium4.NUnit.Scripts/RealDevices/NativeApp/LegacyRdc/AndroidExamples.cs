@@ -10,7 +10,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
-namespace Appium4.NUnit.Scripts.RealDevices.NativeApp
+namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.LegacyRdc
 {
     [TestFixture]
     public class AndroidExamples

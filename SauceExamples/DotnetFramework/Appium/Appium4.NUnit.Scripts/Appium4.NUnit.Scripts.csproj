@@ -73,10 +73,10 @@
     <Compile Include="Emusim\Browser\W3CEmusim.cs" />
     <Compile Include="Emusim\NativeApp\iOSParallelAndCrossBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RealDevices\NativeApp\iOSExamples.cs" />
-    <Compile Include="RealDevices\NativeApp\iOSGetStarted.cs" />
-    <Compile Include="RealDevices\NativeApp\AndroidGetStarted.cs" />
-    <Compile Include="RealDevices\NativeApp\AndroidExamples.cs" />
+    <Compile Include="RealDevices\NativeApp\LegacyRdc\iOSExamples.cs" />
+    <Compile Include="RealDevices\NativeApp\LegacyRdc\iOSGetStarted.cs" />
+    <Compile Include="RealDevices\NativeApp\LegacyRdc\AndroidGetStarted.cs" />
+    <Compile Include="RealDevices\NativeApp\LegacyRdc\AndroidExamples.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
