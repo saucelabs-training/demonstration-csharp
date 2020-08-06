@@ -25,6 +25,34 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
         private string _sauceAccessKey;
         private Dictionary<string, object> _sauceOptions;
 
+        [SetUp]
+        public void SetupTests()
+        {
+            //TODO please supply your Sauce Labs user name in an environment variable
+            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            //TODO please supply your own Sauce Labs access Key in an environment variable
+            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            _sauceOptions = new Dictionary<string, object>
+            {
+                ["username"] = _sauceUserName,
+                ["accessKey"] = _sauceAccessKey
+            };
+        }
+        [TearDown]
+        public void CleanUpAfterEveryTestMethod()
+        {
+            var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
+            if (_driver != null)
+            {
+                //all driver operations should happen here after the check
+                ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+                _driver.Quit();
+            }
+            //call to JIRA API
+            //PUT to JIRA with status
+            //create HTML reports
+        }
+
         [Test]
         public void EdgeW3C()
         {
@@ -44,6 +72,7 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
             Assert.Pass();
         }
         [Test]
+        [Ignore("Failing with authentication issue")]
         public void IEW3C()
         {
             var options = new InternetExplorerOptions
@@ -95,33 +124,6 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
                 safariOptions.ToCapabilities(), TimeSpan.FromSeconds(600));
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
             Assert.Pass();
-        }
-        [SetUp]
-        public void SetupTests()
-        {
-            //TODO please supply your Sauce Labs user name in an environment variable
-            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            //TODO please supply your own Sauce Labs access Key in an environment variable
-            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-            _sauceOptions = new Dictionary<string, object>
-            {
-                ["username"] = _sauceUserName,
-                ["accessKey"] = _sauceAccessKey
-            };
-        }
-        [TearDown]
-        public void CleanUpAfterEveryTestMethod()
-        {
-            var passed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            if (_driver != null)
-            {
-                //all driver operations should happen here after the check
-                ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
-                _driver.Quit();
-            }
-            //call to JIRA API
-            //PUT to JIRA with status
-            //create HTML reports
         }
     }
 }
