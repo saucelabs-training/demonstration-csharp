@@ -107,8 +107,8 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
 
         private IWebDriver GetDriver(DriverOptions driverOptions)
         {
-            //"https://hub.screener.io:443/wd/hub"
-            return new RemoteWebDriver(new Uri("http://staging-hub.screener.io/wd/hub"),
+            //
+            return new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"),
                 driverOptions.ToCapabilities(), TimeSpan.FromSeconds(60));
         }
     }
