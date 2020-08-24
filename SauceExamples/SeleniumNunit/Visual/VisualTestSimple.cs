@@ -35,7 +35,7 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
             //TODO please supply your own Sauce Labs access Key in an environment variable
             var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
             //TODO store your Screener API key in environment variables
-            var screenerApiKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            var screenerApiKey = Environment.GetEnvironmentVariable("SCREENER_API_KEY", EnvironmentVariableTarget.User);
 
             _sauceOptions = new Dictionary<string, object>
             {
@@ -79,11 +79,7 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
 
             JsExecutor.ExecuteScript("/*@visual.init*/", "My Visual C# Test");
-            JsExecutor.ExecuteScript("/*@visual.snapshot*/", "Home");
-            var response = JsExecutor.ExecuteScript("/*@visual.end*/") as Dictionary<string, object>;
-
-            Assert.IsTrue((bool)response["passed"]);
-            Assert.IsNotEmpty((string)response["message"]);
+            JsExecutor.ExecuteScript("/*@visual.snapshot*/", "Login Page");
         }
 
         [Test]
