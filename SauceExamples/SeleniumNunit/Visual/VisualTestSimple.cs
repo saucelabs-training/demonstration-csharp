@@ -78,7 +78,7 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
             _driver = GetDriver(chromeOptions);
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
 
-            JsExecutor.ExecuteScript("/*@visual.init*/", "My Visual C# Test");
+            JsExecutor.ExecuteScript("/*@visual.init*/", "Visual C# Test");
             JsExecutor.ExecuteScript("/*@visual.snapshot*/", "Login Page");
         }
 
@@ -95,10 +95,14 @@ namespace Selenium3.Nunit.Scripts.SimpleExamples
             _sauceOptions.Add("name", TestContext.CurrentContext.Test.Name);
 
             safariOptions.AddAdditionalCapability("sauce:options", _sauceOptions);
+            safariOptions.AddAdditionalCapability("sauce:visual", _visualOptions);
 
             _driver = GetDriver(safariOptions);
+
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
-            Assert.Pass();
+
+            JsExecutor.ExecuteScript("/*@visual.init*/", "Visual C# Test");
+            JsExecutor.ExecuteScript("/*@visual.snapshot*/", "Login Page");
         }
 
         private IWebDriver GetDriver(DriverOptions driverOptions)
