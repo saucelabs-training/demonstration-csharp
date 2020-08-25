@@ -34,7 +34,7 @@ This directory contains example scripts and dependencies for running automated S
 
 ### Visual E2E Testing
 
-* [Visual example,NUnit](./SeleniumNunit/Visual)
+* [Visual example,NUnit](./SauceExamples/SeleniumNunit/Visual)
 
 ### Front-end performance testing
 
