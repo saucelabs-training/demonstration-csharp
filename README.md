@@ -32,6 +32,10 @@ This directory contains example scripts and dependencies for running automated S
 * [RDC REST API and status updates](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/AppiumLatestOnDotNetFramework/RealDevices/NativeApp/AndroidRdcTests.cs)
 * [Appium v3 on EmuSim,MsTest]() [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/Appium3.MsTest.Scripts?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=27&branchName=master)
 
+### Visual E2E Testing
+
+* [Visual example,NUnit](./SeleniumNunit/Visual)
+
 ### Front-end performance testing
 
 * [Performance testing and nework throttling](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
