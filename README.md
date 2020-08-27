@@ -1,6 +1,5 @@
 # C# Sauce Labs Demo Scripts and Frameworks
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/728698e058a04148a6a0da043ef7be1e)](https://app.codacy.com/gh/saucelabs-training/demo-csharp?utm_source=github.com&utm_medium=referral&utm_content=saucelabs-training/demo-csharp&utm_campaign=Badge_Grade_Dashboard)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8d73359469c54f01a0ba96a175514ad3)](https://app.codacy.com/app/nadvolod/demo-csharp?utm_source=github.com&utm_medium=referral&utm_content=nadvolod/demo-csharp&utm_campaign=Badge_Grade_Dashboard)
 
 | RDC Automated Tests(Appium 3)|RDC,Nunit,Native Apps|
 | -------------:|:-------------:|
