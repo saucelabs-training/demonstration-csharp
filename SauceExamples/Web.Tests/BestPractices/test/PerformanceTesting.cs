@@ -1,5 +1,4 @@
 using Common;
-using Common.SauceLabs;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using Selenium3.Nunit.Framework.BestPractices.Pages;
