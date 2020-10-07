@@ -29,21 +29,21 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.UP
             //Make sure to pick an Android or iOS device based on your app
             capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "Google Pixel 4");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
-
-            /*
-             * !!!!!!
-             * TODO first you must upload an app to RDC so that you get your app key
-             * Then, make sure you can hardcode it here just to get started
-             */
-            capabilities.AddAdditionalCapability("testobject_api_key", new ApiKeys().Rdc.Apps.SampleAppAndroid);
             capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
-            //TODO it's a best practice to set the appium version so that you're always getting the latest
-            capabilities.AddAdditionalCapability("appiumVersion", "1.16.0");
 
-
+            /*
+             * You need to upload your own Native Mobile App to Sauce Storage!
+             * https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Sauce+Storage
+             * You can use either storage:<app-id> or storage:filename=
+             */
+            capabilities.AddAdditionalCapability("app",
+                "storage:filename=Android.SauceLabs.Mobile.Sample.app.2.5.0.apk");
+            var sauceUser = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            var uri = $"https://{sauceUser}:{sauceAccessKey}@{HubUrl}";
             //60 seconds for the connection timeout
-            _driver = new AndroidDriver<AndroidElement>(new Uri(HubUrl), capabilities);
+            _driver = new AndroidDriver<AndroidElement>(new Uri(uri), capabilities);
             var size = _driver.Manage().Window.Size;
             Assert.AreNotEqual(0, size.Height);
 

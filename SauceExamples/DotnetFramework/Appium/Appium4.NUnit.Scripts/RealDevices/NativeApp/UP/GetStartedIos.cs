@@ -26,13 +26,11 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.UP
             capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "iPhone 11 Pro Max");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
             capabilities.AddAdditionalCapability(MobileCapabilityType.Language, "en");
-
             capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
 
             /*
              * You need to upload your own Native Mobile App to Sauce Storage!
              * https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Sauce+Storage
-             *
              * You can use either storage:<app-id> or storage:filename=
              */
             capabilities.AddAdditionalCapability("app", 
