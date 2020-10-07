@@ -77,6 +77,7 @@
     <Compile Include="RealDevices\NativeApp\LegacyRdc\iOSGetStarted.cs" />
     <Compile Include="RealDevices\NativeApp\LegacyRdc\AndroidGetStarted.cs" />
     <Compile Include="RealDevices\NativeApp\LegacyRdc\AndroidExamples.cs" />
+    <Compile Include="RealDevices\NativeApp\UP\AndroidAdvanced.cs" />
     <Compile Include="RealDevices\NativeApp\UP\AndroidGetStarted.cs" />
     <Compile Include="RealDevices\NativeApp\UP\GetStartedIos.cs" />
   </ItemGroup>

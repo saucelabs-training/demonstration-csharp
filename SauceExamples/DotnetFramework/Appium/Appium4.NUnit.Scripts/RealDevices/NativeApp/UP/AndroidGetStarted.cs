@@ -1,5 +1,4 @@
 ﻿using System;
-using Common.SauceLabs;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;

@@ -6,9 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.iOS;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Appium4.NUnit.Scripts.Emusim.NativeApp
