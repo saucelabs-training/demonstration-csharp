@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Selenium.MsTest.Scripts.ParallelTests.DataDriven
+namespace Selenium3.MsTest.Scripts.ParallelTests.DataDriven
 {
     public class MsTestCrossBrowserData
     {

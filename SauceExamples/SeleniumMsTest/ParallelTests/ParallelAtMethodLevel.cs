@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Selenium.MsTest.Scripts.ParallelTests
+namespace Selenium3.MsTest.Scripts.ParallelTests
 {
     /*
      * How to execute parallel tests at the method level using MsTest
@@ -15,7 +15,7 @@ namespace Selenium.MsTest.Scripts.ParallelTests
      * In this example, 25 are able to run without a problem on a VM with 2 cores
      */
     [TestClass]
-    [TestCategory("MsTest")]
+    [TestCategory("ParallelUsingCategory")]
     public class ParallelAtMethodLevel
     {
         [TestMethod]
