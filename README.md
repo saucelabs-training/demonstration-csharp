@@ -24,12 +24,13 @@ This directory contains example scripts and dependencies for running automated S
 
 #### Dotnet Core
 
-* [Specflow,MsTest in Parallel](https://github.com/saucelabs-training/demo-csharp/tree/master/SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/SpecFlow)
+* [Specflow,MsTest in Parallel](./SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/SpecFlow)
 
 ### Appium aka mobile automation
 
 
 * [Real Devices,Native App,Appium 4,IOS,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/GetStartedIos.cs)
+* [Real Devices,Native App,Appium 4,Android,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/AndroidAdvanced.cs)
 * [Real Devices,Native App,Appium 4](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp)
 * [RDC REST API and status updates](./SauceExamples/AppiumLatestOnDotNetFramework/RealDevices/NativeApp/AndroidRdcTests.cs)
 * [Appium v3 on EmuSim,MsTest]() [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/Appium3.MsTest.Scripts?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=27&branchName=master)
