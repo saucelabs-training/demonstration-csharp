@@ -24,6 +24,7 @@ This directory contains example scripts and dependencies for running automated S
 
 #### Dotnet Core
 
+* [MsTest,Legacy RDC,Native app](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/AndroidGetStarted.cs)
 * [Specflow,MsTest in Parallel](./SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/SpecFlow)
 
 ### Appium aka mobile automation
