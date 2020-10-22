@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="RealDevices\NativeApp\" />
+    <Folder Include="RealDevices\Browser\LegacyRdc\" />
   </ItemGroup>
 
   <ItemGroup>
