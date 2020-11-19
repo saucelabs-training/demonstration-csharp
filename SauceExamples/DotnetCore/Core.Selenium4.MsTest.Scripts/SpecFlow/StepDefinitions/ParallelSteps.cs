@@ -1,7 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
-[assembly: Parallelize(Workers = 100, Scope = ExecutionScope.MethodLevel)]
+//SpecFlow nor any BDD framework car parallelize on methods, so keep it at ClassLevel
+[assembly: Parallelize(Workers = 100, Scope = ExecutionScope.ClassLevel)]
 
 namespace Core.Selenium4.MsTest.Scripts.SpecFlow.StepDefinitions
 {

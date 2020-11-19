@@ -1,10 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="SpecFlow\Features\Test2 - Copy.feature.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
@@ -15,6 +19,19 @@
     <PackageReference Include="SpecFlow" Version="3.1.97" />
     <PackageReference Include="SpecFlow.MsTest" Version="3.1.97" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="SpecFlow\Features\Test3.feature.cs">
+      <DependentUpon>Test3.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="SpecFlow\Features\Test3.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 
 </Project>
