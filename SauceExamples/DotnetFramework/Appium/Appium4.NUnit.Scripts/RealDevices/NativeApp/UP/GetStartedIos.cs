@@ -1,5 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.iOS;
@@ -19,6 +21,10 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.UP
 
         public void ShouldOpenNativeIosApp()
         {
+            var sauceUser = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            var uri = $"https://{sauceUser}:{sauceAccessKey}@{HubUrl}";
+
             var capabilities = new AppiumOptions();
             //We can run on any version of the platform as long as it's the correct device
             //Make sure to pick an Android or iOS device based on your app
@@ -33,18 +39,24 @@ namespace Appium4.NUnit.Scripts.RealDevices.NativeApp.UP
              * You can use either storage:<app-id> or storage:filename=
              */
             capabilities.AddAdditionalCapability("app", 
-                "storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.3.0.ipa");
-            var sauceUser = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+                "storage:filename=iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.0.ipa");
 
-            var uri = $"https://{sauceUser}:{sauceAccessKey}@{HubUrl}";
             //60 seconds for the connection timeout
             _driver = new IOSDriver<IOSElement>(new Uri(uri), capabilities);
-            var size = int.Parse(_driver.Manage().Window.Size.Height.ToString());
-            Assert.Greater(size, 0);
+            var windowHeight = int.Parse(_driver.Manage().Window.Size.Height.ToString());
+            Assert.Greater(windowHeight, 0);
 
-            //Always making sure to end the session at the end of any test
-            _driver?.Quit();
+        }
+
+        //Never forget to pass the test status to Sauce Labs
+        [TearDown]
+        public void Teardown()
+        {
+            if (_driver == null) return;
+
+            var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
+            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
+            _driver.Quit();
         }
     }
 }
