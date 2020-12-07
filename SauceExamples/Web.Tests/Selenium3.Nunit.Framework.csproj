@@ -73,6 +73,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Antipatterns\Parallelization\WorkingBaseTest.cs" />
+    <Compile Include="Antipatterns\Parallelization\LoginFeatureWorksInParallel.cs" />
     <Compile Include="BestPractices\test\BaseTest.cs" />
     <Compile Include="BestPractices\test\PerformanceTesting.cs" />
     <Compile Include="BestPractices\test\ProductsPageFeature.cs" />

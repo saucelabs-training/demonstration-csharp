@@ -53,5 +53,28 @@ namespace Selenium3.Nunit.Framework
                 //yield return new TestFixtureData("Internet Explorer", "10.0", "Windows 7");
             }
         }
+
+        public static IEnumerable SimpleConfiguration
+        {
+            get
+            {
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+                yield return new TestFixtureData("Chrome", "latest", "Windows 10");
+
+            }
+        }
     }
 }
