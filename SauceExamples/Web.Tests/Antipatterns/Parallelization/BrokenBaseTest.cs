@@ -7,16 +7,19 @@ using OpenQA.Selenium;
 
 namespace Selenium3.Nunit.Framework.Antipatterns.Parallelization
 {
+
     [TestFixture]
-    public class WorkingBaseTest
+    public class BrokenBaseTest
     {
         private readonly string _browser;
         private readonly string _browserVersion;
         private readonly string _osPlatform;
         public SauceJavaScriptExecutor SauceReporter;
         private SauceLabsCapabilities SauceConfig { get; set; }
+        public static IWebDriver Driver { get; set; }
 
-        public WorkingBaseTest(string browser, string browserVersion, string osPlatform)
+
+        public BrokenBaseTest(string browser, string browserVersion, string osPlatform)
         {
             _browser = browser;
             _browserVersion = browserVersion;
@@ -35,7 +38,7 @@ namespace Selenium3.Nunit.Framework.Antipatterns.Parallelization
             Driver = new WebDriverFactory(SauceConfig).CreateSauceDriver(_browser, _browserVersion, _osPlatform);
             SauceReporter = new SauceJavaScriptExecutor(Driver);
             SauceReporter.SetTestName(TestContext.CurrentContext.Test.Name);
-            SauceReporter.SetBuildName("ParallelizationWithoutStatic");
+            SauceReporter.SetBuildName("StaticParallelization");
         }
 
         [TearDown]
@@ -57,6 +60,5 @@ namespace Selenium3.Nunit.Framework.Antipatterns.Parallelization
 
 
 
-        public IWebDriver Driver { get; set; }
     }
 }

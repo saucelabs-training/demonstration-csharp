@@ -73,6 +73,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Antipatterns\Parallelization\BrokenLoginFeature.cs" />
+    <Compile Include="Antipatterns\Parallelization\BrokenBaseTest.cs" />
     <Compile Include="Antipatterns\Parallelization\WorkingBaseTest.cs" />
     <Compile Include="Antipatterns\Parallelization\LoginFeatureWorksInParallel.cs" />
     <Compile Include="BestPractices\test\BaseTest.cs" />
