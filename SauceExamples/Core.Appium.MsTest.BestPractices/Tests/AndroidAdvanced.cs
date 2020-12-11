@@ -21,7 +21,7 @@ namespace Core.Appium.MsTest.BestPractices.Tests
          */
         private static string HubUrlPart => "ondemand.us-west-1.saucelabs.com/wd/hub";
         private AndroidDriver<AndroidElement> _driver;
-        public TestContext TestInfo { get; set; }
+        public TestContext TestContext { get; set; }
 
         [TestInitialize]
         public void Setup()
@@ -35,8 +35,9 @@ namespace Core.Appium.MsTest.BestPractices.Tests
             //Make sure to pick an Android or iOS device based on your app
             capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "Google Pixel.*");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
-            capabilities.AddAdditionalCapability("name", TestInfo.TestName);
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
+            capabilities.AddAdditionalCapability("name", TestContext.TestName);
+
 
             /*
              * You need to upload your own Native Mobile App to Sauce Storage!
@@ -44,7 +45,7 @@ namespace Core.Appium.MsTest.BestPractices.Tests
              * You can use either storage:<app-id> or storage:filename=
              */
             capabilities.AddAdditionalCapability("app",
-                "storage:filename=Android.SauceLabs.Mobile.Sample.app.2.5.0.apk");
+                "storage:filename=Android.SauceLabs.Mobile.Sample.app.2.7.0.apk");
 
 
             /*
@@ -60,7 +61,7 @@ namespace Core.Appium.MsTest.BestPractices.Tests
         {
             if (_driver == null) return;
 
-            var isTestPassed = TestInfo.CurrentTestOutcome == UnitTestOutcome.Passed;
+            var isTestPassed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
             ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
             _driver.Quit();
         }
