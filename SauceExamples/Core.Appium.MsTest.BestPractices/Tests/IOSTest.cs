@@ -1,49 +1,56 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.iOS;
+using TestContext = NUnit.Framework.TestContext;
 
-namespace Core.Appium.MsTest.BestPractices.Tests
+namespace Core.Appium.Nunit.BestPractices.Tests
 {
     public class IOSTest : BaseTest
     {
         public IOSDriver<IOSElement> Driver;
-        [TestInitialize]
-        //[DynamicData(nameof(MsTestCrossBrowserData.LatestConfigurations), typeof(MsTestCrossBrowserData))]
+        public AppiumOptions AppiumCaps;
+        private string _deviceName;
+
+        public IOSTest(string deviceName)
+        {
+            _deviceName = deviceName;
+        }
+
+        [SetUp]
         public void Setup()
         {
-            var capabilities = new AppiumOptions();
-            //We can run on any version of the platform as long as it's the correct device
-            //Make sure to pick an Android or iOS device based on your app
-            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "iPhone 11 Pro");
-            capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
-            capabilities.AddAdditionalCapability("newCommandTimeout", 90);
-            capabilities.AddAdditionalCapability("name", TestContext.TestName);
+            AppiumCaps = new AppiumOptions();
+            AppiumCaps.AddAdditionalCapability(MobileCapabilityType.DeviceName, _deviceName);
+
+            AppiumCaps.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
+            AppiumCaps.AddAdditionalCapability("newCommandTimeout", 90);
+            AppiumCaps.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             /*
              * You need to upload your own Native Mobile App to Sauce Storage!
              * https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Sauce+Storage
              * You can use either storage:<app-id> or storage:filename=
              */
-            capabilities.AddAdditionalCapability("app",
+            AppiumCaps.AddAdditionalCapability("app",
                 "storage:filename=iOS.RealDevice.Sample.ipa");
-            /*
-             Getting Error: OpenQA.Selenium.WebDriverException : The HTTP request to the remote WebDriver server for URL 
-            https://us1.appium.testobject.com/wd/hub/session timed out after 60 seconds.
-                ----> System.Net.WebException : The operation has timed out
-            Solution: Try changing to a more popular device
-             */
-            Driver = new IOSDriver<IOSElement>(new Uri(Url), capabilities);
+            Driver = GetIosDriver(AppiumCaps);
         }
-        [TestCleanup]
+        [TearDown]
         public void Teardown()
         {
             if (Driver == null) return;
 
-            var isTestPassed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
+            var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
             ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
             Driver.Quit();
+        }
+        public IOSDriver<IOSElement> GetIosDriver(AppiumOptions appiumOptions)
+        {
+            return new IOSDriver<IOSElement>(new Uri(Url), appiumOptions);
         }
     }
 }
