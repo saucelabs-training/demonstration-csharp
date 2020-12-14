@@ -10,13 +10,12 @@ using TestContext = NUnit.Framework.TestContext;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
-    public class IOSTest : BaseTest
+    public class IosTest : BaseTest
     {
         public IOSDriver<IOSElement> Driver;
-        public AppiumOptions AppiumCaps;
-        private string _deviceName;
+        private readonly string _deviceName;
 
-        public IOSTest(string deviceName)
+        public IosTest(string deviceName)
         {
             _deviceName = deviceName;
         }
@@ -24,20 +23,20 @@ namespace Core.Appium.Nunit.BestPractices.Tests
         [SetUp]
         public void Setup()
         {
-            AppiumCaps = new AppiumOptions();
-            AppiumCaps.AddAdditionalCapability(MobileCapabilityType.DeviceName, _deviceName);
+            var appiumCaps = new AppiumOptions();
+            appiumCaps.AddAdditionalCapability(MobileCapabilityType.DeviceName, _deviceName);
 
-            AppiumCaps.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
-            AppiumCaps.AddAdditionalCapability("newCommandTimeout", 90);
-            AppiumCaps.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
+            appiumCaps.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
+            appiumCaps.AddAdditionalCapability("newCommandTimeout", 90);
+            appiumCaps.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             /*
              * You need to upload your own Native Mobile App to Sauce Storage!
              * https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Sauce+Storage
              * You can use either storage:<app-id> or storage:filename=
              */
-            AppiumCaps.AddAdditionalCapability("app",
+            appiumCaps.AddAdditionalCapability("app",
                 "storage:filename=iOS.RealDevice.Sample.ipa");
-            Driver = GetIosDriver(AppiumCaps);
+            Driver = new IOSDriver<IOSElement>(new Uri(Url), appiumCaps);
         }
         [TearDown]
         public void Teardown()

@@ -8,6 +8,7 @@ using OpenQA.Selenium.Support.UI;
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
     [TestClass]
+    [Ignore]
     public class AndroidFeatures : AndroidTest
     {
         [TestMethod]
