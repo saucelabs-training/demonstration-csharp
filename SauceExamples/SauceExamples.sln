@@ -53,7 +53,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Selenium4.MsTest.Scrip
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Appium.MsTest.Scripts", "Core.Appium.MsTest.Scripts\Core.Appium.MsTest.Scripts.csproj", "{4B512D3B-DFFB-4A03-BC1B-4064139FB96D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Appium.MsTest.BestPractices", "Core.Appium.MsTest.BestPractices\Core.Appium.MsTest.BestPractices.csproj", "{FA1C4898-6470-4230-B360-7647C7FBC7A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Appium.Nunit.BestPractices", "Core.Appium.MsTest.BestPractices\Core.Appium.Nunit.BestPractices.csproj", "{FA1C4898-6470-4230-B360-7647C7FBC7A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,11 +3,9 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
-using OpenQA.Selenium.Appium.Android;
-using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Support.UI;
 
-namespace Core.Appium.MsTest.BestPractices.Tests
+namespace Core.Appium.Nunit.BestPractices.Tests
 {
     [TestClass]
     public class AndroidFeatures : AndroidTest

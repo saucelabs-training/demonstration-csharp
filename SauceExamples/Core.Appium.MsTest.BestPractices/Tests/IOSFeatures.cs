@@ -1,20 +1,24 @@
 ﻿using System;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
-using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
-using OpenQA.Selenium.Appium.iOS;
 using OpenQA.Selenium.Support.UI;
 
-namespace Core.Appium.MsTest.BestPractices.Tests
+namespace Core.Appium.Nunit.BestPractices.Tests
 {
-    [TestClass]
-    public class IOSFeatures : IOSTest
+    [TestFixture]
+    [TestFixtureSource(typeof(IosConfigurations), nameof(IosConfigurations.MostPopularDevices))]
+    [Parallelizable]
+    public class IosFeatures : IOSTest
     {
-        [TestMethod]
+        public IosFeatures(string deviceName) : base(deviceName)
+        {
+        }
 
+        [Test]
         public void ShouldOpenApp()
         {
             Action screenIsVisible = LoginScreenIsVisible;
@@ -29,9 +33,13 @@ namespace Core.Appium.MsTest.BestPractices.Tests
         }
 
         [TestMethod]
+        [DynamicData(nameof(IosConfigurations.MostPopularDevices), typeof(IosConfigurations))]
 
-        public void ShouldLogin()
+        public void ShouldLogin(string deviceName)
         {
+            AppiumCaps.AddAdditionalCapability(MobileCapabilityType.DeviceName, deviceName);
+            Driver = GetIosDriver(AppiumCaps);
+
             var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(20));
 
             var userName = wait.Until(ExpectedConditions.ElementIsVisible(
@@ -55,5 +63,7 @@ namespace Core.Appium.MsTest.BestPractices.Tests
             wait.Until(ExpectedConditions.ElementIsVisible(
                             By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']")));
         }
+
+
     }
 }

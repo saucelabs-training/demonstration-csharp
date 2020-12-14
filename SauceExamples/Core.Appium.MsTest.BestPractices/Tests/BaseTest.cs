@@ -1,11 +1,13 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
+using NUnit.Framework;
+//Docs on NUnit parallelization: https://github.com/nunit/docs/wiki/Framework-Parallel-Test-Execution
+[assembly: Parallelizable(ParallelScope.Fixtures)]
+//Set this value to the Maximum amount of VMs that you have in Sauce Labs
+[assembly: LevelOfParallelism(100)]
 
-[assembly: Parallelize(Workers = 100, Scope = ExecutionScope.MethodLevel)]
-
-namespace Core.Appium.MsTest.BestPractices.Tests
+namespace Core.Appium.Nunit.BestPractices.Tests
 {
+
     public class BaseTest
     {
         public static string HubUrlPart => "ondemand.us-west-1.saucelabs.com/wd/hub";
@@ -13,6 +15,5 @@ namespace Core.Appium.MsTest.BestPractices.Tests
         public string SauceAccessKey => Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
 
         public string Url => $"https://{SauceUser}:{SauceAccessKey}@{HubUrlPart}";
-        public TestContext TestContext { get; set; }
     }
 }
