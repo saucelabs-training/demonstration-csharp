@@ -1,18 +1,18 @@
 ﻿using System;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Support.UI;
+using static SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
     [TestFixture]
     [TestFixtureSource(typeof(IosConfigurations), nameof(IosConfigurations.MostPopularDevices))]
     [Parallelizable]
-    public class IosFeatures : IOSTest
+    public class IosFeatures : IosTest
     {
         public IosFeatures(string deviceName) : base(deviceName)
         {
@@ -28,42 +28,34 @@ namespace Core.Appium.Nunit.BestPractices.Tests
         private void LoginScreenIsVisible()
         {
             var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(20));
-            wait.Until(ExpectedConditions.ElementIsVisible(
+            wait.Until(ElementIsVisible(
                 MobileBy.AccessibilityId("test-Username")));
         }
 
-        [TestMethod]
-        [DynamicData(nameof(IosConfigurations.MostPopularDevices), typeof(IosConfigurations))]
-
-        public void ShouldLogin(string deviceName)
+        [Test]
+        public void ShouldLogin()
         {
-            AppiumCaps.AddAdditionalCapability(MobileCapabilityType.DeviceName, deviceName);
-            Driver = GetIosDriver(AppiumCaps);
-
             var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(20));
 
-            var userName = wait.Until(ExpectedConditions.ElementIsVisible(
+            var userName = wait.Until(ElementIsVisible(
                 MobileBy.AccessibilityId("test-Username")));
             userName.SendKeys("standard_user");
 
-            var password = wait.Until(ExpectedConditions.ElementIsVisible(
+            var password = wait.Until(ElementIsVisible(
                 MobileBy.AccessibilityId("test-Password")));
             password.SendKeys("secret_sauce");
 
-            var login = wait.Until(ExpectedConditions.ElementIsVisible(
+            var login = wait.Until(ElementIsVisible(
                 MobileBy.AccessibilityId("test-LOGIN")));
             login.Click();
 
             Action isCartVisible = () => GetCartElement(wait);
             isCartVisible.Should().NotThrow();
         }
-
         private void GetCartElement(WebDriverWait wait)
         {
-            wait.Until(ExpectedConditions.ElementIsVisible(
-                            By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']")));
+            wait.Until(ElementIsVisible(
+                            By.Name("test-Cart")));
         }
-
-
     }
 }
