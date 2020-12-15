@@ -12,6 +12,12 @@ namespace Core.Appium.Nunit.BestPractices.Tests
     {
         private readonly string _deviceName;
         public IOSDriver<IOSElement> Driver;
+
+        public IosTest(string deviceName)
+        {
+            _deviceName = deviceName;
+        }
+
         public static string HubUrlPart => "ondemand.us-west-1.saucelabs.com/wd/hub";
         public string SauceUser => Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
 
@@ -19,11 +25,6 @@ namespace Core.Appium.Nunit.BestPractices.Tests
             Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
 
         public string Url => $"https://{SauceUser}:{SauceAccessKey}@{HubUrlPart}";
-
-        public IosTest(string deviceName)
-        {
-            _deviceName = deviceName;
-        }
 
         [SetUp]
         public void Setup()

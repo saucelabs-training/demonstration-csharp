@@ -1,6 +1,6 @@
 ﻿using Common.TestData;
-using FluentAssertions;
 using Core.Appium.Nunit.BestPractices.Screens.iOS;
+using FluentAssertions;
 using NUnit.Framework;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
