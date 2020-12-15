@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Appium.Nunit.BestPractices.Data;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -9,12 +10,11 @@ using static SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
-    [TestFixture]
-    [TestFixtureSource(typeof(IosConfigurations), nameof(IosConfigurations.MostPopularDevices))]
+    [TestFixtureSource(typeof(BrowserCombinations), nameof(BrowserCombinations.MostPopularDevices))]
     [Parallelizable]
-    public class IosFeatures : IosTest
+    public class IOSFeatures : IosTest
     {
-        public IosFeatures(string deviceName) : base(deviceName)
+        public IOSFeatures(string deviceName) : base(deviceName)
         {
         }
 
