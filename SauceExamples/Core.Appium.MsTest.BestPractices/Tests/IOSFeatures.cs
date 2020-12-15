@@ -9,7 +9,7 @@ using static SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
-    [TestFixtureSource(typeof(DeviceCombinations), nameof(DeviceCombinations.MostPopularDevices))]
+    [TestFixtureSource(typeof(DeviceCombinations), nameof(DeviceCombinations.PopularIosDevices))]
     [Parallelizable]
     public class IOSFeatures : IosTest
     {
