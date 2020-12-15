@@ -6,7 +6,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 using Assert = NUnit.Framework.Assert;
 
-namespace Appium4.NUnit.Scripts.Emusim
+namespace Appium4.NUnit.Scripts.Emusim.Browser
 {
     [TestFixture]
     public class W3CEmusim
