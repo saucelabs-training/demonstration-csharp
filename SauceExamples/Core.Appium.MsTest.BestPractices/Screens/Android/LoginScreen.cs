@@ -5,15 +5,10 @@ using OpenQA.Selenium.Appium.Android;
 
 namespace Core.Appium.Nunit.BestPractices.Screens.Android
 {
-    public class LoginScreen
+    public class LoginScreen : BaseAndroidScreen
     {
-        private readonly AndroidDriver<AndroidElement> _driver;
-        private readonly Wait _wait;
-
-        public LoginScreen(AndroidDriver<AndroidElement> driver)
+        public LoginScreen(AndroidDriver<AndroidElement> driver) : base(driver)
         {
-            _driver = driver;
-            _wait = new Wait(_driver);
         }
 
         public Action IsVisible()
@@ -23,21 +18,21 @@ namespace Core.Appium.Nunit.BestPractices.Screens.Android
 
         private void IsUsernameFieldVisible()
         {
-            _wait.UntilIsVisible(
+            Synchronizer.UntilIsVisible(
                 MobileBy.AccessibilityId("test-Username"));
         }
 
         public void Login(string username, string password)
         {
-            var userName = _wait.UntilIsVisible(
+            var userName = Synchronizer.UntilIsVisible(
                 MobileBy.AccessibilityId("test-Username"));
             userName.SendKeys(username);
 
-            var passwordField = _wait.UntilIsVisible(
+            var passwordField = Synchronizer.UntilIsVisible(
                 MobileBy.AccessibilityId("test-Password"));
             passwordField.SendKeys(password);
 
-            var login = _wait.UntilIsVisible(
+            var login = Synchronizer.UntilIsVisible(
                 MobileBy.AccessibilityId("test-LOGIN"));
             login.Click();
         }

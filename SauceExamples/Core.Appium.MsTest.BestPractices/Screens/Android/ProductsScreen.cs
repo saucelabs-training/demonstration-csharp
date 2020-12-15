@@ -5,17 +5,11 @@ using OpenQA.Selenium.Appium.Android;
 
 namespace Core.Appium.Nunit.BestPractices.Screens.Android
 {
-    public class ProductsScreen
+    public class ProductsScreen : BaseAndroidScreen
     {
-        private readonly AndroidDriver<AndroidElement> _driver;
-        private readonly Wait _wait;
-
-        public ProductsScreen(AndroidDriver<AndroidElement> driver)
+        public ProductsScreen(AndroidDriver<AndroidElement> driver) : base(driver)
         {
-            _driver = driver;
-            _wait = new Wait(_driver);
         }
-
         public Action IsVisible()
         {
             return IsCartElementVisible;
@@ -23,7 +17,7 @@ namespace Core.Appium.Nunit.BestPractices.Screens.Android
 
         private void IsCartElementVisible()
         {
-            _wait.UntilIsVisible(By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']"));
+            Synchronizer.UntilIsVisible(By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']"));
         }
     }
 }
