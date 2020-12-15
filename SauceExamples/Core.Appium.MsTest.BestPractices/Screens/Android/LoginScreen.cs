@@ -7,8 +7,8 @@ namespace Core.Appium.Nunit.BestPractices.Screens.Android
 {
     public class LoginScreen
     {
-        private AndroidDriver<AndroidElement> _driver;
-        private Wait _wait;
+        private readonly AndroidDriver<AndroidElement> _driver;
+        private readonly Wait _wait;
 
         public LoginScreen(AndroidDriver<AndroidElement> driver)
         {
@@ -20,6 +20,7 @@ namespace Core.Appium.Nunit.BestPractices.Screens.Android
         {
             return IsUsernameFieldVisible;
         }
+
         private void IsUsernameFieldVisible()
         {
             _wait.UntilIsVisible(

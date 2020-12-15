@@ -5,23 +5,26 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
-using TestContext = NUnit.Framework.TestContext;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
     public class AndroidTest
     {
+        private readonly string _androidVersion;
+
+        private readonly string _deviceName;
+
         public AndroidTest(string deviceName, string deviceVersion)
         {
             _deviceName = deviceName;
             _androidVersion = deviceVersion;
         }
 
-        private readonly string _deviceName;
-        private readonly string _androidVersion;
         public static string HubUrlPart => "ondemand.us-west-1.saucelabs.com/wd/hub";
         public string SauceUser => Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-        public string SauceAccessKey => Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+
+        public string SauceAccessKey =>
+            Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
 
         public string Url => $"https://{SauceUser}:{SauceAccessKey}@{HubUrlPart}";
 
@@ -34,7 +37,7 @@ namespace Core.Appium.Nunit.BestPractices.Tests
             //We can run on any version of the platform as long as it's the correct device
             //Make sure to pick an Android or iOS device based on your app
             capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, _deviceName);
-            if(!string.IsNullOrEmpty(_androidVersion))
+            if (!string.IsNullOrEmpty(_androidVersion))
                 capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, _androidVersion);
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
@@ -64,7 +67,7 @@ namespace Core.Appium.Nunit.BestPractices.Tests
             if (Driver == null) return;
 
             var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
+            ((IJavaScriptExecutor) Driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
             Driver.Quit();
         }
     }

@@ -7,8 +7,8 @@ namespace Core.Appium.Nunit.BestPractices.Screens.Android
 {
     public class ProductsScreen
     {
-        private AndroidDriver<AndroidElement> _driver;
-        private Wait _wait;
+        private readonly AndroidDriver<AndroidElement> _driver;
+        private readonly Wait _wait;
 
         public ProductsScreen(AndroidDriver<AndroidElement> driver)
         {
