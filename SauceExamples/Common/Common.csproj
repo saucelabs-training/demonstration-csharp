@@ -85,6 +85,7 @@
     <Compile Include="SauceLabs\SauceUser.cs" />
     <Compile Include="SauceLabs\SimpleSauce.cs" />
     <Compile Include="TestData\CrossBrowserData.cs" />
+    <Compile Include="TestData\DeviceCombinations.cs" />
     <Compile Include="Wait.cs" />
     <Compile Include="WebDriverFactory.cs" />
   </ItemGroup>

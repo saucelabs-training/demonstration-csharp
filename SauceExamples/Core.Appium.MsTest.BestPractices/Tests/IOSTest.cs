@@ -35,7 +35,7 @@ namespace Core.Appium.Nunit.BestPractices.Tests
              */
             appiumCaps.AddAdditionalCapability("app",
                 "storage:filename=iOS.RealDevice.Sample.ipa");
-            Driver = new IOSDriver<IOSElement>(new Uri(Url), appiumCaps);
+            Driver = new IOSDriver<IOSElement>(new Uri(Url), appiumCaps, TimeSpan.FromSeconds(180));
         }
         [TearDown]
         public void Teardown()

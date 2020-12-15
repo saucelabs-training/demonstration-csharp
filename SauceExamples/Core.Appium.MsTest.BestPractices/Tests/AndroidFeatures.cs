@@ -8,7 +8,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
-    [TestFixtureSource(typeof(BrowserCombinations), nameof(BrowserCombinations.PopularAndroidDevices))]
+    [TestFixtureSource(typeof(DeviceCombinations), nameof(DeviceCombinations.PopularAndroidDevices))]
     [Parallelizable]
     public class AndroidFeatures : AndroidTest
     {

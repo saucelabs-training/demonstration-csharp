@@ -2,7 +2,7 @@
 
 namespace Core.Appium.Nunit.BestPractices.Data
 {
-    public class BrowserCombinations
+    public class DeviceCombinations
     {
         public static IEnumerable<object[]> MostPopularDevices => new[]
         {
