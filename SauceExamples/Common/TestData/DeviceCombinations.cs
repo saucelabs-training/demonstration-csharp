@@ -4,11 +4,11 @@ namespace Common.TestData
 {
     public class DeviceCombinations
     {
-        public static IEnumerable<object[]> MostPopularDevices => new[]
+        public static IEnumerable<object[]> PopularIosDevices => new[]
         {
-            new object[] { "iPhone 11 Pro"},
-            new object[] {"iPhone 12"},
-            new object[] {"iPad 10.2"},
+            new object[] { "iPhone 11.*" },
+            new object[] { "iPhone 12.*" },
+            new object[] { "iPhone.*" },
         };
 
         public static IEnumerable<object[]> PopularAndroidDevices => new[]
