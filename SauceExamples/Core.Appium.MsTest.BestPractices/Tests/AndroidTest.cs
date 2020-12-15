@@ -54,7 +54,7 @@ namespace Core.Appium.Nunit.BestPractices.Tests
                 ----> System.Net.WebException : The operation has timed out
             Solution: Try changing to a more popular device
              */
-            Driver = new AndroidDriver<AndroidElement>(new Uri(Url), capabilities);
+            Driver = new AndroidDriver<AndroidElement>(new Uri(Url), capabilities, TimeSpan.FromSeconds(180));
         }
 
 
