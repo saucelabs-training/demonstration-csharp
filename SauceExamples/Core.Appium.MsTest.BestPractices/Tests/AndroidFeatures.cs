@@ -19,6 +19,7 @@ namespace Core.Appium.Nunit.BestPractices.Tests
             var loginScreen = new LoginScreen(Driver);
             loginScreen.IsVisible().Should().NotThrow();
         }
+
         [Test]
         public void ShouldLogin()
         {
@@ -27,9 +28,5 @@ namespace Core.Appium.Nunit.BestPractices.Tests
 
             new ProductsScreen(Driver).IsVisible().Should().NotThrow();
         }
-
-
-
-
     }
 }

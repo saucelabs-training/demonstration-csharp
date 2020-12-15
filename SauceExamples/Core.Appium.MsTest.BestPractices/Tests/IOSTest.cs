@@ -5,14 +5,13 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.iOS;
-using TestContext = NUnit.Framework.TestContext;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
     public class IosTest : BaseTest
     {
-        public IOSDriver<IOSElement> Driver;
         private readonly string _deviceName;
+        public IOSDriver<IOSElement> Driver;
 
         public IosTest(string deviceName)
         {
@@ -37,15 +36,17 @@ namespace Core.Appium.Nunit.BestPractices.Tests
                 "storage:filename=iOS.RealDevice.Sample.ipa");
             Driver = new IOSDriver<IOSElement>(new Uri(Url), appiumCaps, TimeSpan.FromSeconds(180));
         }
+
         [TearDown]
         public void Teardown()
         {
             if (Driver == null) return;
 
             var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
+            ((IJavaScriptExecutor) Driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
             Driver.Quit();
         }
+
         public IOSDriver<IOSElement> GetIosDriver(AppiumOptions appiumOptions)
         {
             return new IOSDriver<IOSElement>(new Uri(Url), appiumOptions);

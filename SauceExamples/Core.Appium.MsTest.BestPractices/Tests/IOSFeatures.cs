@@ -51,10 +51,11 @@ namespace Core.Appium.Nunit.BestPractices.Tests
             Action isCartVisible = () => GetCartElement(wait);
             isCartVisible.Should().NotThrow();
         }
+
         private void GetCartElement(WebDriverWait wait)
         {
             wait.Until(ElementIsVisible(
-                            By.Name("test-Cart")));
+                By.Name("test-Cart")));
         }
     }
 }
