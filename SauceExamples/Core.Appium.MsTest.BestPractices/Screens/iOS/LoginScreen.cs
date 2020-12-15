@@ -1,19 +1,13 @@
 ﻿using System;
-using Common;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.iOS;
 
 namespace Core.Appium.Nunit.BestPractices.Screens.iOS
 {
-    public class LoginScreen
+    public class LoginScreen : BaseIosScreen
     {
-        private readonly IOSDriver<IOSElement> _driver;
-        private readonly Wait _wait;
-
-        public LoginScreen(IOSDriver<IOSElement> driver)
+        public LoginScreen(IOSDriver<IOSElement> driver) : base(driver)
         {
-            _driver = driver;
-            _wait = new Wait(_driver);
         }
 
         public Action IsVisible()
@@ -23,21 +17,21 @@ namespace Core.Appium.Nunit.BestPractices.Screens.iOS
 
         private void IsUsernameFieldVisible()
         {
-            _wait.UntilIsVisible(
+            WaitFor.UntilIsVisible(
                 MobileBy.AccessibilityId("test-Username"));
         }
 
         public void Login(string username, string password)
         {
-            var userName = _wait.UntilIsVisible(
+            var userName = WaitFor.UntilIsVisible(
                 MobileBy.AccessibilityId("test-Username"));
             userName.SendKeys(username);
 
-            var passwordField = _wait.UntilIsVisible(
+            var passwordField = WaitFor.UntilIsVisible(
                 MobileBy.AccessibilityId("test-Password"));
             passwordField.SendKeys(password);
 
-            var login = _wait.UntilIsVisible(
+            var login = WaitFor.UntilIsVisible(
                 MobileBy.AccessibilityId("test-LOGIN"));
             login.Click();
         }
