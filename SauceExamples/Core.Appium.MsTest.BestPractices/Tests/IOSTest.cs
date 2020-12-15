@@ -8,10 +8,17 @@ using OpenQA.Selenium.Appium.iOS;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
-    public class IosTest : BaseTest
+    public class IosTest
     {
         private readonly string _deviceName;
         public IOSDriver<IOSElement> Driver;
+        public static string HubUrlPart => "ondemand.us-west-1.saucelabs.com/wd/hub";
+        public string SauceUser => Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+
+        public string SauceAccessKey =>
+            Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+
+        public string Url => $"https://{SauceUser}:{SauceAccessKey}@{HubUrlPart}";
 
         public IosTest(string deviceName)
         {
@@ -45,11 +52,6 @@ namespace Core.Appium.Nunit.BestPractices.Tests
             var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
             ((IJavaScriptExecutor) Driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
             Driver.Quit();
-        }
-
-        public IOSDriver<IOSElement> GetIosDriver(AppiumOptions appiumOptions)
-        {
-            return new IOSDriver<IOSElement>(new Uri(Url), appiumOptions);
         }
     }
 }
