@@ -9,26 +9,20 @@ This directory contains example scripts and dependencies for running automated S
 
 ## Common Use Cases
 
-### Selenium aka web automation
-
-#### Dotnet Framework
-
 * [Copy and paste scripts to get started with Sauce Labs fast,Selenium,NUnit](./SauceExamples/SeleniumNunit/OnboardingTests)
 * [Parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices/test)
-* [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices) [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/NUnit%20Framework%20yml?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=26&branchName=master)
+* [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices)
 * [Selenium W3C examples](./SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
 * [Examples,Selenium,MsTest](./SauceExamples/SeleniumMsTest)
 * [Sauce Labs REST API](./SauceExamples/SeleniumNunit/SimpleExamples/RestApiForVdc.cs)
 * [Set pass/fail status,Selenium,NUnit](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/Web.Tests/BestPractices/test/BaseTest.cs#L60)
 * [Set pass/fail status,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/SeleniumMsTest/ParallelTests/DataDriven/DataDrivenCrossBrowserParallelMethods.cs#L84)
 
-#### Dotnet Core
+### Selenium aka web automation
 
-* [MsTest,Legacy RDC,Native app](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/AndroidGetStarted.cs)
-* [Specflow,MsTest in Parallel](./SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/SpecFlow)
+#### Dotnet Framework
 
 ### Appium aka mobile automation
-
 
 * [Real Devices,Native App,Appium 4,IOS,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/GetStartedIos.cs)
 * [Real Devices,Native App,Appium 4,Android,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/AndroidAdvanced.cs)
@@ -43,6 +37,21 @@ This directory contains example scripts and dependencies for running automated S
 ### Front-end performance testing
 
 * [Performance testing and nework throttling](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
+
+
+#### Dotnet Core
+
+##### Appium aka mobile automation
+
+###### Automation best practices / Sample frameworks
+
+* [Mobile automation framework,Nunit](./SauceExamples/Core.Appium.MsTest.BestPractices)
+
+###### Code examples
+
+* [MsTest,Legacy RDC,Native app](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/AndroidGetStarted.cs)
+* [Specflow,MsTest in Parallel](./SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/SpecFlow)
+
 
 ## Parallelization capabilities of unit testing libraries
 
