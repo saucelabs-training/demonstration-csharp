@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
@@ -11,6 +11,14 @@ namespace Core.Appium.Nunit.BestPractices.Tests
 {
     public class AndroidTest
     {
+        public AndroidTest(string deviceName, string deviceVersion)
+        {
+            _deviceName = deviceName;
+            _androidVersion = deviceVersion;
+        }
+
+        private readonly string _deviceName;
+        private readonly string _androidVersion;
         public static string HubUrlPart => "ondemand.us-west-1.saucelabs.com/wd/hub";
         public string SauceUser => Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
         public string SauceAccessKey => Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
@@ -19,16 +27,18 @@ namespace Core.Appium.Nunit.BestPractices.Tests
 
         public AndroidDriver<AndroidElement> Driver { get; set; }
 
-        [TestInitialize]
+        [SetUp]
         public void Setup()
         {
             var capabilities = new AppiumOptions();
             //We can run on any version of the platform as long as it's the correct device
             //Make sure to pick an Android or iOS device based on your app
-            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, "Google Pixel 4");
+            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, _deviceName);
+            if(!string.IsNullOrEmpty(_androidVersion))
+                capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, _androidVersion);
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
-
+            capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             /*
              * You need to upload your own Native Mobile App to Sauce Storage!
              * https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Sauce+Storage
@@ -48,7 +58,7 @@ namespace Core.Appium.Nunit.BestPractices.Tests
         }
 
 
-        [TestCleanup]
+        [TearDown]
         public void Teardown()
         {
             if (Driver == null) return;

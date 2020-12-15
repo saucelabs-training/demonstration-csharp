@@ -1,18 +1,22 @@
 ﻿using System;
+using Core.Appium.Nunit.BestPractices.Data;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Support.UI;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
-    [TestClass]
-    [Ignore]
+    [TestFixtureSource(typeof(BrowserCombinations), nameof(BrowserCombinations.PopularAndroidDevices))]
+    [Parallelizable]
     public class AndroidFeatures : AndroidTest
     {
-        [TestMethod]
+        public AndroidFeatures(string deviceName, string deviceVersion) : base(deviceName, deviceVersion)
+        {
+        }
 
+        [Test]
         public void ShouldOpenApp()
         {
             Action screenIsVisible = LoginScreenIsVisible;
@@ -26,7 +30,7 @@ namespace Core.Appium.Nunit.BestPractices.Tests
                 MobileBy.AccessibilityId("test-Username")));
         }
 
-        [TestMethod]
+        [Test]
 
         public void ShouldLogin()
         {
@@ -51,7 +55,9 @@ namespace Core.Appium.Nunit.BestPractices.Tests
         private void GetCartElement(WebDriverWait wait)
         {
             wait.Until(ExpectedConditions.ElementIsVisible(
-                            By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']")));
+                By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']")));
         }
+
+
     }
 }
