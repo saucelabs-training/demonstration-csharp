@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Appium.Nunit.BestPractices.Data
+namespace Common.TestData
 {
     public class DeviceCombinations
     {
@@ -15,7 +15,7 @@ namespace Core.Appium.Nunit.BestPractices.Data
         {
             new object[] { "Google Pixel.*", ""},
             new object[] { "Samsung Galaxy.*", ""},
-            new object[] { ".*", "11"},
+            new object[] { "HTC.*", ""},
         };
     }
 }

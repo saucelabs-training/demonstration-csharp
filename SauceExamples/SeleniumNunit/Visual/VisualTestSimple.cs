@@ -4,12 +4,10 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
-using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 
-namespace Selenium3.Nunit.Scripts.SimpleExamples
+namespace Selenium3.Nunit.Scripts.Visual
 {
     /**
      *The code samples here show how we would use Selenium 4 capabilities with

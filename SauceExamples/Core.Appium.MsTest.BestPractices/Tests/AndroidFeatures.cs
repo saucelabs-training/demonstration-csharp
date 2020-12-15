@@ -1,10 +1,7 @@
-﻿using System;
-using Core.Appium.Nunit.BestPractices.Data;
+﻿using Common.TestData;
+using Core.Appium.Nunit.BestPractices.Screens.Android;
 using FluentAssertions;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Appium;
-using OpenQA.Selenium.Support.UI;
 
 namespace Core.Appium.Nunit.BestPractices.Tests
 {
@@ -19,44 +16,19 @@ namespace Core.Appium.Nunit.BestPractices.Tests
         [Test]
         public void ShouldOpenApp()
         {
-            Action screenIsVisible = LoginScreenIsVisible;
-            screenIsVisible.Should().NotThrow();
+            var loginScreen = new LoginScreen(Driver);
+            loginScreen.IsVisible().Should().NotThrow();
         }
-
-        private void LoginScreenIsVisible()
-        {
-            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(20));
-            wait.Until(ExpectedConditions.ElementIsVisible(
-                MobileBy.AccessibilityId("test-Username")));
-        }
-
         [Test]
-
         public void ShouldLogin()
         {
-            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(20));
+            var loginScreen = new LoginScreen(Driver);
+            loginScreen.Login("standard_user", "secret_sauce");
 
-            var userName = wait.Until(ExpectedConditions.ElementIsVisible(
-                MobileBy.AccessibilityId("test-Username")));
-            userName.SendKeys("standard_user");
-
-            var password = wait.Until(ExpectedConditions.ElementIsVisible(
-                MobileBy.AccessibilityId("test-Password")));
-            password.SendKeys("secret_sauce");
-
-            var login = wait.Until(ExpectedConditions.ElementIsVisible(
-                MobileBy.AccessibilityId("test-LOGIN")));
-            login.Click();
-
-            Action isCartVisible = () => GetCartElement(wait);
-            isCartVisible.Should().NotThrow();
+            new ProductsScreen(Driver).IsVisible().Should().NotThrow();
         }
 
-        private void GetCartElement(WebDriverWait wait)
-        {
-            wait.Until(ExpectedConditions.ElementIsVisible(
-                By.XPath("//android.view.ViewGroup[@content-desc='test-Cart']")));
-        }
+
 
 
     }

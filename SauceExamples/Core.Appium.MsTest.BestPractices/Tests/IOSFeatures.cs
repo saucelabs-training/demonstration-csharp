@@ -1,10 +1,9 @@
 ﻿using System;
-using Core.Appium.Nunit.BestPractices.Data;
+using Common.TestData;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
-using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Support.UI;
 using static SeleniumExtras.WaitHelpers.ExpectedConditions;
 
