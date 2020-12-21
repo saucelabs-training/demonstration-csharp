@@ -9,8 +9,8 @@ namespace Appium4.NUnit.Framework.RealDevices.Browser
     [Parallelizable]
     public class DataDrivenTests : BaseMobileTest
     {
-        public DataDrivenTests(string platformName, string platformVersion, string browserName) : 
-            base(platformName, platformVersion, browserName)
+        public DataDrivenTests(string platformName, string deviceName, string browserName) : 
+            base(platformName, deviceName, browserName)
         {
         }
 
