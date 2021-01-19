@@ -36,7 +36,8 @@ This directory contains example scripts and dependencies for running automated S
 
 ### Front-end performance testing
 
-* [Performance testing and nework throttling](https://github.com/saucelabs-training/demo-csharp/blob/master/SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
+* [Front-end perf testing examples](./SauceExamples/SeleniumNunit/SaucePerformance/PerformanceDemo.cs)
+* [Performance testing and nework throttling](./SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
 
 
 #### Dotnet Core
