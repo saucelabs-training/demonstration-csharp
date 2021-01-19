@@ -102,5 +102,21 @@ namespace Selenium3.Nunit.Scripts.SaucePerformance
             var performanceMetrics = (Dictionary<string, object>)((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
             Assert.That(performanceMetrics["speedIndex"], Is.EqualTo(415).Within(20).Percent);
         }
+
+        [Test]
+        public void MultiPagePerformaceTest()
+        {
+            Driver.Navigate().GoToUrl("https://www.ultimateqa.com");
+            Driver.Navigate().GoToUrl("https://www.ultimateqa.com/selenium-java");
+            Driver.Navigate().GoToUrl("https://ultimateqa.com/selenium-java-2/");
+
+            var metrics = new Dictionary<string, object>
+            {
+                ["name"] = TestContext.CurrentContext.Test.Name,
+                ["metrics"] = "load"
+            };
+            var perfResult = (Dictionary<string, object>)((IJavaScriptExecutor)Driver).ExecuteScript("sauce:performance", metrics);
+            Assert.That(perfResult["result"], Is.EqualTo("pass"));
+        }
     }
 }
