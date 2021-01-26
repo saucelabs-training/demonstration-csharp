@@ -24,11 +24,14 @@ This directory contains example scripts and dependencies for running automated S
 
 ### Appium aka mobile automation
 
-* [Real Devices,Native App,Appium 4,IOS,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/GetStartedIos.cs)
-* [Real Devices,Native App,Appium 4,Android,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/AndroidAdvanced.cs)
-* [Real Devices,Native App,Appium 4](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp)
-* [RDC REST API and status updates](./SauceExamples/AppiumLatestOnDotNetFramework/RealDevices/NativeApp/AndroidRdcTests.cs)
-* [Appium v3 on EmuSim,MsTest]() [![Build Status](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_apis/build/status/Appium3.MsTest.Scripts?branchName=master)](https://dev.azure.com/nikolayadvolodkin/SauceExamples/_build/latest?definitionId=27&branchName=master)
+* Emusim
+  * [Native app on iOS](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/Emusim/NativeApp/AndroidGetStarted.cs)
+
+* Real Devices
+  * [Real Devices,Native App,Appium 4,IOS,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/GetStartedIos.cs)
+  * [Real Devices,Native App,Appium 4,Android,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/AndroidAdvanced.cs)
+  * [Real Devices,Native App,Appium 4](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp)
+  * [RDC REST API and status updates](./SauceExamples/AppiumLatestOnDotNetFramework/RealDevices/NativeApp/AndroidRdcTests.cs)
 
 ### Visual E2E Testing
 
