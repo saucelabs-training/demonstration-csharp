@@ -71,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Emusim\Browser\W3CEmusim.cs" />
+    <Compile Include="Emusim\NativeApp\AndroidGetStarted.cs" />
+    <Compile Include="Emusim\NativeApp\GetStartedIos.cs" />
     <Compile Include="Emusim\NativeApp\iOSParallelAndCrossBrowser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealDevices\NativeApp\LegacyRdc\iOSExamples.cs" />

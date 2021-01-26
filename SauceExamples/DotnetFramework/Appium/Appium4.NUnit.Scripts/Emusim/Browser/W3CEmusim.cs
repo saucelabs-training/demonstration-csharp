@@ -26,8 +26,7 @@ namespace Appium4.NUnit.Scripts.Emusim.Browser
                 ["username"] = _sauceUserName,
                 ["accessKey"] = _sauceAccessKey,
                 ["deviceName"] = "iPhone XS Max Simulator",
-                ["platformVersion"] = "13.0",
-                ["appiumVersion"] = "1.15.0"
+                ["platformVersion"] = "13.0"
             };
             var options = new SafariOptions
             {
