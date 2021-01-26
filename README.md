@@ -25,7 +25,7 @@ This directory contains example scripts and dependencies for running automated S
 ### Appium aka mobile automation
 
 * Emusim
-  * [Native app on iOS](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/Emusim/NativeApp)
+  * [Native app testing](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/Emusim/NativeApp)
 
 * Real Devices
   * [Real Devices,Native App,Appium 4,IOS,UP](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/GetStartedIos.cs)
