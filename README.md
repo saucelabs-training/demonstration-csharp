@@ -18,11 +18,17 @@ This directory contains example scripts and dependencies for running automated S
 * [Set pass/fail status,Selenium,NUnit](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/Web.Tests/BestPractices/test/BaseTest.cs#L60)
 * [Set pass/fail status,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/SeleniumMsTest/ParallelTests/DataDriven/DataDrivenCrossBrowserParallelMethods.cs#L84)
 
-### Selenium aka web automation
+### Selenium web automation
+#### Visual E2E Testing
 
-#### Dotnet Framework
+* [Visual example,NUnit](./SauceExamples/SeleniumNunit/Visual)
 
-### Appium aka mobile automation
+#### Front-end performance testing
+
+* [Front-end perf testing examples](./SauceExamples/SeleniumNunit/SaucePerformance/PerformanceDemo.cs)
+* [Performance testing and nework throttling](./SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
+
+### Appium mobile automation
 
 * Emusim
   * [Native app testing](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/Emusim/NativeApp)
@@ -33,29 +39,16 @@ This directory contains example scripts and dependencies for running automated S
   * [Real Devices,Native App,Appium 4](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp)
   * [RDC REST API and status updates](./SauceExamples/AppiumLatestOnDotNetFramework/RealDevices/NativeApp/AndroidRdcTests.cs)
 
-### Visual E2E Testing
+#### Appium on Dotnet Core
 
-* [Visual example,NUnit](./SauceExamples/SeleniumNunit/Visual)
-
-### Front-end performance testing
-
-* [Front-end perf testing examples](./SauceExamples/SeleniumNunit/SaucePerformance/PerformanceDemo.cs)
-* [Performance testing and nework throttling](./SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
-
-
-#### Dotnet Core
-
-##### Appium aka mobile automation
-
-###### Automation best practices / Sample frameworks
+##### Automation best practices / Sample frameworks
 
 * [Mobile automation framework,Nunit](./SauceExamples/Core.Appium.MsTest.BestPractices)
 
-###### Code examples
+##### Code examples
 
 * [MsTest,Legacy RDC,Native app](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/AndroidGetStarted.cs)
 * [Specflow,MsTest in Parallel](./SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/SpecFlow)
-
 
 ## Parallelization capabilities of unit testing libraries
 
