@@ -32,6 +32,8 @@ namespace Appium4.NUnit.Scripts.Emusim.NativeApp
             capabilities.AddAdditionalCapability(MobileCapabilityType.AppiumVersion, "1.18.1");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
             capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "11.0");
+            // appWaitActivity is highly recommended in most cases
+            capabilities.AddAdditionalCapability("appWaitActivity", "com.swaglabsmobileapp.MainActivity");
 
             capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
