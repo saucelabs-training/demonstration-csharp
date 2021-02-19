@@ -1,24 +1,15 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Net.Mime;
-using System.Reflection;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 using Common.SauceLabs;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
-using OpenQA.Selenium.Remote;
 using RestSharp;
 using RestSharp.Authenticators;
-using RestSharp.Extensions;
-using RestSharp.Serialization.Json;
 
 namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
 {
@@ -29,7 +20,6 @@ namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
 
     public class DownloadAssets
     {
-        private string _sessionId = "c2ed0655d1bd4ce6ab204bc52932cdbb";
         private AndroidDriver<IWebElement> _driver;
         private string JobID;
         public static string HubUrlPart => "ondemand.us-west-1.saucelabs.com/wd/hub";
@@ -72,6 +62,7 @@ namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
             _driver = new AndroidDriver<IWebElement>(new Uri(Url), 
                 capabilities, TimeSpan.FromSeconds(180));
             var sauceUrl = _driver.Capabilities.GetCapability("testobject_test_report_url").ToString();
+            if (sauceUrl == null) return;
             var lastSlashIndex = sauceUrl.LastIndexOf("/", StringComparison.Ordinal);
             JobID = sauceUrl.Substring(lastSlashIndex + 1);
         }
@@ -88,22 +79,10 @@ namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
         {
             _driver?.Quit();
 
-
-            var client = new RestClient
-            {
-                BaseUrl = new Uri("https://api.us-west-1.saucelabs.com/v1/rdc/"),
-                Authenticator = new HttpBasicAuthenticator(SauceUser, SauceAccessKey)
-            };
-
-            var request = new RestRequest($"jobs/{JobID}", Method.GET)
-            {
-                RequestFormat = DataFormat.Json
-            };
-            var response = client.Execute(request);
-            Thread.Sleep(500);
+            var response = await GetJobInfo();
             dynamic deserializeObject = JsonConvert.DeserializeObject(response.Content);
 
-            //Get each of the locations
+            //Get each of the asset locations
             var videoUrl = deserializeObject["video_url"].Value;
             var frameworkLogUrl = deserializeObject["framework_log_url"].Value;
             var deviceLogUrl = deserializeObject["device_log_url"].Value;
@@ -114,14 +93,22 @@ namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
             DownloadFile(deviceLogUrl, "deviceLog.txt");
             if(videoUrl != null)
                 DownloadFile(videoUrl, "video.mp4");
+        }
 
-            //client = new RestClient(videoUrl) { Authenticator = new HttpBasicAuthenticator(SauceUser, SauceAccessKey) };
-            //request = new RestRequest("");
-            //var response2 = await client.ExecuteTaskAsync(request);
+        private async Task<IRestResponse> GetJobInfo()
+        {
+            var client = new RestClient
+            {
+                BaseUrl = new Uri("https://api.us-west-1.saucelabs.com/v1/rdc/"),
+                Authenticator = new HttpBasicAuthenticator(SauceUser, SauceAccessKey)
+            };
 
-            //var directory = @"C:\SauceResources\";
-            //Directory.CreateDirectory(directory);
-            //response.RawBytes.SaveAs($"{directory}video.mp4");
+            var request = new RestRequest($"jobs/{JobID}", Method.GET)
+            {
+                RequestFormat = DataFormat.Json
+            };
+            var response = await client.ExecuteAsync(request);
+            return response;
         }
 
         public void DownloadFile(string url, string fileName)
