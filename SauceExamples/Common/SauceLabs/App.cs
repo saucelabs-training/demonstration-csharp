@@ -10,6 +10,8 @@ namespace Common.SauceLabs
             Environment.GetEnvironmentVariable("RDC_SAUCE_DEMO_ANDROID_KEY", EnvironmentVariableTarget.User);
 
         public static string SauceDemoIosAppFileName => "iOS.RealDevice.Sample.ipa";
+        public string SampleAppAndroidFileName = "Android.SauceLabs.Mobile.Sample.app.2.7.0.apk";
+
         public static string SauceDemoIosSimulatorAppFileName = "iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.0.zip";
     }
 }
