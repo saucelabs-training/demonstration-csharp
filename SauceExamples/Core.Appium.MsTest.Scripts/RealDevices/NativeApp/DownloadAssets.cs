@@ -14,9 +14,6 @@ using RestSharp.Authenticators;
 namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
 {
     [TestClass]
-    [TestCategory("MsTest")]
-    [TestCategory("Rdc")]
-    [TestCategory("Android")]
 
     public class DownloadAssets
     {
@@ -71,7 +68,7 @@ namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
         [TestMethod]
         public void DownloadTestAssets()
         {
-
+            //do your test stuff
         }
 
         [TestCleanup]
