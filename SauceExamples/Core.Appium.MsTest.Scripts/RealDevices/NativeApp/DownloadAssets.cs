@@ -58,6 +58,11 @@ namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
              */
             _driver = new AndroidDriver<IWebElement>(new Uri(Url), 
                 capabilities, TimeSpan.FromSeconds(180));
+            GetJobId();
+        }
+
+        private void GetJobId()
+        {
             var sauceUrl = _driver.Capabilities.GetCapability("testobject_test_report_url").ToString();
             if (sauceUrl == null) return;
             var lastSlashIndex = sauceUrl.LastIndexOf("/", StringComparison.Ordinal);
