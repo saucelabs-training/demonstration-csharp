@@ -9,7 +9,7 @@ This directory contains example scripts and dependencies for running automated S
 
 ## Common Use Cases
 
-* [Copy and paste scripts to get started with Sauce Labs fast,Selenium,NUnit](./SauceExamples/SeleniumNunit/OnboardingTests)
+* [Quick start with Selenium](./SauceExamples/SeleniumNunit/SimpleExamples/SimpleSauceTest.cs)
 * [Parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices/test)
 * [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices)
 * [Selenium W3C examples](./SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
