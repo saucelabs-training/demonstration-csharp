@@ -7,21 +7,19 @@
 
 This directory contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using C#.
 
-## Common Use Cases
-
-* [Quick start with Selenium](./SauceExamples/SeleniumNunit/SimpleExamples/SimpleSauceTest.cs)
-* [Parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices/test)
-* [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices)
-* [Selenium W3C examples](./SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
-* [Examples,Selenium,MsTest](./SauceExamples/SeleniumMsTest)
-* [Sauce Labs REST API](./SauceExamples/SeleniumNunit/SimpleExamples/RestApiForVdc.cs)
-* [Set pass/fail status,Selenium,NUnit](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/Web.Tests/BestPractices/test/BaseTest.cs#L60)
-* [Set pass/fail status,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/SeleniumMsTest/ParallelTests/DataDriven/DataDrivenCrossBrowserParallelMethods.cs#L84)
-
 ## Web automation
-### Visual E2E Testing
 
-* [Visual example,NUnit](./SauceExamples/SeleniumNunit/Visual)
+* Popular Examples
+  * [Quick start with Selenium](./SauceExamples/SeleniumNunit/SimpleExamples/SimpleSauceTest.cs)
+  * [Parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices/test)
+  * [Selenium W3C examples](./SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
+  * [Examples,Selenium,MsTest](./SauceExamples/SeleniumMsTest)
+  * [Sauce Labs REST API](./SauceExamples/SeleniumNunit/SimpleExamples/RestApiForVdc.cs)
+  * [Set pass/fail status,Selenium,NUnit](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/Web.Tests/BestPractices/test/BaseTest.cs#L60)
+  * [Set pass/fail status,Selenium,MsTest](https://github.com/saucelabs-training/demo-csharp/blob/5d7e8731e4120ae381d8ff14bcf58d672b3bc2fc/SauceExamples/SeleniumMsTest/ParallelTests/DataDriven/DataDrivenCrossBrowserParallelMethods.cs#L84)
+  * [Visual E2E](./SauceExamples/SeleniumNunit/Visual)
+* Automation best practices
+  * [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices)
 
 #### Front-end performance testing
 
@@ -41,7 +39,7 @@ This directory contains example scripts and dependencies for running automated S
    * [Specflow,MsTest in Parallel](./SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/SpecFlow)
 
 * Automation best practices
- * [Mobile automation framework,Nunit,.NET Core](./SauceExamples/Core.Appium.MsTest.BestPractices)
+  * [Mobile automation framework,Nunit,.NET Core](./SauceExamples/Core.Appium.MsTest.BestPractices)
 
 ## Parallelization capabilities of unit testing libraries
 
