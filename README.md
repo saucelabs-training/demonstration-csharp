@@ -26,6 +26,8 @@ This directory contains example scripts and dependencies for running automated S
 
 ## Mobile automation
 
+### [📕 Mobile Testing Training Tutorials](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md)
+
 * Popular Examples
   * Emusim
     * [Native app testing](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/Emusim/NativeApp)
