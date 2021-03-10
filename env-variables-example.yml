@@ -13,6 +13,9 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  # This makes the variables available to all of our tasks
+  SAUCE_USERNAME: $(sauceUsername)
+  SAUCE_ACCESS_KEY: $(sauceKey)
 
 steps:
 - task: NuGetToolInstaller@1
@@ -32,11 +35,11 @@ steps:
   displayName: 'Run tests'
   inputs:
     command: test
-    projects: 'core.appium.mstest.scripts/*.csproj'
+    projects: '**/core.selenium*/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
   env:
     SAUCE_USERNAME: $(sauceUsername)
     SAUCE_ACCESS_KEY: $(sauceKey)
 
-- bash: echo $SAUCE_USERNAME
+- bash: echo $(SAUCE_USERNAME)
 
