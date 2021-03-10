@@ -24,6 +24,7 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- bash: echo $(SAUCE_USERNAME)
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -41,5 +42,5 @@ steps:
     SAUCE_USERNAME: $(sauceUsername)
     SAUCE_ACCESS_KEY: $(sauceKey)
 
-- bash: echo $(SAUCE_USERNAME)
+
 
