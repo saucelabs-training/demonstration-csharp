@@ -7,7 +7,7 @@
 
 This directory contains example scripts and dependencies for running automated Selenium tests on Sauce Labs using C#.
 
-## Web automation
+## 🖥 Web automation
 
 * Popular Examples
   * [Quick start with Selenium](./SauceExamples/SeleniumNunit/SimpleExamples/SimpleSauceTest.cs)
@@ -24,7 +24,7 @@ This directory contains example scripts and dependencies for running automated S
 * Automation best practices
   * [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices)
 
-## Mobile automation
+## 📱Mobile automation
 
 ### [📕 Mobile Testing Training Tutorials](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md)
 
@@ -55,7 +55,7 @@ How do different libraries parallelize tests?
 |:-------------:|:-------------:|:-------------:|:-------------:|
 |Test method|Test class|Test class|Test class|
 
-## CICD
+## 🚀 CICD
 
 **Important**
 > **Azure DevOps Sauce Labs Plugin does NOT work!** You cannot view Sauce Labs videos inside of Azure DevOps. You need to go to saucelabs.com to view the test assets. Furthermore, you can add richer logging to your tests and add test asset links directly into the logs (but this is extra work).
