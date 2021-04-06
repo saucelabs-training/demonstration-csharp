@@ -40,13 +40,6 @@ This directory contains example scripts and dependencies for running automated S
 * Automation best practices
   * [Mobile automation framework,Nunit,.NET Core](./SauceExamples/Core.Appium.MsTest.BestPractices)
 
-### Must Have Appium Resources
-
-1. [Appium Pro newsletter by Jonathan Lipps](https://appiumpro.com/)
-2. [Appium Desktop w/ local emulator](https://www.youtube.com/watch?v=0P8mkguf2z8&list=PL67l1VPxOnT5FXKf5YvGoT9TuCdSmLhv_&index=3)
-3. [Appium Desktop w/ Sauce labs](https://youtu.be/IOSUBda2-g4?t=1570)
-4. [Appium locator strategies](https://ultimateqa.com/getting-started-with-appium/#Element_Location_Strategies)
-
 ## Parallelization capabilities of unit testing libraries
 
 How do different libraries parallelize tests?
