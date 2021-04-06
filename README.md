@@ -9,7 +9,10 @@ This directory contains example scripts and dependencies for running automated S
 
 ## 🖥 Web automation
 
-* Popular Examples
+* 🥇Best practice framework for web testing
+  * [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices)
+  
+* Code Examples
   * [Quick start with Selenium](./SauceExamples/SeleniumNunit/SimpleExamples/SimpleSauceTest.cs)
   * [Parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices/test)
   * [Selenium W3C examples](./SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
@@ -21,8 +24,7 @@ This directory contains example scripts and dependencies for running automated S
   * [Visual E2E](./SauceExamples/SeleniumNunit/Visual)
   * [Front-end perf testing examples](./SauceExamples/SeleniumNunit/SaucePerformance/PerformanceDemo.cs)
   * [Performance testing and nework throttling](./SauceExamples/SeleniumNunit/SaucePerformance/CustomCapabilitiesTests.cs)
-* Automation best practices
-  * [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices)
+
 
 ## 📱Mobile automation
 
