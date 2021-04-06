@@ -1,4 +1,5 @@
 ﻿using System;
+using Common.SauceLabs;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -45,10 +46,9 @@ namespace Core.Appium.Nunit.BestPractices.Tests
             /*
              * You need to upload your own Native Mobile App to Sauce Storage!
              * https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Sauce+Storage
-             * You can use either storage:<app-id> or storage:filename=
+             * You can use either storage:<app-id> or storage:filename={your file name}
              */
-            capabilities.AddAdditionalCapability("app",
-                "storage:filename=Android.SauceLabs.Mobile.Sample.app.2.7.0.apk");
+            capabilities.AddAdditionalCapability("app", new ApiKeys().Rdc.Apps.SampleAppAndroidGithubUrl);
 
 
             /*

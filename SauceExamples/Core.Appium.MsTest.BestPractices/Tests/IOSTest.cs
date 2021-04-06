@@ -1,4 +1,5 @@
 ﻿using System;
+using Common.SauceLabs;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -40,8 +41,7 @@ namespace Core.Appium.Nunit.BestPractices.Tests
              * https://wiki.saucelabs.com/display/DOCS/Uploading+your+Application+to+Sauce+Storage
              * You can use either storage:<app-id> or storage:filename=
              */
-            appiumCaps.AddAdditionalCapability("app",
-                "storage:filename=iOS.RealDevice.Sample.ipa");
+            appiumCaps.AddAdditionalCapability("app", new ApiKeys().Rdc.Apps.SampleAppIosGithubUrl);
             Driver = new IOSDriver<IOSElement>(new Uri(Url), appiumCaps, TimeSpan.FromSeconds(180));
         }
 

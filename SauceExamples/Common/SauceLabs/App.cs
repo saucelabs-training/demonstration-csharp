@@ -13,5 +13,11 @@ namespace Common.SauceLabs
         public string SampleAppAndroidFileName = "Android.SauceLabs.Mobile.Sample.app.2.7.0.apk";
 
         public static string SauceDemoIosSimulatorAppFileName = "iOS.Simulator.SauceLabs.Mobile.Sample.app.2.7.0.zip";
+
+        public string SampleAppAndroidGithubUrl =>
+            "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk";
+
+        public string SampleAppIosGithubUrl =>
+            "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa";
     }
 }
