@@ -31,6 +31,7 @@ This directory contains example scripts and dependencies for running automated S
 * Popular Examples
   * Emusim
     * [Native app testing](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/Emusim/NativeApp)
+    * [Web test on emusim w/ Android](./SauceExamples/Core.Appium.Examples)
   * Real Devices
     * [Native App, IOS](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/GetStartedIos.cs)
     * [Native App, Android](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/AndroidAdvanced.cs)
