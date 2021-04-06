@@ -35,13 +35,16 @@ This directory contains example scripts and dependencies for running automated S
     * Web
       * [Web test on emusim w/ Android](./SauceExamples/Core.Appium.MsTest.Scripts/Emusim/Browser/AndroidWebTests.cs)
     * Native app
-      * [Native app tests on legacy RDC](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/LegacyRdc)**❗️Deprecated! Use Unified Platform**
+      * [Native app tests](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP)
+      * Legacy RDC **❗️Deprecated! Use Unified Platform**
+        * [Native app tests on legacy RDC](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/LegacyRdc)
     
   * Real Devices
     * [Native App, IOS](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/GetStartedIos.cs)
     * [Native App, Android](./SauceExamples/DotnetFramework/Appium/Appium4.NUnit.Scripts/RealDevices/NativeApp/UP/AndroidAdvanced.cs)
-    * [Legacy RDC REST API and status updates](./SauceExamples/AppiumLatestOnDotNetFramework/RealDevices/NativeApp/AndroidRdcTests.cs)
     * [Specflow,MsTest in Parallel](./SauceExamples/DotnetCore/Core.Selenium4.MsTest.Scripts/SpecFlow)
+    * Legacy RDC **❗️Deprecated! Use Unified Platform**
+      * [Legacy RDC REST API status updates](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/LegacyRdc/iOSExamples.cs)
 
 * Automation best practices
   * [Mobile automation framework,Nunit,.NET Core](./SauceExamples/Core.Appium.MsTest.BestPractices)
