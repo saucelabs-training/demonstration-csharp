@@ -7,7 +7,7 @@ using OpenQA.Selenium.Appium.Enums;
 
 [assembly: Parallelize(Workers = 100, Scope = ExecutionScope.MethodLevel)]
 
-namespace Core.Appium.MsTest.Scripts.RealDevices.Browser.LegacyRdc
+namespace Core.Appium.Examples.RealDevices.Browser.LegacyRdc
 {
     [TestClass]
     public class AndroidGetStarted

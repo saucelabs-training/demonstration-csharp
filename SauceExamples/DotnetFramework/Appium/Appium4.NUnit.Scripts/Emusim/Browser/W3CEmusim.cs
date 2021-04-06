@@ -47,7 +47,6 @@ namespace Appium4.NUnit.Scripts.Emusim.Browser
 
 
         [Test]
-        [Ignore("OpenQA.Selenium.WebDriverException : Unexpected error.")]
         public void AndroidOnEmusimUsingW3C()
         {
             GoToThenAssert();

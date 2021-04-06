@@ -11,7 +11,7 @@ using OpenQA.Selenium.Appium.Enums;
 using RestSharp;
 using RestSharp.Authenticators;
 
-namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
+namespace Core.Appium.Examples.RealDevices.NativeApp
 {
     [TestClass]
 
@@ -71,6 +71,7 @@ namespace Core.Appium.MsTest.Scripts.RealDevices.NativeApp
 
 
         [TestMethod]
+        [Ignore("Just an example of how to download assets")]
         public void DownloadTestAssets()
         {
             //do your test stuff

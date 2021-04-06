@@ -51,7 +51,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotnetCore", "DotnetCore", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Selenium4.MsTest.Scripts", "DotnetCore\Core.Selenium4.MsTest.Scripts\Core.Selenium4.MsTest.Scripts.csproj", "{780B17C4-DE36-4308-A432-D1EF5E7C57D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Appium.MsTest.Scripts", "Core.Appium.MsTest.Scripts\Core.Appium.MsTest.Scripts.csproj", "{4B512D3B-DFFB-4A03-BC1B-4064139FB96D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Appium.Examples", "Core.Appium.MsTest.Scripts\Core.Appium.Examples.csproj", "{4B512D3B-DFFB-4A03-BC1B-4064139FB96D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Appium.Nunit.BestPractices", "Core.Appium.MsTest.BestPractices\Core.Appium.Nunit.BestPractices.csproj", "{FA1C4898-6470-4230-B360-7647C7FBC7A2}"
 EndProject
