@@ -69,7 +69,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Emusim\Emusim.cs" />
     <Compile Include="RealDevices\NativeApp\iOSRdcTests.cs" />
     <Compile Include="RealDevices\NativeApp\AndroidRdcTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
