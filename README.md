@@ -13,6 +13,8 @@ This directory contains example scripts and dependencies for running automated S
   * [Production-level framework using automation best practices, parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices)
   
 * Code Examples
+  * Dotnet Core
+    * [Simple W3C test][./DotnetCore/Sauce.Demo]
   * [Quick start with Selenium](./SauceExamples/SeleniumNunit/SimpleExamples/SimpleSauceTest.cs)
   * [Parallel, cross-browser, NUnit, Selenium](./SauceExamples/Web.Tests/BestPractices/test)
   * [Selenium W3C examples](./SauceExamples/Selenium4DotNetFramework/Selenium4SauceTests.cs)
