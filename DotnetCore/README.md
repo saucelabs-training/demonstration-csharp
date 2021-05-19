@@ -3,6 +3,7 @@
 ## Run tests
 
 ```bash
-cd demo-csharp\DotnetCore\Sauce.Demo
+git clone https://github.com/saucelabs-training/demo-csharp.git
+cd .\demo-csharp\DotnetCore\Sauce.Demo\
 dotnet test
 ```
