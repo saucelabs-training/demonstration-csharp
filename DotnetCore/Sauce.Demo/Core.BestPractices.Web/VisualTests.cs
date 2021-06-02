@@ -6,7 +6,6 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 
@@ -26,19 +25,6 @@ namespace Core.BestPractices.Web
                 { "apiKey", ScreenerApiKey},
                 { "projectName", "Sauce Demo C#" }
             };
-
-            var chromeOptions = new ChromeOptions
-            {
-                BrowserVersion = "latest",
-                PlatformName = "Windows 10",
-                UseSpecCompliantProtocol = true
-            };
-            chromeOptions.AddAdditionalCapability("sauce:options", SauceOptions, true);
-            chromeOptions.AddAdditionalCapability("sauce:visual", _visualOptions, true);
-
-            Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), chromeOptions.ToCapabilities(),
-                TimeSpan.FromSeconds(30));
-            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", "Visual C# Test");
         }
 
         [TearDown]
@@ -46,6 +32,8 @@ namespace Core.BestPractices.Web
         {
             if(Driver == null)
                 return;
+            var result = (Dictionary<string, object>)new Browser(Driver).JS.ExecuteScript("/*@visual.end*/");
+            result["message"].Should().BeNull();
             ExecuteSauceCleanupSteps();
             Driver.Quit();
         }
@@ -73,13 +61,34 @@ namespace Core.BestPractices.Web
 
             Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), safariOptions.ToCapabilities(),
                 TimeSpan.FromSeconds(30));
+            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", "iPhone X");
 
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
-            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", "Visual C# Test");
             loginPage.TakeSnapshot();
-            var result = (Dictionary<string, object>) new Browser(Driver).JS.ExecuteScript("/*@visual.end*/");
-            result["message"].Should().BeNull();
+
+        }
+
+        [Test]
+        public void LooksCorrectOnPixelXL()
+        {
+            _visualOptions.Add("viewportSize", "412x732");
+
+            var safariOptions = new ChromeOptions()
+            {
+                BrowserVersion = "latest",
+                PlatformName = "Windows 10"
+            };
+            safariOptions.AddAdditionalCapability("sauce:options", SauceOptions, true);
+            safariOptions.AddAdditionalCapability("sauce:visual", _visualOptions, true);
+
+            Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), safariOptions.ToCapabilities(),
+                TimeSpan.FromSeconds(30));
+            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", "Pixel XL");
+
+            var loginPage = new LoginPage(Driver);
+            loginPage.Visit();
+            loginPage.TakeSnapshot();
         }
     }
 }
