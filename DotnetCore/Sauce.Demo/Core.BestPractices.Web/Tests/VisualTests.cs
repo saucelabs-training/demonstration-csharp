@@ -9,7 +9,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 
-namespace Core.BestPractices.Web
+namespace Core.BestPractices.Web.Tests
 {
     //[TestFixtureSource(typeof(CrossBrowserData), nameof(CrossBrowserData.MostPopularConfigurations))]
     [TestFixture]
@@ -29,23 +29,15 @@ namespace Core.BestPractices.Web
         }
 
         [TearDown]
-        public void CleanUpAfterEveryTestMethod()
+        public void CleanupVisual()
         {
             if(Driver == null)
                 return;
             var result = (Dictionary<string, object>)new Browser(Driver).JS.ExecuteScript("/*@visual.end*/");
             result["message"].Should().BeNull();
-            ExecuteSauceCleanupSteps();
-            Driver.Quit();
         }
 
-        private void ExecuteSauceCleanupSteps()
-        {
-            var isPassed = TestContext.CurrentContext.Result.Outcome.Status
-                           == TestStatus.Passed;
-            var script = "sauce:job-result=" + (isPassed ? "passed" : "failed");
-            ((IJavaScriptExecutor)Driver).ExecuteScript(script);
-        }
+
 
         [Test]
         public void LooksCorrectOnIPhoneX()
@@ -98,7 +90,5 @@ namespace Core.BestPractices.Web
 
             CaptureApplicationSnapshots();            
         }
-
-
     }
 }
