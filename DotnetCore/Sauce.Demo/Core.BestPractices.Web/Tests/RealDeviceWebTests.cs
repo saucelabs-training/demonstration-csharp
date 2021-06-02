@@ -2,44 +2,64 @@
 using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Remote;
 
 namespace Core.BestPractices.Web.Tests
 {
-    [TestFixture]
-    public class RealDeviceWebTests : AllTestsBase
+    [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularRealDevices))]
+    [Parallelizable]
+    public class RealDeviceWebTests
     {
-        [SetUp]
-        public void Setup()
+        private readonly string _deviceName;
+        private readonly string _platform;
+        private readonly string _browser;
+
+        public RealDeviceWebTests(string deviceName, string platform, string browser)
         {
-            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-
-            var appiumOptions = new AppiumOptions();
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName,
-                "Google Pixel 3 XL GoogleAPI Emulator");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "11.0");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.BrowserName, "Chrome");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.AppiumVersion, "1.20.2");
-            appiumOptions.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
-
-            Driver = new RemoteWebDriver(new SauceLabsEndpoint().EmusimUri(_sauceUserName, _sauceAccessKey),
-                appiumOptions.ToCapabilities(), TimeSpan.FromSeconds(120));
+            _deviceName = deviceName;
+            _platform = platform;
+            _browser = browser;
         }
-
-        private string _sauceUserName;
-        private string _sauceAccessKey;
+        private static string HubUrl => "ondemand.us-west-1.saucelabs.com/wd/hub";
+        private AndroidDriver<AndroidElement> _driver;
 
         [Test]
-        public void LoginWorks()
+
+        public void ShouldOpenHomePage()
         {
-            var loginPage = new LoginPage(Driver);
-            loginPage.Visit();
-            loginPage.Login("standard_user");
-            new ProductsPage(Driver).IsVisible().Should().NotThrow();
+            //It's a best practice to store credentials in environment variables
+            var sauceUser = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            var uri = $"https://{sauceUser}:{sauceAccessKey}@{HubUrl}";
+
+            var capabilities = new AppiumOptions();
+            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, _deviceName);
+            capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, _platform);
+            capabilities.AddAdditionalCapability(MobileCapabilityType.BrowserName, _browser);
+            capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
+            capabilities.AddAdditionalCapability("newCommandTimeout", 90);
+
+            //60 seconds default for the connection timeout
+            _driver = new AndroidDriver<AndroidElement>(new Uri(uri), capabilities);
+            _driver.Navigate().GoToUrl("http://www.saucedemo.com");
+            var size = _driver.Manage().Window.Size;
+            Assert.AreNotEqual(0, size.Height);
+        }
+
+        //Never forget to pass the test status to Sauce Labs
+        [TearDown]
+        public void Teardown()
+        {
+            if (_driver == null) return;
+
+            var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
+            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
+            _driver.Quit();
         }
     }
 }

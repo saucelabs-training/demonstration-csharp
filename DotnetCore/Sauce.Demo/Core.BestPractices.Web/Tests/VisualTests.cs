@@ -10,7 +10,7 @@ using OpenQA.Selenium.Safari;
 
 namespace Core.BestPractices.Web.Tests
 {
-    //[TestFixtureSource(typeof(CrossBrowserData), nameof(CrossBrowserData.MostPopularConfigurations))]
+    //[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularConfigurations))]
     [TestFixture]
     [Parallelizable]
     public class VisualTests : WebTestsBase
