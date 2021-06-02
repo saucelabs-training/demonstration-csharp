@@ -19,5 +19,10 @@ namespace Core.BestPractices.Web.Pages
             Driver = driver;
             BaseUrl = "https://www.saucedemo.com";
         }
+
+        public void TakeSnapshot()
+        {
+            JavaScriptExecutor.ExecuteScript("/*@visual.snapshot*/", GetType().Name);
+        }
     }
 }

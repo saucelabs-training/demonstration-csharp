@@ -68,6 +68,9 @@ namespace Core.BestPractices.Web
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
             loginPage.TakeSnapshot();
+
+            loginPage.Login("standard_user");
+            new ProductsPage(Driver).TakeSnapshot();
         }
 
         private RemoteWebDriver StartVisualTest(DriverOptions browserOptions, string deviceName)
