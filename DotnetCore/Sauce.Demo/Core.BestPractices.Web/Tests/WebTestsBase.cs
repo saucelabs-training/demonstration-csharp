@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using FluentAssertions;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;

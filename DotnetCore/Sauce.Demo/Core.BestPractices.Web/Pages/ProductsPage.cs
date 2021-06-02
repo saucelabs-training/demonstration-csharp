@@ -1,6 +1,5 @@
 using System;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
 
 namespace Core.BestPractices.Web.Pages
 {
