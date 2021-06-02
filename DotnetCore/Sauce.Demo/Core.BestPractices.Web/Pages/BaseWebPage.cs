@@ -6,6 +6,8 @@ namespace Core.BestPractices.Web.Pages
     {
         public readonly IWebDriver Driver;
 
+        public IJavaScriptExecutor JavaScriptExecutor => (IJavaScriptExecutor)Driver;
+
         //public SauceJavaScriptExecutor SauceJsExecutor =>
         //    new SauceJavaScriptExecutor(_driver);
 
