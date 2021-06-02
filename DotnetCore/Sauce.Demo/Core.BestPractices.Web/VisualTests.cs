@@ -12,6 +12,7 @@ using OpenQA.Selenium.Safari;
 namespace Core.BestPractices.Web
 {
     //[TestFixtureSource(typeof(CrossBrowserData), nameof(CrossBrowserData.MostPopularConfigurations))]
+    [TestFixture]
     [Parallelizable]
     public class VisualTests : WebTestsBase
     {
@@ -59,14 +60,22 @@ namespace Core.BestPractices.Web
             safariOptions.AddAdditionalCapability("sauce:options", SauceOptions);
             safariOptions.AddAdditionalCapability("sauce:visual", _visualOptions);
 
-            Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), safariOptions.ToCapabilities(),
-                TimeSpan.FromSeconds(30));
-            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", "iPhone X");
-
+            Driver = StartVisualTest(safariOptions, "iphone x");
+            CaptureApplicationSnapshots();
+        }
+        private void CaptureApplicationSnapshots()
+        {
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
             loginPage.TakeSnapshot();
+        }
 
+        private RemoteWebDriver StartVisualTest(DriverOptions browserOptions, string deviceName)
+        {
+            Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), browserOptions.ToCapabilities(),
+                TimeSpan.FromSeconds(30));
+            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", deviceName);
+            return Driver;
         }
 
         [Test]
@@ -74,21 +83,19 @@ namespace Core.BestPractices.Web
         {
             _visualOptions.Add("viewportSize", "412x732");
 
-            var safariOptions = new ChromeOptions()
+            var browserOptions = new ChromeOptions()
             {
                 BrowserVersion = "latest",
                 PlatformName = "Windows 10"
             };
-            safariOptions.AddAdditionalCapability("sauce:options", SauceOptions, true);
-            safariOptions.AddAdditionalCapability("sauce:visual", _visualOptions, true);
+            browserOptions.AddAdditionalCapability("sauce:options", SauceOptions, true);
+            browserOptions.AddAdditionalCapability("sauce:visual", _visualOptions, true);
 
-            Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), safariOptions.ToCapabilities(),
-                TimeSpan.FromSeconds(30));
-            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", "Pixel XL");
+            Driver = StartVisualTest(browserOptions, "pixel xl");
 
-            var loginPage = new LoginPage(Driver);
-            loginPage.Visit();
-            loginPage.TakeSnapshot();
+            CaptureApplicationSnapshots();            
         }
+
+
     }
 }
