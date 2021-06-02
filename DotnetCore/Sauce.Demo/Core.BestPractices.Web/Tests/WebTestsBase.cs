@@ -8,13 +8,12 @@ using OpenQA.Selenium.Remote;
 namespace Core.BestPractices.Web.Tests
 {
     [TestFixture]
-    public class WebTestsBase
+    public class WebTestsBase : AllTestsBase
     {
         public string SauceUserName;
         public string SauceAccessKey;
         public Dictionary<string, object> SauceOptions;
         public string ScreenerApiKey;
-        public RemoteWebDriver Driver;
 
         [SetUp]
         public void Setup()
@@ -28,22 +27,6 @@ namespace Core.BestPractices.Web.Tests
                 ["accessKey"] = SauceAccessKey,
                 ["name"] = TestContext.CurrentContext.Test.Name
             };
-        }
-
-        [TearDown]
-        public void CleanUpAfterEveryTestMethod()
-        {
-            if (Driver == null)
-                return;
-            ExecuteSauceCleanupSteps();
-            Driver.Quit();
-        }
-        private void ExecuteSauceCleanupSteps()
-        {
-            var isPassed = TestContext.CurrentContext.Result.Outcome.Status
-                           == TestStatus.Passed;
-            var script = "sauce:job-result=" + (isPassed ? "passed" : "failed");
-            ((IJavaScriptExecutor)Driver).ExecuteScript(script);
         }
     }
 }
