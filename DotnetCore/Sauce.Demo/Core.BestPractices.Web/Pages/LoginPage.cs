@@ -42,5 +42,10 @@ namespace Core.BestPractices.Web.Pages
             //SauceJsExecutor.LogMessage($"{MethodBase.GetCurrentMethod().Name} success");
             return new ProductsPage(Driver);
         }
+
+        public void TakeSnapshot()
+        {
+            JavaScriptExecutor.ExecuteScript("/*@visual.snapshot*/", "Login Page");
+        }
     }
 }
