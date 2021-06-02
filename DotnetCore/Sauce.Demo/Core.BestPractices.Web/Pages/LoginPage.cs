@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
 
@@ -8,7 +9,6 @@ namespace Core.BestPractices.Web.Pages
         public LoginPage(IWebDriver driver) : base(driver){}
 
         private readonly By _loginButtonLocator = By.ClassName("btn_action");
-        public bool IsLoaded => new Wait(Driver, _loginButtonLocator).IsVisible();
         public IWebElement PasswordField => Driver.FindElement(By.Id("password"));
         public IWebElement LoginButton => Driver.FindElement(_loginButtonLocator);
         private readonly By _usernameLocator = By.Id("user-name");
@@ -39,6 +39,16 @@ namespace Core.BestPractices.Web.Pages
             LoginButton.Click();
             //SauceJsExecutor.LogMessage($"{MethodBase.GetCurrentMethod().Name} success");
             return new ProductsPage(Driver);
+        }
+
+        public Action IsVisible()
+        {
+            return IsElementVisible;
+        }
+
+        private void IsElementVisible()
+        {
+            new Wait(Driver, _usernameLocator).IsVisible();
         }
     }
 }
