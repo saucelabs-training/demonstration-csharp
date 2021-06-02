@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Safari;
 
 namespace Core.BestPractices.Web
 {
@@ -23,8 +24,7 @@ namespace Core.BestPractices.Web
             _visualOptions = new Dictionary<string, object>
             {
                 { "apiKey", ScreenerApiKey},
-                { "projectName", "visual-e2e-test" },
-                { "viewportSize", "1280x1024" }
+                { "projectName", "Sauce Demo C#" }
             };
 
             var chromeOptions = new ChromeOptions
@@ -59,11 +59,27 @@ namespace Core.BestPractices.Web
         }
 
         [Test]
-        public void LoginWorks()
+        public void LooksCorrectOnIPhoneX()
         {
+            _visualOptions.Add("viewportSize", "375x812");
+
+            var safariOptions = new SafariOptions
+            {
+                BrowserVersion = "latest",
+                PlatformName = "macOS 10.15"
+            };
+            safariOptions.AddAdditionalCapability("sauce:options", SauceOptions);
+            safariOptions.AddAdditionalCapability("sauce:visual", _visualOptions);
+
+            Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), safariOptions.ToCapabilities(),
+                TimeSpan.FromSeconds(30));
+
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
+            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", "Visual C# Test");
             loginPage.TakeSnapshot();
+            var result = (Dictionary<string, object>) new Browser(Driver).JS.ExecuteScript("/*@visual.end*/");
+            result["message"].Should().BeNull();
         }
     }
 }
