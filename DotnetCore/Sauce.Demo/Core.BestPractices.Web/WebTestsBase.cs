@@ -5,6 +5,7 @@ using OpenQA.Selenium.Remote;
 
 namespace Core.BestPractices.Web
 {
+    [TestFixture]
     public class WebTestsBase
     {
         public string SauceUserName;
