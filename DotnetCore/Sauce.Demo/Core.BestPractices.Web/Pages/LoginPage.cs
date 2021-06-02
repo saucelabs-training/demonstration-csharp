@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Reflection;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
 
 namespace Core.BestPractices.Web.Pages
 {

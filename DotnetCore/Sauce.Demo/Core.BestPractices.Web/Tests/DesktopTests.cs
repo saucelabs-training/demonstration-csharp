@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
 using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Remote;
 
