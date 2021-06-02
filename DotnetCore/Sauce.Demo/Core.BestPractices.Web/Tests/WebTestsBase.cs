@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using FluentAssertions;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
-namespace Core.BestPractices.Web
+namespace Core.BestPractices.Web.Tests
 {
     [TestFixture]
     public class WebTestsBase
@@ -11,7 +14,7 @@ namespace Core.BestPractices.Web
         public string SauceUserName;
         public string SauceAccessKey;
         public Dictionary<string, object> SauceOptions;
-        public string? ScreenerApiKey;
+        public string ScreenerApiKey;
         public RemoteWebDriver Driver;
 
         [SetUp]
@@ -26,6 +29,22 @@ namespace Core.BestPractices.Web
                 ["accessKey"] = SauceAccessKey,
                 ["name"] = TestContext.CurrentContext.Test.Name
             };
+        }
+
+        [TearDown]
+        public void CleanUpAfterEveryTestMethod()
+        {
+            if (Driver == null)
+                return;
+            ExecuteSauceCleanupSteps();
+            Driver.Quit();
+        }
+        private void ExecuteSauceCleanupSteps()
+        {
+            var isPassed = TestContext.CurrentContext.Result.Outcome.Status
+                           == TestStatus.Passed;
+            var script = "sauce:job-result=" + (isPassed ? "passed" : "failed");
+            ((IJavaScriptExecutor)Driver).ExecuteScript(script);
         }
     }
 }
