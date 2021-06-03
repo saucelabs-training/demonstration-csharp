@@ -11,15 +11,15 @@ using OpenQA.Selenium.Remote;
 
 namespace Core.BestPractices.Web.Tests
 {
-    [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularRealDevices))]
+    [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularAndroidDevices))]
     [Parallelizable]
-    public class RealDeviceWebTests
+    public class RealDeviceAndroidWebTests
     {
         private readonly string _deviceName;
         private readonly string _platform;
         private readonly string _browser;
 
-        public RealDeviceWebTests(string deviceName, string platform, string browser)
+        public RealDeviceAndroidWebTests(string deviceName, string platform, string browser)
         {
             _deviceName = deviceName;
             _platform = platform;
