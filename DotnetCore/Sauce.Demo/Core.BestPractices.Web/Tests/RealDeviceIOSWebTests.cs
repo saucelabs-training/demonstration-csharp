@@ -14,18 +14,10 @@ namespace Core.BestPractices.Web.Tests
 {
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularIOSDevices))]
     [Parallelizable]
-    public class RealDeviceIOSWebTests
+    public class RealDeviceIOSWebTests : MobileBaseTest
     {
-        private readonly string _deviceName;
-        private readonly string _platform;
-        private readonly string _browser;
-
-        public RealDeviceIOSWebTests(string deviceName, string platform, string browser)
-        {
-            _deviceName = deviceName;
-            _platform = platform;
-            _browser = browser;
-        }
+        public RealDeviceIOSWebTests(string deviceName, string platform, string browser) : 
+            base(deviceName, platform, browser) { }
         private static string HubUrl => "ondemand.us-west-1.saucelabs.com/wd/hub";
         //Must use a unique driver for iOS/Android
         private IOSDriver<IOSElement> _driver;
@@ -40,9 +32,9 @@ namespace Core.BestPractices.Web.Tests
             var uri = $"https://{sauceUser}:{sauceAccessKey}@{HubUrl}";
 
             var capabilities = new AppiumOptions();
-            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, _deviceName);
-            capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, _platform);
-            capabilities.AddAdditionalCapability(MobileCapabilityType.BrowserName, _browser);
+            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, DeviceName);
+            capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, Platform);
+            capabilities.AddAdditionalCapability(MobileCapabilityType.BrowserName, Browser);
             capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
 
