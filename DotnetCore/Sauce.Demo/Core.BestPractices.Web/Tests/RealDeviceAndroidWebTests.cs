@@ -13,53 +13,26 @@ namespace Core.BestPractices.Web.Tests
 {
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularAndroidDevices))]
     [Parallelizable]
-    public class RealDeviceAndroidWebTests
+    public class RealDeviceAndroidWebTests : MobileBaseTest
     {
-        private readonly string _deviceName;
-        private readonly string _platform;
-        private readonly string _browser;
+        public RealDeviceAndroidWebTests(string deviceName, string platform, string browser) :
+            base(deviceName, platform, browser)
+        { }
 
-        public RealDeviceAndroidWebTests(string deviceName, string platform, string browser)
+        [SetUp]
+        public void AndroidSetup()
         {
-            _deviceName = deviceName;
-            _platform = platform;
-            _browser = browser;
+            Driver = new AndroidDriver<AndroidElement>(new Uri(URI), MobileOptions);
         }
-        private static string HubUrl => "ondemand.us-west-1.saucelabs.com/wd/hub";
-        private AndroidDriver<AndroidElement> _driver;
 
         [Test]
 
         public void ShouldOpenHomePage()
         {
-            //It's a best practice to store credentials in environment variables
-            var sauceUser = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-            var uri = $"https://{sauceUser}:{sauceAccessKey}@{HubUrl}";
-
-            var capabilities = new AppiumOptions();
-            capabilities.AddAdditionalCapability(MobileCapabilityType.DeviceName, _deviceName);
-            capabilities.AddAdditionalCapability(MobileCapabilityType.PlatformName, _platform);
-            capabilities.AddAdditionalCapability(MobileCapabilityType.BrowserName, _browser);
-            capabilities.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
-            capabilities.AddAdditionalCapability("newCommandTimeout", 90);
-
             //60 seconds default for the connection timeout
-            _driver = new AndroidDriver<AndroidElement>(new Uri(uri), capabilities);
-            _driver.Navigate().GoToUrl("http://www.saucedemo.com");
-            var size = _driver.Manage().Window.Size;
+            Driver.Navigate().GoToUrl("http://www.saucedemo.com");
+            var size = Driver.Manage().Window.Size;
             Assert.AreNotEqual(0, size.Height);
-        }
-
-        //Never forget to pass the test status to Sauce Labs
-        [TearDown]
-        public void Teardown()
-        {
-            if (_driver == null) return;
-
-            var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
-            _driver.Quit();
         }
     }
 }
