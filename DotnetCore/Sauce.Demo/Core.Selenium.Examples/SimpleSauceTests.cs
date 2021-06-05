@@ -1,9 +1,9 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Remote;
+using System;
+using System.Collections.Generic;
 
 namespace Core.Selenium.Examples
 {
@@ -22,7 +22,7 @@ namespace Core.Selenium.Examples
             if (_driver == null) return;
 
             var passed = TestContext.CurrentTestOutcome == UnitTestOutcome.Passed;
-            ((IJavaScriptExecutor) _driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
+            ((IJavaScriptExecutor)_driver).ExecuteScript("sauce:job-result=" + (passed ? "passed" : "failed"));
             _driver.Quit();
         }
 

@@ -1,13 +1,6 @@
-﻿using System;
-using Core.BestPractices.Web.Pages;
-using FluentAssertions;
-using NUnit.Framework;
-using NUnit.Framework.Interfaces;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Appium;
+﻿using NUnit.Framework;
 using OpenQA.Selenium.Appium.Android;
-using OpenQA.Selenium.Appium.Enums;
-using OpenQA.Selenium.Remote;
+using System;
 
 namespace Core.BestPractices.Web.Tests
 {
