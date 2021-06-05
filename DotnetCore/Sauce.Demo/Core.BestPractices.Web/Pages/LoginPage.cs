@@ -1,12 +1,12 @@
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
-using OpenQA.Selenium;
 
 namespace Core.BestPractices.Web.Pages
 {
     public class LoginPage : BaseWebPage
     {
-        public LoginPage(IWebDriver driver) : base(driver){}
+        public LoginPage(IWebDriver driver) : base(driver) { }
 
         private readonly By _loginButtonLocator = By.ClassName("btn_action");
         public IWebElement PasswordField => Driver.FindElement(By.Id("password"));

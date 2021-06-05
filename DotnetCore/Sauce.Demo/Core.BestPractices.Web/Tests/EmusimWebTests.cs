@@ -1,10 +1,10 @@
-﻿using System;
-using Core.BestPractices.Web.Pages;
+﻿using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Remote;
+using System;
 
 namespace Core.BestPractices.Web.Tests
 {

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
@@ -7,6 +5,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
+using System;
+using System.Collections.Generic;
 
 namespace Core.BestPractices.Web.Tests
 {
@@ -30,7 +30,7 @@ namespace Core.BestPractices.Web.Tests
         [TearDown]
         public void CleanupVisual()
         {
-            if(Driver == null)
+            if (Driver == null)
                 return;
             var result = (Dictionary<string, object>)new Browser(Driver).JS.ExecuteScript("/*@visual.end*/");
             result["message"].Should().BeNull();
@@ -87,7 +87,7 @@ namespace Core.BestPractices.Web.Tests
 
             Driver = StartVisualTest(browserOptions, "pixel xl");
 
-            CaptureApplicationSnapshots();            
+            CaptureApplicationSnapshots();
         }
     }
 }
