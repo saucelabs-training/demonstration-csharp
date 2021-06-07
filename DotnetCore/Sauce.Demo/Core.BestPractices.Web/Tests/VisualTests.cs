@@ -13,7 +13,7 @@ namespace Core.BestPractices.Web.Tests
     //[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularConfigurations))]
     [TestFixture]
     [Parallelizable]
-    public class VisualTests : WebTestsBase
+    public class VisualTests : AllTestsBase
     {
         private Dictionary<string, object> _visualOptions;
 

@@ -2,6 +2,8 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using System;
+using System.Collections.Generic;
 
 namespace Core.BestPractices.Web.Tests
 {
@@ -10,20 +12,24 @@ namespace Core.BestPractices.Web.Tests
     {
         public RemoteWebDriver Driver;
 
-        [TearDown]
-        public void CleanUpAfterEveryTestMethod()
+        public string SauceUserName;
+        public string SauceAccessKey;
+        public Dictionary<string, object> SauceOptions;
+        public string ScreenerApiKey;
+
+        [SetUp]
+        public void Setup()
         {
-            if (Driver == null)
-                return;
-            ExecuteSauceCleanupSteps();
-            Driver.Quit();
+            SauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            SauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            ScreenerApiKey = Environment.GetEnvironmentVariable("SCREENER_API_KEY", EnvironmentVariableTarget.User);
+            SauceOptions = new Dictionary<string, object>
+            {
+                ["username"] = SauceUserName,
+                ["accessKey"] = SauceAccessKey,
+                ["name"] = TestContext.CurrentContext.Test.Name
+            };
         }
-        private void ExecuteSauceCleanupSteps()
-        {
-            var isPassed = TestContext.CurrentContext.Result.Outcome.Status
-                           == TestStatus.Passed;
-            var script = "sauce:job-result=" + (isPassed ? "passed" : "failed");
-            ((IJavaScriptExecutor)Driver).ExecuteScript(script);
-        }
+
     }
 }
