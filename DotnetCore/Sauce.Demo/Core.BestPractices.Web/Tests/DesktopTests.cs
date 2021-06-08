@@ -1,10 +1,7 @@
 using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
-using OpenQA.Selenium.Remote;
-using System;
 
 namespace Core.BestPractices.Web.Tests
 {
