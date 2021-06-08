@@ -33,9 +33,13 @@ namespace Core.BestPractices.Web
         {
             get
             {
-                yield return new TestFixtureData("Google Pixel 4", "Android", "Chrome");
-                yield return new TestFixtureData("Google Pixel 4 XL", "Android", "Chrome");
-                yield return new TestFixtureData("Google Pixel 5", "Android", "Chrome");
+                yield return new TestFixtureData("Google Pixel.*", "Android", "Chrome");
+                yield return new TestFixtureData("Google Pixel.*", "Android", "Chrome");
+                yield return new TestFixtureData("Google Pixel.*", "Android", "Chrome");
+                // duplication for massive parallel example
+                yield return new TestFixtureData("HTC.*", "Android", "Chrome");
+                yield return new TestFixtureData("HTC.*", "Android", "Chrome");
+                yield return new TestFixtureData("Huawei.*", "Android", "Chrome");
             }
         }
 
@@ -43,6 +47,10 @@ namespace Core.BestPractices.Web
         {
             get
             {
+                yield return new TestFixtureData("iPhone 11.*", "iOS", "Safari");
+                yield return new TestFixtureData("iPhone 12.*", "iOS", "Safari");
+                yield return new TestFixtureData("iPad 10.*", "iOS", "Safari");
+                //duplication only for parallel example
                 yield return new TestFixtureData("iPhone 11.*", "iOS", "Safari");
                 yield return new TestFixtureData("iPhone 12.*", "iOS", "Safari");
                 yield return new TestFixtureData("iPad 10.*", "iOS", "Safari");
