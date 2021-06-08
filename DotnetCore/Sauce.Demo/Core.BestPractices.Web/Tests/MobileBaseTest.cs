@@ -7,13 +7,12 @@ using System;
 
 namespace Core.BestPractices.Web.Tests
 {
-    public class MobileBaseTest
+    public class MobileBaseTest : AllTestsBase
     {
         public readonly string DeviceName;
         public readonly string Platform;
         public readonly string Browser;
         public string URI;
-        public IWebDriver Driver;
         private static string HubUrl => "ondemand.us-west-1.saucelabs.com/wd/hub";
 
 
@@ -26,9 +25,7 @@ namespace Core.BestPractices.Web.Tests
         [SetUp]
         public void MobileBaseSetup()
         {
-            SauceUser = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            SauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-            URI = $"https://{SauceUser}:{SauceAccessKey}@{HubUrl}";
+            URI = $"https://{SauceUserName}:{SauceAccessKey}@{HubUrl}";
 
             MobileOptions = new AppiumOptions();
             MobileOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, DeviceName);
@@ -40,18 +37,13 @@ namespace Core.BestPractices.Web.Tests
 
         public AppiumOptions MobileOptions { get; set; }
 
-        public string? SauceAccessKey { get; set; }
-
-        public string? SauceUser { get; set; }
-
         //Never forget to pass the test status to Sauce Labs
         [TearDown]
         public void Teardown()
         {
             if (Driver == null) return;
 
-            var isTestPassed = TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed;
-            ((IJavaScriptExecutor)Driver).ExecuteScript("sauce:job-result=" + (isTestPassed ? "passed" : "failed"));
+            ExecuteSauceCleanupSteps(Driver);
             Driver.Quit();
         }
     }
