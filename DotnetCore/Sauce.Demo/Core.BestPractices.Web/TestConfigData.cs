@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Safari;
 using System.Collections;
 
@@ -11,15 +12,21 @@ namespace Core.BestPractices.Web
             BrowserVersion = "latest",
             PlatformName = "macOS 10.15"
         };
-        public static IEnumerable PopularRealDevices
+
+        static readonly ChromeOptions chromeOptions = new()
+        {
+            BrowserVersion = "latest",
+            PlatformName = "Windows 10"
+        };
+        public static IEnumerable PopularVisualResolutions
         {
             get
             {
-                yield return new TestFixtureData(safariOptions, "375x812", "iphone x");
-                yield return new TestFixtureData(safariOptions, "375x812", "iphone 1");
-                yield return new TestFixtureData(safariOptions, "375x812", "iphone 2");
-                yield return new TestFixtureData(safariOptions, "375x812", "iphone 3");
-                yield return new TestFixtureData(safariOptions, "375x812", "iphone 4");
+                yield return new TestFixtureData(safariOptions, "375x812", "Iphone X");
+                yield return new TestFixtureData(safariOptions, "1280x1024", "1024p");
+                yield return new TestFixtureData(safariOptions, "1920x1080", "1080p");
+                yield return new TestFixtureData(chromeOptions, "412x732", "Pixel XL");
+                yield return new TestFixtureData(chromeOptions, "412x869", "Galaxy Note 10+");
             }
         }
         public static IEnumerable MostPopularAndroidDevices

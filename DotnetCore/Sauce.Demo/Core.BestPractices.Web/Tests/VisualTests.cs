@@ -1,30 +1,76 @@
 using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Safari;
 using System;
 using System.Collections.Generic;
 
 namespace Core.BestPractices.Web.Tests
 {
-    //[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularConfigurations))]
+    [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularVisualResolutions))]
     [TestFixture]
-    [Parallelizable]
-    class VisualTests : AllTestsBase
+    [Parallelizable(ParallelScope.All)]
+    public class VisualTests
     {
+        private readonly DriverOptions _browserOptions;
+        private readonly string _viewportSize;
+        private readonly string _deviceName;
         private Dictionary<string, object> _visualOptions;
+
+        public string SauceUserName { get; private set; }
+        public string SauceAccessKey { get; private set; }
+        public string ScreenerApiKey { get; private set; }
+        public Dictionary<string, object> SauceOptions { get; private set; }
+        public IWebDriver Driver { get; private set; }
+
+        public VisualTests(DriverOptions browserOptions, string viewportSize, string deviceName)
+        {
+            _browserOptions = browserOptions;
+            _viewportSize = viewportSize;
+            _deviceName = deviceName;
+        }
 
         [SetUp]
         public void VisualSetup()
         {
+            SauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            SauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            ScreenerApiKey = Environment.GetEnvironmentVariable("SCREENER_API_KEY", EnvironmentVariableTarget.User);
+
+            SauceOptions = new Dictionary<string, object>
+            {
+                ["username"] = SauceUserName,
+                ["accessKey"] = SauceAccessKey,
+                ["name"] = TestContext.CurrentContext.Test.Name
+            };
+
             _visualOptions = new Dictionary<string, object>
             {
                 { "apiKey", ScreenerApiKey},
-                { "projectName", "Sauce Demo C#" }
+                { "projectName", "Sauce Demo C#" },
+                { "viewportSize", _viewportSize}
             };
+
+            if(_browserOptions.BrowserName.Equals("chrome", StringComparison.OrdinalIgnoreCase))
+            {
+                ((ChromeOptions)_browserOptions).AddAdditionalCapability("sauce:options", SauceOptions, true);
+                ((ChromeOptions)_browserOptions).AddAdditionalCapability("sauce:visual", _visualOptions, true);
+            }
+            else
+            {
+                _browserOptions.AddAdditionalCapability("sauce:options", SauceOptions);
+                _browserOptions.AddAdditionalCapability("sauce:visual", _visualOptions);
+            }
+
+
+            //TimeSpan.FromSeconds(120) = needed so that there isn't a 'The HTTP request to the remote WebDriver server for URL' error
+            Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), _browserOptions.ToCapabilities(),
+                TimeSpan.FromSeconds(120));
+            //Needed so that Screener 'end' command doesn't timeout
+            Driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(60);
         }
 
         [TearDown]
@@ -32,62 +78,30 @@ namespace Core.BestPractices.Web.Tests
         {
             if (Driver == null)
                 return;
-            var result = (Dictionary<string, object>)new Browser(Driver).JS.ExecuteScript("/*@visual.end*/");
-            result["message"].Should().BeNull();
+
+            ExecuteSauceCleanupSteps();
+            Driver.Quit();
         }
-
-
+        private void ExecuteSauceCleanupSteps()
+        {
+            var isPassed = TestContext.CurrentContext.Result.Outcome.Status
+                           == TestStatus.Passed;
+            var script = "sauce:job-result=" + (isPassed ? "passed" : "failed");
+            ((IJavaScriptExecutor)Driver).ExecuteScript(script);
+        }
 
         [Test]
-        public void LooksCorrectOnIPhoneX()
+        public void VisualE2EFlow()
         {
-            _visualOptions.Add("viewportSize", "375x812");
-
-            var safariOptions = new SafariOptions
-            {
-                BrowserVersion = "latest",
-                PlatformName = "macOS 10.15"
-            };
-            safariOptions.AddAdditionalCapability("sauce:options", SauceOptions);
-            safariOptions.AddAdditionalCapability("sauce:visual", _visualOptions);
-
-            Driver = StartVisualTest(safariOptions, "iphone x");
-            CaptureApplicationSnapshots();
-        }
-        private void CaptureApplicationSnapshots()
-        {
+            ((IJavaScriptExecutor)Driver).ExecuteScript("/*@visual.init*/", _deviceName);
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
             loginPage.TakeSnapshot();
 
             loginPage.Login("standard_user");
             new ProductsPage(Driver).TakeSnapshot();
-        }
-
-        private RemoteWebDriver StartVisualTest(DriverOptions browserOptions, string deviceName)
-        {
-            Driver = new RemoteWebDriver(new Uri("https://hub.screener.io:443/wd/hub"), browserOptions.ToCapabilities(),
-                TimeSpan.FromSeconds(30));
-            new Browser(Driver).JS.ExecuteScript("/*@visual.init*/", deviceName);
-            return Driver;
-        }
-
-        [Test]
-        public void LooksCorrectOnPixelXL()
-        {
-            _visualOptions.Add("viewportSize", "412x732");
-
-            var browserOptions = new ChromeOptions()
-            {
-                BrowserVersion = "latest",
-                PlatformName = "Windows 10"
-            };
-            browserOptions.AddAdditionalCapability("sauce:options", SauceOptions, true);
-            browserOptions.AddAdditionalCapability("sauce:visual", _visualOptions, true);
-
-            Driver = StartVisualTest(browserOptions, "pixel xl");
-
-            CaptureApplicationSnapshots();
+            var result = (Dictionary<string, object>)((IJavaScriptExecutor)Driver).ExecuteScript("/*@visual.end*/");
+            result["message"].Should().BeNull();
         }
     }
 }
