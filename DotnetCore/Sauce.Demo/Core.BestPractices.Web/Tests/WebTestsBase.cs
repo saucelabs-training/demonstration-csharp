@@ -1,8 +1,6 @@
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
 
 namespace Core.BestPractices.Web.Tests
 {

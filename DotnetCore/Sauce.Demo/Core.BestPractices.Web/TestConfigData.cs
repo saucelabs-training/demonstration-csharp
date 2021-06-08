@@ -1,10 +1,27 @@
 using NUnit.Framework;
+using OpenQA.Selenium.Safari;
 using System.Collections;
 
 namespace Core.BestPractices.Web
 {
     public class TestConfigData
     {
+        static readonly SafariOptions safariOptions = new()
+        {
+            BrowserVersion = "latest",
+            PlatformName = "macOS 10.15"
+        };
+        public static IEnumerable PopularRealDevices
+        {
+            get
+            {
+                yield return new TestFixtureData(safariOptions, "375x812", "iphone x");
+                yield return new TestFixtureData(safariOptions, "375x812", "iphone 1");
+                yield return new TestFixtureData(safariOptions, "375x812", "iphone 2");
+                yield return new TestFixtureData(safariOptions, "375x812", "iphone 3");
+                yield return new TestFixtureData(safariOptions, "375x812", "iphone 4");
+            }
+        }
         public static IEnumerable MostPopularAndroidDevices
         {
             get
