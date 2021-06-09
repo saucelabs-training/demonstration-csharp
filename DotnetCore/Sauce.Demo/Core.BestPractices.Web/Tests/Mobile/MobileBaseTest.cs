@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 
-namespace Core.BestPractices.Web.Tests
+namespace Core.BestPractices.Web.Tests.Mobile
 {
     public class MobileBaseTest : AllTestsBase
     {
