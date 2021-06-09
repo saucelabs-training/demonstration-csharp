@@ -1,25 +1,25 @@
+using Core.BestPractices.Web.Pages;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Appium.Android;
+using OpenQA.Selenium.Appium.iOS;
 using System;
-using System.Collections.Generic;
 
-namespace Core.BestPractices.Web.Pages
+namespace Core.BestPractices.Web.MobileWebPageObjects.IOS
 {
-    public class MobileLoginPage
+    public class LoginPage
     {
         private By _usernameLocator = By.CssSelector("#user-name");
 
         private By UsernameLocator { get => _usernameLocator; }
-        public AndroidDriver<AndroidElement> Driver { get; private set; }
+        public IOSDriver<IOSElement> Driver { get; private set; }
         public Wait Wait { get; private set; }
 
-        public MobileLoginPage(AndroidDriver<AndroidElement> driver)
+        public LoginPage(IOSDriver<IOSElement> driver)
         {
             Driver = driver;
             Wait = new Wait(Driver);
         }
 
-        public MobileLoginPage Visit()
+        public LoginPage Visit()
         {
             Driver.Navigate().GoToUrl(Constants.BaseUrl);
             return this;

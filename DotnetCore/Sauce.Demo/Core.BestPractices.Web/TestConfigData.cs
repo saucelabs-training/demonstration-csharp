@@ -18,6 +18,39 @@ namespace Core.BestPractices.Web
             BrowserVersion = "latest",
             PlatformName = "Windows 10"
         };
+
+        internal static IEnumerable PopularAndroidSimulators
+        {
+            get
+            {
+                yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+                //duplication for more parallelization
+                yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+                yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+                yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+                yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+                yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+                yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+            }
+        }
+
+        internal static IEnumerable PopularIOSSimulators
+        {
+            get
+            {
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                //duplication for more parallelization
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+            }
+        }
+
         public static IEnumerable PopularVisualResolutions
         {
             get

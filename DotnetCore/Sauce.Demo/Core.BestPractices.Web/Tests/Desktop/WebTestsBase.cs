@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Core.BestPractices.Web.Tests
+namespace Core.BestPractices.Web.Tests.Desktop
 {
     [TestFixture]
     public class WebTestsBase : AllTestsBase
@@ -21,7 +21,8 @@ namespace Core.BestPractices.Web.Tests
             {
                 ["username"] = SauceUserName,
                 ["accessKey"] = SauceAccessKey,
-                ["name"] = TestContext.CurrentContext.Test.Name
+                ["name"] = TestContext.CurrentContext.Test.Name,
+                ["build"] = Constants.BuildId
             };
         }
     }

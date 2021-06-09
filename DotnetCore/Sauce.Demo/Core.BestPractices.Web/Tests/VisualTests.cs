@@ -42,7 +42,7 @@ namespace Core.BestPractices.Web.Tests
                 { "viewportSize", _viewportSize}
             };
 
-            if(_browserOptions.BrowserName.Equals("chrome", StringComparison.OrdinalIgnoreCase))
+            if (_browserOptions.BrowserName.Equals("chrome", StringComparison.OrdinalIgnoreCase))
             {
                 ((ChromeOptions)_browserOptions).AddAdditionalCapability("sauce:options", SauceOptions, true);
                 ((ChromeOptions)_browserOptions).AddAdditionalCapability("sauce:visual", _visualOptions, true);
