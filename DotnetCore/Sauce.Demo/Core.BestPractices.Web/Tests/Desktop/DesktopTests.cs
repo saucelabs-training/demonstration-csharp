@@ -1,6 +1,7 @@
 using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
 namespace Core.BestPractices.Web.Tests
@@ -29,6 +30,33 @@ namespace Core.BestPractices.Web.Tests
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
             loginPage.Login("standard_user");
+            new ProductsPage(Driver).IsVisible().Should().NotThrow();
+        }
+
+        [Test]
+        public void InvalidCredentialsFail()
+        {
+            var loginPage = new LoginPage(Driver);
+            loginPage.Visit();
+            loginPage.Login("locked_out_user");
+            new ProductsPage(Driver).IsVisible().Should().Throw<WebDriverTimeoutException>();
+        }
+
+        [Test]
+        public void ProblemUserLogsIn()
+        {
+            var loginPage = new LoginPage(Driver);
+            loginPage.Visit();
+            loginPage.Login("problem_user");
+            new ProductsPage(Driver).IsVisible().Should().NotThrow();
+        }
+
+        [Test]
+        public void PerformanceUserLogsIn()
+        {
+            var loginPage = new LoginPage(Driver);
+            loginPage.Visit();
+            loginPage.Login("performance_glitch_user");
             new ProductsPage(Driver).IsVisible().Should().NotThrow();
         }
     }

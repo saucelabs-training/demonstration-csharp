@@ -12,10 +12,10 @@ namespace Core.BestPractices.Web.Tests
     {
         public IWebDriver Driver { get; set; }
 
-        public string SauceUserName => Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-        public string SauceAccessKey => Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+        public static string SauceUserName => Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+        public static string SauceAccessKey => Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
         public Dictionary<string, object> SauceOptions;
-        public string ScreenerApiKey => Environment.GetEnvironmentVariable("SCREENER_API_KEY", EnvironmentVariableTarget.User);
+        public static string ScreenerApiKey => Environment.GetEnvironmentVariable("SCREENER_API_KEY", EnvironmentVariableTarget.User);
         public IJavaScriptExecutor JsExecutor => (IJavaScriptExecutor)Driver;
 
         public IWebDriver GetVisualDriver(ICapabilities capabilities)

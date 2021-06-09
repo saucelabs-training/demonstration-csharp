@@ -1,22 +1,24 @@
 ﻿using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace Core.BestPractices.Web.Tests
+namespace Core.BestPractices.Web.Tests.Mobile
 {
     [TestFixture]
-    public class EmusimWebTests : AllTestsBase
+    public class AndroidEmusimWebTests : AllTestsBase
     {
+        private AndroidDriver<AndroidElement> _driver;
+
         [SetUp]
         public void Setup()
         {
-            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
-            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
-
             var appiumOptions = new AppiumOptions();
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName,
                 "Google Pixel 3 XL GoogleAPI Emulator");
@@ -26,20 +28,23 @@ namespace Core.BestPractices.Web.Tests
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.AppiumVersion, "1.20.2");
             appiumOptions.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
 
-            Driver = new RemoteWebDriver(new SauceLabsEndpoint().EmusimUri(_sauceUserName, _sauceAccessKey),
-                appiumOptions.ToCapabilities(), TimeSpan.FromSeconds(120));
+            _driver = new AndroidDriver<AndroidElement>(new SauceLabsEndpoint().EmusimUri(SauceUserName, SauceAccessKey), appiumOptions);
+        }
+        [TearDown]
+        public void EmusimTeardown()
+        {
+            if (_driver == null) return;
+
+            ExecuteSauceCleanupSteps(_driver);
+            _driver.Quit();
         }
 
-        private string _sauceUserName;
-        private string _sauceAccessKey;
-
         [Test]
-        public void LoginWorks()
+        public void LoginPageOpens()
         {
-            var loginPage = new LoginPage(Driver);
+            var loginPage = new MobileLoginPage(_driver);
             loginPage.Visit();
-            loginPage.Login("standard_user");
-            new ProductsPage(Driver).IsVisible().Should().NotThrow();
+            loginPage.IsVisible().Should().NotThrow();
         }
     }
 }

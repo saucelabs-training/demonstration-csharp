@@ -6,13 +6,11 @@ namespace Core.BestPractices.Web.Pages
 {
     public class LoginPage : BaseWebPage
     {
-        public LoginPage(IWebDriver driver) : base(driver) { }
+        private By _usernameLocator = By.CssSelector("#user-name");
 
-        private readonly By _loginButtonLocator = By.ClassName("btn_action");
-        public IWebElement PasswordField => Driver.FindElement(By.Id("password"));
-        public IWebElement LoginButton => Driver.FindElement(_loginButtonLocator);
-        private readonly By _usernameLocator = By.Id("user-name");
-        public IWebElement UsernameField => Driver.FindElement(_usernameLocator);
+        private By UsernameLocator { get => _usernameLocator; }
+
+        public LoginPage(IWebDriver driver) : base(driver) { }
 
         public LoginPage Visit()
         {
@@ -33,10 +31,10 @@ namespace Core.BestPractices.Web.Pages
         {
             //SauceJsExecutor.LogMessage(
             //    $"Start login with user=>{username} and pass=>{password}");
-            var usernameField = Wait.UntilIsVisible(_usernameLocator);
+            var usernameField = Wait.UntilIsVisible(UsernameLocator);
             usernameField.SendKeys(username);
-            PasswordField.SendKeys("secret_sauce");
-            LoginButton.Click();
+            Driver.FindElement(By.CssSelector("#password")).SendKeys("secret_sauce");
+            Driver.FindElement(By.CssSelector(".btn_action")).Click();
             //SauceJsExecutor.LogMessage($"{MethodBase.GetCurrentMethod().Name} success");
             return new ProductsPage(Driver);
         }
@@ -48,7 +46,7 @@ namespace Core.BestPractices.Web.Pages
 
         private void IsElementVisible()
         {
-            new Wait(Driver, _usernameLocator).IsVisible();
+            new Wait(Driver).UntilIsVisible(UsernameLocator);
         }
     }
 }
