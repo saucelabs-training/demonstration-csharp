@@ -1,35 +1,41 @@
 ﻿using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.UI;
-using System;
 
 namespace Core.BestPractices.Web.Tests.Mobile
 {
     [TestFixture]
-    public class AndroidEmusimWebTests : AllTestsBase
+    [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularAndroidSimulators))]
+    public class AndroidEmusimTests : AllTestsBase
     {
         private AndroidDriver<AndroidElement> _driver;
+        private readonly string deviceName;
+        private readonly string platformVersion;
+
+        public AndroidEmusimTests(string deviceName, string platformVersion)
+        {
+            this.deviceName = deviceName;
+            this.platformVersion = platformVersion;
+        }
 
         [SetUp]
         public void Setup()
         {
             var appiumOptions = new AppiumOptions();
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName,
-                "Google Pixel 3 XL GoogleAPI Emulator");
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, deviceName);
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, "11.0");
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, platformVersion);
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.BrowserName, "Chrome");
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.AppiumVersion, "1.20.2");
             appiumOptions.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
+            appiumOptions.AddAdditionalCapability("build", Constants.BuildId);
 
-            _driver = new AndroidDriver<AndroidElement>(new SauceLabsEndpoint().EmusimUri(SauceUserName, SauceAccessKey), appiumOptions);
+            _driver = GetAndroidDriver(appiumOptions);
         }
+
         [TearDown]
         public void EmusimTeardown()
         {
@@ -42,7 +48,7 @@ namespace Core.BestPractices.Web.Tests.Mobile
         [Test]
         public void LoginPageOpens()
         {
-            var loginPage = new MobileLoginPage(_driver);
+            var loginPage = new LoginPage(_driver);
             loginPage.Visit();
             loginPage.IsVisible().Should().NotThrow();
         }

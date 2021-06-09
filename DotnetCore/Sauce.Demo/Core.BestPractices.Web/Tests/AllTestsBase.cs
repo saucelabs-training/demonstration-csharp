@@ -1,6 +1,9 @@
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Android;
+using OpenQA.Selenium.Appium.iOS;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
@@ -30,6 +33,14 @@ namespace Core.BestPractices.Web.Tests
         public IWebDriver GetDesktopDriver(ICapabilities browserOptions)
         {
             return new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), browserOptions);
+        }
+        public static AndroidDriver<AndroidElement> GetAndroidDriver(AppiumOptions appiumOptions)
+        {
+            return new AndroidDriver<AndroidElement>(new SauceLabsEndpoint().EmusimUri(SauceUserName, SauceAccessKey), appiumOptions);
+        }
+        public IOSDriver<IOSElement> GetIOSDriver(AppiumOptions appiumOptions)
+        {
+            return new IOSDriver<IOSElement>(new SauceLabsEndpoint().EmusimUri(SauceUserName, SauceAccessKey), appiumOptions);
         }
 
         public void ExecuteSauceCleanupSteps(IWebDriver driver)

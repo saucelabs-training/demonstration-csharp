@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Appium.Android;
 using System;
 
-namespace Core.BestPractices.Web.Tests.Mobile
+namespace Core.BestPractices.Web.Tests.Mobile.Android
 {
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularAndroidDevices))]
     [Parallelizable]

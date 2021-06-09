@@ -6,7 +6,7 @@ using OpenQA.Selenium.Appium.Enums;
 using OpenQA.Selenium.Appium.iOS;
 using System;
 
-namespace Core.BestPractices.Web.Tests.Mobile
+namespace Core.BestPractices.Web.Tests.Mobile.IOS
 {
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularIOSDevices))]
     [Parallelizable]
