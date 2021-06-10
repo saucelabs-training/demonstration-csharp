@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using Core.BestPractices.Web.MobileWebPageObjects.Android;
+using FluentAssertions;
+using NUnit.Framework;
 using OpenQA.Selenium.Appium.Android;
 using System;
 
@@ -8,6 +10,7 @@ namespace Core.BestPractices.Web.Tests.Mobile.Android
     [Parallelizable]
     public class RealDeviceAndroidWebTests : MobileBaseTest
     {
+        public new AndroidDriver<AndroidElement> Driver { get; set; }
         public RealDeviceAndroidWebTests(string deviceName, string platform, string browser) :
             base(deviceName, platform, browser)
         { }
@@ -15,17 +18,16 @@ namespace Core.BestPractices.Web.Tests.Mobile.Android
         [SetUp]
         public void AndroidSetup()
         {
-            Driver = new AndroidDriver<AndroidElement>(new Uri(URI), MobileOptions, TimeSpan.FromSeconds(120));
+            Driver = GetAndroidDriver(MobileOptions);
         }
 
         [Test]
 
         public void ShouldOpenHomePage()
         {
-            //60 seconds default for the connection timeout
-            Driver.Navigate().GoToUrl("http://www.saucedemo.com");
-            var size = Driver.Manage().Window.Size;
-            Assert.AreNotEqual(0, size.Height);
+            var loginPage = new LoginPage(Driver);
+            loginPage.Visit();
+            loginPage.IsVisible().Should().NotThrow();
         }
     }
 }
