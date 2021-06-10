@@ -30,14 +30,6 @@ namespace Core.BestPractices.Web.Tests.Mobile
 
         public AppiumOptions MobileOptions { get; set; }
 
-        //Never forget to pass the test status to Sauce Labs
-        [TearDown]
-        public void Teardown()
-        {
-            if (Driver == null) return;
 
-            ExecuteSauceCleanupSteps(Driver);
-            Driver.Quit();
-        }
     }
 }

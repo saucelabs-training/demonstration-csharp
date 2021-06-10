@@ -2,7 +2,6 @@
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium.Android;
-using System;
 
 namespace Core.BestPractices.Web.Tests.Mobile.Android
 {
@@ -19,6 +18,14 @@ namespace Core.BestPractices.Web.Tests.Mobile.Android
         public void AndroidSetup()
         {
             Driver = GetAndroidDriver(MobileOptions);
+        }
+        [TearDown]
+        public void Teardown()
+        {
+            if (Driver == null) return;
+
+            ExecuteSauceCleanupSteps(Driver);
+            Driver.Quit();
         }
 
         [Test]
