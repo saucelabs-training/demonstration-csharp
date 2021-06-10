@@ -83,11 +83,9 @@ namespace Core.BestPractices.Web
             {
                 yield return new TestFixtureData("iPhone 11.*", "iOS", "Safari");
                 yield return new TestFixtureData("iPhone 12.*", "iOS", "Safari");
-                yield return new TestFixtureData("iPad 10.*", "iOS", "Safari");
                 //duplication only for parallel example
                 yield return new TestFixtureData("iPhone 11.*", "iOS", "Safari");
                 yield return new TestFixtureData("iPhone 12.*", "iOS", "Safari");
-                yield return new TestFixtureData("iPad 10.*", "iOS", "Safari");
             }
         }
     }
