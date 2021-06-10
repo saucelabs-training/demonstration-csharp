@@ -36,7 +36,7 @@ namespace Core.BestPractices.Web.Tests.Mobile.IOS
             capabilities.AddAdditionalCapability("newCommandTimeout", 90);
 
             //60 seconds default for the connection timeout
-            _driver = new IOSDriver<IOSElement>(new Uri(uri), capabilities);
+            _driver = new IOSDriver<IOSElement>(new Uri(uri), capabilities, TimeSpan.FromSeconds(120));
             _driver.Navigate().GoToUrl("http://www.saucedemo.com");
             var size = _driver.Manage().Window.Size;
             Assert.AreNotEqual(0, size.Height);

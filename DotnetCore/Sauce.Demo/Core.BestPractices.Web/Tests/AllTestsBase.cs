@@ -36,11 +36,11 @@ namespace Core.BestPractices.Web.Tests
         }
         public static AndroidDriver<AndroidElement> GetAndroidDriver(AppiumOptions appiumOptions)
         {
-            return new AndroidDriver<AndroidElement>(new SauceLabsEndpoint().EmusimUri(SauceUserName, SauceAccessKey), appiumOptions);
+            return new AndroidDriver<AndroidElement>(new SauceLabsEndpoint().EmusimUri(SauceUserName, SauceAccessKey), appiumOptions, TimeSpan.FromSeconds(120));
         }
         public IOSDriver<IOSElement> GetIOSDriver(AppiumOptions appiumOptions)
         {
-            return new IOSDriver<IOSElement>(new SauceLabsEndpoint().EmusimUri(SauceUserName, SauceAccessKey), appiumOptions);
+            return new IOSDriver<IOSElement>(new SauceLabsEndpoint().EmusimUri(SauceUserName, SauceAccessKey), appiumOptions, TimeSpan.FromSeconds(120));
         }
 
         public void ExecuteSauceCleanupSteps(IWebDriver driver)

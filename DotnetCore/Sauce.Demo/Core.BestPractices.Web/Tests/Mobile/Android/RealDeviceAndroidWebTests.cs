@@ -15,7 +15,7 @@ namespace Core.BestPractices.Web.Tests.Mobile.Android
         [SetUp]
         public void AndroidSetup()
         {
-            Driver = new AndroidDriver<AndroidElement>(new Uri(URI), MobileOptions);
+            Driver = new AndroidDriver<AndroidElement>(new Uri(URI), MobileOptions, TimeSpan.FromSeconds(120));
         }
 
         [Test]
