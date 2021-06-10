@@ -38,16 +38,17 @@ namespace Core.BestPractices.Web
         {
             get
             {
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
-                //duplication for more parallelization
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
-                yield return new TestFixtureData("iPhone X Simulator", "14.3");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+
             }
         }
 

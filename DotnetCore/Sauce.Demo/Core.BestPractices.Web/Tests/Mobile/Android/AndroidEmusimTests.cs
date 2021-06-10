@@ -1,4 +1,5 @@
 ﻿using Core.BestPractices.Web.Pages;
+using Core.BestPractices.Web.Tests.Mobile.IOS;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;
@@ -9,25 +10,21 @@ namespace Core.BestPractices.Web.Tests.Mobile
 {
     [TestFixture]
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularAndroidSimulators))]
-    public class AndroidEmusimTests : AllTestsBase
+    public class AndroidEmusimTests : EmusimBaseTest
     {
         private AndroidDriver<AndroidElement> _driver;
-        private readonly string deviceName;
-        private readonly string platformVersion;
 
-        public AndroidEmusimTests(string deviceName, string platformVersion)
+        public AndroidEmusimTests(string deviceName, string platformVersion) : base(deviceName, platformVersion)
         {
-            this.deviceName = deviceName;
-            this.platformVersion = platformVersion;
         }
 
         [SetUp]
         public void Setup()
         {
             var appiumOptions = new AppiumOptions();
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, deviceName);
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, DeviceName);
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformName, "Android");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, platformVersion);
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, PlatformVersion);
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.BrowserName, "Chrome");
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.AppiumVersion, "1.20.2");
             appiumOptions.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);

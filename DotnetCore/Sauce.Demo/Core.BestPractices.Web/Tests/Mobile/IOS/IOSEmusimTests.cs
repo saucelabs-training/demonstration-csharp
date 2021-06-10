@@ -9,27 +9,22 @@ namespace Core.BestPractices.Web.Tests.Mobile.IOS
 {
     [TestFixture]
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularIOSSimulators))]
-    public class IOSEmusimTests : AllTestsBase
+    public class IOSEmusimTests : EmusimBaseTest
     {
         private IOSDriver<IOSElement> _driver;
-        private readonly string deviceName;
-        private readonly string platformVersion;
 
-        public IOSEmusimTests(string deviceName, string platformVersion)
+        public IOSEmusimTests(string deviceName, string platformVersion) : base(deviceName, platformVersion)
         {
-            this.deviceName = deviceName;
-            this.platformVersion = platformVersion;
         }
 
         [SetUp]
         public void Setup()
         {
             var appiumOptions = new AppiumOptions();
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, deviceName);
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, DeviceName);
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformName, "iOS");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, platformVersion);
+            appiumOptions.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, PlatformVersion);
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.BrowserName, "Safari");
-            appiumOptions.AddAdditionalCapability(MobileCapabilityType.AppiumVersion, "1.20.1");
             appiumOptions.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             appiumOptions.AddAdditionalCapability("build", Constants.BuildId);
 
