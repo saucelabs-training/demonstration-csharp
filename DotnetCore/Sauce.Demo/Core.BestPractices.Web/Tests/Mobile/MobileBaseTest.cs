@@ -9,9 +9,6 @@ namespace Core.BestPractices.Web.Tests.Mobile
         public readonly string DeviceName;
         public readonly string Platform;
         public readonly string Browser;
-        public string URI;
-        private static string HubUrl => "ondemand.us-west-1.saucelabs.com/wd/hub";
-
 
         public MobileBaseTest(string deviceName, string platform, string browser)
         {
@@ -22,14 +19,13 @@ namespace Core.BestPractices.Web.Tests.Mobile
         [SetUp]
         public void MobileBaseSetup()
         {
-            URI = $"https://{SauceUserName}:{SauceAccessKey}@{HubUrl}";
-
             MobileOptions = new AppiumOptions();
             MobileOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, DeviceName);
             MobileOptions.AddAdditionalCapability(MobileCapabilityType.PlatformName, Platform);
             MobileOptions.AddAdditionalCapability(MobileCapabilityType.BrowserName, Browser);
             MobileOptions.AddAdditionalCapability("name", TestContext.CurrentContext.Test.Name);
             MobileOptions.AddAdditionalCapability("newCommandTimeout", 90);
+            MobileOptions.AddAdditionalCapability("build", Constants.BuildId);
         }
 
         public AppiumOptions MobileOptions { get; set; }
