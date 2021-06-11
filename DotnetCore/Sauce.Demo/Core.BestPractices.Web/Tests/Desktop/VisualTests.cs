@@ -6,7 +6,7 @@ using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 
-namespace Core.BestPractices.Web.Tests
+namespace Core.BestPractices.Web.Tests.Desktop
 {
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularVisualResolutions))]
     [TestFixture]

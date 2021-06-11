@@ -3,7 +3,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
-namespace Core.BestPractices.Web.Pages
+namespace Core.BestPractices.Web
 {
     public class Wait
     {
@@ -13,7 +13,7 @@ namespace Core.BestPractices.Web.Pages
 
         public Wait(IWebDriver driver)
         {
-            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
         }
 
         public IWebElement UntilIsVisible(By locator)
@@ -27,7 +27,7 @@ namespace Core.BestPractices.Web.Pages
         public Wait(IWebDriver driver, By locator)
         {
             _locator = locator;
-            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
         }
 
         public Wait(IWebDriver driver, int timeoutInSeconds)
