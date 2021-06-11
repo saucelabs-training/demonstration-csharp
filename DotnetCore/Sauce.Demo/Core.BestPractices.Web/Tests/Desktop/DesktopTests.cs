@@ -1,29 +1,37 @@
 using Core.BestPractices.Web.Pages;
-using Core.BestPractices.Web.Tests.Desktop;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 
-namespace Core.BestPractices.Web.Tests
+namespace Core.BestPractices.Web.Tests.Desktop
 {
-    //[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularConfigurations))]
+    [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]
     [TestFixture]
     [Parallelizable]
     public class DesktopTests : WebTestsBase
     {
+        public string BrowserVersion { get; }
+        public string PlatformName { get; }
+        public DriverOptions BrowserOptions { get; }
+
+        public DesktopTests(string browserVersion, string platformName, DriverOptions browserOptions)
+        {
+            if (string.IsNullOrEmpty(browserVersion))
+                BrowserVersion = browserVersion;
+            if (string.IsNullOrEmpty(platformName))
+                PlatformName = platformName;
+            BrowserOptions = browserOptions;
+        }
         [SetUp]
         public void SetupDesktopTests()
         {
-            var browserOptions = new EdgeOptions
-            {
-                BrowserVersion = "latest",
-                PlatformName = "Windows 10"
-                //AcceptInsecureCertificates = true //Insecure Certs are Not supported by Edge
-            };
-
-            browserOptions.AddAdditionalCapability("sauce:options", SauceOptions);
-            Driver = GetDesktopDriver(browserOptions.ToCapabilities());
+            if (BrowserOptions.BrowserName == "chrome")
+                ((ChromeOptions)BrowserOptions).AddAdditionalCapability("sauce:options", SauceOptions, true);
+            else
+                BrowserOptions.AddAdditionalCapability("sauce:options", SauceOptions);
+            Driver = GetDesktopDriver(BrowserOptions.ToCapabilities());
         }
         [Test]
         public void LoginWorks()
@@ -40,7 +48,7 @@ namespace Core.BestPractices.Web.Tests
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
             loginPage.Login("locked_out_user");
-            new ProductsPage(Driver).IsVisible().Should().Throw<WebDriverTimeoutException>();
+            new ProductsPage(Driver).IsVisible().Should().Throw<WebDriverTimeoutException>("locked out user shouldn't be able to login");
         }
 
         [Test]

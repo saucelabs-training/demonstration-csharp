@@ -1,23 +1,79 @@
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Safari;
+using System;
 using System.Collections;
 
 namespace Core.BestPractices.Web
 {
     public class TestConfigData
     {
+        private const string defaultBrowserVersion = "";
+        private const string defaultOS = "";
         static readonly SafariOptions safariOptions = new()
         {
             BrowserVersion = "latest",
             PlatformName = "macOS 10.15"
         };
-
         static readonly ChromeOptions chromeOptions = new()
+        {
+            BrowserVersion = "latest",
+            PlatformName = "Windows 10",
+            UseSpecCompliantProtocol = true
+        };
+        static readonly EdgeOptions edgeOptions = new()
         {
             BrowserVersion = "latest",
             PlatformName = "Windows 10"
         };
+
+        internal static IEnumerable PopularDesktopCombinations
+        {
+            get
+            {
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                //one version back
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData("latest-1", defaultOS, chromeOptions);
+                yield return new TestFixtureData("latest-1", defaultOS, edgeOptions);
+                //duplication for more parallelization
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+                yield return new TestFixtureData("latest", "macOS 10.15", safariOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, chromeOptions);
+                yield return new TestFixtureData(defaultBrowserVersion, defaultOS, edgeOptions);
+            }
+        }
+
+
 
         internal static IEnumerable PopularAndroidSimulators
         {

@@ -29,7 +29,7 @@ namespace Core.BestPractices.Web.Tests.Mobile.Android
         }
 
         [Test]
-
+        [Retry(1)]
         public void ShouldOpenHomePage()
         {
             var loginPage = new LoginPage(Driver);

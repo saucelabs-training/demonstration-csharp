@@ -47,7 +47,7 @@ namespace Core.BestPractices.Web.Pages
 
         private void IsCartElementVisible()
         {
-            Wait.UntilIsDisplayedById("inventory_filter_container");
+            Wait.UntilIsVisible(By.Id("inventory_container"));
         }
     }
 }
