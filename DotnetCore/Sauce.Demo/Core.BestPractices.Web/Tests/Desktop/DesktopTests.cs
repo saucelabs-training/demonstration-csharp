@@ -3,7 +3,6 @@ using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Edge;
 
 namespace Core.BestPractices.Web.Tests.Desktop
 {
