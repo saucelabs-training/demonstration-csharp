@@ -6,19 +6,19 @@ namespace Core.BestPractices.Web.Pages
     {
         public readonly IWebDriver Driver;
 
-        public IJavaScriptExecutor JavaScriptExecutor => (IJavaScriptExecutor)Driver;
+        public BaseWebPage(IWebDriver driver)
+        {
+            Driver = driver;
+            BaseUrl = "https://www.saucedemo.com";
+        }
+
+        public IJavaScriptExecutor JavaScriptExecutor => (IJavaScriptExecutor) Driver;
 
         //public SauceJavaScriptExecutor SauceJsExecutor =>
         //    new SauceJavaScriptExecutor(_driver);
 
         public Wait Wait => new(Driver);
         public string BaseUrl { get; }
-
-        public BaseWebPage(IWebDriver driver)
-        {
-            Driver = driver;
-            BaseUrl = "https://www.saucedemo.com";
-        }
 
         public void TakeSnapshot()
         {

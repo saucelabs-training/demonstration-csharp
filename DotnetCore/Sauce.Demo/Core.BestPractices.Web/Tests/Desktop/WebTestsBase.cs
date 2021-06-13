@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace Core.BestPractices.Web.Tests.Desktop
 {
@@ -14,6 +14,7 @@ namespace Core.BestPractices.Web.Tests.Desktop
             ExecuteSauceCleanupSteps(Driver);
             Driver.Quit();
         }
+
         [SetUp]
         public void Setup()
         {

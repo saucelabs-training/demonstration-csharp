@@ -1,5 +1,5 @@
-using OpenQA.Selenium;
 using System;
+using OpenQA.Selenium;
 
 namespace Core.BestPractices.Web.Pages
 {
@@ -21,7 +21,7 @@ namespace Core.BestPractices.Web.Pages
         public int ProductCount =>
             Driver.FindElements(By.ClassName("inventory_item")).Count;
 
-        public CartComponent Cart => new CartComponent(Driver);
+        public CartComponent Cart => new(Driver);
 
         public void Logout()
         {

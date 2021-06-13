@@ -1,23 +1,22 @@
+using System;
 using Core.BestPractices.Web.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.iOS;
-using System;
 
 namespace Core.BestPractices.Web.MobileWebPageObjects.IOS
 {
     public class LoginPage
     {
-        private By _usernameLocator = By.CssSelector("#user-name");
-
-        private By UsernameLocator { get => _usernameLocator; }
-        public IOSDriver<IOSElement> Driver { get; private set; }
-        public Wait Wait { get; private set; }
-
         public LoginPage(IOSDriver<IOSElement> driver)
         {
             Driver = driver;
             Wait = new Wait(Driver);
         }
+
+        private By UsernameLocator { get; } = By.CssSelector("#user-name");
+
+        public IOSDriver<IOSElement> Driver { get; }
+        public Wait Wait { get; }
 
         public LoginPage Visit()
         {

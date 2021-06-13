@@ -6,16 +6,6 @@ namespace Core.BestPractices.Web.Tests.Mobile
 {
     public class MobileBaseTest : AllTestsBase
     {
-        public readonly string DeviceName;
-        public readonly string Platform;
-        public readonly string Browser;
-
-        public MobileBaseTest(string deviceName, string platform, string browser)
-        {
-            DeviceName = deviceName;
-            Platform = platform;
-            Browser = browser;
-        }
         [SetUp]
         public void MobileBaseSetup()
         {
@@ -28,8 +18,17 @@ namespace Core.BestPractices.Web.Tests.Mobile
             MobileOptions.AddAdditionalCapability("build", Constants.BuildId);
         }
 
+        public readonly string DeviceName;
+        public readonly string Platform;
+        public readonly string Browser;
+
+        public MobileBaseTest(string deviceName, string platform, string browser)
+        {
+            DeviceName = deviceName;
+            Platform = platform;
+            Browser = browser;
+        }
+
         public AppiumOptions MobileOptions { get; set; }
-
-
     }
 }

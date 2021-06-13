@@ -1,8 +1,8 @@
+using System.Collections;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Safari;
-using System.Collections;
 
 namespace Core.BestPractices.Web
 {
@@ -10,18 +10,21 @@ namespace Core.BestPractices.Web
     {
         private const string defaultBrowserVersion = "";
         private const string defaultOS = "";
-        static readonly SafariOptions safariOptions = new()
+
+        private static readonly SafariOptions safariOptions = new()
         {
             BrowserVersion = "latest",
             PlatformName = "macOS 10.15"
         };
-        static readonly ChromeOptions chromeOptions = new()
+
+        private static readonly ChromeOptions chromeOptions = new()
         {
             BrowserVersion = "latest",
             PlatformName = "Windows 10",
             UseSpecCompliantProtocol = true
         };
-        static readonly EdgeOptions edgeOptions = new()
+
+        private static readonly EdgeOptions edgeOptions = new()
         {
             BrowserVersion = "latest",
             PlatformName = "Windows 10"
@@ -73,7 +76,6 @@ namespace Core.BestPractices.Web
         }
 
 
-
         internal static IEnumerable PopularAndroidSimulators
         {
             get
@@ -103,7 +105,6 @@ namespace Core.BestPractices.Web
                 yield return new TestFixtureData("iPhone X Simulator", "14.0");
                 yield return new TestFixtureData("iPhone X Simulator", "14.0");
                 yield return new TestFixtureData("iPhone X Simulator", "14.0");
-
             }
         }
 
@@ -118,6 +119,7 @@ namespace Core.BestPractices.Web
                 yield return new TestFixtureData(chromeOptions, "412x869", "Galaxy Note 10+");
             }
         }
+
         public static IEnumerable MostPopularAndroidDevices
         {
             get

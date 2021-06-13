@@ -11,12 +11,6 @@ namespace Core.BestPractices.Web.Tests.Mobile.IOS
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularIOSSimulators))]
     public class IOSEmusimTests : EmusimBaseTest
     {
-        private IOSDriver<IOSElement> _driver;
-
-        public IOSEmusimTests(string deviceName, string platformVersion) : base(deviceName, platformVersion)
-        {
-        }
-
         [SetUp]
         public void Setup()
         {
@@ -38,6 +32,12 @@ namespace Core.BestPractices.Web.Tests.Mobile.IOS
 
             ExecuteSauceCleanupSteps(_driver);
             _driver.Quit();
+        }
+
+        private IOSDriver<IOSElement> _driver;
+
+        public IOSEmusimTests(string deviceName, string platformVersion) : base(deviceName, platformVersion)
+        {
         }
 
         [Test]
