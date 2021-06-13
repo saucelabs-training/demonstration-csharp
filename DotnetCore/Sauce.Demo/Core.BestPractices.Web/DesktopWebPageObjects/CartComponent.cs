@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace Core.BestPractices.Web.Pages
+namespace Core.BestPractices.Web.DesktopWebPageObjects
 {
     public class CartComponent
     {

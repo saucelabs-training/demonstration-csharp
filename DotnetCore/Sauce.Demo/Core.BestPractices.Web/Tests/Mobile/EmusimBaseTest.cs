@@ -1,4 +1,4 @@
-﻿namespace Core.BestPractices.Web.Tests.Mobile.IOS
+﻿namespace Core.BestPractices.Web.Tests.Mobile
 {
     public class EmusimBaseTest : AllTestsBase
     {

@@ -1,12 +1,11 @@
-﻿using Core.BestPractices.Web.Pages;
-using Core.BestPractices.Web.Tests.Mobile.IOS;
+﻿using Core.BestPractices.Web.DesktopWebPageObjects;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.Enums;
 
-namespace Core.BestPractices.Web.Tests.Mobile
+namespace Core.BestPractices.Web.Tests.Mobile.Android
 {
     [TestFixture]
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularAndroidSimulators))]

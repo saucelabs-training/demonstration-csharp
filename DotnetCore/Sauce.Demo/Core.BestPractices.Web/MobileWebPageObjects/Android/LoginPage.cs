@@ -1,5 +1,5 @@
 using System;
-using Core.BestPractices.Web.Pages;
+using Core.BestPractices.Web.DesktopWebPageObjects;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
 
