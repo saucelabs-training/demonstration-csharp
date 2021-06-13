@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
 
-namespace Core.BestPractices.Web.Pages
+namespace Core.BestPractices.Web.DesktopWebPageObjects
 {
     public class LoginPage : BaseWebPage
     {

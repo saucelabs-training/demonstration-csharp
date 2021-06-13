@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Safari;
 
-namespace Core.BestPractices.Web
+namespace Core.BestPractices.Web.Tests
 {
     public class TestConfigData
     {

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Core.BestPractices.Web.Pages;
+using Core.BestPractices.Web.DesktopWebPageObjects;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
