@@ -1,4 +1,4 @@
-﻿using Core.BestPractices.Web.DesktopWebPageObjects;
+﻿using Core.BestPractices.Web.MobileWebPageObjects.Android;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;
