@@ -2,7 +2,6 @@ using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Safari;
-using System;
 using System.Collections;
 
 namespace Core.BestPractices.Web
