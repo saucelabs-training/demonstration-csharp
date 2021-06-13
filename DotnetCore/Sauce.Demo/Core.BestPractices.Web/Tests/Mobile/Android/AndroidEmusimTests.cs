@@ -12,12 +12,6 @@ namespace Core.BestPractices.Web.Tests.Mobile
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularAndroidSimulators))]
     public class AndroidEmusimTests : EmusimBaseTest
     {
-        private AndroidDriver<AndroidElement> _driver;
-
-        public AndroidEmusimTests(string deviceName, string platformVersion) : base(deviceName, platformVersion)
-        {
-        }
-
         [SetUp]
         public void Setup()
         {
@@ -40,6 +34,12 @@ namespace Core.BestPractices.Web.Tests.Mobile
 
             ExecuteSauceCleanupSteps(_driver);
             _driver.Quit();
+        }
+
+        private AndroidDriver<AndroidElement> _driver;
+
+        public AndroidEmusimTests(string deviceName, string platformVersion) : base(deviceName, platformVersion)
+        {
         }
 
         [Test]

@@ -1,14 +1,12 @@
+using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace Core.BestPractices.Web
 {
     public class Wait
     {
-        private WebDriverWait _wait { get; set; }
-
         private readonly By _locator;
 
         public Wait(IWebDriver driver)
@@ -16,14 +14,6 @@ namespace Core.BestPractices.Web
             _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
         }
 
-        public IWebElement UntilIsVisible(By locator)
-        {
-            return _wait.Until(ExpectedConditions.ElementIsVisible(locator));
-        }
-        public IWebElement UntilIsVisibleByClass(string className)
-        {
-            return UntilIsVisible(By.ClassName(className));
-        }
         public Wait(IWebDriver driver, By locator)
         {
             _locator = locator;
@@ -35,6 +25,18 @@ namespace Core.BestPractices.Web
             _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
         }
 
+        private WebDriverWait _wait { get; }
+
+        public IWebElement UntilIsVisible(By locator)
+        {
+            return _wait.Until(ExpectedConditions.ElementIsVisible(locator));
+        }
+
+        public IWebElement UntilIsVisibleByClass(string className)
+        {
+            return UntilIsVisible(By.ClassName(className));
+        }
+
         public bool IsVisible()
         {
             return _wait.Until(ExpectedConditions.ElementIsVisible(_locator)).Displayed;
@@ -44,6 +46,7 @@ namespace Core.BestPractices.Web
         {
             return UntilIsVisible(By.Id(id));
         }
+
         //This type of method is really useful for negative assertions
         //To wait until something isn't displayed and then assert on it
         public bool UntilIsDisplayedById(string id)
@@ -57,6 +60,7 @@ namespace Core.BestPractices.Web
             {
                 return false;
             }
+
             return isDisplayed;
         }
 

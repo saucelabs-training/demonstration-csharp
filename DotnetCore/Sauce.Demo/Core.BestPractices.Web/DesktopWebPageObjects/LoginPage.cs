@@ -1,16 +1,16 @@
-using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using OpenQA.Selenium;
 
 namespace Core.BestPractices.Web.Pages
 {
     public class LoginPage : BaseWebPage
     {
-        private By _usernameLocator = By.CssSelector("#user-name");
+        public LoginPage(IWebDriver driver) : base(driver)
+        {
+        }
 
-        private By UsernameLocator { get => _usernameLocator; }
-
-        public LoginPage(IWebDriver driver) : base(driver) { }
+        private By UsernameLocator { get; } = By.CssSelector("#user-name");
 
         public LoginPage Visit()
         {
@@ -24,7 +24,7 @@ namespace Core.BestPractices.Web.Pages
             {
                 ["type"] = "sauce:performance"
             };
-            return (Dictionary<string, object>)((IJavaScriptExecutor)Driver).ExecuteScript("sauce:log", metrics);
+            return (Dictionary<string, object>) ((IJavaScriptExecutor) Driver).ExecuteScript("sauce:log", metrics);
         }
 
         public ProductsPage Login(string username)

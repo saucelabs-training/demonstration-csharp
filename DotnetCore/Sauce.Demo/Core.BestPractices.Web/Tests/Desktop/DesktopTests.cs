@@ -11,6 +11,16 @@ namespace Core.BestPractices.Web.Tests.Desktop
     [Parallelizable]
     public class DesktopTests : WebTestsBase
     {
+        [SetUp]
+        public void SetupDesktopTests()
+        {
+            if (BrowserOptions.BrowserName == "chrome")
+                ((ChromeOptions) BrowserOptions).AddAdditionalCapability("sauce:options", SauceOptions, true);
+            else
+                BrowserOptions.AddAdditionalCapability("sauce:options", SauceOptions);
+            Driver = GetDesktopDriver(BrowserOptions.ToCapabilities());
+        }
+
         public string BrowserVersion { get; }
         public string PlatformName { get; }
         public DriverOptions BrowserOptions { get; }
@@ -23,15 +33,7 @@ namespace Core.BestPractices.Web.Tests.Desktop
                 PlatformName = platformName;
             BrowserOptions = browserOptions;
         }
-        [SetUp]
-        public void SetupDesktopTests()
-        {
-            if (BrowserOptions.BrowserName == "chrome")
-                ((ChromeOptions)BrowserOptions).AddAdditionalCapability("sauce:options", SauceOptions, true);
-            else
-                BrowserOptions.AddAdditionalCapability("sauce:options", SauceOptions);
-            Driver = GetDesktopDriver(BrowserOptions.ToCapabilities());
-        }
+
         [Test]
         public void LoginWorks()
         {
@@ -47,7 +49,8 @@ namespace Core.BestPractices.Web.Tests.Desktop
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
             loginPage.Login("locked_out_user");
-            new ProductsPage(Driver).IsVisible().Should().Throw<WebDriverTimeoutException>("locked out user shouldn't be able to login");
+            new ProductsPage(Driver).IsVisible().Should()
+                .Throw<WebDriverTimeoutException>("locked out user shouldn't be able to login");
         }
 
         [Test]

@@ -6,8 +6,6 @@ namespace Core.BestPractices.Web
     {
         public static string BaseUrl => "https://www.saucedemo.com";
 
-        public static string BuildId { get => buildId; set => buildId = value; }
-
-        private static string buildId = DateTime.Now.ToString("F");
+        public static string BuildId { get; set; } = DateTime.Now.ToString("F");
     }
 }

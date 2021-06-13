@@ -5,6 +5,12 @@ namespace Core.BestPractices.Web.Pages
     public class CartComponent
     {
         private readonly IWebDriver _driver;
+
+        public CartComponent(IWebDriver driver)
+        {
+            _driver = driver;
+        }
+
         private string CartItemCounterText
         {
             get
@@ -19,19 +25,16 @@ namespace Core.BestPractices.Web.Pages
                 }
             }
         }
+
         public bool HasItems => int.Parse(CartItemCounterText) > 0;
 
         public int ItemCount => int.Parse(CartItemCounterText);
 
-        public CartComponent(IWebDriver driver)
-        {
-            _driver = driver;
-        }
-
         public CartComponent InjectUserWithItems()
         {
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.sessionStorage.setItem('session-username', 'standard-user')");
-            ((IJavaScriptExecutor)_driver).ExecuteScript("window.sessionStorage.setItem('cart-contents', '[4,1]')");
+            ((IJavaScriptExecutor) _driver).ExecuteScript(
+                "window.sessionStorage.setItem('session-username', 'standard-user')");
+            ((IJavaScriptExecutor) _driver).ExecuteScript("window.sessionStorage.setItem('cart-contents', '[4,1]')");
             _driver.Navigate().Refresh();
             return this;
         }

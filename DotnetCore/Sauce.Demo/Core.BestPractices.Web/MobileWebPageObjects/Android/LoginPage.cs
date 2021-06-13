@@ -1,23 +1,22 @@
+using System;
 using Core.BestPractices.Web.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium.Android;
-using System;
 
 namespace Core.BestPractices.Web.MobileWebPageObjects.Android
 {
     public class LoginPage
     {
-        private By _usernameLocator = By.CssSelector("#user-name");
-
-        private By UsernameLocator { get => _usernameLocator; }
-        public AndroidDriver<AndroidElement> Driver { get; private set; }
-        public Wait Wait { get; private set; }
-
         public LoginPage(AndroidDriver<AndroidElement> driver)
         {
             Driver = driver;
             Wait = new Wait(Driver);
         }
+
+        private By UsernameLocator { get; } = By.CssSelector("#user-name");
+
+        public AndroidDriver<AndroidElement> Driver { get; }
+        public Wait Wait { get; }
 
         public LoginPage Visit()
         {

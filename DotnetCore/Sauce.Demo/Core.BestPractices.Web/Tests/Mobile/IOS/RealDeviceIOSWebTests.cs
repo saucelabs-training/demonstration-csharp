@@ -9,16 +9,12 @@ namespace Core.BestPractices.Web.Tests.Mobile.IOS
     [Parallelizable]
     public class RealDeviceIOSWebTests : MobileBaseTest
     {
-        public new IOSDriver<IOSElement> Driver { get; set; }
-        public RealDeviceIOSWebTests(string deviceName, string platform, string browser) :
-            base(deviceName, platform, browser)
-        { }
-
         [SetUp]
         public void IOSSetup()
         {
             Driver = GetIOSDriver(MobileOptions);
         }
+
         [TearDown]
         public void Teardown()
         {
@@ -28,8 +24,14 @@ namespace Core.BestPractices.Web.Tests.Mobile.IOS
             Driver.Quit();
         }
 
-        [Test]
+        public new IOSDriver<IOSElement> Driver { get; set; }
 
+        public RealDeviceIOSWebTests(string deviceName, string platform, string browser) :
+            base(deviceName, platform, browser)
+        {
+        }
+
+        [Test]
         public void ShouldOpenHomePage()
         {
             var loginPage = new LoginPage(Driver);

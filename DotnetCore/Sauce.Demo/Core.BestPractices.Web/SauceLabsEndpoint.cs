@@ -13,7 +13,9 @@ namespace Core.BestPractices.Web
 
         public static string HeadlessRestApiUrl => "https://us-east-1.saucelabs.com/rest/v1";
 
-        public Uri EmusimUri(string sauceUser, string sauceKey) =>
-            new($"https://{sauceUser}:{sauceKey}{SauceUsWestDomain}");
+        public Uri EmusimUri(string sauceUser, string sauceKey)
+        {
+            return new($"https://{sauceUser}:{sauceKey}{SauceUsWestDomain}");
+        }
     }
 }

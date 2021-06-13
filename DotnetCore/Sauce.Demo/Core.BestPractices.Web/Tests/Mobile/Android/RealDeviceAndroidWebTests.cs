@@ -9,16 +9,12 @@ namespace Core.BestPractices.Web.Tests.Mobile.Android
     [Parallelizable]
     public class RealDeviceAndroidWebTests : MobileBaseTest
     {
-        public new AndroidDriver<AndroidElement> Driver { get; set; }
-        public RealDeviceAndroidWebTests(string deviceName, string platform, string browser) :
-            base(deviceName, platform, browser)
-        { }
-
         [SetUp]
         public void AndroidSetup()
         {
             Driver = GetAndroidDriver(MobileOptions);
         }
+
         [TearDown]
         public void Teardown()
         {
@@ -26,6 +22,13 @@ namespace Core.BestPractices.Web.Tests.Mobile.Android
 
             ExecuteSauceCleanupSteps(Driver);
             Driver.Quit();
+        }
+
+        public new AndroidDriver<AndroidElement> Driver { get; set; }
+
+        public RealDeviceAndroidWebTests(string deviceName, string platform, string browser) :
+            base(deviceName, platform, browser)
+        {
         }
 
         [Test]

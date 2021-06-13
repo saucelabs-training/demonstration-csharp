@@ -1,10 +1,10 @@
+using System;
+using System.Collections.Generic;
 using Core.BestPractices.Web.Pages;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
 
 namespace Core.BestPractices.Web.Tests.Desktop
 {
@@ -13,18 +13,6 @@ namespace Core.BestPractices.Web.Tests.Desktop
     [Parallelizable(ParallelScope.All)]
     public class VisualTests : AllTestsBase
     {
-        private readonly DriverOptions _browserOptions;
-        private readonly string _viewportSize;
-        private readonly string _deviceName;
-        private Dictionary<string, object> _visualOptions;
-
-        public VisualTests(DriverOptions browserOptions, string viewportSize, string deviceName)
-        {
-            _browserOptions = browserOptions;
-            _viewportSize = viewportSize;
-            _deviceName = deviceName;
-        }
-
         [SetUp]
         public void VisualSetup()
         {
@@ -37,15 +25,15 @@ namespace Core.BestPractices.Web.Tests.Desktop
 
             _visualOptions = new Dictionary<string, object>
             {
-                { "apiKey", ScreenerApiKey},
-                { "projectName", "Sauce Demo C#" },
-                { "viewportSize", _viewportSize}
+                {"apiKey", ScreenerApiKey},
+                {"projectName", "Sauce Demo C#"},
+                {"viewportSize", _viewportSize}
             };
 
             if (_browserOptions.BrowserName.Equals("chrome", StringComparison.OrdinalIgnoreCase))
             {
-                ((ChromeOptions)_browserOptions).AddAdditionalCapability("sauce:options", SauceOptions, true);
-                ((ChromeOptions)_browserOptions).AddAdditionalCapability("sauce:visual", _visualOptions, true);
+                ((ChromeOptions) _browserOptions).AddAdditionalCapability("sauce:options", SauceOptions, true);
+                ((ChromeOptions) _browserOptions).AddAdditionalCapability("sauce:visual", _visualOptions, true);
             }
             else
             {
@@ -57,7 +45,6 @@ namespace Core.BestPractices.Web.Tests.Desktop
         }
 
 
-
         [TearDown]
         public void CleanupVisual()
         {
@@ -66,6 +53,18 @@ namespace Core.BestPractices.Web.Tests.Desktop
 
             ExecuteSauceCleanupSteps(Driver);
             Driver.Quit();
+        }
+
+        private readonly DriverOptions _browserOptions;
+        private readonly string _viewportSize;
+        private readonly string _deviceName;
+        private Dictionary<string, object> _visualOptions;
+
+        public VisualTests(DriverOptions browserOptions, string viewportSize, string deviceName)
+        {
+            _browserOptions = browserOptions;
+            _viewportSize = viewportSize;
+            _deviceName = deviceName;
         }
 
 
@@ -81,7 +80,7 @@ namespace Core.BestPractices.Web.Tests.Desktop
             loginPage.Login("standard_user");
             new ProductsPage(Driver).TakeSnapshot();
 
-            var result = (Dictionary<string, object>)JsExecutor.ExecuteScript("/*@visual.end*/");
+            var result = (Dictionary<string, object>) JsExecutor.ExecuteScript("/*@visual.end*/");
             result["message"].Should().BeNull();
         }
     }
