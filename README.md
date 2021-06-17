@@ -5,12 +5,12 @@ This directory contains example scripts and dependencies for running automated S
 
 ## 🖥 Web automation
 
-* 🥇Best practice examples for web testing
+* **🥇Best practice frameworks for web testing**
   * [Production-level framework doing web automation on desktop and mobile. Using best practices, parallel, cross-browser, NUnit, Selenium, Appium, Visual](./DotnetCore/Sauce.Demo/Core.BestPractices.Web)
   * [👁‍🗨Visual e2e framework](./DotnetCore/Sauce.Demo/Core.BestPractices.Web/Tests/Desktop/VisualTests.cs) `.net` `best practice`
   * [📱Real devices framework](./DotnetCore/Sauce.Demo/Core.BestPractices.Web/Tests/Mobile) `.net` `best practice`
   
-* Code Examples
+* **Code Examples**
   * Dotnet Core
     * [Simple W3C Selenium test](./DotnetCore/Sauce.Demo/Core.Selenium.Examples/SimpleSauceTests.cs)
   * Dotnet Framework
@@ -31,7 +31,10 @@ This directory contains example scripts and dependencies for running automated S
 
 ### [📕 Mobile Testing Training Tutorials](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md)
 
-* Examples
+* **🥇Best practice frameworks for mobile testing**
+  * [Mobile automation framework](./SauceExamples/Core.Appium.MsTest.BestPractices)`.net` `best practice` `nunit`
+
+* **Examples**
   * Emusim
     * Web
       * [Web test on emusim w/ Android](./SauceExamples/Core.Appium.MsTest.Scripts/Emusim/Browser/AndroidWebTests.cs)
@@ -47,9 +50,6 @@ This directory contains example scripts and dependencies for running automated S
     * [Download test assets from real devices](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/DownloadAssets.cs)
     * Legacy RDC **❗️Deprecated! Use Unified Platform**
       * [Legacy RDC REST API status updates](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/LegacyRdc/iOSExamples.cs)
-
-* Automation best practices
-  * [Mobile automation framework,Nunit,.NET Core](./SauceExamples/Core.Appium.MsTest.BestPractices)
 
 ## Parallelization capabilities of unit testing libraries
 
