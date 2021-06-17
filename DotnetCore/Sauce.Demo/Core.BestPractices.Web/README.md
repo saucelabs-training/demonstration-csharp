@@ -26,3 +26,14 @@ In this repository, you will find a cohesive Greybox (we have some insight into 
 | Test code runs on every commit in under 5 minutes  | 🙅‍♂️ | CICD  | Slow feedback makes it hard to iterate  | Github Actions |
 | App is secure  | 🙅‍♂️ | Not covered here, but something to consider for testing strategy  |   |
 | App is accessibility friendly  | 🙅‍♂️ | Not covered here, but something to consider for testing strategy |   |
+
+## Running tests
+
+[Download .NET 5](https://dotnet.microsoft.com/download)
+
+Open terminal and run `dotnet` to ensure installation.
+
+`git clone https://github.com/saucelabs-training/demo-csharp.git`
+
+Download an IDE of your choice. Probably VS for Mac, or VS Code.
+
