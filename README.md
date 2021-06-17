@@ -5,8 +5,10 @@ This directory contains example scripts and dependencies for running automated S
 
 ## 🖥 Web automation
 
-* 🥇Best practice framework for web testing
+* 🥇Best practice examples for web testing
   * [Production-level framework doing web automation on desktop and mobile. Using best practices, parallel, cross-browser, NUnit, Selenium, Appium, Visual](./DotnetCore/Sauce.Demo/Core.BestPractices.Web)
+  * [👁‍🗨Visual e2e framework](./DotnetCore/Sauce.Demo/Core.BestPractices.Web/Tests/Desktop/VisualTests.cs) `.net` `best practice`
+  * [📱Real devices framework](./DotnetCore/Sauce.Demo/Core.BestPractices.Web/Tests/Mobile) `.net` `best practice`
   
 * Code Examples
   * Dotnet Core
