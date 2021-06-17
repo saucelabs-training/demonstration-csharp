@@ -18,8 +18,10 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
+      working-directory: ./dotnetCore/Sauce.Demo/Core.BestPractices.Web
       run: dotnet restore
     - name: Build
+      working-directory: ./dotnetCore/Sauce.Demo/Core.BestPractices.Web
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
