@@ -35,6 +35,7 @@ namespace Core.BestPractices.Web.Tests.Desktop
         }
 
         [Test]
+        [Category("ci")]
         public void LoginWorks()
         {
             var loginPage = new LoginPage(Driver);
