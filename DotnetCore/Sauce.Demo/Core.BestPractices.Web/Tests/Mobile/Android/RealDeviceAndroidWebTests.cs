@@ -1,4 +1,4 @@
-﻿using Core.BestPractices.Web.MobileWebPageObjects.Android;
+﻿using Core.BestPractices.Web.DesktopWebPageObjects;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium.Android;
@@ -38,6 +38,15 @@ namespace Core.BestPractices.Web.Tests.Mobile.Android
             var loginPage = new LoginPage(Driver);
             loginPage.Visit();
             loginPage.IsVisible().Should().NotThrow();
+        }
+        [Test]
+        [Retry(1)]
+        public void LoginWorks()
+        {
+            var loginPage = new LoginPage(Driver);
+            loginPage.Visit();
+            loginPage.Login("standard_user");
+            new ProductsPage(Driver).IsVisible().Should().NotThrow();
         }
     }
 }
