@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Safari;
 
-namespace Core.Selenium.Examples.CrossBrowser
+namespace Core.Selenium.Examples.CrossBrowser.Start
 {
     public class TestConfigData
     {
