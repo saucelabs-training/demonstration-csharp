@@ -1,5 +1,10 @@
 # Automation Best Practices Workshop
 
+## Pre-reqs
+
+* .NET5 or greater
+* C# 9 or greater
+
 ## Setup
 
 * Download and install .NET5
@@ -15,8 +20,16 @@
 * Run test called `EdgeW3C` in `Core.Selenium.Examples` project
 * Head to [saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/) to look at the running test
 
+🎖Success is when the test runs
+
 ## Cross-browser testing
 
 ⭐️ Cross-browser functional bugs rarely exist in today's web technology and doing cross-browser functional testing on an entire test suite is inneficient
+
 ⭐️ It's more common to find cross-browser rendering issues, especially for responsive web apps. This problem is solved with visual testing.
 
+* Go to 
+* Add `[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]` to the top of the class
+* Run the tests and notice how fast the parallel build is
+
+ℹ️ [Learn about parallelization with different test runners](https://ultimateqa.com/parallelization-in-csharp/)
