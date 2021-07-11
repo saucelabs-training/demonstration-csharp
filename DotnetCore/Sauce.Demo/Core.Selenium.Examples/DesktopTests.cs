@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace Core.Selenium.Examples
 {
     [TestClass]
-    public class SimpleSauceTests
+    public class DesktopTests
     {
         private IWebDriver _driver;
         private string _sauceUserName;
