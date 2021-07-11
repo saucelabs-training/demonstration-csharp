@@ -31,5 +31,8 @@
 * Go to 
 * Add `[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]` to the top of the class
 * Run the tests and notice how fast the parallel build is
+* Check out the [Insights Tab](https://app.saucelabs.com/analytics/test-overview)
+
+🎖Success is when all the tests run
 
 ℹ️ [Learn about parallelization with different test runners](https://ultimateqa.com/parallelization-in-csharp/)
