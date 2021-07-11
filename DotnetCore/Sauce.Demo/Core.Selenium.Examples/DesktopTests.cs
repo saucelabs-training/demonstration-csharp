@@ -4,6 +4,7 @@ using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Core.Selenium.Examples
 {
@@ -52,6 +53,7 @@ namespace Core.Selenium.Examples
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), browserOptions.ToCapabilities(),
                 TimeSpan.FromSeconds(30));
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Thread.Sleep(30000);    //only for demo purposes
             Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));
         }
     }
