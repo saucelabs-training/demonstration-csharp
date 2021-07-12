@@ -22,6 +22,8 @@
 
 🎖Success is when the test runs
 
+ℹ️ [Web testing best practices tutorial](https://www.youtube.com/watch?v=r9K-2OJUmOE)
+
 ## Cross-browser testing
 
 ⭐️ Cross-browser functional bugs rarely exist in today's web technology and doing cross-browser functional testing on an entire test suite is inneficient
@@ -50,3 +52,10 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 🎖The tests should pass
 
 👁Let's take a look at what's going on in this test?
+
+## More resources
+
+We covered so much in a short period of time! Here are some more important resources
+
+ℹ️ [Mobile automation training resources](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md#mobile-automation-with-appium)
+ℹ️ [Testing best practices](https://github.com/nadvolod/testing-best-practices)
