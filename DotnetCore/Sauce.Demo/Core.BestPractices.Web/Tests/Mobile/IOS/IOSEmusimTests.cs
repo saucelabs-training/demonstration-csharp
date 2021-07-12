@@ -1,4 +1,5 @@
 ﻿using Core.BestPractices.Web.MobileWebPageObjects.IOS;
+using Core.Common;
 using FluentAssertions;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;

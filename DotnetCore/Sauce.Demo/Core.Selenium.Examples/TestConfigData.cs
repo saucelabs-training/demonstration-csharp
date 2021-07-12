@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Safari;
 
-namespace Core.Selenium.Examples.CrossBrowser.Start
+namespace Core.Selenium.Examples
 {
     public class TestConfigData
     {
@@ -88,6 +88,14 @@ namespace Core.Selenium.Examples.CrossBrowser.Start
                 yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
                 yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
                 yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+            }
+        }
+        internal static IEnumerable AndroidSimulators
+        {
+            get
+            {
+                yield return new TestFixtureData("Google Pixel 3 XL GoogleAPI Emulator", "11.0");
+                yield return new TestFixtureData("Google Pixel 3a GoogleAPI Emulator", "11.0");
             }
         }
 

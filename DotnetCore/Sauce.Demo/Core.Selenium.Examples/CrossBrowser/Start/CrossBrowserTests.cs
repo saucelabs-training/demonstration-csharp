@@ -10,7 +10,6 @@ using OpenQA.Selenium.Remote;
 namespace Core.Selenium.Examples.CrossBrowser.Start
 {
     [TestFixture]
-    [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]
     public class CrossBrowserTests
     {
         [TearDown]

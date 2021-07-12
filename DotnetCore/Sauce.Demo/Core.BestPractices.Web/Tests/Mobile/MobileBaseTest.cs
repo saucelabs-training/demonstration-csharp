@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Core.Common;
+using NUnit.Framework;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
 
