@@ -36,3 +36,17 @@
 🎖Success is when all the tests run
 
 ℹ️ [Learn about parallelization with different test runners](https://ultimateqa.com/parallelization-in-csharp/)
+
+## Emusim web testing
+
+* Navigate to `Emusim.Web.Start.AndroidEmusimTests`
+* Try to run the android tests using command line
+
+```bash
+cd demo-csharp\DotnetCore\Sauce.Demo
+dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
+```
+
+🎖The tests should pass
+
+👁Let's take a look at what's going on in this test?
