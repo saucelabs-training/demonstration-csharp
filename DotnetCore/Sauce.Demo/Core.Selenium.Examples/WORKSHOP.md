@@ -7,9 +7,9 @@
 
 ## Setup
 
-* Download and install .NET5
+* Download and install [.NET5](https://dotnet.microsoft.com/download)
 * Download and install Visual Studio
-* Download [this code branch](https://github.com/saucelabs-training/demo-csharp/tree/2_hr_workshop)
+* Download [this code branch 30 min before the workshop](https://github.com/saucelabs-training/demo-csharp/tree/2_hr_workshop)
 * Get your sauce username and access key
 * Store them in environment variables on your machine
 
