@@ -9,7 +9,8 @@ using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 namespace Core.Selenium.Examples.RDC.Web.End
 {
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.MostPopularIOSDevices))]
-    [Parallelizable]
+    [Category("rdc")]
+    [Category("ios-end")]
     public class RealDeviceIOSWebTests : MobileBaseTest
     {
         [SetUp]

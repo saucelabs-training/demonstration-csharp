@@ -12,6 +12,7 @@ namespace Core.Selenium.Examples.Emusim.Web.End
 {
     [TestFixture]
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.AndroidSimulators))]
+    [Category("emusim")]
     [Category("android-end")]
     public class AndroidEmusimTests : EmusimBaseTest
     {

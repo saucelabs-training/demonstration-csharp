@@ -13,6 +13,7 @@ namespace Core.Selenium.Examples.Emusim.Web.End
     [TestFixture]
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.IOSSimulators))]
     [Category("ios-end")]
+    [Category("emusim")]
     public class IOSEmusimTests : EmusimBaseTest
     {
         [SetUp]

@@ -12,7 +12,7 @@ namespace Core.Selenium.Examples.CrossBrowser.End
 {
     [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]
     [TestFixture]
-    [Parallelizable]
+    [Category("desktop")]
     public class CrossBrowserTests
     {
         [TearDown]
