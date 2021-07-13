@@ -20,7 +20,7 @@ namespace Core.Selenium.Examples
             Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.Machine);
 
         public string SauceAccessKey =>
-            Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.Machine);
+            Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.Process);
 
         public Dictionary<string, object> SauceOptions;
 
