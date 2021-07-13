@@ -24,22 +24,22 @@ jobs:
         dotnet restore
     - name: Build
       run: |
-        cd demo-csharp\DotnetCore\Sauce.Demo
+        cd ./DotnetCore/Sauce.Demo/
         dotnet build --no-restore
     - name: Test desktop web
       run: |
-        cd demo-csharp\DotnetCore\Sauce.Demo
-        dotnet test .\Core.Selenium.Examples --filter TestCategory=desktop
+        cd ./DotnetCore/Sauce.Demo/
+        dotnet test ./Core.Selenium.Examples --filter TestCategory=desktop
     - name: Test emusim web
       run: |
-        cd demo-csharp\DotnetCore\Sauce.Demo
-        dotnet test .\Core.Selenium.Examples --filter TestCategory=emusim
+        cd ./DotnetCore/Sauce.Demo/
+        dotnet test ./Core.Selenium.Examples --filter TestCategory=emusim
     - name: Test rdc web
       run: |
-        cd demo-csharp\DotnetCore\Sauce.Demo
-        dotnet test .\Core.Selenium.Examples --filter TestCategory=rdc
+        cd ./DotnetCore/Sauce.Demo/
+        dotnet test ./Core.Selenium.Examples --filter TestCategory=rdc
     - name: Run all tests
       run: |
-        cd demo-csharp\DotnetCore\Sauce.Demo
-        dotnet test .\Core.Selenium.Examples
+        cd ./DotnetCore/Sauce.Demo/
+        dotnet test ./Core.Selenium.Examples
 
