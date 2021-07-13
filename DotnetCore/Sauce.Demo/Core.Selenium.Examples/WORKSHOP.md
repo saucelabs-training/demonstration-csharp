@@ -10,8 +10,7 @@
 * Download and install [.NET5](https://dotnet.microsoft.com/download)
 * Download and install Visual Studio
 * Download [this code branch 30 min before the workshop](https://github.com/saucelabs-training/demo-csharp/tree/2_hr_workshop)
-* Get your sauce username and access key
-* Store them in environment variables on your machine
+* Get your sauce username and access key and [Store them in environment variables on your machine](https://docs.saucelabs.com/basics/environment-variables/index.html)
 
 ## Simple desktop web test
 
@@ -53,9 +52,21 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 
 👁Let's take a look at what's going on in this test?
 
+### Your challenge (should you choose to accept it) is to create a similar test but to run on iOS
+
+* ⏰ 10 min
+* Go to this class `Core.Selenium.Examples.Emusim.Web.Start.IOSEmusimTests.cs`
+* Find all the //TODO and implement them
+* Run the test
+
+🎖The tests should pass
+
+ℹ️ [Best practices framework with Emusim Web](https://github.com/saucelabs-training/demo-csharp/tree/master/DotnetCore/Sauce.Demo/Core.BestPractices.Web)
+
 ## More resources
 
 We covered so much in a short period of time! Here are some more important resources
 
 ℹ️ [Mobile automation training resources](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md#mobile-automation-with-appium)
+
 ℹ️ [Testing best practices](https://github.com/nadvolod/testing-best-practices)
