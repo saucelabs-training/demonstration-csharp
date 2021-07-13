@@ -18,9 +18,9 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      working-directory: './demo-csharp/DotnetCore/Sauce.Demo/'
+      #working-directory: './demo-csharp/DotnetCore/Sauce.Demo/'
       run: |
-        cd ./demo-csharp/DotnetCore/Sauce.Demo/
+        cd ./DotnetCore/Sauce.Demo/
         dotnet restore
     - name: Build
       run: |
