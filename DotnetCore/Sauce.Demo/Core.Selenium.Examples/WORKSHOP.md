@@ -7,9 +7,9 @@
 
 ## Setup
 
-* Download and install .NET5
+* Download and install [.NET5](https://dotnet.microsoft.com/download)
 * Download and install Visual Studio
-* Download [this code branch](https://github.com/saucelabs-training/demo-csharp/tree/2_hr_workshop)
+* Download [this code branch 30 min before the workshop](https://github.com/saucelabs-training/demo-csharp/tree/2_hr_workshop)
 * Get your sauce username and access key
 * Store them in environment variables on your machine
 
@@ -21,6 +21,8 @@
 * Head to [saucelabs.com](https://accounts.saucelabs.com/am/XUI/#login/) to look at the running test
 
 🎖Success is when the test runs
+
+ℹ️ [Web testing best practices tutorial](https://www.youtube.com/watch?v=r9K-2OJUmOE)
 
 ## Cross-browser testing
 
@@ -36,3 +38,24 @@
 🎖Success is when all the tests run
 
 ℹ️ [Learn about parallelization with different test runners](https://ultimateqa.com/parallelization-in-csharp/)
+
+## Emusim web testing
+
+* Navigate to `Emusim.Web.Start.AndroidEmusimTests`
+* Try to run the android tests using command line
+
+```bash
+cd demo-csharp\DotnetCore\Sauce.Demo
+dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
+```
+
+🎖The tests should pass
+
+👁Let's take a look at what's going on in this test?
+
+## More resources
+
+We covered so much in a short period of time! Here are some more important resources
+
+ℹ️ [Mobile automation training resources](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md#mobile-automation-with-appium)
+ℹ️ [Testing best practices](https://github.com/nadvolod/testing-best-practices)
