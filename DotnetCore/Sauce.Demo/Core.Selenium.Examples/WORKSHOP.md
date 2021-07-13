@@ -12,6 +12,21 @@
 * Download [this code branch 30 min before the workshop](https://github.com/saucelabs-training/demo-csharp/tree/2_hr_workshop)
 * Get your sauce username and access key and [Store them in environment variables on your machine](https://docs.saucelabs.com/basics/environment-variables/index.html)
 
+## About the author
+
+Nikolay Advolodkin
+Principal Solutions Architect, Sauce Labs
+- 🔭 I’m the founder of [Ultimate QA](https://ultimateqa.com/)
+- 🌱 I’m currently working on [Sauce Bindings](https://github.com/saucelabs/sauce_bindings)
+- 🤔 I’m looking for help with [Testing Best Practices](https://github.com/nadvolod/testing-best-practices)
+- 💬 Ask me about environmentalism, veganism, testing, and fitness
+- 📫 How to reach me:
+[Website](https://ultimateqa.com/)
+[LinkedIn](https://www.linkedin.com/in/nikolayadvolodkin/)
+[Twitter](https://twitter.com/home)
+- 😄 Pronouns: he/him
+- ⚡ Fun fact: I'm a vegan that's super pasionate about saving the planet, saving animals, and helping underpriveleged communities
+
 ## Simple desktop web test
 
 * Open Visual Studio
@@ -62,6 +77,10 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 🎖The tests should pass
 
 ℹ️ [Best practices framework with Emusim Web](https://github.com/saucelabs-training/demo-csharp/tree/master/DotnetCore/Sauce.Demo/Core.BestPractices.Web)
+
+## Real devices web testing
+
+
 
 ## More resources
 
