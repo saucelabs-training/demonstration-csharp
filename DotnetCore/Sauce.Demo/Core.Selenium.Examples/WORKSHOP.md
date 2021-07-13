@@ -41,7 +41,7 @@ Nikolay Advolodkin, Principal Solutions Architect, Sauce Labs
 
 ⭐️ Cross-browser functional bugs rarely exist in today's web technology and doing cross-browser functional testing on an entire test suite is inneficient
 
-⭐️ It's more common to find cross-browser rendering issues, especially for responsive web apps. This problem is solved with visual testing.
+⭐️ It's more common to find cross-browser rendering issues, especially for responsive web apps. This problem is solved with [visual testing](https://saucelabs.com/platform/visual-testing)
 
 * Go to 
 * Add `[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]` to the top of the class
@@ -70,7 +70,7 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 
 * ⏰ 10 min
 * Go to this class `Core.Selenium.Examples.Emusim.Web.Start.IOSEmusimTests.cs`
-* Find all the //TODO and implement them
+* Find all the `//TODO` and implement them
 * Run the test
 
 🎖The tests should pass
@@ -79,7 +79,18 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 
 ## Real devices web testing
 
+* Navigate to `Core.Selenium.Examples.RDC.Web.Start.RealDeviceAndroidWebTests`
+* 👁 Let's look at this test and understand it
+* Run the test and let's see it in the Sauce dashboard
 
+### Your challenge (should you choose to accept it) is to create a similar test but to run on iOS
+
+* ⏰ 10 min
+* Go to this class `Core.Selenium.Examples.RDC.Web.Start.RealDeviceIOSWebTests.cs`
+* Find all the `//TODO` and implement them
+* Run the test
+
+🎖The tests should pass
 
 ## More resources
 
