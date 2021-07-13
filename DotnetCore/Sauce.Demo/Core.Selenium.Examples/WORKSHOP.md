@@ -65,7 +65,7 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 
 ## More resources
 
-We covered so much in a short period of time! Here are some more important resources
+We covered 10 days worth of training in 2 hrs! Here are some more important resources for future reference
 
 ℹ️ [Mobile automation training resources](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md#mobile-automation-with-appium)
 
