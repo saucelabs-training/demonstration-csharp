@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Common;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;

@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Common;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
@@ -19,6 +20,7 @@ namespace Core.Selenium.Examples.Emusim.Web.Start
         [SetUp]
         public void Setup()
         {
+            //TODO use https://saucelabs.com/platform/platform-configurator#/
             var appiumOptions = new AppiumOptions();
             appiumOptions.AddAdditionalCapability(MobileCapabilityType.DeviceName, DeviceName);
             // TODO change this value to run on iOS
