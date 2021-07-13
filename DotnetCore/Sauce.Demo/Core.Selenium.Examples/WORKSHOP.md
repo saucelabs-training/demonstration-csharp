@@ -10,8 +10,21 @@
 * Download and install [.NET5](https://dotnet.microsoft.com/download)
 * Download and install Visual Studio
 * Download [this code branch 30 min before the workshop](https://github.com/saucelabs-training/demo-csharp/tree/2_hr_workshop)
-* Get your sauce username and access key
-* Store them in environment variables on your machine
+* Get your sauce username and access key and [Store them in environment variables on your machine](https://docs.saucelabs.com/basics/environment-variables/index.html)
+
+## About the author
+
+Nikolay Advolodkin, Principal Solutions Architect, Sauce Labs
+- 🔭 I’m the founder of [Ultimate QA](https://ultimateqa.com/)
+- 🌱 I’m currently working on [Sauce Bindings](https://github.com/saucelabs/sauce_bindings)
+- 🤔 I’m looking for help with [Testing Best Practices](https://github.com/nadvolod/testing-best-practices)
+- 💬 Ask me about environmentalism, veganism, testing, and fitness
+- 📫 How to reach me:
+[Website](https://ultimateqa.com/)
+[LinkedIn](https://www.linkedin.com/in/nikolayadvolodkin/)
+[Twitter](https://twitter.com/home)
+- 😄 Pronouns: he/him
+- ⚡ Fun fact: I'm a vegan that's super pasionate about saving the planet, saving animals, and helping underpriveleged communities
 
 ## Simple desktop web test
 
@@ -28,7 +41,7 @@
 
 ⭐️ Cross-browser functional bugs rarely exist in today's web technology and doing cross-browser functional testing on an entire test suite is inneficient
 
-⭐️ It's more common to find cross-browser rendering issues, especially for responsive web apps. This problem is solved with visual testing.
+⭐️ It's more common to find cross-browser rendering issues, especially for responsive web apps. This problem is solved with [visual testing](https://saucelabs.com/platform/visual-testing)
 
 * Go to 
 * Add `[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]` to the top of the class
@@ -53,9 +66,36 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 
 👁Let's take a look at what's going on in this test?
 
+### Your challenge (should you choose to accept it) is to create a similar test but to run on iOS
+
+* ⏰ 10 min
+* Go to this class `Core.Selenium.Examples.Emusim.Web.Start.IOSEmusimTests.cs`
+* Find all the `//TODO` and implement them
+* Run the test
+
+🎖The tests should pass
+
+ℹ️ [Best practices framework with Emusim Web](https://github.com/saucelabs-training/demo-csharp/tree/master/DotnetCore/Sauce.Demo/Core.BestPractices.Web)
+
+## Real devices web testing
+
+* Navigate to `Core.Selenium.Examples.RDC.Web.Start.RealDeviceAndroidWebTests`
+* 👁 Let's look at this test and understand it
+* Run the test and let's see it in the Sauce dashboard
+
+### Your challenge (should you choose to accept it) is to create a similar test but to run on iOS
+
+* ⏰ 10 min
+* Go to this class `Core.Selenium.Examples.RDC.Web.Start.RealDeviceIOSWebTests.cs`
+* Find all the `//TODO` and implement them
+* Run the test
+
+🎖The tests should pass
+
 ## More resources
 
-We covered so much in a short period of time! Here are some more important resources
+We covered 10 days worth of training in 2 hrs! Here are some more important resources for future reference
 
 ℹ️ [Mobile automation training resources](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md#mobile-automation-with-appium)
+
 ℹ️ [Testing best practices](https://github.com/nadvolod/testing-best-practices)
