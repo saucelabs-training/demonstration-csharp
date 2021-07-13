@@ -1,0 +1,40 @@
+name: .NET Workshop
+
+on:
+  push:
+    branches: [ 2_hr_workshop ]
+  pull_request:
+    branches: [ 2_hr_workshop ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test desktop web
+      run: |
+        cd demo-csharp\DotnetCore\Sauce.Demo
+        dotnet test .\Core.Selenium.Examples --filter TestCategory=desktop
+    - name: Test emusim web
+      run: |
+        cd demo-csharp\DotnetCore\Sauce.Demo
+        dotnet test .\Core.Selenium.Examples --filter TestCategory=emusim
+    - name: Test rdc web
+      run: |
+        cd demo-csharp\DotnetCore\Sauce.Demo
+        dotnet test .\Core.Selenium.Examples --filter TestCategory=rdc
+    - name: Run all tests
+      run: |
+        cd demo-csharp\DotnetCore\Sauce.Demo
+        dotnet test .\Core.Selenium.Examples
+
