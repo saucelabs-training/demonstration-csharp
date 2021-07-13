@@ -32,6 +32,9 @@ jobs:
         cd ./DotnetCore/Sauce.Demo/
         dotnet build --no-restore
     - name: Test desktop web
+      env:
+        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: |
         cd ./DotnetCore/Sauce.Demo/
         dotnet test ./Core.Selenium.Examples --filter TestCategory=desktop
