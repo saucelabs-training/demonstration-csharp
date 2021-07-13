@@ -99,6 +99,15 @@ namespace Core.Selenium.Examples
             }
         }
 
+        internal static IEnumerable IOSSimulators
+        {
+            get
+            {
+                yield return new TestFixtureData("iPhone X Simulator", "14.0");
+                yield return new TestFixtureData("iPhone XS Max Simulator", "14.0");
+            }
+        }
+
         internal static IEnumerable PopularIOSSimulators
         {
             get
