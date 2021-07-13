@@ -20,6 +20,7 @@ jobs:
     - name: Restore dependencies
       working-directory: './demo-csharp/DotnetCore/Sauce.Demo/'
       run: |
+        cd ./demo-csharp/DotnetCore/Sauce.Demo/
         dotnet restore
     - name: Build
       run: |
