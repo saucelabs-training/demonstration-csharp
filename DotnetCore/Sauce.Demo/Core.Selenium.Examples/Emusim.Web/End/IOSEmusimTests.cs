@@ -46,6 +46,7 @@ namespace Core.Selenium.Examples.Emusim.Web.End
         }
 
         [Test]
+        [Retry(1)]
         public void ValidUserCanLogin()
         {
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
