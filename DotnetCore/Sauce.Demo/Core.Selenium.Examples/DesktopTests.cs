@@ -4,11 +4,12 @@ using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Core.Selenium.Examples
 {
     [TestClass]
-    public class SimpleSauceTests
+    public class DesktopTests
     {
         private IWebDriver _driver;
         private string _sauceUserName;
@@ -30,9 +31,9 @@ namespace Core.Selenium.Examples
         public void EdgeW3C()
         {
             //TODO please supply your Sauce Labs user name in an environment variable
-            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
             //TODO please supply your own Sauce Labs access Key in an environment variable
-            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
             _sauceOptions = new Dictionary<string, object>
             {
                 ["username"] = _sauceUserName,
@@ -52,6 +53,7 @@ namespace Core.Selenium.Examples
             _driver = new RemoteWebDriver(new Uri("https://ondemand.saucelabs.com/wd/hub"), browserOptions.ToCapabilities(),
                 TimeSpan.FromSeconds(30));
             _driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Thread.Sleep(30000);    //only for demo purposes
             Assert.IsTrue(_driver.Url.Contains("saucedemo.com"));
         }
     }

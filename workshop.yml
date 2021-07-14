@@ -5,8 +5,8 @@
 
 trigger: 
   branches:
-    include: 
-    - 2_hr_workshop
+    include:
+      - 2_hr_workshop
 
 pool:
   vmImage: 'windows-latest'
@@ -20,25 +20,23 @@ variables:
   SAUCE_ACCESS_KEY: $(sauceKey)
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: UseDotNet@2
   inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
+    version: '5.0.x'
+  
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'build'
+    projects: '**DotnetCore/Sauce.Demo/Core.Selenium.Examples/**.csproj'
+    configuration: $(buildConfiguration)
 
 - bash: echo $(SAUCE_USERNAME)
 - task: DotNetCoreCLI@2
   displayName: 'Run tests'
   inputs:
     command: test
-    projects: '**DotnetCore/Sauce.Demo/*.csproj'
+    projects: '**DotnetCore/Sauce.Demo/Core.Selenium.Examples/**.csproj'
     arguments: '--configuration $(buildConfiguration) --filter TestCategory=desktop'
   env:
     SAUCE_USERNAME: $(sauceUsername)
