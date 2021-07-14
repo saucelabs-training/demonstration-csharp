@@ -10,6 +10,7 @@ using OpenQA.Selenium.Remote;
 namespace Core.Selenium.Examples.CrossBrowser.Start
 {
     [TestFixture]
+    //TODO add on top of this class [TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]
     public class CrossBrowserTests
     {
         [TearDown]
@@ -39,6 +40,21 @@ namespace Core.Selenium.Examples.CrossBrowser.Start
             Driver = GetDesktopDriver(BrowserOptions.ToCapabilities());
         }
 
+
+        /**
+         * TODO uncomment the constructor below. It takes in values from [TestCaseSource]
+         * We set those values on variables and then use those variables to create dynamic tests
+         * Every data row from [TestCaseSource] is a new thread that runs in parallel
+         */
+        //public CrossBrowserTests(string browserVersion, string platformName, DriverOptions browserOptions)
+        //{
+        //    if (string.IsNullOrEmpty(browserVersion))
+        //        BrowserVersion = browserVersion;
+        //    if (string.IsNullOrEmpty(platformName))
+        //        PlatformName = platformName;
+        //    BrowserOptions = browserOptions;
+        //}
+
         public void ExecuteSauceCleanupSteps(IWebDriver driver)
         {
             var isPassed = TestContext.CurrentContext.Result.Outcome.Status
@@ -66,17 +82,10 @@ namespace Core.Selenium.Examples.CrossBrowser.Start
         public string PlatformName { get; }
         public DriverOptions BrowserOptions { get; }
 
-        public CrossBrowserTests(string browserVersion, string platformName, DriverOptions browserOptions)
-        {
-            if (string.IsNullOrEmpty(browserVersion))
-                BrowserVersion = browserVersion;
-            if (string.IsNullOrEmpty(platformName))
-                PlatformName = platformName;
-            BrowserOptions = browserOptions;
-        }
+
 
         [Test]
-        [Category("cross-browser")]
+        [Category("cross-browser-start")]
         public void LoginWorks()
         {
             Driver.Navigate().GoToUrl("https://www.saucedemo.com");
