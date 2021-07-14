@@ -92,6 +92,10 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 
 🎖The tests should pass
 
+## CICD
+
+
+
 ## More resources
 
 We covered 10 days worth of training in 2 hrs! Here are some more important resources for future reference
