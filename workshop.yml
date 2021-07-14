@@ -28,6 +28,7 @@ steps:
   displayName: 'dotnet build'
   inputs:
     command: 'build'
+    projects: '**DotnetCore/Sauce.Demo/Core.Selenium.Examples/**.csproj'
     configuration: $(buildConfiguration)
 
 - bash: echo $(SAUCE_USERNAME)
