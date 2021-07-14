@@ -53,10 +53,10 @@ namespace Core.Selenium.Examples.CrossBrowser.End
         public IWebDriver Driver { get; set; }
 
         public string SauceUserName =>
-            Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            Environment.GetEnvironmentVariable("SAUCE_USERNAME");
 
         public string SauceAccessKey =>
-            Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
 
         public Dictionary<string, object> SauceOptions { get; set; }
 

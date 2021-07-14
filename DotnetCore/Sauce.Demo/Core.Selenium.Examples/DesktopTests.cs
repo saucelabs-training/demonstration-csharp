@@ -31,9 +31,9 @@ namespace Core.Selenium.Examples
         public void EdgeW3C()
         {
             //TODO please supply your Sauce Labs user name in an environment variable
-            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            _sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME");
             //TODO please supply your own Sauce Labs access Key in an environment variable
-            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+            _sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
             _sauceOptions = new Dictionary<string, object>
             {
                 ["username"] = _sauceUserName,
