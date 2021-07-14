@@ -5,8 +5,8 @@
 
 trigger: 
   branches:
-    include: 
-    - 2_hr_workshop
+    include:
+      - 2_hr_workshop
 
 pool:
   vmImage: 'windows-latest'
