@@ -1,4 +1,4 @@
-# Automation Best Practices Workshop
+# Getting Started With Sauce Workshop
 
 ## Pre-reqs
 
