@@ -12,6 +12,14 @@
 * Download [this code branch 30 min before the workshop](https://github.com/saucelabs-training/demo-csharp/tree/2_hr_workshop)
 * Get your sauce username and access key and [Store them in environment variables on your machine](https://docs.saucelabs.com/basics/environment-variables/index.html)
 
+## Outline
+
+* Simple desktop test and sauce overview
+* Cross-browser massive parallel testing
+* Emusim web testing
+* Real device web testing
+* CICD
+
 ## About the author
 
 Nikolay Advolodkin, Principal Solutions Architect, Sauce Labs
@@ -43,8 +51,8 @@ Nikolay Advolodkin, Principal Solutions Architect, Sauce Labs
 
 ⭐️ It's more common to find cross-browser rendering issues, especially for responsive web apps. This problem is solved with [visual testing](https://saucelabs.com/platform/visual-testing)
 
-* Go to 
-* Add `[TestFixtureSource(typeof(TestConfigData), nameof(TestConfigData.PopularDesktopCombinations))]` to the top of the class
+* Go to `Core.Selenium.Examples.CrossBrowser.Start.CrossBrowserTests.cs`
+* Find all the `//TODO` and implement them
 * Run the tests and notice how fast the parallel build is
 * Check out the [Insights Tab](https://app.saucelabs.com/analytics/test-overview)
 
@@ -94,7 +102,19 @@ dotnet test .\Core.Selenium.Examples --filter TestCategory=android-end
 
 ## CICD
 
+We have 2 examples. One using [Github Actions](https://github.com/saucelabs-training/demo-csharp/blob/2_hr_workshop/.github/workflows/workshop.yml) and another using [Azure DevOps](https://github.com/saucelabs-training/demo-csharp/blob/2_hr_workshop/workshop.yml).
 
+Let's check out how to create a Github Actions workflow.
+
+* Fork this repo
+* Clone this repo
+* In the root, add `.github/workflows/ci.yml`
+* Copy the code located in [workshop.yml](https://github.com/saucelabs-training/demo-csharp/blob/2_hr_workshop/.github/workflows/workshop.yml) into your file
+* Add Secrets to your forked repo
+* Push the code to your repo
+* You should see staged test execution in CI
+
+🎖The tests should pass
 
 ## More resources
 
