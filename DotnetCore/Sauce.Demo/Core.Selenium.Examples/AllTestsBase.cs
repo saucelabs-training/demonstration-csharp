@@ -16,11 +16,15 @@ namespace Core.Selenium.Examples
     {
         public IWebDriver Driver { get; set; }
 
-        public string SauceUserName =>
-            Environment.GetEnvironmentVariable("SAUCE_USERNAME");
+        //public string SauceUserName =>
+        //    Environment.GetEnvironmentVariable("SAUCE_USERNAME");
 
-        public string SauceAccessKey =>
-            Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
+        //public string SauceAccessKey =>
+        //    Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY");
+
+        public string SauceUserName => "nikolay-a";
+
+        public string SauceAccessKey => "3c9c7da6-9264-4b46-8aae-8f3806a1e645";
 
         public Dictionary<string, object> SauceOptions;
 
