@@ -41,8 +41,19 @@ Open terminal and run `dotnet` to ensure installation.
 Download an IDE of your choice. Probably VS for Mac, or VS Code.
 
 Run all the tests inside of the `Core.BestPractices.Web.csproj`
+
 ```bash
 git clone https://github.com/saucelabs-training/demo-csharp.git
 cd .\DotnetCore\Sauce.Demo\Core.BestPractices.Web
 dotnet test
 ```
+
+### Run accessibility test
+
+```bash
+git clone https://github.com/saucelabs-training/demo-csharp.git
+cd .\DotnetCore\Sauce.Demo\Core.BestPractices.Web
+dotnet test --filter Name=AccessibilityTest
+```
+
+
