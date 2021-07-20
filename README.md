@@ -59,6 +59,19 @@ This directory contains example scripts and dependencies for running automated S
 
 [How to configure Azure DevOps with Sauce Labs](https://ultimateqa.com/tfs-vsts-and-azure-devops/#C_with_Sauce_Labs_and_Azure_DevOps)
 
+Example task to run tests in Sauce
+```yml
+- task: DotNetCoreCLI@2
+  displayName: 'Run tests'
+  inputs:
+    command: test
+    projects: '**DotnetCore/Sauce.Demo/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --filter TestCategory=desktop'
+  env:
+    SAUCE_USERNAME: $(sauceUsername)
+    SAUCE_ACCESS_KEY: $(sauceKey)
+```
+
 ## Parallelization capabilities of unit testing libraries
 
 How do different libraries parallelize tests?
