@@ -21,21 +21,12 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
-
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
 - bash: echo $(SAUCE_USERNAME)
 - task: DotNetCoreCLI@2
-  displayName: 'Run tests'
+  displayName: 'Run desktop tests'
   inputs:
     command: test
     projects: '**DotnetCore/Sauce.Demo/*.csproj'
