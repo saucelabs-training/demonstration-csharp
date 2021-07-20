@@ -6,7 +6,7 @@
 trigger: 
   branches:
     include: 
-    - 2_hr_workshop
+    - master
 
 pool:
   vmImage: 'windows-latest'
