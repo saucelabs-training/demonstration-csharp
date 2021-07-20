@@ -75,6 +75,11 @@ Example task to run tests in Sauce
     SAUCE_ACCESS_KEY: $(sauceKey)
 ```
 
+### Github Actions
+
+Coming soon...
+
+
 ## Parallelization capabilities of unit testing libraries
 
 How do different libraries parallelize tests?
