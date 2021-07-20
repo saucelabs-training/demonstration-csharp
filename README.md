@@ -28,8 +28,6 @@ This directory contains example scripts and dependencies for running automated S
 
 ## 📱Mobile automation
 
-### [📕 Mobile Testing Training Tutorials](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md)
-
 * **🥇Best practice frameworks for mobile testing**
   * [Mobile automation framework](./SauceExamples/Core.Appium.MsTest.BestPractices)`.net` `best practice` `nunit`
 
@@ -50,6 +48,17 @@ This directory contains example scripts and dependencies for running automated S
     * Legacy RDC **❗️Deprecated! Use Unified Platform**
       * [Legacy RDC REST API status updates](./SauceExamples/Core.Appium.MsTest.Scripts/RealDevices/NativeApp/LegacyRdc/iOSExamples.cs)
 
+### [📕 Mobile Testing Training Tutorials](https://github.com/saucelabs-training/demo-java/blob/master/TRAINING.md)
+
+
+## 🚀 CICD
+
+### Azure DevOps
+
+> **Azure DevOps Sauce Labs Plugin does NOT work!** You cannot view Sauce Labs videos inside of Azure DevOps. You need to go to saucelabs.com to view the test assets. You can add richer logging to your tests and add test asset links directly into the logs (but this is extra work).
+
+[How to configure Azure DevOps with Sauce Labs](https://ultimateqa.com/tfs-vsts-and-azure-devops/#C_with_Sauce_Labs_and_Azure_DevOps)
+
 ## Parallelization capabilities of unit testing libraries
 
 How do different libraries parallelize tests?
@@ -58,11 +67,4 @@ How do different libraries parallelize tests?
 |:-------------:|:-------------:|:-------------:|:-------------:|
 |Test method|Test class|Test class|Test class|
 
-## 🚀 CICD
-
-**Important**
-> **Azure DevOps Sauce Labs Plugin does NOT work!** You cannot view Sauce Labs videos inside of Azure DevOps. You need to go to saucelabs.com to view the test assets. Furthermore, you can add richer logging to your tests and add test asset links directly into the logs (but this is extra work).
-
-
-[How to configure Azure DevOps with Sauce Labs](https://ultimateqa.com/tfs-vsts-and-azure-devops/#Sauce_Labs_with_Azure_DevOps)
 
