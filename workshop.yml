@@ -40,6 +40,7 @@ steps:
     command: test
     projects: '**DotnetCore/Sauce.Demo/*.csproj'
     arguments: '--configuration $(buildConfiguration) --filter TestCategory=desktop'
+  # Can also reference env variables in a single task
   env:
     SAUCE_USERNAME: $(sauceUsername)
     SAUCE_ACCESS_KEY: $(sauceKey)
